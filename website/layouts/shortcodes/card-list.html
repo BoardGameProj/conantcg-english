@@ -26,7 +26,7 @@
     .card-list {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 0.5rem;
+        gap: 1rem;
         height: fit-content;
     }
 
@@ -35,6 +35,8 @@
         align-items: center;
         img {
             margin: 0;
+            width: 100%;
+            height: auto;
         }
     }
 </style>
@@ -109,7 +111,7 @@
             data-filter-lp="{{ .lp }}"
             data-filter-type="{{ .type }}">
             {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
-                {{ with .Resize "200x" }}
+                {{ with .Resize "250x" }}
                 <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
                 {{ end }}
             {{ end }}
