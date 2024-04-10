@@ -1,0 +1,121 @@
+<style>
+    /* Progressively enhance the JS-only form from a disabled-ish state */
+    filter-container:not(:defined) .demo-filter-form {
+        opacity: .4;
+        pointer-events: none;
+    }
+
+    fieldset, div.fieldset {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    legend {
+        background: grey;
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        width: 10vw;
+    }
+    legend, label, label > input, label > select {
+        height: 50px;
+    }
+    label, label > input, label > select {
+        width: 100%;
+    }
+
+    .card-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+        height: fit-content;
+    }
+
+    .card-list__item {
+        display: flex;
+        align-items: center;
+        img {
+            margin: 0;
+        }
+    }
+</style>
+
+<filter-container oninit delimiter="," filter-mode="all" filter-mode-continent="any">
+    <!--
+    <form class="demo-filter-form">
+        <div class="fieldset">
+            <legend>Name</legend>
+            <label>
+                <input type="text" name="name" data-filter-key="name">
+            </label>
+        </div>
+        <div class="fieldset">
+            <legend>Product</legend>
+            <label>
+                <select name="product" data-filter-key="product">
+                    <option value="">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="fieldset">
+            <legend>Color</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="color" value="blue" data-filter-key="color">Blue</label>
+                <label class="flex"><input type="checkbox" name="color" value="green" data-filter-key="color">Green</label>
+                <label class="flex"><input type="checkbox" name="color" value="white" data-filter-key="color">White</label>
+                <label class="flex"><input type="checkbox" name="color" value="red" data-filter-key="color">Red</label>
+                <label class="flex"><input type="checkbox" name="color" value="yellow" data-filter-key="color">Yellow</label>
+            </div>
+        </div>
+        <div class="fieldset">
+            <legend>Type</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="type" value="partner" data-filter-key="type">Partner</label>
+                <label class="flex"><input type="checkbox" name="type" value="character" data-filter-key="type">Character</label>
+                <label class="flex"><input type="checkbox" name="type" value="event" data-filter-key="type">Event</label>
+                <label class="flex"><input type="checkbox" name="type" value="incident" data-filter-key="type">Incident</label>
+            </div>
+        </div>
+        <div class="fieldset">
+            <legend>Rarity</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="rarity" value="C" data-filter-key="rarity">Partner</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="CP" data-filter-key="rarity">CP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="R" data-filter-key="rarity">R</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="RP" data-filter-key="rarity">RP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="SR" data-filter-key="rarity">SR</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="SRP" data-filter-key="rarity">SRP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="D" data-filter-key="rarity">D</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="PR" data-filter-key="rarity">PR</label>
+            </div>
+        </div>
+        <button type="reset">Reset</button>
+        <p data-filter-results="card/cards" aria-live="polite"></p>
+    </form> -->
+
+    <div class="card-list">
+    {{ range site.Data.cards_ja }}
+        <div class="card-list__item"
+             title="{{.card_num}}"
+             data-filter-name="{{ .title }}"
+            data-filter-color="{{ .color }}"
+            data-filter-product="{{ .package }}"
+            data-filter-rarity="{{ .rarity }}"
+            data-filter-cost="{{ .cost }}"
+            data-filter-ap="{{ .ap }}"
+            data-filter-lp="{{ .lp }}"
+            data-filter-type="{{ .type }}">
+            {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
+                {{ with .Resize "200x" }}
+                <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+                {{ end }}
+            {{ end }}
+        </div>
+    {{ end }}
+    </div>
+</filter-container>
+
+<script type="module" src="/js/filter-container.js"></script>
