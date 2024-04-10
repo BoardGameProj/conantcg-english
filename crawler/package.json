@@ -1,0 +1,14 @@
+{
+  "name": "conantcg-crawler",
+  "module": "crawler.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "node-html-parser": "^6.1.13"
+  }
+}
