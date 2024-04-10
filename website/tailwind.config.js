@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./**/*.html", "./**/*.md", "./config.toml"],
+  content: ["./**/*.html", "./**/*.md", "./config.toml", "./node_modules/flowbite/**/*.js"],
   darkMode: "class",
   theme: {
     extend: {
@@ -66,5 +66,8 @@ module.exports = {
   variants: {
     typography: ["dark"],
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+      require("@tailwindcss/typography"),
+      require('flowbite/plugin')
+  ],
 };

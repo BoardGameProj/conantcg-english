@@ -1,3 +1,5 @@
+{{ $perRow := 6 }}
+
 <style>
     /* Progressively enhance the JS-only form from a disabled-ish state */
     filter-container:not(:defined) .demo-filter-form {
@@ -25,7 +27,7 @@
 
     .card-list {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat({{ $perRow }}, 1fr);
         gap: 1rem;
         height: fit-content;
     }
@@ -37,6 +39,7 @@
             margin: 0;
             width: 100%;
             height: auto;
+            cursor: pointer;
         }
     }
 </style>
@@ -99,25 +102,96 @@
     </form> -->
 
     <div class="card-list">
+    {{ $counter := 0 }}
     {{ range site.Data.cards_ja }}
         <div class="card-list__item"
+             data-popover-target="card-{{ .id }}"
+             data-popover-trigger="click"
+             data-popover-placement="{{ if ge (mod $counter $perRow) 4 }}left{{ else }}right{{ end }}"
+             type="button"
              title="{{.card_num}}"
              data-filter-name="{{ .title }}"
-            data-filter-color="{{ .color }}"
-            data-filter-product="{{ .package }}"
-            data-filter-rarity="{{ .rarity }}"
-            data-filter-cost="{{ .cost }}"
-            data-filter-ap="{{ .ap }}"
-            data-filter-lp="{{ .lp }}"
-            data-filter-type="{{ .type }}">
+             data-filter-color="{{ .color }}"
+             data-filter-product="{{ .package }}"
+             data-filter-rarity="{{ .rarity }}"
+             data-filter-cost="{{ .cost }}"
+             data-filter-ap="{{ .ap }}"
+             data-filter-lp="{{ .lp }}"
+             data-filter-type="{{ .type }}"
+        >
+            {{ $card := . }}
             {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
-                {{ with .Resize "250x" }}
+                {{ with .Resize "200x" }}
                 <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
                 {{ end }}
+
+                <div data-popover id="card-{{ $card.id }}" role="tooltip"
+                     class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
+                >
+                    <div class="flex" style="flex-direction: row{{ if ge (mod $counter $perRow) 4 }}-reverse{{ end }}">
+                        {{ with .Resize "400x" }}
+                        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+                        {{ end }}
+
+                        <div style="min-width: 400px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
+                            <div class="px-2 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">{{ $card.title }}</h3>
+                            </div>
+                            <div class="px-2 py-2">
+                                <div class="flex justify-between">
+                                    <div class="text-start">Name</div>
+                                    <div class="text-end">{{ $card.title }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Card ID</div>
+                                    <div class="text-end">{{ $card.card_num }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Card Category</div>
+                                    <div class="text-end">{{ $card.type }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Effect</div>
+                                    <div class="text-end">{{ $card.feature }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Product</div>
+                                    <div class="text-end">{{ $card.package }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Color</div>
+                                    <div class="text-end">{{ $card.color }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Rarity</div>
+                                    <div class="text-end">{{ $card.rarity }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Categories</div>
+                                    <div class="text-end">{{ $card.category1 }}, {{ $card.category2 }}, {{ $card.category3 }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">Cost</div>
+                                    <div class="text-end">{{ $card.cost }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">AP</div>
+                                    <div class="text-end">{{ $card.ap }}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="text-start">LP</div>
+                                    <div class="text-end">{{ $card.lp }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-popper-arrow></div>
+                </div>
             {{ end }}
         </div>
+        {{ $counter = add $counter 1 }}
     {{ end }}
     </div>
 </filter-container>
 
-<script type="module" src="/js/filter-container.js"></script>
+<script type="module" src="js/filter-container/filter-container.js"></script>

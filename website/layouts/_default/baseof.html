@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang='{{ .Site.LanguageCode }}'>
     <head>
+        <base href="{{ .Site.BaseURL }}" />
         {{- partial "head.html" . -}}
         {{ block "meta_tags" . }}{{end}}
     </head>
@@ -15,5 +16,7 @@
             {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
+
+    <script src="js/flowbite/flowbite.min.js"></script>
     </body>
 </html>
