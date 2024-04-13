@@ -1,5 +1,4 @@
 ---
 title: "Cards"
+layout: cards
 ---
-
-{{< card-list >}}

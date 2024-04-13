@@ -1,0 +1,205 @@
+{{ define "main" }}
+<h1 class="text-2xl mt-3 mb-6 font-bold dark:text-white">{{ .Title }}</h1>
+{{ $perRow := 8 }}
+
+<style>
+    /* Progressively enhance the JS-only form from a disabled-ish state */
+    filter-container:not(:defined) .demo-filter-form {
+        opacity: .4;
+        pointer-events: none;
+    }
+
+    fieldset, div.fieldset {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    legend {
+        background: grey;
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        width: 10vw;
+    }
+    legend, label, label > input, label > select {
+        height: 50px;
+    }
+    label, label > input, label > select {
+        width: 100%;
+    }
+
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .card-list__item {
+        display: flex;
+        align-items: center;
+        > img {
+            margin: 0;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+
+    .card_details--feature {
+        p + p {
+            margin-top: 0.5rem;
+        }
+    }
+
+    [data-popover]:not(.visible) {
+        /**
+         * Make sure popover are hidden properly
+         */
+        display: none;
+    }
+    [data-popover][data-popper-placement="left"] > .flex {
+        flex-direction: row-reverse;
+    }
+
+    @media screen and (max-width: 1024px) {
+        [data-popover] {
+            width: 100%;
+            z-index: 10001;
+
+            > .flex {
+                flex-direction: column !important;
+                align-items: center !important;
+
+                > div {
+                    min-width: unset !important;
+                }
+
+                img {
+                    width: auto;
+                    margin: 1rem;
+                    max-height: 250px;
+                }
+            }
+        }
+
+        [data-popper-arrow] {
+            display: none;
+        }
+    }
+</style>
+
+<filter-container oninit delimiter="," filter-mode="all" filter-mode-continent="any">
+    <!--
+    <form class="demo-filter-form">
+        <div class="fieldset">
+            <legend>Name</legend>
+            <label>
+                <input type="text" name="name" data-filter-key="name">
+            </label>
+        </div>
+        <div class="fieldset">
+            <legend>Product</legend>
+            <label>
+                <select name="product" data-filter-key="product">
+                    <option value="">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="fieldset">
+            <legend>Color</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="color" value="blue" data-filter-key="color">Blue</label>
+                <label class="flex"><input type="checkbox" name="color" value="green" data-filter-key="color">Green</label>
+                <label class="flex"><input type="checkbox" name="color" value="white" data-filter-key="color">White</label>
+                <label class="flex"><input type="checkbox" name="color" value="red" data-filter-key="color">Red</label>
+                <label class="flex"><input type="checkbox" name="color" value="yellow" data-filter-key="color">Yellow</label>
+            </div>
+        </div>
+        <div class="fieldset">
+            <legend>Type</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="type" value="partner" data-filter-key="type">Partner</label>
+                <label class="flex"><input type="checkbox" name="type" value="character" data-filter-key="type">Character</label>
+                <label class="flex"><input type="checkbox" name="type" value="event" data-filter-key="type">Event</label>
+                <label class="flex"><input type="checkbox" name="type" value="incident" data-filter-key="type">Incident</label>
+            </div>
+        </div>
+        <div class="fieldset">
+            <legend>Rarity</legend>
+            <div class="flex w-full">
+                <label class="flex"><input type="checkbox" name="rarity" value="C" data-filter-key="rarity">Partner</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="CP" data-filter-key="rarity">CP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="R" data-filter-key="rarity">R</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="RP" data-filter-key="rarity">RP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="SR" data-filter-key="rarity">SR</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="SRP" data-filter-key="rarity">SRP</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="D" data-filter-key="rarity">D</label>
+                <label class="flex"><input type="checkbox" name="rarity" value="PR" data-filter-key="rarity">PR</label>
+            </div>
+        </div>
+        <button type="reset">Reset</button>
+        <p data-filter-results="card/cards" aria-live="polite"></p>
+    </form> -->
+
+    <div class="card-list">
+        {{ $counter := 0 }}
+        {{ range site.Data.cards_ja }}
+        {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
+        {{ $type := or (T (printf "types.%s" .type )) .type }}
+        {{ $product := or (T (printf "products.%s" .package )) .package }}
+        {{ $color := or (T (printf "colors.%s" .color )) .color }}
+
+        {{ $categories := slice }}
+        {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+
+        {{ $popoverLeft := ge (mod $counter $perRow) (sub $perRow 3) }}
+        {{ $card := . }}
+        <div class="card-list__item"
+             data-popover-target="card-{{ .id }}"
+             data-popover-trigger="click"
+             data-popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
+             type="button"
+             data-filter-name="{{ $title }}"
+             data-filter-color="{{ $color }}"
+             data-filter-product="{{ $product }}"
+             data-filter-rarity="{{ .rarity }}"
+             data-filter-cost="{{ .cost }}"
+             data-filter-ap="{{ .ap }}"
+             data-filter-lp="{{ .lp }}"
+             data-filter-categories="{{delimit $categories ","}}"
+        data-filter-type="{{ $type }}"
+        >
+        {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
+        {{ with .Resize "160x" }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $title }} ({{ $card.card_num }})">
+        {{ end }}
+        {{ end }}
+    </div>
+    {{ $counter = add $counter 1 }}
+    {{ end }}
+    </div>
+</filter-container>
+
+<script type="module" src="js/filter-container/filter-container.js"></script>
+{{ end }}
+
+{{ define "before_footer" }}
+    <div class="overlays">
+        {{ range site.Data.cards_ja }}
+        {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
+        {{ $type := or (T (printf "types.%s" .type )) .type }}
+        {{ $product := or (T (printf "products.%s" .package )) .package }}
+        {{ $color := or (T (printf "colors.%s" .color )) .color }}
+        {{ $card := . }}
+
+        {{ $categories := slice }}
+        {{ $popoverLeft := false }}
+        {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+
+        {{ partial "card-popover.html" (dict "type" $type "title" $title "color" $color "product" $product "categories" $categories "card" $card "popoverLeft" $popoverLeft) }}
+        {{ end }}
+    </div>
+{{ end }}
