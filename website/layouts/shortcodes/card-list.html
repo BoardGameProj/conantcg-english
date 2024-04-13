@@ -104,20 +104,30 @@
     <div class="card-list">
     {{ $counter := 0 }}
     {{ range site.Data.cards_ja }}
+        {{ $title := or (T (printf "cards.%.0f.title" .id )) .title }}
+        {{ $feature := or (T (printf "cards.%.0f.feature" .id )) .feature }}
+        {{ $type := or (T (printf "types.%s" .type )) .type }}
+        {{ $product := or (T (printf "products.%s" .package )) .package }}
+        {{ $color := or (T (printf "colors.%s" .color )) .color }}
+
+        {{ $categories := slice }}
+        {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+
         <div class="card-list__item"
              data-popover-target="card-{{ .id }}"
              data-popover-trigger="click"
              data-popover-placement="{{ if ge (mod $counter $perRow) 4 }}left{{ else }}right{{ end }}"
              type="button"
              title="{{.card_num}}"
-             data-filter-name="{{ .title }}"
-             data-filter-color="{{ .color }}"
-             data-filter-product="{{ .package }}"
+             data-filter-name="{{ $title }}"
+             data-filter-color="{{ $color }}"
+             data-filter-product="{{ $product }}"
              data-filter-rarity="{{ .rarity }}"
              data-filter-cost="{{ .cost }}"
              data-filter-ap="{{ .ap }}"
              data-filter-lp="{{ .lp }}"
-             data-filter-type="{{ .type }}"
+             data-filter-categories="{{delimit $categories ","}}"
+             data-filter-type="{{ $type }}"
         >
             {{ $card := . }}
             {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
@@ -135,12 +145,12 @@
 
                         <div style="min-width: 400px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
                             <div class="px-2 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                                <h3 class="font-semibold text-gray-900 dark:text-white">{{ $card.title }}</h3>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">{{ $title }}</h3>
                             </div>
                             <div class="px-2 py-2">
                                 <div class="flex justify-between">
                                     <div class="text-start">Name</div>
-                                    <div class="text-end">{{ $card.title }}</div>
+                                    <div class="text-end">{{ $title }}</div>
                                 </div>
                                 <div class="flex justify-between">
                                     <div class="text-start">Card ID</div>
@@ -148,40 +158,50 @@
                                 </div>
                                 <div class="flex justify-between">
                                     <div class="text-start">Card Category</div>
-                                    <div class="text-end">{{ $card.type }}</div>
+                                    <div class="text-end">{{ $type }}</div>
                                 </div>
+                                {{ if ne $type "Case" }}
                                 <div class="flex justify-between">
                                     <div class="text-start">Effect</div>
-                                    <div class="text-end">{{ $card.feature }}</div>
+                                    <div class="text-end">{{ if $feature }}{{ $feature }}{{ else }} – {{ end }}</div>
                                 </div>
+                                {{ end }}
                                 <div class="flex justify-between">
                                     <div class="text-start">Product</div>
-                                    <div class="text-end">{{ $card.package }}</div>
+                                    <div class="text-end">{{ $product }}</div>
                                 </div>
                                 <div class="flex justify-between">
                                     <div class="text-start">Color</div>
-                                    <div class="text-end">{{ $card.color }}</div>
+                                    <div class="text-end">{{ $color }}</div>
                                 </div>
                                 <div class="flex justify-between">
                                     <div class="text-start">Rarity</div>
                                     <div class="text-end">{{ $card.rarity }}</div>
                                 </div>
+                                {{ if eq $type "Character" }}
                                 <div class="flex justify-between">
                                     <div class="text-start">Categories</div>
-                                    <div class="text-end">{{ $card.category1 }}, {{ $card.category2 }}, {{ $card.category3 }}</div>
+                                    <div class="text-end">{{delimit $categories ", "}}</div>
                                 </div>
+                                {{ end }}
+                                {{ if or (eq $type "Character") (eq $type "Event") }}
                                 <div class="flex justify-between">
                                     <div class="text-start">Cost</div>
                                     <div class="text-end">{{ $card.cost }}</div>
                                 </div>
+                                {{ end }}
+                                {{ if eq $type "Character" }}
                                 <div class="flex justify-between">
                                     <div class="text-start">AP</div>
                                     <div class="text-end">{{ $card.ap }}</div>
                                 </div>
+                                {{ end }}
+                                {{ if or (eq $type "Character") (eq $type "Partner") }}
                                 <div class="flex justify-between">
                                     <div class="text-start">LP</div>
                                     <div class="text-end">{{ $card.lp }}</div>
                                 </div>
+                                {{ end }}
                             </div>
                         </div>
                     </div>

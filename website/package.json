@@ -17,7 +17,8 @@
     "start": "concurrently bun:watch:*",
     "watch:tw": "bun build:tw --watch",
     "watch:hugo": "hugo server",
-    "build": "bun build:tw && bun build:hugo",
+    "build": "bun build:tw && bun build:i18n && bun build:hugo",
+    "build:i18n": "bun website/build_i18n.ts",
     "build:tw": "tailwindcss -i ./themes/vnovel/assets/css/main.css -o ./themes/vnovel/assets/css/style.css",
     "build:hugo": "hugo --minify"
   }

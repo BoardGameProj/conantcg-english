@@ -3,6 +3,9 @@
 public
 resources/_gen
 
+# i18n generated via build_i18n.ts
+i18n
+
 # Logs
 
 logs
