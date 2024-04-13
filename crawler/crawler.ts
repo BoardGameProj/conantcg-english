@@ -21,4 +21,4 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
 
 const targetPath = '../cards/cards_ja.json'
 const sortedCards = cards.sort((a, b) => Number(a.card_num) < Number(b.card_num) ? -1 : 1)
-fs.writeFileSync(targetPath, JSON.stringify(sortedCards))
+fs.writeFileSync(targetPath, JSON.stringify(sortedCards, null, '    '))
