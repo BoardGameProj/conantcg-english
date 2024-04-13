@@ -11,7 +11,7 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     const data = JSON.parse(cardImage.getAttribute('data') || '')
     cards.push(data)
 
-    const imagePath = '../website/assets/cards/' + data.id + '.ja.jpg'
+    const imagePath = '../cards/images/' + data.id + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
         const res = await fetch(cardImage.getAttribute('src'))
         const fileStream = fs.createWriteStream(imagePath, { flags: 'w' })
@@ -19,6 +19,6 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     }
 }
 
-const targetPath = '../website/data/cards_ja.json'
+const targetPath = '../cards/cards_ja.json'
 const sortedCards = cards.sort((a, b) => Number(a.card_num) < Number(b.card_num) ? -1 : 1)
 fs.writeFileSync(targetPath, JSON.stringify(sortedCards))
