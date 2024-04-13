@@ -57,6 +57,8 @@ module:
       target: "static/js/flowbite"
     - source: "./node_modules/@zachleat/filter-container"
       target: "static/js/filter-container"
+    - source: "static/js/script.js"
+      target: "static/js/script.js"
     - source: "../cards/cards_ja.json"
       target: "data/cards_ja.json"
     - source: "../cards/images"

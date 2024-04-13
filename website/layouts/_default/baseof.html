@@ -12,6 +12,7 @@
     {{ else }}
     <body class="flex flex-col min-h-screen dark:bg-warmgray-800">
     {{end}}
+    <script type="text/javascript" src="js/script.js"></script>
         {{- partial "header.html" . -}}
         <div class="container mx-auto max-w-10xl px-4 px-0-md my-4 flex-grow" id="content">
             {{- block "main" . }}{{- end }}
@@ -19,6 +20,6 @@
         {{- block "before_footer" . }}{{- end }}
         {{- partial "footer.html" . -}}
 
-    <script src="js/flowbite/flowbite.min.js"></script>
+    <script type="text/javascript" src="js/flowbite/flowbite.min.js"></script>
     </body>
 </html>

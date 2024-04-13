@@ -33,13 +33,12 @@
         gap: 1rem;
     }
 
-    .card-list__item {
+    dct-card {
         display: flex;
         align-items: center;
-        > img {
+
+        > div > img {
             margin: 0;
-            width: 100%;
-            height: auto;
             cursor: pointer;
         }
     }
@@ -147,38 +146,39 @@
     <div class="card-list">
         {{ $counter := 0 }}
         {{ range site.Data.cards_ja }}
+        {{ $card := . }}
         {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
         {{ $color := or (T (printf "colors.%s" .color )) .color }}
+        {{ $feature := or (T (printf "cards.%s.feature" $card.card_num )) $card.feature }}
 
         {{ $categories := slice }}
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
 
         {{ $popoverLeft := ge (mod $counter $perRow) (sub $perRow 3) }}
-        {{ $card := . }}
-        <div class="card-list__item"
-             data-popover-target="card-{{ .id }}"
-             data-popover-trigger="click"
-             data-popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
-             type="button"
-             data-filter-name="{{ $title }}"
-             data-filter-color="{{ $color }}"
-             data-filter-product="{{ $product }}"
-             data-filter-rarity="{{ .rarity }}"
-             data-filter-cost="{{ .cost }}"
-             data-filter-ap="{{ .ap }}"
-             data-filter-lp="{{ .lp }}"
-             data-filter-categories="{{delimit $categories ","}}"
-        data-filter-type="{{ $type }}"
-        >
         {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
-        {{ with .Resize "160x" }}
-        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $title }} ({{ $card.card_num }})">
+            {{ with .Resize "300x" }}
+                <dct-card
+                        popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
+                        id="{{ $card.id }}"
+                        image="{{ .RelPermalink }}"
+                        title="{{ $title }}"
+                        card-num="{{ $card.card_num }}"
+                        type="{{ $type }}"
+                        feature="{{ $feature|markdownify }}"
+                        product="{{ $product }}"
+                        color="{{ $color }}"
+                        rarity="{{ $card.rarity }}"
+                        categories="{{delimit $categories ","}}"
+                cost="{{$card.cost}}"
+                ap="{{$card.ap}}"
+                lp="{{$card.lp}}"
+                illustrator="{{$card.illustrator}}"
+                ></dct-card>
+            {{ end }}
         {{ end }}
-        {{ end }}
-    </div>
-    {{ $counter = add $counter 1 }}
+        {{ $counter = add $counter 1 }}
     {{ end }}
     </div>
 </filter-container>
@@ -198,8 +198,6 @@
         {{ $categories := slice }}
         {{ $popoverLeft := false }}
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
-
-        {{ partial "card-popover.html" (dict "type" $type "title" $title "color" $color "product" $product "categories" $categories "card" $card "popoverLeft" $popoverLeft) }}
         {{ end }}
     </div>
 {{ end }}
