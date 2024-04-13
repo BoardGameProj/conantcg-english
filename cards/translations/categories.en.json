@@ -3,6 +3,7 @@
     "categories.毛利探偵事務所": "Mori Detective Agency",
     "categories.少年探偵団": "Detective Boys",
     "categories.高校生": "High School Student",
+    "categories.棋士": "Shogi Player",
     "categories.空手家": "Karateka",
     "categories.発明家": "Inventor",
     "categories.科学者": "Scientist",
@@ -11,5 +12,9 @@
     "categories.執事": "Butler",
     "categories.怪盗": "Phantom Thief",
     "categories.警視庁": "Metropolitan Police Department",
-    "categories.鈴木財閥": "Suzuki Group"
+    "categories.公安": "Public Security Bureau",
+    "categories.鈴木財閥": "Suzuki Group",
+    "categories.赤井家": "Akai Family",
+    "categories.FBI": "FBI",
+    "categories.CIA": "CIA"
 }
