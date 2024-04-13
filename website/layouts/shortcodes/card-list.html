@@ -104,8 +104,8 @@
     <div class="card-list">
     {{ $counter := 0 }}
     {{ range site.Data.cards_ja }}
-        {{ $title := or (T (printf "cards.%.0f.title" .id )) .title }}
-        {{ $feature := or (T (printf "cards.%.0f.feature" .id )) .feature }}
+        {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
+        {{ $feature := or (T (printf "cards.%s.feature" .card_num )) .feature }}
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
         {{ $color := or (T (printf "colors.%s" .color )) .color }}
@@ -149,57 +149,63 @@
                             </div>
                             <div class="px-2 py-2">
                                 <div class="flex justify-between">
-                                    <div class="text-start">Name</div>
+                                    <div class="text-start font-bold">Name</div>
                                     <div class="text-end">{{ $title }}</div>
                                 </div>
                                 <div class="flex justify-between">
-                                    <div class="text-start">Card ID</div>
+                                    <div class="text-start font-bold">Card ID</div>
                                     <div class="text-end">{{ $card.card_num }}</div>
                                 </div>
                                 <div class="flex justify-between">
-                                    <div class="text-start">Card Category</div>
+                                    <div class="text-start font-bold">Card Category</div>
                                     <div class="text-end">{{ $type }}</div>
                                 </div>
                                 {{ if ne $type "Case" }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">Effect</div>
+                                    <div class="text-start font-bold">Effect</div>
                                     <div class="text-end">{{ if $feature }}{{ $feature }}{{ else }} – {{ end }}</div>
                                 </div>
                                 {{ end }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">Product</div>
+                                    <div class="text-start font-bold">Product</div>
                                     <div class="text-end">{{ $product }}</div>
                                 </div>
                                 <div class="flex justify-between">
-                                    <div class="text-start">Color</div>
+                                    <div class="text-start font-bold">Color</div>
                                     <div class="text-end">{{ $color }}</div>
                                 </div>
                                 <div class="flex justify-between">
-                                    <div class="text-start">Rarity</div>
+                                    <div class="text-start font-bold">Rarity</div>
                                     <div class="text-end">{{ $card.rarity }}</div>
                                 </div>
                                 {{ if eq $type "Character" }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">Categories</div>
+                                    <div class="text-start font-bold">Categories</div>
                                     <div class="text-end">{{delimit $categories ", "}}</div>
                                 </div>
                                 {{ end }}
                                 {{ if or (eq $type "Character") (eq $type "Event") }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">Cost</div>
+                                    <div class="text-start font-bold">Cost</div>
                                     <div class="text-end">{{ $card.cost }}</div>
                                 </div>
                                 {{ end }}
                                 {{ if eq $type "Character" }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">AP</div>
+                                    <div class="text-start font-bold">AP</div>
                                     <div class="text-end">{{ $card.ap }}</div>
                                 </div>
                                 {{ end }}
                                 {{ if or (eq $type "Character") (eq $type "Partner") }}
                                 <div class="flex justify-between">
-                                    <div class="text-start">LP</div>
+                                    <div class="text-start font-bold">LP</div>
                                     <div class="text-end">{{ $card.lp }}</div>
+                                </div>
+                                {{ end }}
+                                {{ if $card.illustrator }}
+                                <div class="flex justify-between">
+                                    <div class="text-start font-bold">Illustrator</div>
+                                    <div class="text-end">{{ $card.illustrator }}</div>
                                 </div>
                                 {{ end }}
                             </div>
