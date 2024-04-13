@@ -29,7 +29,8 @@
         "illustrator": "Line-drawing 青山剛昌",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": []
     },
     "162": {
         "id": 162,
@@ -61,7 +62,12 @@
         "illustrator": "松田硯",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "毛利探偵事務所",
+            "少年探偵団"
+        ]
     },
     "163": {
         "id": 163,
@@ -93,7 +99,12 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "毛利探偵事務所",
+            "少年探偵団"
+        ]
     },
     "164": {
         "id": 164,
@@ -125,7 +136,11 @@
         "illustrator": "松田硯",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "165": {
         "id": 165,
@@ -157,7 +172,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "毛利探偵事務所"
+        ]
     },
     "166": {
         "id": 166,
@@ -189,7 +208,12 @@
         "illustrator": "松田硯",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "高校生",
+            "毛利探偵事務所",
+            "空手家"
+        ]
     },
     "167": {
         "id": 167,
@@ -221,7 +245,12 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "高校生",
+            "毛利探偵事務所",
+            "空手家"
+        ]
     },
     "168": {
         "id": 168,
@@ -253,7 +282,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "発明家"
+        ]
     },
     "169": {
         "id": 169,
@@ -285,7 +317,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "少年探偵団"
+        ]
     },
     "170": {
         "id": 170,
@@ -317,7 +352,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "少年探偵団"
+        ]
     },
     "171": {
         "id": 171,
@@ -349,7 +387,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "少年探偵団"
+        ]
     },
     "172": {
         "id": 172,
@@ -381,7 +422,11 @@
         "illustrator": "松田硯",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "少年探偵団",
+            "科学者"
+        ]
     },
     "173": {
         "id": 173,
@@ -413,7 +458,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "少年探偵団",
+            "科学者"
+        ]
     },
     "174": {
         "id": 174,
@@ -445,7 +494,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": []
     },
     "175": {
         "id": 175,
@@ -477,7 +527,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": []
     },
     "176": {
         "id": 176,
@@ -509,7 +560,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": []
     },
     "177": {
         "id": 177,
@@ -541,7 +593,8 @@
         "illustrator": "Line-drawing 青山剛昌",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": []
     },
     "178": {
         "id": 178,
@@ -573,7 +626,11 @@
         "illustrator": "いの",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "179": {
         "id": 179,
@@ -605,7 +662,11 @@
         "illustrator": "五月とに",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:35.000000Z"
+        "updated_at": "2024-04-01T04:10:35.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "180": {
         "id": 180,
@@ -637,7 +698,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "181": {
         "id": 181,
@@ -669,7 +734,10 @@
         "illustrator": "いの",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "182": {
         "id": 182,
@@ -701,7 +769,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "183": {
         "id": 183,
@@ -733,7 +804,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "184": {
         "id": 184,
@@ -765,7 +839,11 @@
         "illustrator": "五月とに",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "警察",
+            "大阪府警"
+        ]
     },
     "185": {
         "id": 185,
@@ -797,7 +875,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "警察",
+            "大阪府警"
+        ]
     },
     "186": {
         "id": 186,
@@ -829,7 +911,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "執事"
+        ]
     },
     "187": {
         "id": 187,
@@ -861,7 +946,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "188": {
         "id": 188,
@@ -893,7 +981,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "189": {
         "id": 189,
@@ -925,7 +1016,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": []
     },
     "190": {
         "id": 190,
@@ -957,7 +1049,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": []
     },
     "191": {
         "id": 191,
@@ -989,7 +1082,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": []
     },
     "192": {
         "id": 192,
@@ -1021,7 +1115,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": []
     },
     "193": {
         "id": 193,
@@ -1053,7 +1148,8 @@
         "illustrator": "Line-drawing 青山剛昌",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": []
     },
     "194": {
         "id": 194,
@@ -1085,7 +1181,10 @@
         "illustrator": "紙島育",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "怪盗"
+        ]
     },
     "195": {
         "id": 195,
@@ -1117,7 +1216,10 @@
         "illustrator": "kicori",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "怪盗"
+        ]
     },
     "196": {
         "id": 196,
@@ -1149,7 +1251,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "怪盗"
+        ]
     },
     "197": {
         "id": 197,
@@ -1181,7 +1286,10 @@
         "illustrator": "kicori",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "高校生"
+        ]
     },
     "198": {
         "id": 198,
@@ -1213,7 +1321,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "199": {
         "id": 199,
@@ -1245,7 +1357,11 @@
         "illustrator": "紙島育",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:10:57.000000Z"
+        "updated_at": "2024-04-01T04:10:57.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "200": {
         "id": 200,
@@ -1277,7 +1393,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "201": {
         "id": 201,
@@ -1309,7 +1429,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "高校生",
+            "鈴木財閥"
+        ]
     },
     "202": {
         "id": 202,
@@ -1341,7 +1465,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "高校生",
+            "鈴木財閥"
+        ]
     },
     "203": {
         "id": 203,
@@ -1373,7 +1501,11 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "高校生",
+            "空手家"
+        ]
     },
     "204": {
         "id": 204,
@@ -1405,7 +1537,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "鈴木財閥"
+        ]
     },
     "205": {
         "id": 205,
@@ -1437,7 +1572,10 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": [
+            "鈴木財閥"
+        ]
     },
     "206": {
         "id": 206,
@@ -1469,7 +1607,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "207": {
         "id": 207,
@@ -1501,7 +1640,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "208": {
         "id": 208,
@@ -1533,7 +1673,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "209": {
         "id": 209,
@@ -1565,7 +1706,8 @@
         "illustrator": "Line-drawing 青山剛昌",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "210": {
         "id": 210,
@@ -1597,7 +1739,8 @@
         "illustrator": "しお",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "211": {
         "id": 211,
@@ -1629,7 +1772,8 @@
         "illustrator": "しお",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "212": {
         "id": 212,
@@ -1661,7 +1805,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "213": {
         "id": 213,
@@ -1693,7 +1838,8 @@
         "illustrator": "しお",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "214": {
         "id": 214,
@@ -1725,7 +1871,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "215": {
         "id": 215,
@@ -1757,7 +1904,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "216": {
         "id": 216,
@@ -1789,7 +1937,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "217": {
         "id": 217,
@@ -1821,7 +1970,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "218": {
         "id": 218,
@@ -1853,7 +2003,8 @@
         "illustrator": "しお",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "219": {
         "id": 219,
@@ -1885,7 +2036,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:20.000000Z"
+        "updated_at": "2024-04-01T04:11:20.000000Z",
+        "categories": []
     },
     "220": {
         "id": 220,
@@ -1917,7 +2069,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "221": {
         "id": 221,
@@ -1949,7 +2102,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "222": {
         "id": 222,
@@ -1981,7 +2135,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "223": {
         "id": 223,
@@ -2013,7 +2168,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "224": {
         "id": 224,
@@ -2045,7 +2201,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "225": {
         "id": 225,
@@ -2077,7 +2234,8 @@
         "illustrator": "Line-drawing 青山剛昌",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "226": {
         "id": 226,
@@ -2109,7 +2267,8 @@
         "illustrator": "鯖崎カノ",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "227": {
         "id": 227,
@@ -2141,7 +2300,8 @@
         "illustrator": "七捺なか",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "228": {
         "id": 228,
@@ -2173,7 +2333,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "229": {
         "id": 229,
@@ -2205,7 +2366,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "230": {
         "id": 230,
@@ -2237,7 +2399,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "231": {
         "id": 231,
@@ -2269,7 +2432,8 @@
         "illustrator": "七捺なか",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "232": {
         "id": 232,
@@ -2301,7 +2465,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "233": {
         "id": 233,
@@ -2333,7 +2498,8 @@
         "illustrator": "鯖崎カノ",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "234": {
         "id": 234,
@@ -2365,7 +2531,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "235": {
         "id": 235,
@@ -2397,7 +2564,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "236": {
         "id": 236,
@@ -2429,7 +2597,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "237": {
         "id": 237,
@@ -2461,7 +2630,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "238": {
         "id": 238,
@@ -2493,7 +2663,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "239": {
         "id": 239,
@@ -2525,7 +2696,8 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:40.000000Z"
+        "updated_at": "2024-04-01T04:11:40.000000Z",
+        "categories": []
     },
     "240": {
         "id": 240,
@@ -2557,6 +2729,7 @@
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "created_at": "2024-04-01T04:06:00.000000Z",
-        "updated_at": "2024-04-01T04:11:51.000000Z"
+        "updated_at": "2024-04-01T04:11:51.000000Z",
+        "categories": []
     }
 }
