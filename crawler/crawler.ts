@@ -6,12 +6,12 @@ import {finished} from 'stream/promises';
 const url = 'https://www.takaratomy.co.jp/products/conan-cardgame/cardlist'
 
 const result = await fetchHtmlDom(url)
-const cards = [];
+const cards = {};
 for (const cardImage of result.querySelectorAll('#cardList img')) {
     const data = JSON.parse(cardImage.getAttribute('data') || '')
-    cards.push(data)
+    cards[data.id] = data
 
-    const imagePath = '../cards/images/' + data.id + '.ja.jpg'
+    const imagePath = __dirname + '/../cards/images/' + data.id + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
         const res = await fetch(cardImage.getAttribute('src'))
         const fileStream = fs.createWriteStream(imagePath, { flags: 'w' })
@@ -19,6 +19,6 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     }
 }
 
-const targetPath = '../cards/cards_ja.json'
-const sortedCards = cards.sort((a, b) => Number(a.card_num) < Number(b.card_num) ? -1 : 1)
+const targetPath = __dirname + '/../cards/cards_ja.json'
+const sortedCards = Object.fromEntries(Object.entries(cards).sort())
 fs.writeFileSync(targetPath, JSON.stringify(sortedCards, null, '    '))
