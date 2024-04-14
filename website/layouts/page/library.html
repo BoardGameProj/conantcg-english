@@ -3,4 +3,21 @@
 <div class="dark:text-white text-lg py-3">
     {{ .Content }}
 </div>
+
+<div class="flex" style="gap: 1rem;">
+    {{ range site.Data.products_ja }}
+    {{ $title := or (T (printf "products.%s" . )) . }}
+    {{ $imageName := replace ($title|lower) " " "" }}
+    <a href="/cards/?product={{$title}}">
+    <article class="bg-white text-center flex flex-col items-center">
+        {{ with resources.Get (printf "products/%s.jpg" $imageName) }}
+            {{ with .Resize "250x" }}
+                <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="{{$title}}" class="p-4" />
+            {{ end }}
+        {{ end }}
+            <h2 class="font-bold">{{$title}}</h2>
+    </article>
+    </a>
+    {{ end }}
+</div>
 {{ end }}

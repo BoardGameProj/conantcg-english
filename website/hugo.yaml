@@ -58,3 +58,5 @@ module:
       target: "static/js/script.js"
     - source: "../data/images/cards"
       target: "assets/cards"
+    - source: "../data/images/products"
+      target: "assets/products"
