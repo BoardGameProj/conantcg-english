@@ -194,7 +194,7 @@ class Card extends HTMLElement {
 >
     <div class="flex">
         <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" style="max-width: unset;">
-        <div style="max-width: 450px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
+        <div style="min-width: 450px;max-width: 450px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
             <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between">
                 <h3 class="font-semibold text-gray-900 dark:text-white text-lg">${this.data.title}</h3>
                 <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()">x</button>
