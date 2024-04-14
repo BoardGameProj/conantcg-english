@@ -50,8 +50,10 @@ module:
   mounts:
     - source: "./static/img"
       target: "static/img"
-    - source: "./node_modules/flowbite/dist"
-      target: "static/js/flowbite"
+    - source: "./node_modules/flowbite/dist/flowbite.min.js"
+      target: "static/js/flowbite.min.js"
+    - source: "./node_modules/flowbite/dist/flowbite.min.css"
+      target: "static/css/flowbite.min.css"
     - source: "./node_modules/@zachleat/filter-container"
       target: "static/js/filter-container"
     - source: "static/js/script.js"

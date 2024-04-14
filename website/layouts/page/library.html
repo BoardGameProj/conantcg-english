@@ -4,14 +4,14 @@
     {{ .Content }}
 </div>
 
-<div class="flex" style="gap: 1rem;">
+<div class="flex flex-wrap" style="gap: 1rem;">
     {{ range site.Data.products_ja }}
     {{ $title := or (T (printf "products.%s" . )) . }}
     {{ $imageName := replace ($title|lower) " " "" }}
     <a href="/cards/?product={{$title}}">
-    <article class="bg-white text-center flex flex-col items-center">
+    <article class="bg-white text-center flex flex-col items-center" style="max-width: 180px">
         {{ with resources.Get (printf "products/%s.jpg" $imageName) }}
-            {{ with .Resize "250x" }}
+            {{ with .Resize "180x" }}
                 <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="{{$title}}" class="p-4" />
             {{ end }}
         {{ end }}

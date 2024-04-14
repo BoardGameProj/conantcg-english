@@ -1,10 +1,10 @@
-<dct-filter-option title="Name" key="title" fieldtype="text"></dct-filter-option>
-
 <div class="flex flex-col">
+    <dct-filter-option title="Name" key="title" fieldtype="text"></dct-filter-option>
+
     {{ $productList := slice }}
     {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
     <dct-filter-option title="Product" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="Any"></dct-filter-option>
-    <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $colors := slice }}
         {{range .Site.Data.colors_ja}}{{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}{{end}}
         <dct-filter-option title="Color" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></dct-filter-option>
@@ -12,8 +12,6 @@
         {{range .Site.Data.types_ja}}{{ $types = $types | append (or (T (printf "types.%s" . )) .) }}{{end}}
         <dct-filter-option title="Type" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></dct-filter-option>
     </div>
-    <div>
-        {{ $rarities := slice "C" "CP" "R" "RP" "SR" "SRP" "D" "PR" }}
-        <dct-filter-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></dct-filter-option>
-    </div>
+    {{ $rarities := slice "C" "CP" "R" "RP" "SR" "SRP" "D" "PR" }}
+    <dct-filter-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></dct-filter-option>
 </div>

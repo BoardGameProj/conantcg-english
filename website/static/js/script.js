@@ -1,19 +1,16 @@
-window.DCTCardOverlays = {}
-
 class FilterOption extends HTMLElement {
-
     connectedCallback() {
         const type = this.getAttribute('fieldtype') || 'text'
         const key = this.getAttribute('key')
         let content = `<input type="text" name="${key}" data-filter-key="${key}">`
         if (['checkbox', 'radio'].includes(type)) {
             // Checkbox or radio
-            content = '<div>';
+            content = '<div class="bg-white">';
             const values = JSON.parse(this.getAttribute('values'))
             for (const value of values) {
                 content += `<label>
 <input type="${type}" name="${key}" value="${value}" data-filter-key="${key}" class="hidden" />
-<span class="px-4 p-1 bg-white">${value}</span>
+<span class="px-4 p-1 bg-white cursor-pointer" style="border: 1px solid black;">${value}</span>
 </label>`;
             }
             content += `</div>`;
@@ -32,7 +29,7 @@ class FilterOption extends HTMLElement {
         }
 
         const fieldset = document.createElement('div')
-        fieldset.className = 'flex flex-row w-full'
+        fieldset.className = 'flex flex-col lg:flex-row w-full mb-1'
         fieldset.innerHTML = `<legend>${this.getAttribute('title')}</legend>${content}`
         this.appendChild(fieldset)
     }
@@ -117,23 +114,29 @@ class Card extends HTMLElement {
             img,
             {
                 placement: this.getAttribute('popover-placement'),
-                triggerType: 'click'
+                triggerType: 'none',
+                onShow: () => {
+                    document.querySelector('body').classList.add('dct-card-shown')
+                },
+                onHide: () => {
+                    document.querySelector('body').classList.remove('dct-card-shown')
+                }
             }
         )
+        // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
         img.addEventListener('click', () => {
-            // need to reinitialize with overlay element once
             popover._targetEl = document.querySelector(overlaySelector)
             popover._initialized = false
             popover.init()
             popover.show()
-        }, {once: true})
+        })
     }
 
     prepareOverlays() {
         if (!document.getElementById('DCT-Overlays')) {
             const container = document.createElement('div')
             container.id = 'DCT-Overlays'
-            document.querySelector('#content').parentElement.appendChild(container)
+            document.body.appendChild(container)
         }
         const container = document.getElementById('DCT-Overlays')
 
@@ -178,28 +181,32 @@ class Card extends HTMLElement {
         for (const key of fields) {
             let value = this.data[key]
             if (key === 'categories') {
-                value = value.join(', ')
+                // Categories: keep words on one line, and join with comma
+                value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
             }
             if (key === 'feature') {
                 value = value.replaceAll('\n', '<br>')
             }
-            content += `<div class="flex justify-between">
+            content += `<div class="flex justify-between py-1 lg:py-0">
                     <div class="text-start font-bold">${labels[key]}</div>
-                    <div class="text-end card_details--${key}">${value}</div>
+                    <div class="text-end ms-4 card_details--${key}">${value}</div>
                 </div>`;
         }
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
-     class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
+     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-lg shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
 >
-    <div class="flex">
-        <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" style="max-width: unset;">
-        <div style="min-width: 450px;max-width: 450px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
-            <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between">
-                <h3 class="font-semibold text-gray-900 dark:text-white text-lg">${this.data.title}</h3>
-                <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()">x</button>
+    <div class="flex items-start">
+        <div class="cardoverlay-image self-stretch">
+            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" style="max-width: unset;">
+        </div>
+        <!-- Add color here as well for mobile view -->
+        <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 450px;max-width: 450px;">
+            <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
+                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}</h3>
+                <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
             </div>
-            <div class="px-2 py-2">
+            <div class="px-2 py-2 text-lg lg:text-base">
                 ${content}
             </div>
         </div>

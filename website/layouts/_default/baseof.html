@@ -4,14 +4,31 @@
         <base href="{{ .Site.BaseURL }}" />
         {{- partial "head.html" . -}}
         {{ block "meta_tags" . }}{{end}}
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-        <script type="text/javascript" src="js/flowbite/flowbite.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
 
         <style>
             .prose {
                 max-width: unset;
+            }
+
+            @media screen and (min-width: 1024px) {
+                .lg\:inline-block {
+                    display: inline-block;
+                }
+                .lg\:items-stretch {
+                    align-items: stretch;
+                }
+                .lg\:text-base {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+                .lg\:text-lg {
+                    font-size: 1.125rem;
+                    line-height: 1.75rem;
+                }
+                .lg\:py-0 {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
             }
         </style>
     </head>

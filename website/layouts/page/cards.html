@@ -14,12 +14,17 @@
             background: grey;
             display: inline-block;
             padding: 0.25rem 0.5rem;
-            max-width: 10vw;
             width: 100%;
+
+            @media screen and (min-width: 1025px) {
+                max-width: 10vw;
+            }
         }
 
-        legend, label, label > input, label > select {
-            height: 40px;
+        @media screen and (min-width: 1025px) {
+            legend, label, label > input, label > select {
+                height: calc(1.5rem + 2*0.5rem);
+            }
         }
         label > input, label > select {
             width: 100%;
@@ -27,7 +32,7 @@
 
         legend + * {
             width: 100%;
-            padding: 0 0.5rem;
+            padding: 0 0.5rem !important;
         }
 
         input[type="text"], select {
@@ -36,16 +41,18 @@
 
         legend + div {
             display: flex;
-            gap: .5rem;
+            flex-wrap: wrap;
+            column-gap: .5rem;
         }
 
         label {
             display: flex;
             align-items: center;
+            padding: .25rem 0;
         }
 
         [type='checkbox']:not(:checked) + span {
-            opacity: 0.5;
+            background-color: gray;
         }
     }
 
@@ -58,6 +65,10 @@
         align-items: center;
     }
 
+    .card_details--feature {
+        text-align: justify;
+    }
+
     [data-popover]:not(.visible) {
         /**
          * Make sure popover are hidden properly
@@ -67,28 +78,50 @@
     [data-popover][data-popper-placement="left"] > .flex {
         flex-direction: row-reverse;
 
-        & > img {
+        .cardoverlay-image {
             order: 2;
         }
     }
 
+
+    :root {
+        --dct-card-filters-grid-columns: 2;
+    }
     @media screen and (max-width: 1024px) {
+        :root {
+            --dct-card-filters-grid-columns: 1;
+        }
+        .dct-card-shown {
+            overflow: hidden;
+        }
         [data-popover] {
             width: 100%;
             z-index: 10001;
 
+            &.visible {
+                position: fixed !important;
+                overflow-y: scroll;
+                inset: 0 !important;
+                transform: unset !important;
+                background: url('/img/tiles.png') repeat;
+            }
+
+            &[data-popper-placement="left"] > .flex {
+                flex-direction: column-reverse !important;
+            }
+
             > .flex {
                 flex-direction: column !important;
                 align-items: center !important;
-
                 > div {
                     min-width: unset !important;
+                    max-width: unset !important;
                 }
 
                 img {
                     width: auto;
                     margin: 1rem;
-                    max-height: 250px;
+                    max-height: 400px;
                 }
             }
         }
@@ -100,7 +133,7 @@
 </style>
 
 <filter-container oninit delimiter="," filter-mode="any" filter-match-mode="contains">
-    <form class="dark:bg-gray-700">
+    <form class="dark:bg-black">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
     <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="card/cards" aria-live="polite"></span></h2>
