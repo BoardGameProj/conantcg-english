@@ -50,7 +50,7 @@ Once keywords are explained, we can remove the additional explanations in bracke
 
 #### Abilities
 
-* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `<Swift> (This card can use its Deduction or Action during the turn it is played.)`
-* `〚ミスリード1〛（相手の推理に対し、スリープさせることでLP－1する）` => `<Mislead 1> (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)`
-* `〚突撃〛` => `<Charge>`
-* `〚ブレット〛（このキャラのアクションはガードできない）` => `Bullet (When this Characters performs its Action, your opponent cannot Guard.)`
+* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `{Swift} (This card can use its Deduction or Action during the turn it is played.)`
+* `〚ミスリード1〛（相手の推理に対し、スリープさせることでLP－1する）` => `{Mislead 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)`
+* `〚突撃〛` => `{Charge}`
+* `〚ブレット〛（このキャラのアクションはガードできない）` => `{Bullet} (When this Characters performs its Action, your opponent cannot Guard.)`
