@@ -8,6 +8,12 @@
 
         <script type="text/javascript" src="js/flowbite/flowbite.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
+
+        <style>
+            .prose {
+                max-width: unset;
+            }
+        </style>
     </head>
     
     {{ if (or .IsPage .IsHome) }}
@@ -15,10 +21,12 @@
     {{ else }}
     <body class="flex flex-col min-h-screen dark:bg-warmgray-800">
     {{end}}
-        {{- partial "header.html" . -}}
-        <div class="container mx-auto max-w-10xl px-4 px-0-md my-4 flex-grow" id="content">
+    {{- partial "header.html" . -}}
+    <div style="background: url('/img/tiles-transparent.png') repeat;">
+        <div class="container mx-auto max-w-10xl px-4 px-0-md my-5 flex-grow" id="content">
             {{- block "main" . }}{{- end }}
         </div>
-        {{- partial "footer.html" . -}}
+    </div>
+    {{- partial "footer.html" . -}}
     </body>
 </html>

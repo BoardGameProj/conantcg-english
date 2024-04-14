@@ -48,6 +48,8 @@ menu:
 
 module:
   mounts:
+    - source: "./static/img"
+      target: "static/img"
     - source: "./node_modules/flowbite/dist"
       target: "static/js/flowbite"
     - source: "./node_modules/@zachleat/filter-container"
