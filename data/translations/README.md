@@ -14,7 +14,7 @@ Example:
 ```json
 {
   "cards.D01001.title": "Conan Edogawa",
-  "cards.D01001.feature": "[While Case is Solved][Case Closed][Sleep]: If your evidence is equal to or greater than the case level, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved."
+  "cards.D01001.feature": "[Resolution Phase][Case Closed][Sleep]: If your evidence is equal to or greater than the case level, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved."
 }
 ```
 
@@ -41,7 +41,7 @@ Once keywords are explained, we can remove the additional explanations in bracke
 * `【相手ターン中】` => `[During opponents Turn]`
 * `【現場リムーブ時】` => `[When removed from the Scene]`
 * `【宣言】` => `Statement`
-* `【解決編】` => `[While Case is Solved]`
+* `【解決編】` => `[Resolution Phase]`
 * `【事件解決】` => `[Case Closed]`
 * `【アシスト】` => `[Assist]`
 * `【スリープ】` => `[Sleep]`

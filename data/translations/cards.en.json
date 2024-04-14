@@ -1,6 +1,6 @@
 {
     "cards.D01001.title": "Conan Edogawa",
-    "cards.D01001.feature": "[While Case is Solved][Case Closed][Sleep]: If your evidence is equal to or greater than the case level, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved.",
+    "cards.D01001.feature": "[Resolution Phase][Case Closed][Sleep]: If your evidence is equal to or greater than the case level, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved.",
     "cards.D01002.title": "Conan Edogawa",
     "cards.D01002.feature": "[Partner: Blue] <Swift> (This card can use its Deduction or Action during the turn it is played.)",
     "cards.D01003.title": "Conan Edogawa",
@@ -32,7 +32,7 @@
     "cards.D01016.title": "The Moonlight Sonata Murder",
 
     "cards.D02001.title": "Heiji Hattori",
-    "cards.D02001.feature": "[While Case is Solved][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
+    "cards.D02001.feature": "[Resolution Phase][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
     "cards.D02002.title": "Heiji Hattori",
     "cards.D02002.feature": "[Partner: Green][On Play]: You may remove 1 card from your hand. If you do, choose up to 1 Character with 8000 or less AP and remove it.",
     "cards.D02003.title": "Heiji Hattori",
@@ -64,7 +64,7 @@
     "cards.D02016.title": "And Then There Were No Mermaids",
 
     "cards.D03001.title": "Kaito Kid",
-    "cards.D03001.feature": "[While Case is Solved][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
+    "cards.D03001.feature": "[Resolution Phase][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
     "cards.D03002.title": "Kaito Kid",
     "cards.D03002.feature": "[Partner: White] [On Play]: You may remove 1 card from your hand. If you do, choose up to 1 Character, Stun it, and gain 1 Evidence. (When a Stunned Character would be set to Active, put it to Sleep instead.)",
     "cards.D03003.title": "Kaito Kid",
@@ -96,7 +96,7 @@
     "cards.D03016.title": "The Encounter",
 
     "cards.D04001.title": "Shuichi Akai",
-    "cards.D04001.feature": "[While Case is Solved][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist] [Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
+    "cards.D04001.feature": "[Resolution Phase][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist] [Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
     "cards.D04002.title": "Shuichi Akai",
     "cards.D04002.feature": "[Partner: Red] [On Play]: You may remove 1 card from your hand. If you do, choose up to 1 Character with 8000 or less AP and remove it.",
     "cards.D04003.title": "Shuichi Akai",
@@ -128,7 +128,7 @@
     "cards.D04016.title": "The Scarlet Return",
 
     "cards.D05001.title": "Toru Amuro",
-    "cards.D05001.feature": "[While Case is Solved][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
+    "cards.D05001.feature": "[Resolution Phase][Case Closed][Sleep]: If the number of your Evidence is equal ot or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
     "cards.D05002.title": "Rei Furuya",
     "cards.D05002.feature": "[Partner: Yellow][When Played]: You may remove 1 card from your hand. If you do, choose up to 1 Character with 8000 or less AP and remove it.",
     "cards.D05003.title": "Rei Furuya",
