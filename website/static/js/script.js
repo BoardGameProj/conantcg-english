@@ -34,67 +34,129 @@ class Card extends HTMLElement {
         this.data.illustrator = this.getAttribute('illustrator') || ''
         this.data.feature = this.hasAttribute('feature') && this.getAttribute('feature').length ? this.getAttribute('feature') : '–'
 
+        // Prepare filter attributes
+        const ignoreFilterAttributes = ['image']
+        for (let setting of Object.keys(this.data)) {
+            if (ignoreFilterAttributes.includes(setting)) {
+                continue
+            }
+            let value = this.data[setting]
+            if (['feature', 'illustrator'].includes(setting) && ['', '-'].includes(value)) {
+                value = null
+            }
+            if (setting === 'categories') {
+                value = value.join(',')
+            }
+            if (setting === 'cardNum') {
+                setting = 'card-num'
+            }
+            if (!value) {
+                continue
+            }
+            this.setAttribute('data-filter-' + setting, value)
+            this.removeAttribute(setting)
+        }
+
         this.prepareOverlays()
         this.render()
     }
 
     render() {
-        this.innerHTML = `<div
-             data-popover-target="card-${this.data.id}"
-             data-popover-trigger="click"
-             data-popover-placement="${this.getAttribute('popover-placement')}"
-             type="button"
-             data-filter-name="${this.data.title}"
-             data-filter-color="${this.data.color}"
-             data-filter-product="${this.data.product}"
-             data-filter-rarity="${this.data.rarity}"
-             data-filter-cost="${this.data.cost}"
-             data-filter-ap="${this.data.ap}"
-             data-filter-lp="${this.data.lp}"
-             data-filter-categories="${this.data.categories.join(',')}"
-             data-filter-type="${this.data.type}"
-        >
-        <img src="${this.data.image}" width="160" alt="${this.data.title} (${this.data.cardNum})">
-    </div>`
+        //const shadow = this.attachShadow({mode: "open"});
+        //const wrapper = document.createElement('div')
+        const img = document.createElement('img')
+        const popoverId = `card-${this.data.id}`
+        //img.setAttribute('data-filter-name', this.data.title)
+        //img.setAttribute('data-filter-color', this.data.color)
+        //img.setAttribute('data-filter-product', this.data.product)
+        //img.setAttribute('data-filter-rarity', this.data.rarity)
+        //img.setAttribute('data-filter-cost', this.data.cost)
+        //img.setAttribute('data-filter-ap', this.data.ap)
+        //img.setAttribute('data-filter-lp', this.data.lp)
+        //img.setAttribute('data-filter-categories', this.data.categories.join(','))
+        //img.setAttribute('data-filter-type', this.data.type)
+        img.src = this.data.image
+        img.classList.add('cursor-pointer')
+        img.width = 160
+        img.alt = `${this.data.title} (${this.data.cardNum})`
+        this.appendChild(img)
+        //shadow.appendChild(wrapper)
+
+        const overlaySelector = '#DCT-Overlays #' + popoverId
+        const popover = new Popover(
+            document.querySelector(overlaySelector),
+            img,
+            {
+                placement: this.getAttribute('popover-placement'),
+                triggerType: 'click'
+            }
+        )
+        img.addEventListener('click', () => {
+            // need to reinitialize with overlay element once
+            popover._targetEl = document.querySelector(overlaySelector)
+            popover._initialized = false
+            popover.init()
+            popover.show()
+        }, {once: true})
     }
+
     prepareOverlays() {
         if (!document.getElementById('DCT-Overlays')) {
             const container = document.createElement('div')
             container.id = 'DCT-Overlays'
-            document.querySelector('#content').appendChild(container)
+            document.querySelector('#content').parentElement.appendChild(container)
         }
         const container = document.getElementById('DCT-Overlays')
-        const fields = {
-            'Card ID': this.data.cardNum,
-            'Card Category': this.data.type
+
+        const labels = {
+            cardNum: 'Card ID',
+            type: 'Card Category',
+            feature: 'Effect',
+            product: 'Product',
+            color: 'Color',
+            rarity: 'Rarity',
+            categories: 'Categories',
+            cost: 'Cost',
+            ap: 'AP',
+            lp: 'LP',
+            illustrator: 'Illustrator'
         }
+
+        const fields = ['cardNum', 'type']
         if (this.data.type !== 'Case') {
-            fields.Effect = this.data.feature
+            fields.push('feature')
         }
-        fields.Product = this.data.product
-        fields.Color = this.data.color
-        fields.Rarity = this.data.rarity
+        fields.push('product')
+        fields.push('color')
+        fields.push('rarity')
         if (this.data.type === 'Character') {
-            fields.Categories = this.data.categories.join(', ')
+            fields.push('categories')
         }
         if (this.data.type === 'Character' || this.data.type === 'Event') {
-            fields.Cost = this.data.cost
+            fields.push('cost')
         }
         if (this.data.type === 'Character') {
-            fields.AP = this.data.ap
+            fields.push('ap')
         }
         if (this.data.type === 'Character' || this.data.type === 'Partner') {
-            fields.LP = this.data.lp
+            fields.push('lp')
         }
         if (this.data.illustrator.length) {
-            fields.Illustrator = this.data.illustrator
+            fields.push('illustrator')
         }
 
         let content = ''
-        for (const label in fields) {
+        for (const key of fields) {
+            let value = this.data[key]
+            if (key === 'categories') {
+                value = value.join(', ')
+            }
+            if (key === 'feature') {
+                value = value.replaceAll('\n', '<br>')
+            }
             content += `<div class="flex justify-between">
-                    <div class="text-start font-bold">${label}</div>
-                    <div class="text-end">${fields[label]}</div>
+                    <div class="text-start font-bold">${labels[key]}</div>
+                    <div class="text-end card_details--${key}">${value}</div>
                 </div>`;
         }
 

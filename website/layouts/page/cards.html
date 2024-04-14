@@ -36,17 +36,6 @@
     dct-card {
         display: flex;
         align-items: center;
-
-        > div > img {
-            margin: 0;
-            cursor: pointer;
-        }
-    }
-
-    .card_details--feature {
-        p + p {
-            margin-top: 0.5rem;
-        }
     }
 
     [data-popover]:not(.visible) {
@@ -57,6 +46,10 @@
     }
     [data-popover][data-popper-placement="left"] > .flex {
         flex-direction: row-reverse;
+
+        & > img {
+            order: 2;
+        }
     }
 
     @media screen and (max-width: 1024px) {
@@ -166,7 +159,7 @@
                         title="{{ $title }}"
                         card-num="{{ $card.card_num }}"
                         type="{{ $type }}"
-                        feature="{{ $feature|markdownify }}"
+                        feature="{{ $feature }}"
                         product="{{ $product }}"
                         color="{{ $color }}"
                         rarity="{{ $card.rarity }}"
@@ -184,20 +177,4 @@
 </filter-container>
 
 <script type="module" src="js/filter-container/filter-container.js"></script>
-{{ end }}
-
-{{ define "before_footer" }}
-    <div class="overlays">
-        {{ range site.Data.cards_ja }}
-        {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
-        {{ $type := or (T (printf "types.%s" .type )) .type }}
-        {{ $product := or (T (printf "products.%s" .package )) .package }}
-        {{ $color := or (T (printf "colors.%s" .color )) .color }}
-        {{ $card := . }}
-
-        {{ $categories := slice }}
-        {{ $popoverLeft := false }}
-        {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
-        {{ end }}
-    </div>
 {{ end }}
