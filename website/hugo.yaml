@@ -56,5 +56,5 @@ module:
       target: "static/js/filter-container"
     - source: "static/js/script.js"
       target: "static/js/script.js"
-    - source: "../cards/images"
+    - source: "../data/images/cards"
       target: "assets/cards"

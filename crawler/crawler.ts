@@ -23,7 +23,7 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
         delete cards[data.id][key]
     }
 
-    const imagePath = __dirname + '/../cards/images/' + data.id + '.ja.jpg'
+    const imagePath = __dirname + '/../data/images/cards/' + data.id + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
         const res = await fetch(cardImage.getAttribute('src'))
         const fileStream = fs.createWriteStream(imagePath, { flags: 'w' })
@@ -31,7 +31,7 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     }
 }
 
-const targetPath = __dirname + '/../cards/cards_ja.json'
+const targetPath = __dirname + '/../data/cards_ja.json'
 const sortedCards = Object.fromEntries(Object.entries(cards).sort())
 fs.writeFileSync(targetPath, JSON.stringify(sortedCards, null, '    '))
 
@@ -46,7 +46,7 @@ for (const card of Object.values(cards)) {
         categoryFileContent[key] = c
     }
 }
-fs.writeFileSync(__dirname + '/../cards/categories_ja.json', JSON.stringify(categoryFileContent, null, '    '))
+fs.writeFileSync(__dirname + '/../data/categories_ja.json', JSON.stringify(categoryFileContent, null, '    '))
 
 // Separate type
 const typesFileContent = {}
@@ -57,7 +57,7 @@ for (const c of Object.values(cards)) {
     }
     typesFileContent[key] = c.type
 }
-fs.writeFileSync(__dirname + '/../cards/types_ja.json', JSON.stringify(typesFileContent, null, '    '))
+fs.writeFileSync(__dirname + '/../data/types_ja.json', JSON.stringify(typesFileContent, null, '    '))
 
 // Separate products
 const productsFileContent = {}
@@ -68,7 +68,7 @@ for (const c of Object.values(cards)) {
     }
     productsFileContent[key] = c.package
 }
-fs.writeFileSync(__dirname + '/../cards/products_ja.json', JSON.stringify(productsFileContent, null, '    '))
+fs.writeFileSync(__dirname + '/../data/products_ja.json', JSON.stringify(productsFileContent, null, '    '))
 
 // Separate colors
 const colorsFileContent = {}
@@ -79,4 +79,4 @@ for (const c of Object.values(cards)) {
     }
     colorsFileContent[key] = c.color
 }
-fs.writeFileSync(__dirname + '/../cards/colors_ja.json', JSON.stringify(colorsFileContent, null, '    '))
+fs.writeFileSync(__dirname + '/../data/colors_ja.json', JSON.stringify(colorsFileContent, null, '    '))

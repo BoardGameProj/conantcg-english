@@ -8,15 +8,16 @@ import deepmerge from "deepmerge";
 const jsonSourceFiles = [
     'cards_ja',
     'categories_ja',
+    'products_ja',
     'colors_ja',
     'types_ja'
 ]
 
 for (const file of jsonSourceFiles) {
     const targetPath = path.join('data/', file + '.json')
-    const additionalDataFilePath = path.join('../cards/', file + '.additional.json')
+    const additionalDataFilePath = path.join('../data/', file + '.additional.json')
 
-    const fileBuffer = fs.readFileSync(path.join('../cards/', file + '.json'))
+    const fileBuffer = fs.readFileSync(path.join('../data/', file + '.json'))
     let fileContent = JSON.parse(fileBuffer.toString())
     if (fs.existsSync(additionalDataFilePath)) {
         const additionalBuffer = fs.readFileSync(additionalDataFilePath)

@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 const targetPath = __dirname + '/../website/i18n/en.json'
-const sourceDir = __dirname + '/../cards/translations/';
+const sourceDir = __dirname + '/../data/translations/';
 const fullFile = {}
 for (const file of fs.readdirSync(sourceDir)) {
     if (!file.endsWith('.en.json')) {
