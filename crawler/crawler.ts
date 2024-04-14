@@ -14,14 +14,13 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     // Combine category fields...
     cards[data.id].categories = []
     for (const key of ['category1', 'category2', 'category3']) {
-        if (data[key] === null) {
-            continue
+        if (data[key] !== null) {
+            // data error? category1 can contain multiple categories separated by comma
+            for (const c of data[key].split(',')) {
+                cards[data.id].categories.push(c)
+            }
         }
-        // data error? category1 can contain multiple categories separated by comma
-        for (const c of data[key].split(',')) {
-            cards[data.id].categories.push(c)
-        }
-        delete cards[key]
+        delete cards[data.id][key]
     }
 
     const imagePath = __dirname + '/../cards/images/' + data.id + '.ja.jpg'
