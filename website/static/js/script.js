@@ -5,7 +5,7 @@ class FilterOption extends HTMLElement {
     connectedCallback() {
         const type = this.getAttribute('fieldtype') || 'text'
         const key = this.getAttribute('key')
-        let content = `<label class="w-full"><input type="text" name="${key}" data-filter-key="${key}"></label>`
+        let content = `<input type="text" name="${key}" data-filter-key="${key}">`
         if (['checkbox', 'radio'].includes(type)) {
             // Checkbox or radio
             content = '<div>';
@@ -20,7 +20,7 @@ class FilterOption extends HTMLElement {
         }
         if (['select'].includes(type)) {
             // Select
-            content = `<label class="w-full"><select name="${key}" data-filter-key="${key}">`;
+            content = `<select name="${key}" data-filter-key="${key}">`;
             if (this.hasAttribute('noneValue')) {
                 content += `<option value="">${this.getAttribute('noneValue')}</option>`
             }
@@ -28,7 +28,7 @@ class FilterOption extends HTMLElement {
             for (const value of values) {
                 content += `<option value="${value}">${value}</option>`;
             }
-            content += `</select></label>`;
+            content += `</select>`;
         }
 
         const fieldset = document.createElement('div')
@@ -194,8 +194,8 @@ class Card extends HTMLElement {
 >
     <div class="flex">
         <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" style="max-width: unset;">
-        <div style="min-width: 450px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
-            <div class="px-2 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 flex justify-between">
+        <div style="max-width: 450px;" class="bg-white dark:bg-warmgray-800 dark:text-white">
+            <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between">
                 <h3 class="font-semibold text-gray-900 dark:text-white text-lg">${this.data.title}</h3>
                 <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()">x</button>
             </div>

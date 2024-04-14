@@ -14,7 +14,8 @@
             background: grey;
             display: inline-block;
             padding: 0.25rem 0.5rem;
-            width: 10vw;
+            max-width: 10vw;
+            width: 100%;
         }
 
         legend, label, label > input, label > select {
@@ -25,11 +26,15 @@
         }
 
         legend + * {
+            width: 100%;
             padding: 0 0.5rem;
         }
 
+        input[type="text"], select {
+            padding-left: 0.5rem;
+        }
+
         legend + div {
-            width: 100%;
             display: flex;
             gap: 1rem;
         }
