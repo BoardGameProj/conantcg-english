@@ -10,7 +10,7 @@
     "tailwindcss": "^3.0.23"
   },
   "dependencies": {
-    "@zachleat/filter-container": "^4.0.0",
+    "@zachleat/filter-container": "github:saitho/filter-container#feature/string-match-mode",
     "flowbite": "^2.3.0"
   },
   "scripts": {

@@ -1,5 +1,44 @@
 window.DCTCardOverlays = {}
 
+class FilterOption extends HTMLElement {
+
+    connectedCallback() {
+        const type = this.getAttribute('fieldtype') || 'text'
+        const key = this.getAttribute('key')
+        let content = `<label class="w-full"><input type="text" name="${key}" data-filter-key="${key}"></label>`
+        if (['checkbox', 'radio'].includes(type)) {
+            // Checkbox or radio
+            content = '<div>';
+            const values = JSON.parse(this.getAttribute('values'))
+            for (const value of values) {
+                content += `<label>
+<input type="${type}" name="${key}" value="${value}" data-filter-key="${key}" class="hidden" />
+<span class="px-4 p-1 bg-white">${value}</span>
+</label>`;
+            }
+            content += `</div>`;
+        }
+        if (['select'].includes(type)) {
+            // Select
+            content = `<label class="w-full"><select name="${key}" data-filter-key="${key}">`;
+            if (this.hasAttribute('noneValue')) {
+                content += `<option value="">${this.getAttribute('noneValue')}</option>`
+            }
+            const values = JSON.parse(this.getAttribute('values'))
+            for (const value of values) {
+                content += `<option value="${value}">${value}</option>`;
+            }
+            content += `</select></label>`;
+        }
+
+        const fieldset = document.createElement('div')
+        fieldset.className = 'flex flex-row w-full'
+        fieldset.innerHTML = `<legend>${this.getAttribute('title')}</legend>${content}`
+        this.appendChild(fieldset)
+    }
+}
+customElements.define('dct-filter-option', FilterOption);
+
 class Card extends HTMLElement {
     data = {
         id: '',
@@ -63,18 +102,8 @@ class Card extends HTMLElement {
 
     render() {
         //const shadow = this.attachShadow({mode: "open"});
-        //const wrapper = document.createElement('div')
         const img = document.createElement('img')
         const popoverId = `card-${this.data.id}`
-        //img.setAttribute('data-filter-name', this.data.title)
-        //img.setAttribute('data-filter-color', this.data.color)
-        //img.setAttribute('data-filter-product', this.data.product)
-        //img.setAttribute('data-filter-rarity', this.data.rarity)
-        //img.setAttribute('data-filter-cost', this.data.cost)
-        //img.setAttribute('data-filter-ap', this.data.ap)
-        //img.setAttribute('data-filter-lp', this.data.lp)
-        //img.setAttribute('data-filter-categories', this.data.categories.join(','))
-        //img.setAttribute('data-filter-type', this.data.type)
         img.src = this.data.image
         img.classList.add('cursor-pointer')
         img.width = 160
