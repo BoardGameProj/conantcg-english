@@ -57,11 +57,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          bun build:tw && \
-          bun build:i18n && \
-          hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          bun build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
