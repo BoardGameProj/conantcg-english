@@ -16,14 +16,11 @@ enableRobotsTXT: true
 # Disqus Comment System
 #disqusShortname = ""
 
-params:
-  # The number of articles to be displayed on a single page.
-  paginator_pages: 6
-
 # Site logo.
   #logo = ""
 
 params:
+  paginator_pages: 6
   homepage_meta_tags:
     meta_description: "Pixiv-like theme for novels."
     meta_og_title: "VNovel"
