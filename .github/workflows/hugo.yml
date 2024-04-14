@@ -57,7 +57,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          bun build
+          bun run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
