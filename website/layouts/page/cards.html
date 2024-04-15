@@ -152,11 +152,11 @@
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
 
         {{ $popoverLeft := ge (mod $counter $perRow) (sub $perRow 3) }}
-        {{ with resources.Get (printf "cards/%.0f.ja.jpg" .id) }}
+        {{ with or (resources.Get (printf "cards/%.0f.ja.jpg" .id)) (resources.Get "img/fallback.jpg") }}
             {{ with .Resize "300x" }}
                 <dct-card
                         popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
-                        id="{{ $card.id }}"
+                        id="{{ printf "%.0f" $card.id }}"
                         image="{{ .RelPermalink }}"
                         title="{{ $title }}"
                         card-num="{{ $card.card_num }}"
@@ -166,11 +166,12 @@
                         color="{{ $color }}"
                         rarity="{{ $card.rarity }}"
                         categories="{{delimit $categories ","}}"
-                cost="{{$card.cost}}"
-                ap="{{$card.ap}}"
-                lp="{{$card.lp}}"
-                illustrator="{{$card.illustrator}}"
-                ></dct-card>
+                        cost="{{$card.cost}}"
+                        ap="{{$card.ap}}"
+                        lp="{{$card.lp}}"
+                        illustrator="{{$card.illustrator}}"
+                >
+                </dct-card>
             {{ end }}
         {{ end }}
         {{ $counter = add $counter 1 }}
