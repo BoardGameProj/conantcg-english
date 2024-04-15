@@ -41,6 +41,10 @@ menu:
       name: "Cards"
       url: "/cards/"
       weight: 2
+    - identifier: "credits"
+      name: "Credits"
+      url: "/credits/"
+      weight: 99
     #- identifier: "howtoplay"
     #  name: "How to play"
     #  url: "/how-to-play/"
