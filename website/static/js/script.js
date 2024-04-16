@@ -102,7 +102,8 @@ class Card extends HTMLElement {
         const img = document.createElement('img')
         const popoverId = `card-${this.data.id}`
         img.src = this.data.image
-        img.classList.add('cursor-pointer')
+        img.setAttribute('loading', 'lazy')
+        img.classList.add('cursor-pointer border rounded-md')
         img.width = 160
         img.alt = `${this.data.title} (${this.data.cardNum})`
         this.appendChild(img)
@@ -198,7 +199,7 @@ class Card extends HTMLElement {
 >
     <div class="flex items-start">
         <div class="cardoverlay-image self-stretch">
-            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" style="max-width: unset;">
+            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: unset;" loading="lazy" />
         </div>
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 450px;max-width: 450px;">
