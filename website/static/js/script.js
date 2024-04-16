@@ -103,7 +103,7 @@ class Card extends HTMLElement {
         const popoverId = `card-${this.data.id}`
         img.src = this.data.image
         img.setAttribute('loading', 'lazy')
-        img.classList.add('cursor-pointer border rounded-md')
+        img.classList.add('cursor-pointer', 'border', 'rounded-md')
         img.width = 160
         img.alt = `${this.data.title} (${this.data.cardNum})`
         this.appendChild(img)
