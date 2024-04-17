@@ -45,6 +45,7 @@ class Card extends HTMLElement {
         product: '',
         color: '',
         rarity: '',
+        promoDetails: '',
         categories: [],
         cost: 0,
         ap: 0,
@@ -67,6 +68,7 @@ class Card extends HTMLElement {
         this.data.ap = this.getAttribute('ap')
         this.data.lp = this.getAttribute('lp')
         this.data.image = this.getAttribute('image')
+        this.data.promoDetails = this.getAttribute('promo-details')
         this.data.illustrator = this.getAttribute('illustrator') || ''
         this.data.feature = this.hasAttribute('feature') && this.getAttribute('feature').length ? this.getAttribute('feature') : '–'
 
@@ -85,6 +87,9 @@ class Card extends HTMLElement {
             }
             if (setting === 'cardNum') {
                 setting = 'card-num'
+            }
+            if (setting === 'promoDetails') {
+                setting = 'promo-details'
             }
             if (!value) {
                 continue
@@ -146,6 +151,7 @@ class Card extends HTMLElement {
             type: 'Card Category',
             feature: 'Effect',
             product: 'Product',
+            promoDetails: 'Distribution',
             color: 'Color',
             rarity: 'Rarity',
             categories: 'Categories',
@@ -159,7 +165,11 @@ class Card extends HTMLElement {
         if (this.data.type !== 'Case') {
             fields.push('feature')
         }
-        fields.push('product')
+        if (this.data.rarity === 'PR') {
+            fields.push('promoDetails')
+        } else {
+            fields.push('product')
+        }
         fields.push('color')
         fields.push('rarity')
         if (this.data.type === 'Character') {
