@@ -1,6 +1,6 @@
 ---
 title: Credits
-layout: credits
+layout: content
 ---
 
 Creating this website takes a lot of time and effort. Thanks to all supporters!
