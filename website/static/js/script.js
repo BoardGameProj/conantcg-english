@@ -188,8 +188,8 @@ class Card extends HTMLElement {
         let content = ''
         for (const key of fields) {
             let value = this.data[key]
-            if (key === 'categories') {
-                // Categories: keep words on one line, and join with comma
+            if (Array.isArray(value)) {
+                // Array values: keep words on one line, and join with comma
                 value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
             }
             if (key === 'feature') {
@@ -197,7 +197,7 @@ class Card extends HTMLElement {
             }
             content += `<div class="flex justify-between py-1 lg:py-0">
                     <div class="text-start font-bold">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key}">${value}</div>
+                    <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;
         }
 

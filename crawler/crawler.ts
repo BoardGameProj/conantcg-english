@@ -22,6 +22,12 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
         }
         delete cards[data.id][key]
     }
+    // Make color an array, as there are multi-color stages
+    const colorList = []
+    for (const c of data.color.split(',')) {
+        colorList.push(c)
+    }
+    cards[data.id].color = colorList
 
     const imagePath = __dirname + '/../data/images/cards/' + data.id + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {

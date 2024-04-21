@@ -147,8 +147,10 @@
         {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
-        {{ $color := or (T (printf "colors.%s" .color )) .color }}
         {{ $feature := or (T (printf "cards.%s.feature" $card.card_num )) $card.feature }}
+
+        {{ $colors := slice }}
+        {{range .color}}{{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}{{end}}
 
         {{ $categories := slice }}
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
@@ -166,7 +168,7 @@
                         type="{{ $type }}"
                         feature="{{ $feature }}"
                         product="{{ $product }}"
-                        color="{{ $color }}"
+                        color="{{ delimit $colors "," }}"
                         rarity="{{ $card.rarity }}"
                         categories="{{delimit $categories ","}}"
                         cost="{{$card.cost}}"
