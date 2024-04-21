@@ -45,6 +45,12 @@ menu:
       name: "Cards"
       url: "/cards/"
       weight: 3
+    - identifier: "discord"
+      name: "Discord"
+      params:
+        external: 1
+      url: "https://discord.gg/SEyXExU9TJ"
+      weight: 90
     - identifier: "credits"
       name: "Credits"
       url: "/credits/"
