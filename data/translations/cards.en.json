@@ -277,7 +277,7 @@
     "cards.0058.title": "Shuichi Akai",
     "cards.0058.feature": "When this Character performs an action on a Case, it gains {Bullet} (When this Characters performs its Action, your opponent cannot Guard.) until the end of the turn.",
     "cards.0052.title": "Shuichi Akai",
-    "cards.0052.feature": "[Partner: Red][Once per Turn] When a Character on your Stage performs an action on a Case, choose up to 1 Character with 7 cost or lower and put it to Sleep.\n\n[Once per Turn] Choose up to 1 red Character, until the end of this turn it gains +1000 AP",
+    "cards.0052.feature": "[Partner: Red][Once per Turn] When a Character on your Stage performs an action on a Case, choose up to 1 Character with 7 cost or lower and remove it.\n\n[Once per Turn] Choose up to 1 red Character, until the end of this turn it gains +1000 AP",
     "cards.0055.title": "Subaru Okiya",
-    "cards.0055.feature": "[During your opponents Turn][When removed from the Scene] You may give your opponent 1 Evidence. If you do, choose up to 1 level 5 or lower Character and remove it.\n\n[Insight] Choose up to 1 Character and remove it."
+    "cards.0055.feature": "[During your opponents Turn][When removed from the Scene] You may give your opponent 1 Evidence. If you do, choose up to 1 level 5 or lower Character and remove it.\n\n[Insight] Choose up to 1 Character and put it to Sleep."
 }
