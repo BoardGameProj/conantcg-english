@@ -161,10 +161,7 @@ class Card extends HTMLElement {
             illustrator: 'Illustrator'
         }
 
-        const fields = ['cardNum', 'type']
-        if (this.data.type !== 'Case') {
-            fields.push('feature')
-        }
+        const fields = ['cardNum', 'type', 'feature']
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
         } else {
