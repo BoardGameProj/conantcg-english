@@ -24,5 +24,10 @@ for (const file of jsonSourceFiles) {
         const additionalContent = JSON.parse(additionalBuffer.toString())
         fileContent = deepmerge(fileContent, additionalContent)
     }
+    if (file === 'products_ja') {
+        fileContent = Object.fromEntries(
+            Object.entries(fileContent).sort(([k1], [k2]) => k1 < k2 ? -1 : 1),
+        )
+    }
     fs.writeFileSync(targetPath, JSON.stringify(fileContent))
 }
