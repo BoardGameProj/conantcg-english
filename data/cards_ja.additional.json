@@ -434,6 +434,38 @@
             "高校生"
         ]
     },
+    "CTP01-PREVIEW-0024": {
+        "id": 299024,
+        "card_id": "0024",
+        "card_num": "0024",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "高校生"
+        ]
+    },
+    "CTP01-PREVIEW-0025": {
+        "id": 299025,
+        "card_id": "0025",
+        "card_num": "0025",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "執事"
+        ]
+    },
     "CTP01-PREVIEW-0026": {
         "id": 299026,
         "card_id": "0026",
@@ -465,6 +497,71 @@
         "feature": "TBD",
         "categories": [
             "高校生"
+        ]
+    },
+    "CTP01-PREVIEW-0029": {
+        "id": 299029,
+        "card_id": "0029",
+        "card_num": "0029",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "警察",
+            "大阪府警"
+        ]
+    },
+    "CTP01-PREVIEW-0030": {
+        "id": 299030,
+        "card_id": "0030",
+        "card_num": "0030",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "警察",
+            "大阪府警"
+        ]
+    },
+    "CTP01-PREVIEW-0031": {
+        "id": 299031,
+        "card_id": "0031",
+        "card_num": "0031",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": []
+    },
+    "CTP01-PREVIEW-0032": {
+        "id": 299032,
+        "card_id": "0032",
+        "card_num": "0032",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["緑"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "警察",
+            "大阪府警"
         ]
     },
     "CTP01-PREVIEW-0033": {
@@ -641,6 +738,30 @@
         "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
         "categories": []
     },
+    "PROMO-PREVIEW-P005": {
+        "id": 1999014,
+        "card_id": "P005",
+        "card_num": "P005",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "パートナー",
+        "rarity": "C",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
+    "PROMO-PREVIEW-P006": {
+        "id": 1999015,
+        "card_id": "P006",
+        "card_num": "P006",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "パートナー",
+        "rarity": "C",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
     "CTP01-PREVIEW-0052": {
         "id": 299052,
         "card_id": "0052",
@@ -697,6 +818,34 @@
         "feature": "TBD",
         "categories": ["大学院生"]
     },
+    "CTP01-PREVIEW-0056": {
+        "id": 299056,
+        "card_id": "0056",
+        "card_num": "0056",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "[Once per Turn] When this Character takes action on a Case, this Character becomes active.",
+        "categories": ["探偵", "高校生", "赤井家"]
+    },
+    "CTP01-PREVIEW-0057": {
+        "id": 299057,
+        "card_id": "0057",
+        "card_num": "0057",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "[Once per Turn] When this Character takes action on a Case, this Character becomes active.",
+        "categories": ["赤井家"]
+    },
     "CTP01-PREVIEW-0058": {
         "id": 299058,
         "card_id": "0058",
@@ -710,6 +859,20 @@
         "lp": "1",
         "feature": "TBD",
         "categories": ["赤井家","FBI"]
+    },
+    "CTP01-PREVIEW-0059": {
+        "id": 299059,
+        "card_id": "0059",
+        "card_num": "0059",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "[On Play] You may give the opponent 1 Evidence. If you do, draw 1 card.",
+        "categories": ["赤井家"]
     },
     "CTP01-PREVIEW-0060": {
         "id": 299060,
@@ -742,6 +905,34 @@
         "categories": [
             "FBI"
         ]
+    },
+    "CTP01-PREVIEW-0063": {
+        "id": 299063,
+        "card_id": "0063",
+        "card_num": "0063",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": "[Cut-In] +2000 AP",
+        "categories": ["探偵", "高校生", "赤井家"]
+    },
+    "CTP01-PREVIEW-0065": {
+        "id": 299065,
+        "card_id": "0065",
+        "card_num": "0065",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
+        "feature": "[During your opponents Turn][Once per Turn] When this Character or a Red Character on your Scene is removed, draw 1 card, then remove 1 card from your hand.\n\n[Insight] Draw 1 card.",
+        "categories": []
     },
     "CTP01-PREVIEW-0066": {
         "id": 299066,
