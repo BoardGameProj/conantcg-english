@@ -181,7 +181,9 @@
     "cards.P002.feature": "[Resolution Phase][Case Closed][Sleep]: If your evidence is equal to or greater than the Evidence Level of your Case card, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved.",
     "cards.P006.title": "Toru Amuro",
     "cards.P006.feature": "[Resolution Phase][Case Closed][Sleep]: If the number of your Evidence is equal to or greater than the Evidence Level of your Case card, you win.\n\n[Assist][Sleep]: Put this into the FILE area. If you have 7 or more cards in your FILE area, your Case becomes Solved.",
-
+    "cards.P005.title": "Shuichi Akai",
+    "cards.P005.feature": "[Resolution Phase][Case Closed][Sleep]: If your evidence is equal to or greater than the Evidence Level of your Case card, you win the game.\n\n[Assist][Sleep]: Move this card into the FILE area. If you have 7 or more cards in your FILE area, your case becomes Solved.",
+    
     "cards.0003.title": "Ran Mori",
     "cards.0003.feature": "When your opponent's character is removed due to Contact with this card, draw 1 card.\n\n[Partner: Blue][Statement][Once per Turn] Remove 1 card from your hand: Until the end of the turn, give this character +1000 AP and {Charge} (This card can use its Action during the turn it is played.)",
     "cards.0010.title": "Genta Kojima",
