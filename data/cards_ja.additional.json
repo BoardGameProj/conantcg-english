@@ -1251,5 +1251,18 @@
         "lp": "1",
         "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
         "categories": []
+    },
+    "PROMO-PREVIEW-P001SSS06": {
+        "id": 399922,
+        "card_id": "P001",
+        "card_num": "P001",
+        "package": "Promo",
+        "promo_details": "Shonen Sunday S (Super) July issue",
+        "color": ["青"],
+        "type": "パートナー",
+        "rarity": "PR",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
     }
 }
