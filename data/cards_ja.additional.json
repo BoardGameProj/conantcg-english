@@ -626,6 +626,22 @@
             "怪盗"
         ]
     },
+    "CTP01-PREVIEW-0037": {
+        "id": 299037,
+        "card_id": "0037",
+        "card_num": "0037",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "SR",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "高校生"
+        ]
+    },
     "CTP01-PREVIEW-0038": {
         "id": 299038,
         "card_id": "0038",
@@ -640,6 +656,22 @@
         "feature": "TBD",
         "categories": [
             "怪盗"
+        ]
+    },
+    "CTP01-PREVIEW-0039": {
+        "id": 299039,
+        "card_id": "0039",
+        "card_num": "0039",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "",
+        "categories": [
+            "高校生"
         ]
     },
     "CTP01-PREVIEW-0040": {
@@ -659,6 +691,38 @@
             "鈴木財閥"
         ]
     },
+    "CTP01-PREVIEW-0041": {
+        "id": 299041,
+        "card_id": "0041",
+        "card_num": "0041",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
+        "feature": "[During your Turn] When there are 3 or more Characters on the opposing Scene, this Character gains +2000 AP.",
+        "categories": [
+            "怪盗"
+        ]
+    },
+    "CTP01-PREVIEW-0042": {
+        "id": 299042,
+        "card_id": "0042",
+        "card_num": "0042",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "4000",
+        "lp": "2",
+        "feature": "TBD",
+        "categories": [
+            "怪盗"
+        ]
+    },
     "CTP01-PREVIEW-0043": {
         "id": 299043,
         "card_id": "0043",
@@ -676,6 +740,20 @@
             "空手家"
         ]
     },
+    "CTP01-PREVIEW-0044": {
+        "id": 299044,
+        "card_id": "0044",
+        "card_num": "0044",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "7",
+        "ap": "5000",
+        "lp": "2",
+        "feature": "TBD",
+        "categories": ["小説家"]
+    },
     "CTP01-PREVIEW-0045": {
         "id": 299045,
         "card_id": "0045",
@@ -690,19 +768,36 @@
         "feature": "TBD",
         "categories": []
     },
-    "CTP01-PREVIEW-0044": {
-        "id": 299044,
-        "card_id": "0044",
-        "card_num": "0044",
+    "CTP01-PREVIEW-0046": {
+        "id": 299046,
+        "card_id": "0046",
+        "card_num": "0046",
         "package": "CT-P01「探偵たちの切札」",
         "color": ["白"],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "7",
-        "ap": "5000",
-        "lp": "2",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
         "feature": "TBD",
-        "categories": ["小説家"]
+        "categories": []
+    },
+    "CTP01-PREVIEW-0048": {
+        "id": 299048,
+        "card_id": "0048",
+        "card_num": "0048",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["白"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "探偵",
+            "高校生"
+        ]
     },
     "CTP01-PREVIEW-0049": {
         "id": 299049,
@@ -920,6 +1015,20 @@
         "feature": "[Cut-In] +2000 AP",
         "categories": ["探偵", "高校生", "赤井家"]
     },
+    "CTP01-PREVIEW-0064": {
+        "id": 299064,
+        "card_id": "0064",
+        "card_num": "0064",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["赤"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": ["棋士","赤井家"]
+    },
     "CTP01-PREVIEW-0065": {
         "id": 299065,
         "card_id": "0065",
@@ -1034,6 +1143,30 @@
         "type": "事件",
         "rarity": "C",
         "feature": "When this Case is Solved, your opponent draws one card."
+    },
+    "CTP01-PREVIEW-P001SEC": {
+        "id": 399090,
+        "card_id": "P001",
+        "card_num": "P001",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["青"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
+    "CTP01-PREVIEW-P001SEC2": {
+        "id": 399091,
+        "card_id": "P001",
+        "card_num": "P001",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["青"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
     },
     "PROMO-PREVIEW-P014": {
         "id": 399019,
