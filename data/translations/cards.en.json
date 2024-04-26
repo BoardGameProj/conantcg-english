@@ -332,6 +332,8 @@
     "cards.0077.feature": "[During your opponents Turn][Once per Turn] When this character or a Yellow character on your Scene is removed, draw 1 card.\n\n[Insight] Choose up to 1 character and put it to Sleep.",
     "cards.0079.title": "Wataru Takagi",
     "cards.0079.feature": "[Bond: Miwako Sato][During your Turn] +3000 AP\n\n[Insight] Choose up to 1 character and remove it.",
+    "cards.0070.title": "Azusa Enomoto",
+    "cards.0070.feature": "[Partner: Yellow] This character cannot perform an action or guard. Characters on the opposite Scene can not target this character for action.\n\n[On Play] Choose up to 1 character with level 7 or lower and put it to Sleep. As long as this character is on the Scene, the chosen character will not become Active during the Auto Phase.",
     "cards.0074.title": "Azusa Enomoto",
     "cards.0074.feature": "[Cut-In] +2000 AP",
     "cards.0073.title": "Toru Amuro",
