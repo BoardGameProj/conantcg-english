@@ -348,5 +348,9 @@
     "cards.0035.title": "Conan and Heiji, Code of Love",
     "cards.0051.title": "Kaitou Kid's Teleportation Magic",
     "cards.0068.title": "Just Like a 17 Years Old Crime Scene",
-    "cards.0084.title": "The Tense Tea Party"
+    "cards.0084.title": "The Tense Tea Party",
+    "cards.0085.title": "Vodka",
+    "cards.0085.feature": "[Cut-In] Draw 2 cards and remove 1 card from your hand.",
+    "cards.0086.title": "Gin",
+    "cards.0086.feature": "[Cut-In][During your own Turn] During contact, remove all characters in the Contact."
 }

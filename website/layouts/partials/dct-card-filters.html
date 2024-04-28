@@ -12,6 +12,6 @@
         {{range .Site.Data.types_ja}}{{ $types = $types | append (or (T (printf "types.%s" . )) .) }}{{end}}
         <dct-filter-option title="Type" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></dct-filter-option>
     </div>
-    {{ $rarities := slice "D" "C" "CP" "R" "RP" "SR" "SRP" "SEC" "PR" }}
+    {{ $rarities := slice "D" "C" "R" "SR" "SEC" "PR" }}
     <dct-filter-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></dct-filter-option>
 </div>

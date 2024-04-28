@@ -1367,6 +1367,38 @@
         "type": "事件",
         "rarity": "C"
     },
+    "CTP01-PREVIEW-0085": {
+        "id": 299085,
+        "card_id": "0085",
+        "card_num": "0085",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["黒"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "0",
+        "feature": "TBD",
+        "categories": [
+            "黒の組織"
+        ]
+    },
+    "CTP01-PREVIEW-0086": {
+        "id": 299086,
+        "card_id": "0086",
+        "card_num": "0086",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["黒"],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "黒の組織"
+        ]
+    },
     "CTP01-PREVIEW-0087": {
         "id": 299087,
         "card_id": "0087",
