@@ -315,7 +315,7 @@
     "cards.0046.title": "Konosuke Jii",
     "cards.0046.feature": "[During your opponent's Turn][When removed from the Scene] Choose up to 1 Character; until the end of this Turn, it's original LP becomes 0.\n\n[Insight] Draw 1 card.",
     "cards.0037.title": "Aoko Nakamori",
-    "cards.0037.feature": "Mislead 1\n\n[Once per Turn] When a Character on the opposing Scene deduces or takes action, you may remove the top 5 cards from your deck. If you do, that Character's original LP and AP become 0 until the end of Turn.",
+    "cards.0037.feature": "{Mislead 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)\n\n[Once per Turn] When a Character on the opposing Scene deduces or takes action, you may remove the top 5 cards from your deck. If you do, that Character's original LP and AP become 0 until the end of Turn.",
     "cards.0048.title": "Saguru Hakuba",
     "cards.0048.feature": "[Cut-In] +2000 AP",
     "cards.0012.title": "Ai Haibara",
@@ -352,5 +352,9 @@
     "cards.0085.title": "Vodka",
     "cards.0085.feature": "[Cut-In] Draw 2 cards and remove 1 card from your hand.",
     "cards.0086.title": "Gin",
-    "cards.0086.feature": "[Cut-In][During your own Turn] During contact, remove all Characters in the Contact."
+    "cards.0086.feature": "[Cut-In][During your own Turn] During contact, remove all Characters in the Contact.",
+    "cards.0081.title": "Juzo Megure",
+    "cards.0081.feature": "{Mislead 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)\n\n[On Play] Your opponent reveals 1 card from the top of their deck. Then, choose whether the card is placed at the top or the bottom of the deck.\n\n[Insight] Draw 1 card.",
+    "cards.0076.title": "Hyoue Kuroda",
+    "cards.0076.feature": "[Statement][Once per Turn][Rest] Remove 1 card from your hand: Choose up to 1 level 8 or lower Yellow character other than this character. Until the end of this turn it gains {Charge}[Character] (The Character can chose a Character and immediately take Action)."
 }

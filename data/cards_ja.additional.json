@@ -1252,8 +1252,8 @@
     },
     "CTP01-PREVIEW-0075": {
         "id": 299075,
-        "card_id": "0072",
-        "card_num": "0072",
+        "card_id": "0075",
+        "card_num": "0075",
         "package": "CT-P01「探偵たちの切札」",
         "color": ["黄"],
         "type": "キャラ",
@@ -1266,6 +1266,23 @@
             "警察",
             "警視庁",
             "公安"
+        ]
+    },
+    "CTP01-PREVIEW-0076": {
+        "id": 299076,
+        "card_id": "0076",
+        "card_num": "0076",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["黄"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "警察",
+            "警視庁"
         ]
     },
     "CTP01-PREVIEW-0077": {
@@ -1329,6 +1346,23 @@
         "rarity": "C",
         "cost": "6",
         "ap": "6000",
+        "lp": "1",
+        "feature": "TBD",
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
+    },
+    "CTP01-PREVIEW-0081": {
+        "id": 299081,
+        "card_id": "0081",
+        "card_num": "0081",
+        "package": "CT-P01「探偵たちの切札」",
+        "color": ["黄"],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "4",
+        "ap": "3000",
         "lp": "1",
         "feature": "TBD",
         "categories": [
