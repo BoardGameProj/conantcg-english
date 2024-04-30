@@ -1,6 +1,7 @@
 import {fetchHtmlDom} from "./html";
 import * as fs from "fs";
 import {Readable} from "stream";
+import config from "./config";
 
 const url = 'https://www.takaratomy.co.jp/products/conan-cardgame/cardlist'
 
@@ -45,14 +46,14 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     }
     cards[data.card_num].color = colorList
 
-    const imagePath = __dirname + '/../data/images/cards/' + data.card_num + '.ja.jpg'
+    const imagePath = config.dataDir + '/images/cards/' + data.card_num + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
         const res = await fetch(cardImage.getAttribute('src'))
         responseToReadable(res).pipe(fs.createWriteStream(imagePath))
     }
 }
 
-const targetPath = __dirname + '/../data/cards_ja.json'
+const targetPath = config.dataDir + '/cards_ja.json'
 const sortedCards = Object.fromEntries(Object.entries(cards).sort())
 fs.writeFileSync(targetPath, JSON.stringify(sortedCards, null, '    '))
 
