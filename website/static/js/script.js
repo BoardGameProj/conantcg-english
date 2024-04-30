@@ -36,6 +36,19 @@ class FilterOption extends HTMLElement {
 }
 customElements.define('dct-filter-option', FilterOption);
 
+function kebabize(str) {
+    let result = ''; // Use a single string to build the result
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        // Check if the character is uppercase
+        if (char === char.toUpperCase() && i !== 0) { // Add a dash before uppercase letters, except the first character
+            result += '-';
+        }
+        result += char.toLowerCase(); // Add the lowercase version of the current character to the result
+    }
+    return result;
+}
+
 class Card extends HTMLElement {
     data = {
         id: '',
@@ -50,6 +63,8 @@ class Card extends HTMLElement {
         cost: 0,
         ap: 0,
         lp: 0,
+        caseDifficultyFirst: 0,
+        caseDifficultySecond: 0,
         illustrator: '',
         cardText: '',
     }
@@ -70,6 +85,8 @@ class Card extends HTMLElement {
         this.data.lp = this.getAttribute('lp')
         this.data.image = this.getAttribute('image')
         this.data.promoDetails = this.getAttribute('promo-details')
+        this.data.caseDifficultyFirst = this.getAttribute('case-difficulty-first')
+        this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
         this.data.illustrator = this.getAttribute('illustrator') || ''
 
         // Combine feature, hirameki, cut in into card text
@@ -91,16 +108,10 @@ class Card extends HTMLElement {
             if (setting === 'categories' && value !== null) {
                 value = value.join(',')
             }
-            if (setting === 'cardNum') {
-                setting = 'card-num'
-            }
-            if (setting === 'promoDetails') {
-                setting = 'promo-details'
-            }
             if (!value) {
                 continue
             }
-            this.setAttribute('data-filter-' + setting, value)
+            this.setAttribute('data-filter-' + kebabize(setting), value)
             this.removeAttribute(setting)
         }
 
@@ -164,7 +175,9 @@ class Card extends HTMLElement {
             cost: 'Cost',
             ap: 'AP',
             lp: 'LP',
-            illustrator: 'Illustrator'
+            illustrator: 'Illustrator',
+            caseDifficultyFirst: 'Case Difficulty (going first)',
+            caseDifficultySecond: 'Case Difficulty (going second)'
         }
 
         const fields = ['cardNum', 'type', 'cardText']
@@ -186,6 +199,10 @@ class Card extends HTMLElement {
         }
         if (this.data.type === 'Character' || this.data.type === 'Partner') {
             fields.push('lp')
+        }
+        if (this.data.type === 'Case') {
+            fields.push('caseDifficultyFirst')
+            fields.push('caseDifficultySecond')
         }
         if (this.data.illustrator.length) {
             fields.push('illustrator')
