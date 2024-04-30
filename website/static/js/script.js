@@ -143,7 +143,7 @@ class Card extends HTMLElement {
             document.querySelector(overlaySelector),
             img,
             {
-                placement: this.getAttribute('popover-placement'),
+                placement: 'auto',
                 triggerType: 'none',
                 onShow: () => {
                     document.querySelector('body').classList.add('dct-card-shown')
@@ -159,6 +159,7 @@ class Card extends HTMLElement {
             popover._initialized = false
             popover.init()
             popover.show()
+            window.dispatchEvent(new Event('resize'));
         })
     }
 

@@ -77,14 +77,6 @@
          */
         display: none;
     }
-    [data-popover][data-popper-placement="left"] > .flex {
-        flex-direction: row-reverse;
-
-        .cardoverlay-image {
-            order: 2;
-        }
-    }
-
 
     :root {
         --dct-card-filters-grid-columns: 2;
@@ -106,10 +98,6 @@
                 inset: 0 !important;
                 transform: unset !important;
                 background: url('/img/tiles.png') repeat;
-            }
-
-            &[data-popper-placement="left"] > .flex {
-                flex-direction: column-reverse !important;
             }
 
             > .flex {
@@ -161,7 +149,6 @@
         {{ with or (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
             {{ with .Resize "300x" }}
                 <dct-card
-                        popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
                         id="{{ printf "%.0f" $card.id }}"
                         image="{{ .RelPermalink }}"
                         title="{{ $title }}"
