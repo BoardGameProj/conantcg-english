@@ -28,6 +28,8 @@ for (const file of jsonSourceFiles) {
         fileContent = Object.fromEntries(
             Object.entries(fileContent).sort(([k1], [k2]) => k1 < k2 ? -1 : 1),
         )
+        // remove promo cards as they are searchable by filtering for PR
+        delete fileContent["products.プロモーションカード"]
     }
     fs.writeFileSync(targetPath, JSON.stringify(fileContent))
 }
