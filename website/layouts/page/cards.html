@@ -144,10 +144,10 @@
         {{ $counter := 0 }}
         {{ range site.Data.cards_ja }}
         {{ $card := . }}
-        {{ $title := or (T (printf "cards.%s.title" .card_num )) .title }}
+        {{ $title := or (T (printf "cards.%s.title" .card_id )) .title }}
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
-        {{ $feature := or (T (printf "cards.%s.feature" $card.card_num )) $card.feature }}
+        {{ $feature := or (T (printf "cards.%s.feature" .card_id )) $card.feature }}
 
         {{ $colors := slice }}
         {{range .color}}{{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}{{end}}
@@ -156,7 +156,7 @@
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
 
         {{ $popoverLeft := ge (mod $counter $perRow) (sub $perRow 3) }}
-        {{ with or (resources.Get (printf "cards/%.0f.ja.jpg" .id)) (resources.Get "img/fallback.jpg") }}
+        {{ with or (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
             {{ with .Resize "300x" }}
                 <dct-card
                         popover-placement="{{ if $popoverLeft }}left{{ else }}right{{ end }}"
