@@ -1,39 +1,54 @@
 import {fetchHtmlDom} from "./html";
 import * as fs from "fs";
 import {Readable} from "stream";
-import {finished} from 'stream/promises';
 
 const url = 'https://www.takaratomy.co.jp/products/conan-cardgame/cardlist'
+
+const responseToReadable = (response: Response) => {
+    const reader = response.body.getReader();
+    const rs = new Readable();
+    rs._read = async () => {
+        const result = await reader.read();
+        if(!result.done){
+            rs.push(Buffer.from(result.value));
+        }else{
+            rs.push(null);
+            return;
+        }
+    };
+    return rs;
+};
 
 const result = await fetchHtmlDom(url)
 const cards = {};
 for (const cardImage of result.querySelectorAll('#cardList img')) {
     const data = JSON.parse(cardImage.getAttribute('data') || '')
-    cards[data.id] = data
+    cards[data.card_num] = data
 
     // Combine category fields...
-    cards[data.id].categories = []
+    cards[data.card_num].categories = []
     for (const key of ['category1', 'category2', 'category3']) {
         if (data[key] !== null) {
             // data error? category1 can contain multiple categories separated by comma
             for (const c of data[key].split(',')) {
-                cards[data.id].categories.push(c)
+                cards[data.card_num].categories.push(c)
             }
         }
-        delete cards[data.id][key]
+        delete cards[data.card_num][key]
     }
     // Make color an array, as there are multi-color stages
     const colorList = []
-    for (const c of data.color.split(',')) {
-        colorList.push(c)
+    if (data.color) {
+        for (const c of data.color.split('')) {
+            colorList.push(c)
+        }
     }
-    cards[data.id].color = colorList
+    cards[data.card_num].color = colorList
 
-    const imagePath = __dirname + '/../data/images/cards/' + data.id + '.ja.jpg'
+    const imagePath = __dirname + '/../data/images/cards/' + data.card_num + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
         const res = await fetch(cardImage.getAttribute('src'))
-        const fileStream = fs.createWriteStream(imagePath, { flags: 'w' })
-        await finished(Readable.fromWeb(res.body).pipe(fileStream))
+        responseToReadable(res).pipe(fs.createWriteStream(imagePath))
     }
 }
 
@@ -79,10 +94,15 @@ fs.writeFileSync(__dirname + '/../data/products_ja.json', JSON.stringify(product
 // Separate colors
 const colorsFileContent = {}
 for (const c of Object.values(cards)) {
-    const key = `colors.${c.color}`
-    if (key in colorsFileContent) {
+    if (!c.color) {
         continue
     }
-    colorsFileContent[key] = c.color
+    for (const color of c.color) {
+        const key = `colors.${color}`
+        if (key in colorsFileContent) {
+            continue
+        }
+        colorsFileContent[key] = color
+    }
 }
 fs.writeFileSync(__dirname + '/../data/colors_ja.json', JSON.stringify(colorsFileContent, null, '    '))
