@@ -51,6 +51,7 @@ class Card extends HTMLElement {
         ap: 0,
         lp: 0,
         illustrator: '',
+        cardText: '',
     }
 
     // The browser calls this method when the element is
@@ -70,7 +71,12 @@ class Card extends HTMLElement {
         this.data.image = this.getAttribute('image')
         this.data.promoDetails = this.getAttribute('promo-details')
         this.data.illustrator = this.getAttribute('illustrator') || ''
-        this.data.feature = this.hasAttribute('feature') && this.getAttribute('feature').length ? this.getAttribute('feature') : '–'
+
+        // Combine feature, hirameki, cut in into card text
+        const feature = this.hasAttribute('feature') ? this.getAttribute('feature') : ''
+        const hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
+        const cutIn = this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : ''
+        this.data.cardText = [feature, hirameki, cutIn].filter((s) => s !== '').join('\n\n');
 
         // Prepare filter attributes
         const ignoreFilterAttributes = ['image']
@@ -79,10 +85,10 @@ class Card extends HTMLElement {
                 continue
             }
             let value = this.data[setting]
-            if (['feature', 'illustrator'].includes(setting) && ['', '-'].includes(value)) {
+            if (['cardText', 'illustrator'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
             }
-            if (setting === 'categories') {
+            if (setting === 'categories' && value !== null) {
                 value = value.join(',')
             }
             if (setting === 'cardNum') {
@@ -149,7 +155,7 @@ class Card extends HTMLElement {
         const labels = {
             cardNum: 'Card ID',
             type: 'Card Category',
-            feature: 'Effect',
+            cardText: 'Effect',
             product: 'Product',
             promoDetails: 'Distribution',
             color: 'Color',
@@ -161,7 +167,7 @@ class Card extends HTMLElement {
             illustrator: 'Illustrator'
         }
 
-        const fields = ['cardNum', 'type', 'feature']
+        const fields = ['cardNum', 'type', 'cardText']
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
         } else {
@@ -192,8 +198,11 @@ class Card extends HTMLElement {
                 // Array values: keep words on one line, and join with comma
                 value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
             }
-            if (key === 'feature') {
+            if (key === 'cardText') {
                 value = value.replaceAll('\n', '<br>')
+                if (value === '') {
+                    value = '–'
+                }
             }
             content += `<div class="flex justify-between py-1 lg:py-0">
                     <div class="text-start font-bold">${labels[key]}</div>

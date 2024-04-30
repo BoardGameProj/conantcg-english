@@ -148,6 +148,8 @@
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
         {{ $feature := or (T (printf "cards.%s.feature" .card_id )) $card.feature }}
+        {{ $hirameki := or (T (printf "cards.%s.hirameki" .card_id )) $card.hirameki }}
+        {{ $cut_in := or (T (printf "cards.%s.cut_in" .card_id )) $card.cut_in }}
 
         {{ $colors := slice }}
         {{range .color}}{{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}{{end}}
@@ -167,6 +169,8 @@
                         promo-details="{{ $card.promo_details }}"
                         type="{{ $type }}"
                         feature="{{ $feature }}"
+                        hirameki="{{ $hirameki }}"
+                        cut-in="{{ $cut_in }}"
                         product="{{ $product }}"
                         color="{{ delimit $colors "," }}"
                         rarity="{{ $card.rarity }}"
