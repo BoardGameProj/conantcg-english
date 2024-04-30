@@ -49,6 +49,13 @@ function kebabize(str) {
     return result;
 }
 
+const registeredForRendering = []
+document.addEventListener("DOMContentLoaded", () => {
+    for (const card of registeredForRendering) {
+        card.render();
+    }
+}, {once: true});
+
 class Card extends HTMLElement {
     data = {
         id: '',
@@ -116,7 +123,7 @@ class Card extends HTMLElement {
         }
 
         this.prepareOverlays()
-        this.render()
+        registeredForRendering.push(this)
     }
 
     render() {
