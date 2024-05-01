@@ -76,6 +76,8 @@ class Card extends HTMLElement {
         cardText: '',
     }
 
+    popover = null
+
     // The browser calls this method when the element is
     // added to the DOM.
     connectedCallback() {
@@ -122,7 +124,6 @@ class Card extends HTMLElement {
             this.removeAttribute(setting)
         }
 
-        this.prepareOverlays()
         registeredForRendering.push(this)
     }
 
@@ -139,31 +140,21 @@ class Card extends HTMLElement {
         //shadow.appendChild(wrapper)
 
         const overlaySelector = '#DCT-Overlays #' + popoverId
-        const popover = new Popover(
-            document.querySelector(overlaySelector),
-            img,
-            {
-                placement: 'auto',
-                triggerType: 'none',
-                onShow: () => {
-                    document.querySelector('body').classList.add('dct-card-shown')
-                },
-                onHide: () => {
-                    document.querySelector('body').classList.remove('dct-card-shown')
-                }
-            }
-        )
         // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
         img.addEventListener('click', () => {
-            popover._targetEl = document.querySelector(overlaySelector)
-            popover._initialized = false
-            popover.init()
-            popover.show()
+            this.prepareOverlays(img)
+            this.popover._targetEl = document.querySelector(overlaySelector)
+            this.popover._initialized = false
+            this.popover.init()
+            this.popover.show()
             window.dispatchEvent(new Event('resize'));
         })
     }
 
-    prepareOverlays() {
+    prepareOverlays(img) {
+        if (this.popover) {
+            return
+        }
         if (!document.getElementById('DCT-Overlays')) {
             const container = document.createElement('div')
             container.id = 'DCT-Overlays'
@@ -255,6 +246,20 @@ class Card extends HTMLElement {
     </div>
     <div data-popper-arrow></div>
 </div>`
+        this.popover = new Popover(
+            document.querySelector(`#DCT-Overlays #card-${this.data.id}`),
+            img,
+            {
+                placement: 'auto',
+                triggerType: 'none',
+                onShow: () => {
+                    document.querySelector('body').classList.add('dct-card-shown')
+                },
+                onHide: () => {
+                    document.querySelector('body').classList.remove('dct-card-shown')
+                }
+            }
+        )
     }
 }
 
