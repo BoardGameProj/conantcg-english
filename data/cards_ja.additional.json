@@ -133,7 +133,7 @@
         "color": ["青"],
         "type": "キャラ",
         "rarity": "PR",
-        "hirameki": "[Insight] Draw 1 card.",
+        "hirameki": "Draw 1 card.",
         "cost": "5",
         "ap": "6000",
         "lp": "1",
