@@ -146,7 +146,7 @@
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
 
         {{ with or (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
-            {{ with .Resize "300x" }}
+            {{ with .Resize "250x" }}
                 <dct-card
                         id="{{ printf "%.0f" $card.id }}"
                         image="{{ .RelPermalink }}"
