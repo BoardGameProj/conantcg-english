@@ -37,9 +37,9 @@ Once keywords are explained, we can remove the additional explanations in bracke
 * `【パートナー#COLOR#】` => `[Partner: #COLOR#]`
 * `【ターン1】` => `[Once per Turn]`
 * `【登場時】` => `[On Play]`
-* `【自分ターン中】` => `[During your Turn]`
-* `【相手ターン中】` => `[During opponents Turn]`
-* `【現場リムーブ時】` => `[When removed from the Scene]`
+* `【自分ターン中】` => `[Your Turn]`
+* `【相手ターン中】` => `[Opponent's Turn]`
+* `【現場リムーブ時】` => `[Removed from Scene]`
 * `【宣言】` => `Statement`
 * `【解決編】` => `[Resolution Phase]`
 * `【事件解決】` => `[Case Closed]`
