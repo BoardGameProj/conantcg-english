@@ -17,11 +17,11 @@ function processKeywords(text) {
     // "square bracket" keywords, e.g. [On Play]
     const keywords = {
         'Case Closed': {class: 'bg-black text-white text-sm p-1', tooltip: ''},
-        'Resolution Phase': {class: 'bg-black text-white text-sm p-1', tooltip: ''},
+        'Assist': {class: 'bg-black text-white text-sm p-1'},
+        'Resolution Phase': {class: 'bg-black text-white text-sm p-1', tooltip: 'This Ability can only be used when the case is in Resolution Phase.'},
         'Statement': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: ''},
         '(Partner: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="partner-color partner-color--$3">$3</span>', tooltip: 'This Ability can be used when your Partner has the color $3.'},
         'Bond: (.*?)': {class: 'text-sm p-1', label: '<span class="bg-black text-white p-1">Bond</span><span class="bg-white text-black p-1">$2</span>', tooltip: 'This Ability can be used when there is a "$2" on your Scene.'},
-        'Assist': {class: 'bg-black text-white text-sm p-1', tooltip: 'Partners can be placed in the FILE Area for the turn to increase the Level threshold of what cards you can play.'},
         'Once per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used once per turn.'},
         'Removed from Scene': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is removed from the Scene.'},
         'On Play': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is played to the Scene.'},
@@ -87,12 +87,12 @@ function processMechanics(text) {
         'Deductions?': {tooltip: 'Put the card to Sleep and gain Evidence based on its LP'},
         'Abilit(y|ies)': {tooltip: '"Ability" refers to the effect of Characters that can be used, when the conditions are met.'},
         'Effects?': {tooltip: 'The term "Effects" refers to the activation of Event cards.'},
-        'Contact': {tooltip: 'Attack on an opposing Slept character'},
-        'Actions?': {tooltip: 'Attack on an opposing case or character.'},
-        'Guard': {tooltip: 'A character is put to Sleep in order to defend against an Action.'},
+        'Contact': {tooltip: 'A Contact occurs, when a Character attacks an opposing Character.'},
+        'Actions?': {tooltip: 'An Action can be targeted against an opposing Case or Character.'},
+        'Guard': {tooltip: 'A Character is put to Sleep in order to defend against an Action.'},
         'Sleep(ing)?': {tooltip: 'Sleeping characters can be targeted for Contact and cannot perform Actions.'},
-        'Stun(ned)?': {tooltip: 'When a Stunned Character would be set to Active, put it to Sleep instead.'},
-        'Investigates?': {tooltip: 'Your opponent reveals top card from their deck and places it at the bottom of the deck in any order.'}
+        'Stun(ned)?': {tooltip: 'When a Stunned Character would be set to Active, it is put to Sleep instead.'},
+        'Investigates?': {tooltip: 'Your opponent reveals the top card from their deck and places it at the bottom of the deck.'}
     }
     for (const mechanic in mechanics) {
         const config = mechanics[mechanic]

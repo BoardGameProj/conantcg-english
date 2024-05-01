@@ -106,7 +106,7 @@ class Card extends HTMLElement {
         if (hirameki !== '') {
             hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('Insight', 'Activates when removed from evidence') + '</span> ' + hirameki
         }
-        let cutIn = this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : ''
+        let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
         this.data.cardText = [feature, hirameki, cutIn].filter((s) => s !== '').join('\n\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
