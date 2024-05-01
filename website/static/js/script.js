@@ -99,10 +99,14 @@ class Card extends HTMLElement {
         this.data.illustrator = this.getAttribute('illustrator') || ''
 
         // Combine feature, hirameki, cut in into card text
-        const feature = this.hasAttribute('feature') ? this.getAttribute('feature') : ''
-        const hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
-        const cutIn = this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : ''
+        let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
+        let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
+        if (hirameki !== '') {
+            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('Insight', 'During Contact, remove this card from your hand to use it.') + '</span> ' + hirameki
+        }
+        let cutIn = this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : ''
         this.data.cardText = [feature, hirameki, cutIn].filter((s) => s !== '').join('\n\n');
+        this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
         // Prepare filter attributes
         const ignoreFilterAttributes = ['image']
@@ -143,11 +147,11 @@ class Card extends HTMLElement {
         // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
         img.addEventListener('click', () => {
             this.prepareOverlays(img)
+            window.dispatchEvent(new Event('resize'))
             this.popover._targetEl = document.querySelector(overlaySelector)
             this.popover._initialized = false
             this.popover.init()
             this.popover.show()
-            window.dispatchEvent(new Event('resize'));
         })
     }
 
@@ -220,7 +224,7 @@ class Card extends HTMLElement {
                     value = '–'
                 }
             }
-            content += `<div class="flex justify-between py-1 lg:py-0">
+            content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;

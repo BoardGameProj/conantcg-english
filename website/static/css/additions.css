@@ -1,0 +1,104 @@
+.prose {
+    max-width: unset;
+}
+
+@media screen and (min-width: 1024px) {
+    .lg\:inline-block {
+        display: inline-block;
+    }
+    .lg\:items-stretch {
+        align-items: stretch;
+    }
+    .lg\:text-base {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .lg\:text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+    .lg\:py-0 {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.bg-cyan-400 {
+    background-color: rgb(34 211 238);
+}
+
+.text-black {
+    color: #000;
+}
+
+/**
+ * Keywords
+ */
+.partner-color {
+    font-weight: bold;
+}
+.partner-color--Red {
+    /* text-red-800 */
+    color: #9B1C1C;
+}
+.partner-color--Yellow {
+    /* text-green-300 */
+    color: #FACA15;
+}
+.partner-color--Green {
+    /* text-green-700 */
+    color: #046C4E;
+}
+.partner-color--Blue {
+    /* text-blue-800 */
+    color: #1E429F;
+}
+.partner-color--White {
+    color: #fff;
+}
+.partner-color--Black {
+    color: #000;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: .8rem;
+    line-height: .9rem;
+    @media screen and (min-width: 1025px) {
+        font-size: 1rem;
+        line-height: 1.1rem;
+        width: 200px;
+    }
+
+    /* reset formating of parent tags, e.g. bold or italic */
+    font-weight: normal;
+    font-style: normal;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    bottom: 100%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
