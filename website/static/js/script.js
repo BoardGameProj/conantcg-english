@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 class Card extends HTMLElement {
     data = {
         id: '',
+        cardId: '',
         type: '',
         cardNum: '',
         title: '',
@@ -82,6 +83,7 @@ class Card extends HTMLElement {
     // added to the DOM.
     connectedCallback() {
         this.data.id = this.getAttribute('id')
+        this.data.cardId = this.getAttribute('card-id')
         this.data.type = this.getAttribute('type')
         this.data.cardNum = this.getAttribute('card-num')
         this.data.title = this.getAttribute('title')
@@ -167,7 +169,8 @@ class Card extends HTMLElement {
         const container = document.getElementById('DCT-Overlays')
 
         const labels = {
-            cardNum: 'Card ID',
+            cardId: 'Card ID',
+            cardNum: 'Card Number',
             type: 'Card Category',
             cardText: 'Effect',
             product: 'Product',
@@ -183,7 +186,7 @@ class Card extends HTMLElement {
             caseDifficultySecond: 'Case Difficulty (going second)'
         }
 
-        const fields = ['cardNum', 'type', 'cardText']
+        const fields = ['cardId', 'cardNum', 'type', 'cardText']
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
         } else {
