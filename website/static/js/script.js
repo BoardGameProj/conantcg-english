@@ -104,7 +104,7 @@ class Card extends HTMLElement {
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
         let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
         if (hirameki !== '') {
-            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('Insight', 'During Contact, remove this card from your hand to use it.') + '</span> ' + hirameki
+            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('Insight', 'Activates when removed from evidence') + '</span> ' + hirameki
         }
         let cutIn = this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : ''
         this.data.cardText = [feature, hirameki, cutIn].filter((s) => s !== '').join('\n\n');
