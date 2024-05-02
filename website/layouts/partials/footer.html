@@ -1,7 +1,7 @@
 <footer class="bg-white dark:bg-warmgray-800 dark:text-white pt-10 pb-12">
   <div class="container mx-auto px-4">
     <p>
-        Website &copy; by <a href="https://twitter.com/saitho95" target="_blank">saitho</a>. Detective Conan &copy; by Gosho Aoyama/Shogakukan (青山 剛昌/小学館). Detective Conan TCG &copy; by TOMY.<br/>
+        Website &copy; by <a href="https://twitter.com/saitho95" target="_blank">saitho</a> (<a href="https://github.com/saitho/conantcg-english" target="_blank">Open Source on GitHub</a>). Detective Conan &copy; by Gosho Aoyama/Shogakukan (青山 剛昌/小学館). Detective Conan TCG &copy; by TOMY.<br/>
         All rights of images belong to their rightful owners. This is a fan website for the Detective Conan Trading Card Game and not affiliated with Gosho Aoyama, Shogakukan or TOMY.<br/>
         Please support the <a href="https://www.takaratomy.co.jp/products/conan-cardgame/" target="_blank">official card game</a>!<br/>
     </p>
@@ -20,26 +20,4 @@
       });
   }
   toggleNav();
-
-  var icon = document.getElementById("icon");
-  if (document.documentElement.classList.contains("dark") || localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      icon.classList.remove("icon-moon");
-      icon.classList.add("icon-sun");
-      document.documentElement.classList.add('dark')
-  } else {
-      document.documentElement.classList.remove('dark')
-  }
-  function toggleDarkMode() {
-    if (document.documentElement.classList.contains('dark')) {
-      icon.classList.remove("icon-sun");
-      icon.classList.add("icon-moon");
-      document.documentElement.classList.remove('dark')
-      localStorage.theme = 'light'
-    } else {
-      icon.classList.remove("icon-moon");
-      icon.classList.add("icon-sun");
-      document.documentElement.classList.add('dark')
-      localStorage.theme = 'dark'
-    }
-  }
 </script>
