@@ -19,16 +19,16 @@ function processKeywords(text) {
         'Case Closed': {class: 'bg-black text-white text-sm p-1', tooltip: ''},
         'Assist': {class: 'bg-black text-white text-sm p-1'},
         'Resolution Phase': {class: 'bg-black text-white text-sm p-1', tooltip: 'This Ability can only be used when the case is in Resolution Phase.'},
-        'Statement': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: ''},
+        'Declare': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: ''},
         '(Partner: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="partner-color partner-color--$3">$3</span>', tooltip: 'This Ability can be used when your Partner has the color $3.'},
         'Bond: (.*?)': {class: 'text-sm p-1', label: '<span class="bg-black text-white p-1">Bond</span><span class="bg-white text-black p-1">$2</span>', tooltip: 'This Ability can be used when there is a "$2" on your Scene.'},
         'Once per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used once per turn.'},
-        'Removed from Scene': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is removed from the Scene.'},
-        'On Play': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is played to the Scene.'},
-        'Your Turn': {class: 'bg-red-700 text-white text-sm p-1', tooltip: 'This Ability can be used during your turn.'},
-        'Opponent\'s Turn': {class: 'bg-yellow-500 text-white text-sm p-1', tooltip: 'This Ability can be used during your opponent\'s turn.'},
+        'When Removed From Scene': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is removed from the Scene.'},
+        'When Played': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is played to the Scene.'},
+        'During Your Turn': {class: 'bg-red-700 text-white text-sm p-1', tooltip: 'This Ability can be used during your turn.'},
+        'During Opponent\'s Turn': {class: 'bg-yellow-500 text-white text-sm p-1', tooltip: 'This Ability can be used during your opponent\'s turn.'},
         'Sleep': {class: 'bg-purple-400 text-white text-sm p-1', label: '$1 <i class="fa-solid"></i>', tooltip: 'The card needs to be put to Sleep, in order to use this Ability.'},
-        'Cut-In': {class: 'text-blue-500', label: '<i class="fa-solid"></i> $1', tooltip: 'You may use this during Contact by removing this card from your hand.'}
+        'Cut In': {class: 'text-blue-500', label: '<i class="fa-solid"></i> $1', tooltip: 'You may use this during Contact by removing this card from your hand.'}
     }
     for (const keyword in keywords) {
         const config = keywords[keyword]
@@ -50,11 +50,12 @@ function processKeywords(text) {
         }
     }
 
-    // "curly cracket" keywords, e.g.  {Swift}
+    // "curly cracket" keywords, e.g.  {Haste}
     const highlightKeywords = {
         '{Mislead (\\d+)}': {tag: 'i', tooltip: "When your opponent's card uses Deduction, you may Sleep this card to make that card lose $2 LP during this Deduction."},
         '{Investigation (\\d+)}': {tag: 'i', tooltip: "Your opponent reveals the top $2 card(s) their deck and places it at the bottom of the deck in any order."},
-        '{Swift}(\\[.*\\])?': {tag: 'b', tooltip: 'This card can use its Action during the Turn it is played.'},
+        '{Haste}(\\[.*\\])?': {tag: 'b', tooltip: 'This card can Deduce or take Action during the Turn it is played.'},
+        '{Rush}(\\[.*\\])?': {tag: 'b', tooltip: 'This card can take Action during the Turn it is played.'},
         '{Bullet}': {tag: 'i', tooltip: 'When this Characters performs its Action, your opponent cannot Guard.'}
     }
     for (const keyword in highlightKeywords) {
