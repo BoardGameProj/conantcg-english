@@ -36,17 +36,17 @@ Once keywords are explained, we can remove the additional explanations in bracke
 
 * `【パートナー#COLOR#】` => `[Partner: #COLOR#]`
 * `【ターン1】` => `[Once per Turn]`
-* `【登場時】` => `[On Play]`
-* `【自分ターン中】` => `[Your Turn]`
-* `【相手ターン中】` => `[Opponent's Turn]`
-* `【現場リムーブ時】` => `[Removed from Scene]`
+* `【登場時】` => `[When Played]`
+* `【自分ターン中】` => `[During Your Turn]`
+* `【相手ターン中】` => `[During Opponent's Turn]`
+* `【現場リムーブ時】` => `[When Removed From Scene]`
 * `【宣言】` => `Statement`
 * `【解決編】` => `[Resolution Phase]`
 * `【事件解決】` => `[Case Closed]`
 * `【アシスト】` => `[Assist]`
 * `【スリープ】` => `[Sleep]`
-* `【カットイン】` => `[Cut-In]`
-* `ヒラメキ` => `[Insight]`
+* `【カットイン】` => `[Cut In]`
+* `ヒラメキ` => `[Spark]`
 
 #### States
 
@@ -54,9 +54,9 @@ Once keywords are explained, we can remove the additional explanations in bracke
 
 #### Abilities
 
-* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `{Swift} (This card can use its Deduction or Action during the turn it is played.)`
+* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `{Haste} (This card can use its Deduction or Action during the turn it is played.)`
 * `〚ミスリード1〛（相手の推理に対し、スリープさせることでLP－1する）` => `{Mislead 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)`
-* `〚突撃〛` => `{Charge} (This card can use its Action during the turn it is played.)`
+* `〚突撃〛` => `{Rush} (This card can use its Action during the turn it is played.)`
   * Note: This may be restricted to [Character] or [Case]
 * `〚ブレット〛（このキャラのアクションはガードできない）` => `{Bullet} (When this Characters performs its Action, your opponent cannot Guard.)`
 * `〚捜査〛` => `{Investigation 1} (Your opponent reveals 1 card from the top of their deck and places it at the bottom of the deck in any order.)`
