@@ -14,9 +14,10 @@ Gather a number of "Evidence" greater than or equal to the "Case Level", then us
 
 ## Card Types
 
-|Case|Partner|Character|Event|
-|---|---|---|---|
-| ![Case card](img/card-case.jpg) | ![Partner card](img/card-partner.jpg) | ![Character card](img/card-character.jpg) | ![Event card](img/card-event.jpg) |
+<table>
+    <tr><th>Case</th><th>Partner</th><th>Character</th><th>Event</th></tr>
+    <tr><td style="text-align: center;vertical-align: middle;"><img src="img/card-case.jpg" alt="Case card" style="display: unset;"/></td><td style="text-align: center;vertical-align: middle;"><img src="img/card-partner.jpg" alt="Partner card" style="display: unset;"/></td><td style="text-align: center;vertical-align: middle;"><img src="img/card-character.jpg" alt="Character card" style="display: unset;"/></td><td style="text-align: center;vertical-align: middle;"><img src="img/card-event.jpg" alt="Event card" style="display: unset;"/></td></tr>
+</table>
 
 There are four card types:
 
