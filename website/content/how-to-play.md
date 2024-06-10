@@ -6,7 +6,7 @@ layout: content
 This is a card game where you, along with characters from "Detective Conan", aim to solve a case before your opponent does.
 Use your very own deck to gather evidence towards your case, take action against the opponent's case, and reach for victory together with your partnered detective!
 
-There is also an unofficial English translation of the Game Rules, which you can find <a href="https://docs.google.com/document/d/1gwbE1MYVNC2ham79NP5ECGwyTm3liRnxL_yU7tUPe6Q/edit" target="_blank">here on Google Drive</a> (thanks to [potatolanes](https://twitter.com/potatolanes)).
+There is also an unofficial English translation of the Game Rules, which you can find [here on Google Drive](https://drive.google.com/drive/folders/1BZEynJiohcfcnQyTDPPjC936GzdK6Isw?usp=sharing) (thanks to [potatolanes](https://twitter.com/potatolanes)).
 
 ## Game Victory Conditions
 
