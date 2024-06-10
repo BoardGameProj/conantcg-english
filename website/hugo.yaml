@@ -45,6 +45,10 @@ menu:
       name: "Cards"
       url: "/cards/"
       weight: 3
+    - identifier: "errata"
+      name: "Errata"
+      url: "/errata/"
+      weight: 4
     - identifier: "discord"
       name: "Discord"
       params:
