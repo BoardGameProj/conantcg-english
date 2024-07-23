@@ -137,6 +137,7 @@
         {{ $product := or (T (printf "products.%s" .package )) .package }}
         {{ $feature := or (T (printf "cards.%s.feature" .card_id )) $card.feature }}
         {{ $hirameki := or (T (printf "cards.%s.hirameki" .card_id )) $card.hirameki }}
+        {{ $henso := or (T (printf "cards.%s.henso" .card_id )) $card.henso }}
         {{ $cut_in := or (T (printf "cards.%s.cut_in" .card_id )) $card.cut_in }}
 
         {{ $colors := slice }}
@@ -157,6 +158,7 @@
                         type="{{ $type }}"
                         feature="{{ $feature }}"
                         hirameki="{{ $hirameki }}"
+                        henso="{{ $henso }}"
                         cut-in="{{ $cut_in }}"
                         case-difficulty-first="{{ $card.difficulty_first }}"
                         case-difficulty-second="{{ $card.difficulty_second }}"

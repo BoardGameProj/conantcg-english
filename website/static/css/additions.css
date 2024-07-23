@@ -31,6 +31,14 @@
     color: #000;
 }
 
+.text-fuchsia-400 {
+    color: rgb(232 121 249);
+}
+
+.bg-fuchsia-400 {
+    background-color: rgb(232 121 249);
+}
+
 /**
  * Keywords
  */
