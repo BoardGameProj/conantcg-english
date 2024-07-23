@@ -1,52 +1,4 @@
 {
-    "D04001": {
-        "categories": ["赤井家","FBI"]
-    },
-    "PR004": {
-        "promo_details": "Starter Deck Purchase Campaign (Normal ver.), Booster Box Purchase Campaign (Foil ver.)"
-    },
-    "PR001": {
-        "promo_details": "Weekly Shonen Sunday 2024 Vol.9"
-    },
-    "PR002": {
-        "promo_details": "Early Trial Event; X Repost Campaign; Detective Debut Festival"
-    },
-    "PR003": {
-        "promo_details": "Movie 27 Ticket Preorder Bonus"
-    },
-    "PR006": {
-        "promo_details": "Weekly Shonen Sunday 2024 Week 21"
-    },
-    "PR012": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR013": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR014": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR015": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR016": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR017": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR018": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR019": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR020": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
-    "PR021": {
-        "promo_details": "Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles"
-    },
     "B01001Sec": {
         "id": 399090,
         "card_id": "P001",
@@ -71,10 +23,102 @@
         "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
         "categories": []
     },
+    "PR004": {
+        "promo_details": "Starter Deck Purchase Campaign (Normal ver.), Booster Box Purchase Campaign (Foil ver.)"
+    },
+    "PR001": {
+        "promo_details": "Weekly Shonen Sunday 2024 Vol.9"
+    },
+    "PR002": {
+        "promo_details": "Early Trial Event; X Repost Campaign; Detective Debut Festival"
+    },
+    "PR003": {
+        "promo_details": "Movie 27 Ticket Preorder Bonus"
+    },
+    "PR006": {
+        "promo_details": "Weekly Shonen Sunday 2024 Week 21"
+    },
+    "PR012": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR013": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR014": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR015": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR016": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR017": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR018": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR019": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR020": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
+    "PR021": {
+        "promo_details": "Promotion Pack Vol 1 (Fan Meetups, 1-Card-Mystery-Game, Deck Limited Battles)"
+    },
     "PR022": {
-        "promo_details": "Coro Coro Comic June 2024 Issue"
+        "promo_details": "Coro Coro Comic June 2024 issue"
     },
     "PR023": {
-        "promo_details": "Shonen Sunday S (Super) July issue"
+        "promo_details": "Shonen Sunday S (Super) July 2024 issue"
+    },
+    "PR024": {
+        "promo_details": "Shonen Sunday S August 2024 issue"
+    },
+    "PR026": {
+        "promo_details": "Promotion Pack Vol 2"
+    },
+    "PR027": {
+        "promo_details": "Promotion Pack Vol 2"
+    },
+    "PR028": {
+        "promo_details": "Promotion Pack Vol 2"
+    },
+    "PR029": {
+        "promo_details": "Promotion Pack Vol 2"
+    },
+    "PR030": {
+        "promo_details": "Promotion Pack Vol 2 (Holo version)"
+    },
+    "PR031": {
+        "promo_details": "Promotion Pack Vol 2 (Holo version)"
+    },
+    "PR032": {
+        "promo_details": "Promotion Pack Vol 2 (Holo version)"
+    },
+    "PR033": {
+        "promo_details": "Promotion Pack Vol 2 (Holo version)"
+    },
+    "PR034": {
+        "id": 399092,
+        "card_num": "PR034",
+        "card_id": "0109",
+        "package": "PRカード",
+        "color": [
+            "緑"
+        ],
+        "type": "キャラ",
+        "rarity": "PR",
+        "cost": "3",
+        "ap": "2000",
+        "lp": "1",
+        "categories": [
+            "高校生"
+        ],
+        "title": "Kazuha Toyama",
+        "cut_in": "[Cut In] AP+1000",
+        "promo_details": "Challenge Battle August 2024 Winner"
     }
 }

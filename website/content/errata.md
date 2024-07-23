@@ -10,10 +10,10 @@ Changes are highlighted in bold.
 
 ### 2024-07-23
 
-* D04010 "Jodie Starling" – Category ~~CIA~~ FBI
-* D04011 "Jodie Starling" – Category ~~CIA~~ FBI
-* D04012 "James Black" – Category ~~CIA~~ FBI
-* D04013 "Andre Camel" – Category ~~CIA~~ FBI
+* D04010 "Jodie Starling" – Wrong type: **~~CIA~~ FBI**
+* D04011 "Jodie Starling" – Wrong type: **~~CIA~~ FBI**
+* D04012 "James Black" – Wrong type: **~~CIA~~ FBI**
+* D04013 "Andre Camel" – Wrong type: **~~CIA~~ FBI**
 
 ### 2024-06-19
 
