@@ -26,6 +26,7 @@ function processKeywords(text) {
         'Bond: (.*?)': {class: 'text-sm p-1', label: '<span class="bg-black text-white p-1">Bond</span><span class="bg-white text-black p-1">$2</span>', tooltip: 'This Ability can be used when there is a "$2" on your Scene.'},
         'File\\((\d+)\\)': {class: 'text-sm p-1', label: '<span class="bg-red text-white p-1">File $2</span>', tooltip: 'This Ability can be used when with a minimum of $2 cards in your File Area.'},
         'Once per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used once per turn.'},
+        'Twice per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used twice per turn.'},
         'When Removed From Scene': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is removed from the Scene.'},
         'When Played': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is played to the Scene.'},
         'During Your Turn': {class: 'bg-red-700 text-white text-sm p-1', tooltip: 'This Ability can be used during your turn.'},
