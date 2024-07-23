@@ -42,29 +42,29 @@
 /**
  * Keywords
  */
-.partner-color {
+.card-color {
     font-weight: bold;
 }
-.partner-color--Red {
+.card-color--Red {
     /* text-red-800 */
     color: #9B1C1C;
 }
-.partner-color--Yellow {
+.card-color--Yellow {
     /* text-green-300 */
     color: #FACA15;
 }
-.partner-color--Green {
+.card-color--Green {
     /* text-green-700 */
     color: #046C4E;
 }
-.partner-color--Blue {
+.card-color--Blue {
     /* text-blue-800 */
     color: #1E429F;
 }
-.partner-color--White {
+.card-color--White {
     color: #fff;
 }
-.partner-color--Black {
+.card-color--Black {
     color: #000;
 }
 
