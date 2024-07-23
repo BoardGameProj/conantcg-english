@@ -58,7 +58,7 @@ function processKeywords(text) {
     // "curly cracket" keywords, e.g.  {Haste}
     const highlightKeywords = {
         '{Mislead (\\d+)}': {tag: 'i', tooltip: "When your opponent's card uses Deduction, you may Sleep this card to make that card lose $2 LP during this Deduction."},
-        '{Investigation (\\d+)}': {tag: 'i', tooltip: "Your opponent reveals the top $2 card(s) their deck and places it at the bottom of the deck in any order."},
+        '{Investigation (X|\\d+)}': {tag: 'i', tooltip: "Your opponent reveals the top $2 card(s) their deck and places it at the bottom of the deck in any order."},
         '{Haste}(\\[.*\\])?': {tag: 'b', tooltip: 'This card can Deduce or take Action during the Turn it is played.'},
         '{Rush}(\\[.*\\])?': {tag: 'b', tooltip: 'This card can take Action during the Turn it is played.'},
         '{Bullet}': {tag: 'i', tooltip: 'When this Characters performs its Action, your opponent cannot Guard.'}
