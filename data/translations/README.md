@@ -40,7 +40,9 @@ Once keywords are explained, we can remove the additional explanations in bracke
 * `【自分ターン中】` => `[During Your Turn]`
 * `【相手ターン中】` => `[During Opponent's Turn]`
 * `【現場リムーブ時】` => `[When Removed From Scene]`
-* `【宣言】` => `Statement`
+* `【変装時】` => `[When Disguised]`
+* `【宣言】` => `[Declare]`
+* `【変装】` => `[Disguise]`
 * `【解決編】` => `[Resolution Phase]`
 * `【事件解決】` => `[Case Closed]`
 * `【アシスト】` => `[Assist]`
