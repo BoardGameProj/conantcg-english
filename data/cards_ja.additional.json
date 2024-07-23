@@ -2,48 +2,6 @@
     "D04001": {
         "categories": ["赤井家","FBI"]
     },
-    "D04002": {
-        "categories": ["赤井家","FBI"]
-    },
-    "D04003": {
-        "categories": ["赤井家","FBI"]
-    },
-    "D04004": {
-        "categories": ["赤井家","FBI"]
-    },
-    "D04005": {
-        "categories": ["探偵","高校生","赤井家"]
-    },
-    "D04006": {
-        "categories": ["棋士","赤井家"]
-    },
-    "D04007": {
-        "categories": ["赤井家"]
-    },
-    "D04008": {
-        "categories": ["探偵","高校生","赤井家"]
-    },
-    "D04009": {
-        "categories": ["CIA"]
-    },
-    "D04010": {
-        "categories": ["CIA"]
-    },
-    "D04011": {
-        "categories": ["CIA"]
-    },
-    "D04012": {
-        "categories": ["CIA"]
-    },
-    "D04013": {
-        "categories": ["CIA"]
-    },
-    "D05002": {
-        "categories": ["警察", "公安"]
-    },
-    "D05003": {
-        "categories": ["警察", "公安"]
-    },
     "PR004": {
         "promo_details": "Starter Deck Purchase Campaign (Normal ver.), Booster Box Purchase Campaign (Foil ver.)"
     },
@@ -54,7 +12,6 @@
         "promo_details": "Early Trial Event; X Repost Campaign; Detective Debut Festival"
     },
     "PR003": {
-        "color": ["緑"],
         "promo_details": "Movie 27 Ticket Preorder Bonus"
     },
     "PR006": {
@@ -114,36 +71,10 @@
         "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
         "categories": []
     },
-    "PROMO-PREVIEW-P001CORO": {
-        "id": 399921,
-        "card_id": "P001",
-        "card_num": "UNKNOWN001",
-        "package": "プロモーションカード",
-        "promo_details": "Coro Coro Comic June 2024 Issue",
-        "color": ["青"],
-        "type": "パートナー",
-        "rarity": "PR",
-        "lp": "1",
-        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
-        "categories": []
+    "PR022": {
+        "promo_details": "Coro Coro Comic June 2024 Issue"
     },
-    "PROMO-PREVIEW-P001SSS06": {
-        "id": 399922,
-        "card_id": "399922",
-        "card_num": "UNKNOWN002",
-        "package": "プロモーションカード",
-        "promo_details": "Shonen Sunday S (Super) July issue",
-        "color": ["青"],
-        "type": "キャラ",
-        "rarity": "PR",
-        "hirameki": "Draw 1 card.",
-        "cost": "5",
-        "ap": "6000",
-        "lp": "1",
-        "categories": [
-            "探偵",
-            "毛利探偵事務所",
-            "少年探偵団"
-        ]
+    "PR023": {
+        "promo_details": "Shonen Sunday S (Super) July issue"
     }
 }

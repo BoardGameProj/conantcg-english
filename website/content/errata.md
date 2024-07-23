@@ -8,6 +8,13 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2024-07-23
+
+* D04010 "Jodie Starling" – Category ~~CIA~~ FBI
+* D04011 "Jodie Starling" – Category ~~CIA~~ FBI
+* D04012 "James Black" – Category ~~CIA~~ FBI
+* D04013 "Andre Camel" – Category ~~CIA~~ FBI
+
 ### 2024-06-19
 
 * The wording "the Turn" is clarified and now says "this Turn", which some cards already did. Affected cards below.
