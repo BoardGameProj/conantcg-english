@@ -1,5 +1,8 @@
 <div class="flex flex-col">
-    <dct-filter-option title="Name" key="title" fieldtype="text"></dct-filter-option>
+    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
+        <dct-filter-option title="Name" key="title" fieldtype="text"></dct-filter-option>
+        <dct-filter-option title="Card ID" key="card-id" fieldtype="text"></dct-filter-option>
+    </div>
 
     {{ $productList := slice }}
     {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
