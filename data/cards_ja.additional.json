@@ -150,23 +150,6 @@
         "promo_details": "Promotion Pack Vol 2 (Holo version)"
     },
     "PR034": {
-        "id": 4399092,
-        "card_num": "PR034",
-        "card_id": "0109",
-        "package": "PRカード",
-        "color": [
-            "緑"
-        ],
-        "type": "キャラ",
-        "rarity": "PR",
-        "cost": "3",
-        "ap": "2000",
-        "lp": "1",
-        "categories": [
-            "高校生"
-        ],
-        "title": "Kazuha Toyama",
-        "cut_in": "[Cut In] AP+1000",
         "promo_details": "Challenge Battle August 2024 Winner"
     }
 }

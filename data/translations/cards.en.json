@@ -642,5 +642,8 @@
     "cards.0255.hirameki": "Your Opponent removes 1 Card from their hand.",
     "cards.0256.title": "Ninzaburo Shiratori",
     "cards.0256.feature": "[Once per Turn] When your opponent uses [Cut-in] or [Disguise], choose up to 1 Character in Contact and give them -1000 AP during this Contact.",
-    "cards.0256.hirameki": "Draw 1 card."
+    "cards.0256.hirameki": "Draw 1 card.",
+    "cards.0257.title": "Ran Mori",
+    "cards.0257.feature": "[When Played] Draw 1 card.",
+    "cards.0257.hirameki": "Choose up to 1 \"Conan Edogawa\" card from your Remove Area and add it to your hand."
 }
