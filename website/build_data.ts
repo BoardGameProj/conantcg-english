@@ -9,6 +9,7 @@ const jsonSourceFiles = [
     'cards_ja',
     'categories_ja',
     'products_ja',
+    'illustrators_ja',
     'colors_ja',
     'types_ja'
 ]

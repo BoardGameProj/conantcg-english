@@ -121,7 +121,7 @@ class Card extends HTMLElement {
                 continue
             }
             let value = this.data[setting]
-            if (['cardText', 'illustrator'].includes(setting) && ['', '-'].includes(value)) {
+            if (['cardText'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
             }
             if (setting === 'categories' && value !== null) {
@@ -214,7 +214,7 @@ class Card extends HTMLElement {
             fields.push('caseDifficultyFirst')
             fields.push('caseDifficultySecond')
         }
-        if (this.data.illustrator.length) {
+        if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
             fields.push('illustrator')
         }
 

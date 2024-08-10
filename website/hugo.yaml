@@ -40,10 +40,13 @@ menu:
     - identifier: "library"
       name: "Library"
       url: "/library/"
-      weight: 2
     - identifier: "cards"
       name: "Cards"
       url: "/cards/"
+      weight: 3
+    - identifier: "Gallery"
+      name: "Gallery"
+      url: "/gallery/"
       weight: 3
     - identifier: "errata"
       name: "Errata"

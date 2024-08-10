@@ -169,7 +169,7 @@
                         cost="{{$card.cost}}"
                         ap="{{$card.ap}}"
                         lp="{{$card.lp}}"
-                        illustrator="{{$card.illustrator}}"
+                        illustrator="{{default "N/A" $card.illustrator}}"
                 >
                 </dct-card>
             {{ end }}
