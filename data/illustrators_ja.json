@@ -1,0 +1,1100 @@
+[
+    {
+        "name": "きゅーぶい",
+        "cardNum": 9,
+        "cards": [
+            {
+                "card_num": "B01005",
+                "title": "江戸川コナン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01005P",
+                "title": "江戸川コナン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01006",
+                "title": "灰原哀",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01006P",
+                "title": "灰原哀",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01018",
+                "title": "宮野志保",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02005",
+                "title": "沖野ヨーコ",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02005P",
+                "title": "沖野ヨーコ",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02048",
+                "title": "鈴木園子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02048P",
+                "title": "鈴木園子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "水季",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B01007",
+                "title": "毛利蘭",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01009",
+                "title": "工藤新一",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01009P",
+                "title": "工藤新一",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02002",
+                "title": "江戸川コナン",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02003",
+                "title": "工藤新一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02003P",
+                "title": "工藤新一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "春宵",
+        "cardNum": 11,
+        "cards": [
+            {
+                "card_num": "B01010",
+                "title": "毛利小五郎",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01010P",
+                "title": "毛利小五郎",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01013",
+                "title": "妃英理",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01013P",
+                "title": "妃英理",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01092",
+                "title": "松田陣平",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01092P",
+                "title": "松田陣平",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02026",
+                "title": "綾小路文麿",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02039",
+                "title": "工藤優作",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02040",
+                "title": "黒羽盗一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02040P",
+                "title": "黒羽盗一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02082",
+                "title": "山村ミサオ",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "朝ケ夜",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B01012",
+                "title": "阿笠博士",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01054",
+                "title": "寺井黄之助",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01054P",
+                "title": "寺井黄之助",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01070",
+                "title": "アンドレ・キャメル",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01071",
+                "title": "ジェイムズ・ブラック",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01074",
+                "title": "羽田秀𠮷",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "あす",
+        "cardNum": 5,
+        "cards": [
+            {
+                "card_num": "B01014",
+                "title": "小嶋元太",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01015",
+                "title": "円谷光彦",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01021",
+                "title": "吉田歩美",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02008",
+                "title": "阿笠博士",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02010",
+                "title": "灰原哀",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "しゅろ",
+        "cardNum": 4,
+        "cards": [
+            {
+                "card_num": "B01017",
+                "title": "本堂瑛祐",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02018",
+                "title": "服部平次",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02018P",
+                "title": "服部平次",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02023",
+                "title": "遠山和葉",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "陽葉ヨウ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B01027",
+                "title": "遠山和葉",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01028",
+                "title": "服部平次",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01028P",
+                "title": "服部平次",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "ほにゃる",
+        "cardNum": 4,
+        "cards": [
+            {
+                "card_num": "B01030",
+                "title": "大岡紅葉",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01030P",
+                "title": "大岡紅葉",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01031",
+                "title": "伊織無我",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01031P",
+                "title": "伊織無我",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "五月とに",
+        "cardNum": 19,
+        "cards": [
+            {
+                "card_num": "B01035",
+                "title": "大滝悟郎",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01036",
+                "title": "遠山銀司郎",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02004",
+                "title": "毛利蘭",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02004P",
+                "title": "毛利蘭",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02030",
+                "title": "服部平蔵",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02041",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02041P",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02043",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02050",
+                "title": "中森銀三",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02057",
+                "title": "沖矢昴",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02057P",
+                "title": "沖矢昴",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02074",
+                "title": "白鳥任三郎",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02074P",
+                "title": "白鳥任三郎",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02076",
+                "title": "大和敢助",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02076P",
+                "title": "大和敢助",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "D02003",
+                "title": "服部平次",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D02008",
+                "title": "服部平蔵",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D06009",
+                "title": "大滝悟郎",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06012",
+                "title": "怪盗キッド",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "紙島育",
+        "cardNum": 5,
+        "cards": [
+            {
+                "card_num": "B01037",
+                "title": "服部静華",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01038",
+                "title": "服部平蔵",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01038P",
+                "title": "服部平蔵",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "D03002",
+                "title": "怪盗キッド",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            },
+            {
+                "card_num": "D03007",
+                "title": "白馬探",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "とくすエマ",
+        "cardNum": 7,
+        "cards": [
+            {
+                "card_num": "B01044",
+                "title": "怪盗キッド",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01044P",
+                "title": "怪盗キッド",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01045",
+                "title": "中森青子",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01087",
+                "title": "風見裕也",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02009",
+                "title": "小林澄子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02080",
+                "title": "三池苗子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02081",
+                "title": "宮本由美",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "春木",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B01047",
+                "title": "黒羽快斗",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01047P",
+                "title": "黒羽快斗",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01050",
+                "title": "怪盗1412号",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02063",
+                "title": "羽田秀𠮷",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02088",
+                "title": "犯人",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02088P",
+                "title": "犯人",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "鯖崎カノ",
+        "cardNum": 5,
+        "cards": [
+            {
+                "card_num": "B01048",
+                "title": "鈴木園子",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01048P",
+                "title": "鈴木園子",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01051",
+                "title": "京極真",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "D05002",
+                "title": "降谷零",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            },
+            {
+                "card_num": "D05009",
+                "title": "風見裕也",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            }
+        ]
+    },
+    {
+        "name": "あず葉",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B01052",
+                "title": "工藤優作",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01053",
+                "title": "工藤有希子",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "D06016",
+                "title": "工藤優作",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "ふうこのすけ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B01056",
+                "title": "白馬探",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02042",
+                "title": "京極真",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02042P",
+                "title": "京極真",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "tateyoko",
+        "cardNum": 5,
+        "cards": [
+            {
+                "card_num": "B01062",
+                "title": "赤井秀一",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01062P",
+                "title": "赤井秀一",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01063",
+                "title": "ジョディ・スターリング",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01065",
+                "title": "沖矢昴",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01065P",
+                "title": "沖矢昴",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "木幡かいと",
+        "cardNum": 4,
+        "cards": [
+            {
+                "card_num": "B01066",
+                "title": "世良真純",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01066P",
+                "title": "世良真純",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01067",
+                "title": "メアリー",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01075",
+                "title": "宮野明美",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "ヒヤ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B01069",
+                "title": "赤井務武",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01088",
+                "title": "黒田兵衛",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01093",
+                "title": "目暮十三",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            }
+        ]
+    },
+    {
+        "name": "hiro",
+        "cardNum": 10,
+        "cards": [
+            {
+                "card_num": "B01081",
+                "title": "安室透",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01081P",
+                "title": "安室透",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01082",
+                "title": "榎本梓",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01084",
+                "title": "降谷零",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01084P",
+                "title": "降谷零",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "D06003",
+                "title": "服部平次",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06004",
+                "title": "服部平次",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06006",
+                "title": "遠山和葉",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06010",
+                "title": "怪盗キッド",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06011",
+                "title": "怪盗キッド",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "望田とうり",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B01089",
+                "title": "佐藤美和子",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01091",
+                "title": "高木渉",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02012",
+                "title": "毛利小五郎",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "伊禮ゆきとし",
+        "cardNum": 10,
+        "cards": [
+            {
+                "card_num": "B01097",
+                "title": "ウォッカ",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01097P",
+                "title": "ウォッカ",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01098",
+                "title": "ジン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01098P",
+                "title": "ジン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02058",
+                "title": "赤井秀一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02058P",
+                "title": "赤井秀一",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02086",
+                "title": "ベルモット",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02086P",
+                "title": "ベルモット",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02087",
+                "title": "キール",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02087P",
+                "title": "キール",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "沖路",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B02006",
+                "title": "仮面ヤイバー",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02006P",
+                "title": "仮面ヤイバー",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "七捺なか",
+        "cardNum": 11,
+        "cards": [
+            {
+                "card_num": "B02019",
+                "title": "伊織無我",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02019P",
+                "title": "伊織無我",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02060",
+                "title": "ジョディ・スターリング",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02072",
+                "title": "降谷零",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02072P",
+                "title": "降谷零",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02075",
+                "title": "諸伏高明",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02075P",
+                "title": "諸伏高明",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02077",
+                "title": "安室透",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02077P",
+                "title": "安室透",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "D05003",
+                "title": "降谷零",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            },
+            {
+                "card_num": "D05007",
+                "title": "松田陣平",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            }
+        ]
+    },
+    {
+        "name": "関",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B02020",
+                "title": "大岡紅葉",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02020P",
+                "title": "大岡紅葉",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02049",
+                "title": "中森青子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "コーリキ",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B02021",
+                "title": "沖田総司",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02047",
+                "title": "工藤有希子",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "kawasima.",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B02022",
+                "title": "鬼丸猛",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02022P",
+                "title": "鬼丸猛",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "kicori",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B02038",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02038P",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02045",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "D03003",
+                "title": "怪盗キッド",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            },
+            {
+                "card_num": "D03005",
+                "title": "中森青子",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            },
+            {
+                "card_num": "D06014",
+                "title": "中森青子",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "いの",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B02044",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02044P",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02066",
+                "title": "メアリー",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02066P",
+                "title": "メアリー",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "D02002",
+                "title": "服部平次",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D02005",
+                "title": "遠山和葉",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            }
+        ]
+    },
+    {
+        "name": "坂本すずき",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B02073",
+                "title": "上原由衣",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "麻亜沙",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B02079",
+                "title": "千葉和伸",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            }
+        ]
+    },
+    {
+        "name": "Line-drawing 青山剛昌",
+        "cardNum": 5,
+        "cards": [
+            {
+                "card_num": "D01001",
+                "title": "江戸川コナン",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D02001",
+                "title": "服部平次",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D03001",
+                "title": "怪盗キッド",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            },
+            {
+                "card_num": "D04001",
+                "title": "赤井秀一",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            },
+            {
+                "card_num": "D05001",
+                "title": "安室透",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            }
+        ]
+    },
+    {
+        "name": "松田硯",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "D01002",
+                "title": "江戸川コナン",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01004",
+                "title": "工藤新一",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01006",
+                "title": "毛利蘭",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01012",
+                "title": "灰原哀",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D06001",
+                "title": "服部平次",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06002",
+                "title": "怪盗キッド",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            }
+        ]
+    },
+    {
+        "name": "しお",
+        "cardNum": 4,
+        "cards": [
+            {
+                "card_num": "D04002",
+                "title": "赤井秀一",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            },
+            {
+                "card_num": "D04003",
+                "title": "赤井秀一",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            },
+            {
+                "card_num": "D04005",
+                "title": "世良真純",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            },
+            {
+                "card_num": "D04010",
+                "title": "ジョディ・スターリング",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            }
+        ]
+    }
+]
