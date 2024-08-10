@@ -63,6 +63,7 @@ class Card extends HTMLElement {
         type: '',
         cardNum: '',
         title: '',
+        originalTitle: '',
         product: '',
         color: '',
         rarity: '',
@@ -87,6 +88,7 @@ class Card extends HTMLElement {
         this.data.type = this.getAttribute('type')
         this.data.cardNum = this.getAttribute('card-num')
         this.data.title = this.getAttribute('title')
+        this.data.originalTitle = this.getAttribute('original-title')
         this.data.product = this.getAttribute('product')
         this.data.color = this.getAttribute('color')
         this.data.rarity = this.getAttribute('rarity')
@@ -247,7 +249,7 @@ class Card extends HTMLElement {
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">
             <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="text-gray-300">&nbsp;${this.data.originalTitle}</small></h3>
                 <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
             </div>
             <div class="px-2 py-2 text-lg lg:text-base">
