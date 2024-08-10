@@ -103,6 +103,7 @@ When you start a game, you place your Partner and Case cards onto the playing ar
 * **Haste**: Characters with "Haste" ability can immediately perform Deductions or Actions during the turn it is played.
 * **Rush**: Characters with "Rush" ability can immediately perform Actions during the turn it is played.
 * **Bullet**: The opponent cannot Guard against Actions by characters with "Bullet" ability.
+* **Disguise**: During Contact, you may swap this card from hand with the Character that is in a Contact. Return the swapped out Character to the bottom of the deck. The "On Disguise" card effect activates when a card is played via Disguise.
 
 ### States
 
