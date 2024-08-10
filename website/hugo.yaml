@@ -40,6 +40,7 @@ menu:
     - identifier: "library"
       name: "Library"
       url: "/library/"
+      weight: 2
     - identifier: "cards"
       name: "Cards"
       url: "/cards/"
