@@ -8,6 +8,12 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2024-08-28
+
+* B01061 **~~Sera Masumi~~ Masumi Sera**
+* B02063 **~~Hideyoshi Haneda~~ Shukichi Haneda**
+* B02064 **~~Hideyoshi Haneda~~ Shukichi Haneda**
+
 ### 2024-07-23
 
 * D04010 "Jodie Starling" – Wrong type: **~~CIA~~ FBI**
