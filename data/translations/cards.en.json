@@ -645,5 +645,14 @@
     "cards.0256.hirameki": "Draw 1 card.",
     "cards.0257.title": "Ran Mori",
     "cards.0257.feature": "[When Played] Draw 1 card.",
-    "cards.0257.hirameki": "Choose up to 1 \"Conan Edogawa\" card from your Remove Area and add it to your hand."
+    "cards.0257.hirameki": "Choose up to 1 \"Conan Edogawa\" card from your Remove Area and add it to your hand.",
+    "cards.0258.title": "The Heisei Holmes",
+    "cards.0399.title": "Momiji Ooka",
+    "cards.0399.feature": "[When Played] You may remove 1 Green Event from your hand. If you do, draw 2 Cards.",
+    "cards.0400.title": "Sonoko Suzuki",
+    "cards.0400.feature": "[Partner: Blue] [When Played] You may remove 1 Card from your hand. If you do, choose up to 2 \"Detective Boys\" Characters of Level 4 or less in your Remove Area and play them in Sleep.",
+    "cards.0401.title": "Masumi Sera",
+    "cards.0401.feature": "[When Played] If you have another Character named \"Subaru Okiya\" or that has \"Akai Family\", this Character gains {Rush} until the end of this Turn. ",
+    "cards.0402.title": "Takaaki Morofushi",
+    "cards.0402.cut_in": "[Cut-In] AP +2000"
 }
