@@ -113,6 +113,9 @@ class Card extends HTMLElement {
             henso = '<span class="text-fuchsia-400 me-1"><i class="fa-solid">🎭</i> ' + createTooltip('Disguise', 'Swap this card from hand with a Character that is in a contact. Return the swapped out Character to the bottom of the deck') + '</span> ' + processKeywords(henso)
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
+        if (cutIn.length) {
+            cutIn = '[Cut In] ' + cutIn
+        }
         this.data.cardText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('\n\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
