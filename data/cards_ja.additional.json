@@ -71,6 +71,54 @@
         "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
         "categories": []
     },
+    "B03139Sec": {
+        "id": 399096,
+        "card_id": "P005",
+        "card_num": "B03139Sec",
+        "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）",
+        "color": ["赤"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
+    "B03139Sec2": {
+        "id": 399097,
+        "card_id": "P005",
+        "card_num": "B03139Sec2",
+        "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）",
+        "color": ["赤"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
+    "B03140Sec": {
+        "id": 399098,
+        "card_id": "P006",
+        "card_num": "B03139Sec",
+        "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）",
+        "color": ["赤"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
+    "B03140Sec2": {
+        "id": 399099,
+        "card_id": "P006",
+        "card_num": "B03139Sec2",
+        "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）",
+        "color": ["黄"],
+        "type": "パートナー",
+        "rarity": "SEC",
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "categories": []
+    },
     "PR004": {
         "promo_details": "Starter Deck Purchase Campaign (Normal ver.), Booster Box Purchase Campaign (Foil ver.)"
     },

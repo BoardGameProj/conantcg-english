@@ -1,7 +1,7 @@
 [
     {
         "name": "きゅーぶい",
-        "cardNum": 9,
+        "cardNum": 12,
         "cards": [
             {
                 "card_num": "B01005",
@@ -47,12 +47,27 @@
                 "card_num": "B02048P",
                 "title": "鈴木園子",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03070",
+                "title": "メアリー",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03070P",
+                "title": "メアリー",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03076",
+                "title": "世良真純",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "水季",
-        "cardNum": 6,
+        "cardNum": 8,
         "cards": [
             {
                 "card_num": "B01007",
@@ -83,12 +98,22 @@
                 "card_num": "B02003P",
                 "title": "工藤新一",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03004",
+                "title": "江戸川コナン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03005",
+                "title": "工藤新一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "春宵",
-        "cardNum": 11,
+        "cardNum": 14,
         "cards": [
             {
                 "card_num": "B01010",
@@ -144,12 +169,27 @@
                 "card_num": "B02082",
                 "title": "山村ミサオ",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03097",
+                "title": "目暮みどり",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03113",
+                "title": "シェリー",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03113P",
+                "title": "シェリー",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "朝ケ夜",
-        "cardNum": 6,
+        "cardNum": 8,
         "cards": [
             {
                 "card_num": "B01012",
@@ -180,12 +220,22 @@
                 "card_num": "B01074",
                 "title": "羽田秀𠮷",
                 "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B03072",
+                "title": "アンドレ・キャメル",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03075",
+                "title": "ジェイムズ・ブラック",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "あす",
-        "cardNum": 5,
+        "cardNum": 6,
         "cards": [
             {
                 "card_num": "B01014",
@@ -211,6 +261,11 @@
                 "card_num": "B02010",
                 "title": "灰原哀",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03002",
+                "title": "江戸川コナン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
@@ -289,7 +344,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 19,
+        "cardNum": 25,
         "cards": [
             {
                 "card_num": "B01035",
@@ -367,6 +422,36 @@
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
             },
             {
+                "card_num": "B03089",
+                "title": "黒田兵衛",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03089P",
+                "title": "黒田兵衛",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03094",
+                "title": "萩原千速",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03094P",
+                "title": "萩原千速",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03115",
+                "title": "ラム",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03115P",
+                "title": "ラム",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
                 "card_num": "D02003",
                 "title": "服部平次",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
@@ -421,7 +506,7 @@
     },
     {
         "name": "とくすエマ",
-        "cardNum": 7,
+        "cardNum": 8,
         "cards": [
             {
                 "card_num": "B01044",
@@ -457,12 +542,17 @@
                 "card_num": "B02081",
                 "title": "宮本由美",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03003",
+                "title": "灰原哀",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "春木",
-        "cardNum": 6,
+        "cardNum": 10,
         "cards": [
             {
                 "card_num": "B01047",
@@ -493,6 +583,26 @@
                 "card_num": "B02088P",
                 "title": "犯人",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03119",
+                "title": "キャンティ",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03121",
+                "title": "コルン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "D07020",
+                "title": "キャンティ",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D07021",
+                "title": "コルン",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
             }
         ]
     },
@@ -550,7 +660,7 @@
     },
     {
         "name": "ふうこのすけ",
-        "cardNum": 3,
+        "cardNum": 7,
         "cards": [
             {
                 "card_num": "B01056",
@@ -566,6 +676,26 @@
                 "card_num": "B02042P",
                 "title": "京極真",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03047",
+                "title": "京極真",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03047P",
+                "title": "京極真",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03054",
+                "title": "鈴木園子",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03054P",
+                "title": "鈴木園子",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
@@ -649,7 +779,7 @@
     },
     {
         "name": "hiro",
-        "cardNum": 10,
+        "cardNum": 12,
         "cards": [
             {
                 "card_num": "B01081",
@@ -675,6 +805,16 @@
                 "card_num": "B01084P",
                 "title": "降谷零",
                 "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B03052",
+                "title": "シャロン・ヴィンヤード",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03052P",
+                "title": "シャロン・ヴィンヤード",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             },
             {
                 "card_num": "D06003",
@@ -705,7 +845,7 @@
     },
     {
         "name": "望田とうり",
-        "cardNum": 3,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B01089",
@@ -721,6 +861,16 @@
                 "card_num": "B02012",
                 "title": "毛利小五郎",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03022",
+                "title": "若狭留美",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03022P",
+                "title": "若狭留美",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
@@ -782,7 +932,7 @@
     },
     {
         "name": "沖路",
-        "cardNum": 2,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B02006",
@@ -793,12 +943,17 @@
                 "card_num": "B02006P",
                 "title": "仮面ヤイバー",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03126",
+                "title": "犯人",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "七捺なか",
-        "cardNum": 11,
+        "cardNum": 21,
         "cards": [
             {
                 "card_num": "B02019",
@@ -844,6 +999,56 @@
                 "card_num": "B02077P",
                 "title": "安室透",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03030",
+                "title": "伊織無我",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03030P",
+                "title": "伊織無我",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03031",
+                "title": "大岡紅葉",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03031P",
+                "title": "大岡紅葉",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03046",
+                "title": "怪盗キッド",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03046P",
+                "title": "怪盗キッド",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03067",
+                "title": "沖矢昴",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03067P",
+                "title": "沖矢昴",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03114",
+                "title": "スコッチ",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03114P",
+                "title": "スコッチ",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             },
             {
                 "card_num": "D05003",
@@ -984,23 +1189,295 @@
     },
     {
         "name": "坂本すずき",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B02073",
                 "title": "上原由衣",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03055",
+                "title": "瀬戸瑞紀",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
     {
         "name": "麻亜沙",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B02079",
                 "title": "千葉和伸",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03051",
+                "title": "怪盗キッド",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            }
+        ]
+    },
+    {
+        "name": "木幡かいと、麻亜沙",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B03006",
+                "title": "結成 少年探偵団",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            }
+        ]
+    },
+    {
+        "name": "松田硯",
+        "cardNum": 12,
+        "cards": [
+            {
+                "card_num": "B03012",
+                "title": "死羅神様",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "D01002",
+                "title": "江戸川コナン",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01004",
+                "title": "工藤新一",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01006",
+                "title": "毛利蘭",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D01012",
+                "title": "灰原哀",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D06001",
+                "title": "服部平次",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D06002",
+                "title": "怪盗キッド",
+                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
+            },
+            {
+                "card_num": "D07001",
+                "title": "シェリー",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D07002",
+                "title": "シェリー",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D07003",
+                "title": "シェリー",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D07004",
+                "title": "ジン",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D07005",
+                "title": "ジン",
+                "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            }
+        ]
+    },
+    {
+        "name": "猫囃子",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B03019",
+                "title": "フサエ・キャンベル",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "PR058",
+                "title": "高木渉",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "紙島 育",
+        "cardNum": 4,
+        "cards": [
+            {
+                "card_num": "B03028",
+                "title": "服部平次",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03028P",
+                "title": "服部平次",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03029",
+                "title": "遠山和葉",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03029P",
+                "title": "遠山和葉",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            }
+        ]
+    },
+    {
+        "name": "ニジハヤシ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B03036",
+                "title": "越水七槻",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03036P",
+                "title": "越水七槻",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "PR050",
+                "title": "ウォッカ",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "株式会社Trys",
+        "cardNum": 16,
+        "cards": [
+            {
+                "card_num": "B03048",
+                "title": "工藤優作",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03048P",
+                "title": "工藤優作",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03049",
+                "title": "黒羽盗一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03049P",
+                "title": "黒羽盗一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03066",
+                "title": "赤井秀一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03066P",
+                "title": "赤井秀一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03084",
+                "title": "降谷零",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03084P",
+                "title": "降谷零",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03085",
+                "title": "諸伏景光",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03085P",
+                "title": "諸伏景光",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03086",
+                "title": "伊達航",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03086P",
+                "title": "伊達航",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03087",
+                "title": "萩原研二",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03087P",
+                "title": "萩原研二",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03088",
+                "title": "松田陣平",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03088P",
+                "title": "松田陣平",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            }
+        ]
+    },
+    {
+        "name": "海老丸べべ",
+        "cardNum": 6,
+        "cards": [
+            {
+                "card_num": "B03110",
+                "title": "ジン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03110P",
+                "title": "ジン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03111",
+                "title": "バーボン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03111P",
+                "title": "バーボン",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03112",
+                "title": "ライ",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03112P",
+                "title": "ライ",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             }
         ]
     },
@@ -1032,42 +1509,6 @@
                 "card_num": "D05001",
                 "title": "安室透",
                 "package": "CT-D05 Case-StartDeck 05 安室透"
-            }
-        ]
-    },
-    {
-        "name": "松田硯",
-        "cardNum": 6,
-        "cards": [
-            {
-                "card_num": "D01002",
-                "title": "江戸川コナン",
-                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
-            },
-            {
-                "card_num": "D01004",
-                "title": "工藤新一",
-                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
-            },
-            {
-                "card_num": "D01006",
-                "title": "毛利蘭",
-                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
-            },
-            {
-                "card_num": "D01012",
-                "title": "灰原哀",
-                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
-            },
-            {
-                "card_num": "D06001",
-                "title": "服部平次",
-                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
-            },
-            {
-                "card_num": "D06002",
-                "title": "怪盗キッド",
-                "package": "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド"
             }
         ]
     },
