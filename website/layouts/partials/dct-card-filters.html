@@ -15,7 +15,7 @@
         <dct-filter-option title="Type" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></dct-filter-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $rarities := slice "D" "C" "CP" "R" "RP" "SR" "SRP" "SEC" "PR" }}
+        {{ $rarities := slice "D" "C" "CP" "R" "RP" "SR" "SRP" "SRCP" "SEC" "PR" }}
         <dct-filter-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></dct-filter-option>
         {{ $illustratorNames := slice }}
         {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
