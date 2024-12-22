@@ -8,6 +8,11 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2024-12-22
+
+* B03033 "Kazuha Tomoya"  Wrong turn marker: **~~[During Opponent's Turn]~~ [During Your Turn]**
+* B03126 "Cultprit" Wrong Spark/Hirameki effect: **~~Your opponent may not look at the Evidence gained through this Action.~~ Prevent your opponent from gaining Evidence during this Action.**
+
 ### 2024-08-28
 
 * B01061 **~~Sera Masumi~~ Masumi Sera**
