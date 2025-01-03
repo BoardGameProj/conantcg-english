@@ -84,6 +84,8 @@ module:
       target: "static/webfonts"
     - source: "./node_modules/@zachleat/filter-container"
       target: "static/js/filter-container"
+    - source: "./node_modules/@saithodev/dom-filters"
+      target: "static/js/dom-filters"
     - source: "static/js/script.js"
       target: "static/js/script.js"
     - source: "static/css/additions.css"
