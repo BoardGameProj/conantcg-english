@@ -4,32 +4,6 @@
 
 <!-- <p class="prose prose-2xl dark:text-white text-2xl my-4">Note: Set 2 is not fully revealed. I'm adding new cards regularly when they are revealed.</p> -->
 
-<template id="domfilters-template-select">
-    <div class="flex flex-col lg:flex-row w-full mb-1">
-        <legend data-set-data-text="title"></legend>
-        <div data-target-field="replace"></div>
-    </div>
-</template>
-<template id="domfilters-template-text">
-    <div class="flex flex-col lg:flex-row w-full mb-1">
-        <legend data-set-data-text="title"></legend>
-        <div data-target-field="replace"></div>
-    </div>
-</template>
-<template id="domfilters-template-checkbox">
-    <div class="flex flex-col lg:flex-row w-full mb-1">
-        <legend data-set-data-text="title"></legend>
-        <div class="bg-white">
-            <template data-target-field>
-                <label>
-                    <input data-setup-input class="hidden" />
-                    <span class="px-4 p-1 bg-white cursor-pointer" style="border: 1px solid black;" data-set-text-value></span>
-                </label>
-            </template>
-        </div>
-    </div>
-</template>
-
 <style>
     /* Progressively enhance the JS-only form from a disabled-ish state */
     filter-container:not(:defined) form {
@@ -37,7 +11,7 @@
         pointer-events: none;
     }
 
-    domfilters-option {
+    dct-filter-option {
         legend {
             background: grey;
             display: inline-block;
@@ -67,7 +41,7 @@
             padding-left: 0.5rem;
         }
 
-        legend + div > div {
+        legend + div {
             display: flex;
             flex-wrap: wrap;
             column-gap: .5rem;
@@ -206,6 +180,5 @@
     </div>
 </filter-container>
 
-<script type="module" src="js/dom-filters/script.js"></script>
 <script type="module" src="js/filter-container/filter-container.js"></script>
 {{ end }}
