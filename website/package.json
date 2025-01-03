@@ -1,9 +1,9 @@
 {
   "name": "conantcg-website",
   "devDependencies": {
-    "bun-types": "latest",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
+    "bun-types": "latest",
     "concurrently": "^8.2.2",
     "postcss": "^8.5.1",
     "postcss-cli": "^11.0.0",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "@saithodev/dom-filters": "git+https://github.com/saitho/dom-filters",
     "@zachleat/filter-container": "git+https://github.com/saitho/filter-container#feature/string-match-mode",
     "deepmerge": "^4.3.1",
     "flowbite": "^2.5.2"
