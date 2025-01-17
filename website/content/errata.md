@@ -8,6 +8,10 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2025-01-18
+
+* Clarify condition on dual color cases: - **~~When this case is solved~~ When this Case enters Resolution Phase**
+
 ### 2024-12-22
 
 * B03033 "Kazuha Tomoya"  Wrong turn marker: **~~[During Opponent's Turn]~~ [During Your Turn]**
