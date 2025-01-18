@@ -129,7 +129,10 @@ class Card extends HTMLElement {
             if (['cardText'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
             }
-            if (setting === 'categories' && value !== null) {
+            if (setting === 'categories') {
+                if (!value || (value.length === 1 && value[0] === '')) {
+                    value = ['None']
+                }
                 value = value.join(',')
             }
             if (!value) {
