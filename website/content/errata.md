@@ -8,6 +8,11 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2025-02-15
+
+* B03113 "Sherry"  **Choose up to 1 ~~Level 5~~ Level 6 or lower Black Character**
+* B03116 "Vodka"  This card should not have a Spark effect.
+
 ### 2025-01-18
 
 * Clarify condition on dual color cases: - **~~When this case is solved~~ When this Case enters Resolution Phase**
