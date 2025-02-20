@@ -2,5 +2,6 @@
     "types.パートナー": "パートナー",
     "types.キャラ": "キャラ",
     "types.イベント": "イベント",
-    "types.事件": "事件"
+    "types.事件": "事件",
+    "types.null": null
 }
