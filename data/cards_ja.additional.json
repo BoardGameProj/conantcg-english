@@ -1,2 +1,40 @@
 {
+  "PR093": {
+    "id": 1103,
+    "card_id": "0484",
+    "title": "安室透",
+    "card_num": "PR094",
+    "package": "PRカード",
+    "color": [
+      "黄"
+    ],
+    "type": "キャラ",
+    "rarity": "PR",
+    "cost": "8",
+    "ap": "7000",
+    "lp": "2",
+    "feature": null,
+    "drawing": null,
+    "flavor_txt": null,
+    "difficulty_first": null,
+    "difficulty_second": null,
+    "illustrator": null,
+    "copyright": "©青山剛昌／小学館  ©TOMY",
+    "hirameki": null,
+    "cut_in": null,
+    "q_a": null,
+    "linkto": null,
+    "contain": "",
+    "henso": null,
+    "created_at": "2025-01-21T09:16:15.000000Z",
+    "updated_at": "2025-01-27T04:50:17.000000Z",
+    "rcp_showhide": 1,
+    "rcp_limit": 3,
+    "rcp_caution": null,
+    "release_date": null,
+    "categories": [
+      "探偵",
+      "喫茶ポアロ"
+    ]
+  }
 }

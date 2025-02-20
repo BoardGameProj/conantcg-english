@@ -21,7 +21,7 @@
     "categories.怪盗": "Phantom Thief",
     "categories.警視庁": "Metropolitan Police Department",
     "categories.鈴木財閥": "Suzuki Group",
-    "categories.喫茶ポアロ": "Cafe Poirot",
+    "categories.喫茶ポアロ": "Café Poirot",
     "categories.群馬県警": "Gunma Prefectural Police",
     "categories.大学院生": "Graduate University Student",
     "categories.赤井家": "Akai Family",
@@ -47,5 +47,8 @@
     "categories.ボディガード": "Bodyguard",
     "categories.北海道警": "Hokkaido Prefectural Police",
     "categories.神奈川県警": "Kanagawa Prefectural Police",
-    "categories.静岡県警": "Shizuoka Prefectural Police"
+    "categories.静岡県警": "Shizuoka Prefectural Police",
+    "categories.シマリス": "Chipmunk",
+    "categories.鷹": "Hawk",
+    "categories.家政婦": "Housekeeper"
 }
