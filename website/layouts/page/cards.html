@@ -161,6 +161,7 @@
         {{ $title := or (T (printf "cards.%s.title" .card_id )) .title }}
         {{ $type := or (T (printf "types.%s" .type )) .type }}
         {{ $product := or (T (printf "products.%s" .package )) .package }}
+        {{ $contain := or (T (printf "contains.%s" $card.card_num )) $card.contain }}
         {{ $feature := or (T (printf "cards.%s.feature" .card_id )) $card.feature }}
         {{ $hirameki := or (T (printf "cards.%s.hirameki" .card_id )) $card.hirameki }}
         {{ $henso := or (T (printf "cards.%s.henso" .card_id )) $card.henso }}
@@ -181,7 +182,7 @@
                         original-title="{{ $card.title }}"
                         card-id="{{ $card.card_id }}"
                         card-num="{{ $card.card_num }}"
-                        promo-details="{{ $card.promo_details }}"
+                        promo-details="{{ $contain }}"
                         type="{{ $type }}"
                         feature="{{ $feature }}"
                         hirameki="{{ $hirameki }}"
