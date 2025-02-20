@@ -28,6 +28,7 @@ function hasExactLocalizationKey(targetKey: string, translationKeys: string[]): 
     return false
 }
 
+let ret = 0
 for (const fileName in files) {
     const originData = JSON.parse(fs.readFileSync(config.dataDir + '/' + fileName).toString())
     const translationFile = fileName.replace(/_ja\.json$/, '.en.json')
@@ -42,10 +43,12 @@ for (const fileName in files) {
         }
         if (!hasAnyLocalizationKey(localizationPrefix, translationKeys)) {
             console.warn(`No translation defined for data with id ${entry[files[fileName].idKey]} (looking for "${localizationPrefix}") ${referenceLink}`)
+            ret = 1
         }
         for (const key of files[fileName].requireKeys) {
             if (!hasExactLocalizationKey(localizationPrefix + key, translationKeys)) {
                 console.warn(`Missing translation key "${localizationPrefix + key}" for data with id ${entry[files[fileName].idKey]} (looking for "${localizationPrefix}") ${referenceLink}`)
+                ret = 1
             }
         }
         for (const key of files[fileName].requireKeysIfNotEmpty) {
@@ -54,7 +57,9 @@ for (const fileName in files) {
             }
             if (!hasExactLocalizationKey(localizationPrefix + key, translationKeys)) {
                 console.warn(`Missing translation key "${localizationPrefix + key}" for data with id ${entry[files[fileName].idKey]} (looking for "${localizationPrefix}") ${referenceLink}`)
+                ret = 1
             }
         }
     }
 }
+process.exit(ret)

@@ -1,0 +1,41 @@
+name: update card data
+
+on:
+  schedule:
+    - cron: "0 21 * * 6" # every saturday at 9pm
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        working-directory: crawler
+        run: bun i
+      - name: Run crawler
+        working-directory: crawler
+        run: bun run crawler.ts
+      - name: Configure git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git config --global --type bool push.autoSetupRemote true
+          git switch -C gha-update
+      - name: Push to Git
+        run: |
+          git add data
+          git commit -m "chore: update data"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  createPullRequest:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+    needs: update
+    steps:
+      - name: create pull request
+        run: gh pr create -B main -H gha-update --title 'Automated card data update' --body 'Created by Github action' -d -a "saitho"
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
