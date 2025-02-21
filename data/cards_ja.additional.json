@@ -1,9 +1,12 @@
 {
-  "PR093": {
+  "PR052": {
+    "type": "キャラ"
+  },
+  "PR096": {
     "id": 1103,
     "card_id": "0484",
     "title": "安室透",
-    "card_num": "PR094",
+    "card_num": "PR096",
     "package": "PRカード",
     "color": [
       "黄"
