@@ -30,7 +30,9 @@ for (const file of jsonSourceFiles) {
             Object.entries(fileContent).sort(([k1], [k2]) => k1 < k2 ? -1 : 1),
         )
         // remove promo cards as they are searchable by filtering for PR
-        delete fileContent["products.プロモーションカード"]
+        delete fileContent["products.PRカード"]
+    } else if (file === 'types_ja') {
+        delete fileContent['types.null']
     }
     fs.writeFileSync(targetPath, JSON.stringify(fileContent))
 }
