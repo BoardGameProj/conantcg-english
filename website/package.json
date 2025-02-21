@@ -19,11 +19,11 @@
   "scripts": {
     "start": "concurrently bun:watch:*",
     "watch:tw": "bun build:tw --watch",
-    "watch:hugo": "hugo server",
+    "watch:hugo": "patch -N themes/vnovel/layouts/partials/analytics.html vnovel_patch.patch; hugo server",
     "build": "bun build:tw && bun build:data && bun build:i18n && bun build:hugo",
     "build:i18n": "bun build_i18n.ts",
     "build:data": "bun build_data.ts",
     "build:tw": "tailwindcss -i ./themes/vnovel/assets/css/main.css -o ./themes/vnovel/assets/css/style.css",
-    "build:hugo": "hugo --minify"
+    "build:hugo": "patch -N themes/vnovel/layouts/partials/analytics.html vnovel_patch.patch; hugo --minify"
   }
 }
