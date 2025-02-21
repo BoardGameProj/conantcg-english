@@ -1,5 +1,126 @@
 [
     {
+        "name": "Line-drawing 青山剛昌",
+        "cardNum": 23,
+        "cards": [
+            {
+                "card_num": "B01001Sec1",
+                "title": "江戸川コナン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B01001Sec2",
+                "title": "江戸川コナン",
+                "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B02016Sec1",
+                "title": "服部平次",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02016Sec2",
+                "title": "服部平次",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02035Sec1",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B02035Sec2",
+                "title": "怪盗キッド",
+                "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B03139Sec1",
+                "title": "赤井秀一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03139Sec2",
+                "title": "赤井秀一",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03140Sec1",
+                "title": "安室透",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B03140Sec2",
+                "title": "安室透",
+                "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04001",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04001P",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04001Sec1",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04001Sec2",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04002",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04002P",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04002Sec1",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04002Sec2",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "D01001",
+                "title": "江戸川コナン",
+                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
+            },
+            {
+                "card_num": "D02001",
+                "title": "服部平次",
+                "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D03001",
+                "title": "怪盗キッド",
+                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
+            },
+            {
+                "card_num": "D04001",
+                "title": "赤井秀一",
+                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            },
+            {
+                "card_num": "D05001",
+                "title": "安室透",
+                "package": "CT-D05 Case-StartDeck 05 安室透"
+            }
+        ]
+    },
+    {
         "name": "きゅーぶい",
         "cardNum": 12,
         "cards": [
@@ -67,7 +188,7 @@
     },
     {
         "name": "水季",
-        "cardNum": 8,
+        "cardNum": 10,
         "cards": [
             {
                 "card_num": "B01007",
@@ -108,6 +229,16 @@
                 "card_num": "B03005",
                 "title": "工藤新一",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04003P",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04004P",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
@@ -552,7 +683,7 @@
     },
     {
         "name": "春木",
-        "cardNum": 10,
+        "cardNum": 14,
         "cards": [
             {
                 "card_num": "B01047",
@@ -595,6 +726,26 @@
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             },
             {
+                "card_num": "B04076",
+                "title": "萩原千速",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04076P",
+                "title": "萩原千速",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04081",
+                "title": "横溝重悟",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04081P",
+                "title": "横溝重悟",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
                 "card_num": "D07020",
                 "title": "キャンティ",
                 "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
@@ -608,7 +759,7 @@
     },
     {
         "name": "鯖崎カノ",
-        "cardNum": 5,
+        "cardNum": 7,
         "cards": [
             {
                 "card_num": "B01048",
@@ -624,6 +775,16 @@
                 "card_num": "B01051",
                 "title": "京極真",
                 "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B04071",
+                "title": "風見裕也",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04074",
+                "title": "降谷零",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             },
             {
                 "card_num": "D05002",
@@ -660,7 +821,7 @@
     },
     {
         "name": "ふうこのすけ",
-        "cardNum": 7,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B01056",
@@ -696,6 +857,16 @@
                 "card_num": "B03054P",
                 "title": "鈴木園子",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04052P",
+                "title": "諸星大",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04071P",
+                "title": "風見裕也",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
@@ -845,7 +1016,7 @@
     },
     {
         "name": "望田とうり",
-        "cardNum": 5,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B01089",
@@ -871,6 +1042,26 @@
                 "card_num": "B03022P",
                 "title": "若狭留美",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04069",
+                "title": "佐藤美和子",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04069P",
+                "title": "佐藤美和子",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04070",
+                "title": "高木渉",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04070P",
+                "title": "高木渉",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
@@ -1153,7 +1344,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 6,
+        "cardNum": 10,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1174,6 +1365,26 @@
                 "card_num": "B02066P",
                 "title": "メアリー",
                 "package": "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）"
+            },
+            {
+                "card_num": "B04030",
+                "title": "黒羽快斗",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04030P",
+                "title": "黒羽快斗",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04031",
+                "title": "中森青子",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04031P",
+                "title": "中森青子",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             },
             {
                 "card_num": "D02002",
@@ -1232,12 +1443,52 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 12,
+        "cardNum": 20,
         "cards": [
             {
                 "card_num": "B03012",
                 "title": "死羅神様",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04003",
+                "title": "工藤新一",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04004",
+                "title": "毛利蘭",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04017",
+                "title": "服部平次",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04018",
+                "title": "遠山和葉",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04051",
+                "title": "宮野明美",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04051P",
+                "title": "宮野明美",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04052",
+                "title": "諸星大",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04074P",
+                "title": "降谷零",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             },
             {
                 "card_num": "D01002",
@@ -1298,7 +1549,7 @@
     },
     {
         "name": "猫囃子",
-        "cardNum": 2,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B03019",
@@ -1306,15 +1557,30 @@
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
             },
             {
+                "card_num": "B04008",
+                "title": "灰原哀",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
                 "card_num": "PR058",
                 "title": "高木渉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR083",
+                "title": "中森青子",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR089",
+                "title": "中森青子",
                 "package": "PRカード"
             }
         ]
     },
     {
         "name": "紙島 育",
-        "cardNum": 4,
+        "cardNum": 8,
         "cards": [
             {
                 "card_num": "B03028",
@@ -1335,12 +1601,32 @@
                 "card_num": "B03029P",
                 "title": "遠山和葉",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04017P",
+                "title": "服部平次",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04018P",
+                "title": "遠山和葉",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04032",
+                "title": "白馬探",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04032P",
+                "title": "白馬探",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
     {
         "name": "ニジハヤシ",
-        "cardNum": 3,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B03036",
@@ -1351,6 +1637,11 @@
                 "card_num": "B03036P",
                 "title": "越水七槻",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04049",
+                "title": "沖矢昴",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             },
             {
                 "card_num": "PR050",
@@ -1447,7 +1738,7 @@
     },
     {
         "name": "海老丸べべ",
-        "cardNum": 6,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B03110",
@@ -1478,37 +1769,106 @@
                 "card_num": "B03112P",
                 "title": "ライ",
                 "package": "CT-P03 Case-Booster 03 黒影の襲来（カットイン）"
+            },
+            {
+                "card_num": "B04048",
+                "title": "羽田秀𠮷",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04048P",
+                "title": "羽田秀𠮷",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04094P",
+                "title": "ジン",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
     {
-        "name": "Line-drawing 青山剛昌",
-        "cardNum": 5,
+        "name": "株式会社HIKE",
+        "cardNum": 3,
         "cards": [
             {
-                "card_num": "D01001",
-                "title": "江戸川コナン",
-                "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
-            },
-            {
-                "card_num": "D02001",
-                "title": "服部平次",
-                "package": "CT-D02 Case-StartDeck 02 服部平次"
-            },
-            {
-                "card_num": "D03001",
-                "title": "怪盗キッド",
-                "package": "CT-D03 Case-StartDeck 03 怪盗キッド"
-            },
-            {
-                "card_num": "D04001",
+                "card_num": "B04046",
                 "title": "赤井秀一",
-                "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             },
             {
-                "card_num": "D05001",
+                "card_num": "B04068",
                 "title": "安室透",
-                "package": "CT-D05 Case-StartDeck 05 安室透"
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04088P",
+                "title": "スコッチ",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            }
+        ]
+    },
+    {
+        "name": "コダイラ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B04047",
+                "title": "世良真純",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04056",
+                "title": "アンドレ・キャメル",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04056P",
+                "title": "アンドレ・キャメル",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            }
+        ]
+    },
+    {
+        "name": "ほかざく",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B04047P",
+                "title": "世良真純",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            }
+        ]
+    },
+    {
+        "name": "株式会社HIKE＋海老丸べべ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B04088",
+                "title": "スコッチ",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            }
+        ]
+    },
+    {
+        "name": "犬",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B04089",
+                "title": "ベルモット",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04089P",
+                "title": "ベルモット",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B04094",
+                "title": "ジン",
+                "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
             }
         ]
     },
@@ -1535,6 +1895,33 @@
                 "card_num": "D04010",
                 "title": "ジョディ・スターリング",
                 "package": "CT-D04 Case-StartDeck 04 赤井秀一"
+            }
+        ]
+    },
+    {
+        "name": "コウサク",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "PR068",
+                "title": "世良真純",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "かわすみ",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "PR082",
+                "title": "遠山和葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR088",
+                "title": "遠山和葉",
+                "package": "PRカード"
             }
         ]
     }
