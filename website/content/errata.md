@@ -8,6 +8,10 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2025-02-26
+
+* B04076 "Chihaya Hagiwara"  Add missing **[Resolution Phase]** marker
+
 ### 2025-02-15
 
 * B03113 "Sherry"  **Choose up to 1 ~~Level 5~~ Level 6 or lower Black Character**
