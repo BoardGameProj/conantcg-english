@@ -1189,7 +1189,7 @@
     "cards.0471.title": "Vermouth",
     "cards.0471.feature": "[Partner: Black][During Your Turn][Once per Turn] When a Character on the opposing Scene is removed by your ability or effect, your may put this Character to sleep. If you do, choose up to 1 Level 7 or lower Character and remove it.",
     "cards.0472.title": "Rye",
-    "cards.0472.feature": "[Partner: Black] {Rush}[Character]\n\nWhen you use a [Cut In] while this Character is in a contact, choose up to 1 Level 3 lower Character in your Remove Area and play it.",
+    "cards.0472.feature": "[Partner: Black] {Rush}[Character]\n\nWhen you use a [Cut In] while this Character is in a contact, choose up to 1 Level 3 lower Black Character in your Remove Area and play it.",
     "cards.0473.title": "Vodka",
     "cards.0473.feature": "[Partner: Black][During Your Turn][Once per Turn] When a Character is removed from your opponent's Scene by your ability or effect, draw 2 cards and remove 1 card from your hand.",
     "cards.0473.hirameki": "Draw 1 card.",

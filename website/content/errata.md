@@ -11,6 +11,7 @@ Changes are highlighted in bold.
 ### 2025-02-27
 
 * B04004 "Ran Mori"  Add missing **[Bond: Shinichi Kudo][Once per Turn]** effect
+* B04090 "Rye"  "choose up to 1 Level 3 lower **Black** Character"
 
 ### 2025-02-26
 
