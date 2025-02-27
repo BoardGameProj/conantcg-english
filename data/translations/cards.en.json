@@ -1050,7 +1050,7 @@
 
 
     "cards.0409.title": "Ran Mori",
-    "cards.0409.feature": "[When Played] Look at the top card of your deck. If that card's name is \"Eri Kisaki\" or \"Shinichi Kudo\", or it has the \"Mori Detective Agency\" trait, you may reveal it and add it to your hand. Otherwise, put it to the bottom of the deck.",
+    "cards.0409.feature": "[When Played] Look at the top card of your deck. If that card's name is \"Eri Kisaki\" or \"Shinichi Kudo\", or it has the \"Mori Detective Agency\" trait, you may reveal it and add it to your hand. Otherwise, put it to the bottom of the deck.\n\n[Bond: Shinichi Kudo][Once per Turn] When a Character on the opposing Scene takes action on a card named \"Shinichi Kudo\" on your Scene, this Character becomes Active.",
     "cards.0410.title": "Conan Edogawa",
     "cards.0410.feature": "[When Played] Draw 2 cards, then remove 2 cards from your hand.\n[Declare][Once per Turn] Choose up to 1 other Character with the \"Mori Detective Agency\" trait and give it AP+1000 until the end of turn.",
     "cards.0411.title": "Shinichi Kudo",

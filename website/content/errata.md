@@ -8,6 +8,10 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2025-02-27
+
+* B04004 "Ran Mori"  Add missing **[Bond: Shinichi Kudo][Once per Turn]** effect
+
 ### 2025-02-26
 
 * B04076 "Chihaya Hagiwara"  Add missing **[Resolution Phase]** marker
