@@ -8,6 +8,13 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+
+### 2025-03-02
+
+* B04004 "Ran Mori"  Removed wrong **[When Played]** effect. Added correct **[Once per Turn]** effect.
+
+[When Played]
+
 ### 2025-02-27
 
 * B04004 "Ran Mori"  Add missing **[Bond: Shinichi Kudo][Once per Turn]** effect
