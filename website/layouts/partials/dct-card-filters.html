@@ -4,6 +4,19 @@
         <domfilters-option title="Card ID" key="card-id" fieldtype="text"></domfilters-option>
     </div>
 
+    <style>
+        domfilters-option[key="rarity"] .flex > div > div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            justify-items: center;
+
+            label, label > span {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
     {{ $productList := slice }}
     {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
@@ -23,7 +36,7 @@
         <domfilters-option title="Trait" key="categories" fieldtype="select" noneValue="All" values="{{$traits| jsonify}}"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $rarities := slice "D" "C" "CP" "R" "RP" "SR" "SRP" "SRCP" "SEC" "PR" }}
+        {{ $rarities := slice "D" "C" "R" "SR" "MR" "SEC" "CP" "PR" "RP" "SRP" "SRCP" }}
         <domfilters-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $colors := slice "Blue" "Green" "White" "Red" "Yellow" "Black" }}
         <domfilters-option title="Color" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
