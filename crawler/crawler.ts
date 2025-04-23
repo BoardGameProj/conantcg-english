@@ -73,6 +73,9 @@ fs.writeFileSync(__dirname + '/../data/categories_ja.json', JSON.stringify(categ
 // Separate type
 const typesFileContent = {}
 for (const c of Object.values(cards)) {
+    if (!c.type) {
+        continue
+    }
     const key = `types.${c.type}`
     if (key in typesFileContent) {
         continue
@@ -99,6 +102,9 @@ for (const c of Object.values(cards)) {
         continue
     }
     for (const color of c.color) {
+        if (color === ',') {
+            continue;
+        }
         const key = `colors.${color}`
         if (key in colorsFileContent) {
             continue
