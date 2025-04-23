@@ -47,6 +47,7 @@ for (const fileName in files) {
         }
         for (const key of files[fileName].requireKeys) {
             if (!hasExactLocalizationKey(localizationPrefix + key, translationKeys)) {
+                translationData[localizationPrefix + key] = ''
                 console.warn(`Missing translation key "${localizationPrefix + key}" for data with id ${entry[files[fileName].idKey]} (looking for "${localizationPrefix}") ${referenceLink}`)
                 ret = 1
             }
@@ -56,10 +57,12 @@ for (const fileName in files) {
                 continue
             }
             if (!hasExactLocalizationKey(localizationPrefix + key, translationKeys)) {
+                translationData[localizationPrefix + key] = ''
                 console.warn(`Missing translation key "${localizationPrefix + key}" for data with id ${entry[files[fileName].idKey]} (looking for "${localizationPrefix}") ${referenceLink}`)
                 ret = 1
             }
         }
     }
+    fs.writeFileSync(config.dataDir + '/translations/' + translationFile, JSON.stringify(translationData, null, 2))
 }
 process.exit(ret)
