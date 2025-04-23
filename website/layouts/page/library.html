@@ -10,7 +10,7 @@
     {{ $imageName := replaceRE "[\\s\"']" "" ($title|lower) }}
     <a href="/cards/?product={{$title}}">
     <article class="bg-white text-center flex flex-col items-center h-full" data-image="{{$imageName}}" style="max-width: 180px">
-        {{ with or (resources.Get (printf "products/%s.jpg" $imageName)) (resources.Get "img/fallback.jpg") }}
+        {{ with or (resources.Get (printf "products/%s.jpg" (index (split . " ") 0)|lower)) (resources.Get "img/fallback.jpg") }}
             {{ with .Resize "180x" }}
                 <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="{{$title}}" class="p-4" />
             {{ end }}
