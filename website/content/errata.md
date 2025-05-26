@@ -8,6 +8,9 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
+### 2025-05-26
+
+* B01050 **~~Kaitou Kid~~ Phantom Thief No. 1412**
 
 ### 2025-03-02
 
