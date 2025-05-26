@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "deepl-node": "^1.18.0",
     "node-html-parser": "^6.1.13"
   }
 }
