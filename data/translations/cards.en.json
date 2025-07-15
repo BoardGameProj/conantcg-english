@@ -1261,7 +1261,7 @@
   "cards.0495.feature": "[When Played] Draw 1 card and remove 1 card from hand.",
   "cards.0495.cut_in": "AP+1000",
   "cards.0496.title": "Mitsuhiko Tsuburaya",
-  "cards.0496.cut_in": "[When Played] If there is another Character with the \"Detective Boys\" trait on your Scene, this Character gains {Rush} until the end of turn.",
+  "cards.0496.cut_in": "AP+2000",
   "cards.0497.title": "Hiroshi Agasa",
   "cards.0497.feature": "[Resolution Phase][When Played] If there is a Character with the \"Detective Boys\" trait on your Scene, choose up to 1 Character and sleep it.",
   "cards.0497.hirameki": "Choose up to 1 Character and sleep it.",

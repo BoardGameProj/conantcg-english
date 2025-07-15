@@ -8,29 +8,9 @@ If you discover some, feel free to message me through Twitter or Discord.
 
 Changes are highlighted in bold.
 
-### 2025-05-26
+### 2025-07-16
 
-* B01050 **~~Kaitou Kid~~ Phantom Thief No. 1412**
-
-### 2025-03-02
-
-* B04004 "Ran Mori"  Removed wrong **[When Played]** effect. Added correct **[Once per Turn]** effect.
-
-[When Played]
-
-### 2025-02-27
-
-* B04004 "Ran Mori"  Add missing **[Bond: Shinichi Kudo][Once per Turn]** effect
-* B04090 "Rye"  "choose up to 1 Level 3 lower **Black** Character"
-
-### 2025-02-26
-
-* B04076 "Chihaya Hagiwara"  Add missing **[Resolution Phase]** marker
-
-### 2025-02-15
-
-* B03113 "Sherry"  **Choose up to 1 ~~Level 5~~ Level 6 or lower Black Character**
-* B03116 "Vodka"  This card should not have a Spark effect.
+* D08018 "Mitsuhiko Tsuburaya" - Wrong Cut-In effect
 
 ### 2025-01-18
 
