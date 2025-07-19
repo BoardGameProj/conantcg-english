@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 31,
+        "cardNum": 33,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -132,6 +132,16 @@
                 "card_num": "B05085Sec2",
                 "title": "諸伏高明",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B06001Sec1",
+                "title": "江戸川コナン",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B06044Sec1",
+                "title": "鉄刃",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
                 "card_num": "D01001",
@@ -575,7 +585,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 27,
+        "cardNum": 28,
         "cards": [
             {
                 "card_num": "B01035",
@@ -686,6 +696,11 @@
                 "card_num": "B05028",
                 "title": "服部平蔵",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B06099",
+                "title": "ラム",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
                 "card_num": "D02003",
@@ -1658,7 +1673,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 27,
+        "cardNum": 29,
         "cards": [
             {
                 "card_num": "B03012",
@@ -1729,6 +1744,16 @@
                 "card_num": "B05092",
                 "title": "諸伏景光",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B06003",
+                "title": "毛利蘭＆江戸川コナン",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B06066",
+                "title": "怪盗キッド＆白馬探",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
                 "card_num": "D01002",
@@ -1886,7 +1911,7 @@
     },
     {
         "name": "ニジハヤシ",
-        "cardNum": 8,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B03036",
@@ -1912,6 +1937,11 @@
                 "card_num": "B05080",
                 "title": "羽田秀𠮷",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B06074",
+                "title": "沖矢昴＆世良真純",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
                 "card_num": "PR050",
@@ -2382,7 +2412,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 4,
+        "cardNum": 6,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2403,6 +2433,16 @@
                 "card_num": "B05108",
                 "title": "バーボン",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B06037",
+                "title": "服部平次＆沖田総司",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B06084",
+                "title": "安室透＆榎本梓",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             }
         ]
     },
@@ -2510,6 +2550,17 @@
                 "card_num": "B05113P",
                 "title": "ベルモット",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            }
+        ]
+    },
+    {
+        "name": "三日月なぎさ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B06098",
+                "title": "ベルモット＆シェリー",
+                "package": "CT-P06 Case-Booster 06 交錯する刃"
             }
         ]
     },
