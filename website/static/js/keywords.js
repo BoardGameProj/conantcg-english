@@ -21,6 +21,7 @@ function processKeywords(text) {
         'Resolution Phase': {class: 'bg-black text-white text-sm p-1', tooltip: 'This Ability can only be used when the case is in Resolution Phase.'},
         'Declare': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: ''},
         '(Partner: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span>', tooltip: 'This Ability can be used when your Partner has the color $3.'},
+        '(Case File: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span>', tooltip: 'This Ability can be used when your Case File has the color $3.'},
         '(Case: )(\\w+) & (\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span> & <span class="card-color card-color--$4">$4</span>', tooltip: 'This Ability can be used when your Case has the color $3 and $4.'},
         '(Case: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span>', tooltip: 'This Ability can be used when your Case has the color $3.'},
         'Bond: (.*?)': {class: 'text-sm p-1', label: '<span class="bg-black text-white p-1">Bond</span><span class="bg-white text-black p-1">$2</span>', tooltip: 'This Ability can be used when there is a "$2" on your Scene.'},
