@@ -24,7 +24,7 @@ function processKeywords(text) {
         '(Case: )(\\w+) & (\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span> & <span class="card-color card-color--$4">$4</span>', tooltip: 'This Ability can be used when your Case has the color $3 and $4.'},
         '(Case: )(\\w+)': {class: 'bg-pink-600 text-white text-sm p-1', label: '$2 <span class="card-color card-color--$3">$3</span>', tooltip: 'This Ability can be used when your Case has the color $3.'},
         'Bond: (.*?)': {class: 'text-sm p-1', label: '<span class="bg-black text-white p-1">Bond</span><span class="bg-white text-black p-1">$2</span>', tooltip: 'This Ability can be used when there is a "$2" on your Scene.'},
-        'File\\((\d+)\\)': {class: 'text-sm p-1', label: '<span class="bg-red text-white p-1">File $2</span>', tooltip: 'This Ability can be used when with a minimum of $2 cards in your File Area.'},
+        'FILE: (\\d+)': {class: 'text-sm p-1', label: '<span class="bg-red text-white p-1">File $2</span>', tooltip: 'This Ability can be used when with a minimum of $2 cards in your File Area.'},
         'Once per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used once per turn.'},
         'Twice per Turn': {class: 'bg-cyan-400 text-white text-sm p-1', tooltip: 'This Ability can be used twice per turn.'},
         'When Removed From Scene': {class: 'bg-blue-500 text-white text-sm p-1', tooltip: 'This Ability is activated, when the card is removed from the Scene.'},
@@ -39,17 +39,26 @@ function processKeywords(text) {
         const config = keywords[keyword]
         let tooltip = config.tooltip || ''
         let label = config.label || '$1'
-        const pattern = new RegExp(`\\[(${keyword})\\]`, 'g')
+        const pattern = new RegExp(`\\[(${keyword})\\]`, 'gi')
+        const nonGlobalPattern = new RegExp(`\\[(${keyword})\\]`, 'i')
         if (tooltip) {
-            const matches = pattern.exec(text)
+            const matches = text.match(pattern)
             if (!matches) {
                 continue
             }
-            for (let i = 0; i < matches.length; i++) {
-                label = label.replaceAll('$' + Number(i+1), matches[(i+1)] || '')
-                tooltip = tooltip.replaceAll('$' + Number(i+1), matches[(i+1)] || '')
+            for (const matchingLine of matches) {
+                const localMatches = nonGlobalPattern.exec(matchingLine)
+                if (!localMatches) {
+                    continue
+                }
+                let localLabel = label
+                let localTooltip = tooltip
+                for (let i = 0; i < localMatches.length; i++) {
+                    localLabel = localLabel.replaceAll('$' + Number(i+1), localMatches[(i+1)] || '')
+                    localTooltip = localTooltip.replaceAll('$' + Number(i+1), localMatches[(i+1)] || '')
+                }
+                text = text.replace(nonGlobalPattern, '<span class="' + config.class + ' me-1">' + createTooltip(localLabel, localTooltip) + '</span>')
             }
-            text = text.replaceAll(pattern, '<span class="' + config.class + ' me-1">' + createTooltip(label, tooltip) + '</span>')
         } else {
             text = text.replaceAll(pattern, '<span class="' + config.class + ' me-1">' + label + '</span>')
         }
