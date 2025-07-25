@@ -1,7 +1,7 @@
 <div class="flex flex-col">
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        <domfilters-option title="Name" key="title" fieldtype="text"></domfilters-option>
-        <domfilters-option title="Card ID" key="card-id" fieldtype="text"></domfilters-option>
+        <domfilters-option title="名称" key="title" fieldtype="text"></domfilters-option>
+        <domfilters-option title="卡牌ID" key="card-id" fieldtype="text"></domfilters-option>
     </div>
 
     <style>
@@ -20,26 +20,26 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
     {{ $productList := slice }}
     {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
-    <domfilters-option title="Product" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="Any"></domfilters-option>
+    <domfilters-option title="产品" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="Any"></domfilters-option>
     {{ $illustratorNames := slice }}
     {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
-    <domfilters-option title="Illustrator" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="All"></domfilters-option>
+    <domfilters-option title="插画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="All"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $types := slice }}
         {{range .Site.Data.types_ja}}{{ $types = $types | append (or (T (printf "types.%s" . )) .) }}{{end}}
-        <domfilters-option title="Type" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></domfilters-option>
+        <domfilters-option title="类型" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></domfilters-option>
         {{ $traits := slice }}
         {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
         {{ $traits = sort $traits }}
         {{ $traits = union (slice "None") $traits }}
-        <domfilters-option title="Trait" key="categories" fieldtype="select" noneValue="All" values="{{$traits| jsonify}}"></domfilters-option>
+        <domfilters-option title="特性" key="categories" fieldtype="select" noneValue="All" values="{{$traits| jsonify}}"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $rarities := slice "D" "C" "R" "SR" "MR" "SEC" "CP" "PR" "RP" "SRP" "SRCP" }}
-        <domfilters-option title="Rarity" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
+        <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $colors := slice "Blue" "Green" "White" "Red" "Yellow" "Black" }}
-        <domfilters-option title="Color" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
+        <domfilters-option title="颜色" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
     </div>
 
 </div>
