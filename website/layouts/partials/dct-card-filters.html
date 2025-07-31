@@ -18,6 +18,14 @@
             }
         }
 
+        @media screen and (min-width: 1025px) {
+            domfilters-option[key="rarity"] .flex > legend,
+            domfilters-option[key="ap"] .flex > legend {
+                white-space: nowrap;
+                align-content: center;
+                height: calc(4rem + 2*0.5rem) !important;
+            }
+        }
         /* 移动端样式 */
         @media (max-width: 768px) {
             domfilters-option[key="rarity"] .flex > div > div {
@@ -44,16 +52,16 @@
         <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有" values="{{$traits| jsonify}}"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $costs := slice "无" "1" "2" "3" "4" "5" "6" "7" "8" "9" }}
-        <domfilters-option title="等级" key="cost" fieldtype="checkbox" values="{{$costs| jsonify}}"></domfilters-option>
         {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" }}
         <domfilters-option title="颜色" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
         {{ $lps := slice "无" "灵光一闪" "变装" "介入" }}
         <domfilters-option title="效果" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
+        {{ $costs := slice "无" "1" "2" "3" "4" "5" "6" "7" "8" "9" }}
+        <domfilters-option title="等级" key="cost" fieldtype="checkbox" values="{{$costs| jsonify}}"></domfilters-option>
         {{ $lps := slice "无" "0" "1" "2" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $rarities := slice "C" "R" "SR" "MR" "PR" "SEC" "CP" "RP" "SRP" "MRP"  "SRCP" "MRCP" }}
-        <domfilters-option title="罕贵度" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
+        <domfilters-option title="罕度" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $aps := slice "无" "0" "1000" "2000" "3000" "4000" "5000" "6000" "7000" "8000" }}
         <domfilters-option title="AP" key="ap" fieldtype="checkbox" values="{{$aps| jsonify}}"></domfilters-option>
     </div>

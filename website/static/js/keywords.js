@@ -116,8 +116,8 @@ function processMechanics(text) {
         '行动': {tooltip: 'An Action can be targeted against an opposing Case or Character.'},
         'Guard': {tooltip: 'A Character is put to Sleep in order to defend against an Action.'},
         '休眠': {tooltip: 'Sleeping characters can be targeted for Contact and cannot perform Actions.'},
-        '眩晕': {tooltip: '处于眩晕状态的角色激活时改为休眠'},
-        'Investigates?': {tooltip: 'Your opponent reveals the top card from their deck and places it at the bottom of the deck.'}
+        '眩晕': {tooltip: '处于眩晕状态的角色激活时改为休眠'}
+        // 'Investigates?': {tooltip: '对手展示卡组顶指定数量的牌，然后以任意顺序移入卡组底'}
     }
     for (const mechanic in mechanics) {
         const config = mechanics[mechanic]

@@ -48,16 +48,16 @@ menu:
     - identifier: "Gallery"
       name: "图库"
       url: "/gallery/"
-      weight: 3
+      weight: 4
     - identifier: "errata"
       name: "勘误"
       url: "/errata/"
-      weight: 4
+      weight: 5
     - identifier: "discord"
-      name: "Discord"
+      name: "Github"
       params:
         external: 1
-      url: "https://discord.gg/SEyXExU9TJ"
+      url: "https://github.com/BoardGameProj/conantcg-english"
       weight: 90
     - identifier: "credits"
       name: "致谢"

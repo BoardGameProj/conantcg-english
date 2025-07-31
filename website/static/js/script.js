@@ -162,7 +162,7 @@ class Card extends HTMLElement {
             product: '产品',
             promoDetails: '分销',
             color: '颜色',
-            rarity: '罕贵度',
+            rarity: '罕度',
             categories: '特征',
             cost: '等级',
             ap: 'AP',
