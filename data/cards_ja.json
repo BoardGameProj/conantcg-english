@@ -49561,7 +49561,9 @@
         "main_path": "195c360e009304.jpg",
         "sub_thumb": "sub_PR098.jpg",
         "sub_path": "1742740380622518.jpg",
-        "color": [],
+        "color": [
+            "緑"
+        ],
         "type": "キャラ",
         "rarity": "PR",
         "cost": "4",

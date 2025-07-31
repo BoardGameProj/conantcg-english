@@ -88,6 +88,14 @@ class Card extends HTMLElement {
         this.data.cardText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('\n\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
+        this.data.rawText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]]+/g, '')
+        this.data.rawText = placeTooltips(processKeywords(this.data.rawText)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g,'')
+        this.data.rawText = this.data.rawText.replaceAll(/<.*?>/g, '').trim()
+
+        if (this.data.rawText ==="") {
+            this.data.rawText = "无"
+        }
+
         // Prepare filter attributes
         const ignoreFilterAttributes = ['image']
         for (let setting of Object.keys(this.data)) {
@@ -222,7 +230,7 @@ class Card extends HTMLElement {
 >
     <div class="flex items-start">
         <div class="cardoverlay-image self-stretch">
-            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 550px;" loading="lazy" />
+            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 300px;" loading="lazy" />
         </div>
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">

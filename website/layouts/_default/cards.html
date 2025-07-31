@@ -123,7 +123,9 @@
                 overflow-y: scroll;
                 inset: 0 !important;
                 transform: unset !important;
-                background: url('/img/tiles.png') repeat;
+                background: 
+                    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                    url('/img/tiles.png') repeat;
             }
 
             > .flex {
@@ -148,10 +150,11 @@
     }
 </style>
 
-<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id="," filter-match-mode-title="contains">
+<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id="," filter-match-mode-title="contains", filter-match-mode-raw-text="contains", filter-mode-color="all">
     <form class="dark:bg-black">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
+    <button onclick="window.location.href='/cards/'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">重置</button>
     <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">
