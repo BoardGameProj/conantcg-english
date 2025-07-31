@@ -1,6 +1,6 @@
 {
-    "types.パートナー": "Partner",
-    "types.キャラ": "Character",
-    "types.イベント": "Event",
-    "types.事件": "Case"
+    "types.パートナー": "搭档",
+    "types.キャラ": "角色",
+    "types.イベント": "事件",
+    "types.事件": "案件"
 }

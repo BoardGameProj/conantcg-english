@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "主页"
 ---
 
 Hey there, Detective! Welcome to the unofficial English website for the upcoming Detective Conan TCG!  

@@ -1,5 +1,5 @@
 ---
-title: "Errata"
+title: "勘误"
 layout: content
 ---
 
@@ -38,16 +38,16 @@ Changes are highlighted in bold.
 
 * The wording "the Turn" is clarified and now says "this Turn", which some cards already did. Affected cards below.
   * D01003 "Conan Edogawa"
-  * D01006 "Ran Mori"
+  * D01006 "毛利兰"
   * D01008 "Hiroshi Agasa"
   * D02013 "Shizuka Hattori"
-  * D04005 "Masumi Sera"
-  * B01007 "Ran Mori"
+  * D04005 "世良真纯"
+  * B01007 "毛利兰"
   * B01012 "Professor Agasa"
   * B01015 "Mitsuhiko Tsuburaya"
   * B01027 "Kazuha Toyama"
-  * B01032 "Heiji Hattori"
-  * B01068 "Shuichi Akai"
+  * B01032 "服部平次"
+  * B01068 "赤井秀一"
   * B01070 "Andre Camel"
   * B01077 "Shuichi…Akai!?"
   * B01094 "A detective should be a detective"
@@ -55,6 +55,6 @@ Changes are highlighted in bold.
 
 ### 2024-06-10
 
-* B01009 "Shinichi Kudo" - Effect: "If there are a total of 6 **or more** Characters on both players fields"
+* B01009 "工藤新一" - Effect: "If there are a total of 6 **or more** Characters on both players fields"
 * D02014 "Amulet" - Effect: "reveal up to 1 **~~Blue~~ Green** Character"
-* D05002 "Rei Furuya" - Missing types: Police, Public Security Bureau
+* D05002 "降谷零" - Missing types: Police, Public Security Bureau

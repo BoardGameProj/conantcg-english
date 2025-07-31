@@ -1,5 +1,5 @@
-baseURL: "https://conan-tcg.net"
-title: "Conan TCG"
+baseURL: "https://conan-tcg.915159.xyz"
+title: "名侦探柯南集换式卡牌"
 author: "saitho"
 languageCode: "en"
 DefaultContentLanguage: "en"
@@ -23,9 +23,9 @@ params:
   paginator_pages: 6
   homepage_meta_tags:
     meta_description: "Unofficial English website for the Conan TCG"
-    meta_og_title: "Conan-TCG.net"
+    meta_og_title: "Conan-TCG"
     meta_og_type: "website"
-    meta_og_url: "https://conan-tcg.net"
+    meta_og_url: "https://conan-tcg.915159.xyz"
     meta_og_description: "Unofficial English website for the Conan TCG"
     meta_twitter_card: "summary_large_image"
     meta_twitter_creator: "@saitho95"
@@ -34,23 +34,23 @@ params:
 menu:
   main:
     - identifier: "how-to-play"
-      name: "How to play"
+      name: "如何游戏"
       url: "/how-to-play/"
       weight: 1
     - identifier: "library"
-      name: "Library"
+      name: "系列"
       url: "/library/"
       weight: 2
     - identifier: "cards"
-      name: "Cards"
+      name: "卡牌"
       url: "/cards/"
       weight: 3
     - identifier: "Gallery"
-      name: "Gallery"
+      name: "图库"
       url: "/gallery/"
       weight: 3
     - identifier: "errata"
-      name: "Errata"
+      name: "勘误"
       url: "/errata/"
       weight: 4
     - identifier: "discord"
@@ -60,7 +60,7 @@ menu:
       url: "https://discord.gg/SEyXExU9TJ"
       weight: 90
     - identifier: "credits"
-      name: "Credits"
+      name: "致谢"
       url: "/credits/"
       weight: 99
     #- identifier: "howtoplay"
@@ -96,5 +96,7 @@ module:
       target: assets
     - source: "../data/images/cards"
       target: "assets/cards"
+    - source: "../data/images/translations"
+      target: "assets/translations"
     - source: "../data/images/products"
       target: "assets/products"

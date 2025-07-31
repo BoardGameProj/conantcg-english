@@ -1,5 +1,5 @@
 ---
-title: Credits
+title: 致谢
 layout: content
 ---
 

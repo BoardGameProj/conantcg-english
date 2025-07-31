@@ -24,7 +24,7 @@ As general rule, we want to keep the names as close to the Manga as possible.
 Especially case names should use the same translation as the English manga or anime suggests.
 
 However, we will not use Funimation names:
-* Use "Shinichi Kudo" instead of "Jimmy Kudo"
+* Use "工藤新一" instead of "Jimmy Kudo"
 * Use "Detective Boys" instead of "Junior Detective League"
 
 ### Keywords
@@ -56,9 +56,9 @@ Once keywords are explained, we can remove the additional explanations in bracke
 
 #### Abilities
 
-* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `{Haste} (This card can use its Deduction or Action during the turn it is played.)`
-* `〚ミスリード1〛（相手の推理に対し、スリープさせることでLP－1する）` => `{Mislead 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)`
-* `〚突撃〛` => `{Rush} (This card can use its Action during the turn it is played.)`
+* `〚迅速〛（登場したターンからすぐに推理かアクションできる）` => `{迅速} (This card can use its Deduction or Action during the turn it is played.)`
+* `〚ミスリード1〛（相手の推理に対し、スリープさせることでLP－1する）` => `{误导 1} (When your opponent's card uses Deduction, you may Sleep this card to make that card lose 1 LP during this Deduction.)`
+* `〚突撃〛` => `{突击} (This card can use its Action during the turn it is played.)`
   * Note: This may be restricted to [Character] or [Case]
-* `〚ブレット〛（このキャラのアクションはガードできない）` => `{Bullet} (When this Characters performs its Action, your opponent cannot Guard.)`
+* `〚ブレット〛（このキャラのアクションはガードできない）` => `{弹丸} (When this Characters performs its Action, your opponent cannot Guard.)`
 * `〚捜査〛` => `{Investigation 1} (Your opponent reveals 1 card from the top of their deck and places it at the bottom of the deck in any order.)`

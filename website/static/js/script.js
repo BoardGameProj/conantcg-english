@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const card of registeredForRendering) {
         card.render();
     }
-}, {once: true});
+}, { once: true });
 
 class Card extends HTMLElement {
     data = {
@@ -63,20 +63,27 @@ class Card extends HTMLElement {
         this.data.caseDifficultyFirst = this.getAttribute('case-difficulty-first')
         this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
         this.data.illustrator = this.getAttribute('illustrator') || ''
+        this.data.spkey = []
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
         let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
         if (hirameki !== '') {
-            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('Spark', 'Activates when removed from evidence') + '</span> ' + hirameki
+            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki
+            this.data.spkey.push('灵光一闪')
         }
         let henso = this.hasAttribute('henso') ? this.getAttribute('henso') : ''
         if (henso !== '') {
-            henso = '<span class="text-fuchsia-400 me-1"><i class="fa-solid">🎭</i> ' + createTooltip('Disguise', 'Swap this card from hand with a Character that is in a contact. Return the swapped out Character to the bottom of the deck') + '</span> ' + processKeywords(henso)
+            henso = '<span class="text-fuchsia-400 me-1"><i class="fa-solid">🎭</i> ' + createTooltip('变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso)
+            this.data.spkey.push('变装')
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
         if (cutIn.length) {
-            cutIn = '[Cut In] ' + cutIn
+            cutIn = '[介入] ' + cutIn
+            this.data.spkey.push('介入')
+        }
+        if (!this.data.spkey || this.data.spkey.length === 0) {
+            this.data.spkey = ['无']
         }
         this.data.cardText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('\n\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
@@ -93,9 +100,14 @@ class Card extends HTMLElement {
             }
             if (setting === 'categories') {
                 if (!value || (value.length === 1 && value[0] === '')) {
-                    value = ['None']
+                    value = ['无']
                 }
                 value = value.join(',')
+            }
+            if (['cost', 'ap', 'lp', 'key'].includes(setting)) {
+                if (!value || (Array.isArray(value) && value.join('') === '')) {
+                    value = ['无'];
+                }
             }
             if (!value) {
                 continue
@@ -143,46 +155,44 @@ class Card extends HTMLElement {
         const container = document.getElementById('DCT-Overlays')
 
         const labels = {
-            cardId: 'Card ID',
-            cardNum: 'Card Number',
-            type: 'Card Category',
-            cardText: 'Effect',
-            product: 'Product',
-            promoDetails: 'Distribution',
-            color: 'Color',
-            rarity: 'Rarity',
-            categories: 'Categories',
-            cost: 'Cost',
+            cardId: 'ID',
+            cardNum: '编号',
+            type: '类型',
+            cardText: '效果',
+            product: '产品',
+            promoDetails: '分销',
+            color: '颜色',
+            rarity: '罕贵度',
+            categories: '特征',
+            cost: '等级',
             ap: 'AP',
             lp: 'LP',
-            illustrator: 'Illustrator',
-            caseDifficultyFirst: 'Case Difficulty (going first)',
-            caseDifficultySecond: 'Case Difficulty (going second)'
+            illustrator: '画师',
+            caseDifficultyFirst: '案件难度 (先手)',
+            caseDifficultySecond: '案件难度 (后手)'
         }
 
-        const fields = ['cardId', 'cardNum', 'type', 'cardText']
+        const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText', 'rarity']
+        if (this.data.type === '角色') {
+            fields.push('categories')
+        }
+        if (this.data.type === '角色' || this.data.type === '事件') {
+            fields.push('cost')
+        }
+        if (this.data.type === '角色') {
+            fields.push('ap')
+        }
+        if (this.data.type === '角色' || this.data.type === '搭档') {
+            fields.push('lp')
+        }
+        if (this.data.type === '案件') {
+            fields.push('caseDifficultyFirst')
+            fields.push('caseDifficultySecond')
+        }
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
         } else {
             fields.push('product')
-        }
-        fields.push('color')
-        fields.push('rarity')
-        if (this.data.type === 'Character') {
-            fields.push('categories')
-        }
-        if (this.data.type === 'Character' || this.data.type === 'Event') {
-            fields.push('cost')
-        }
-        if (this.data.type === 'Character') {
-            fields.push('ap')
-        }
-        if (this.data.type === 'Character' || this.data.type === 'Partner') {
-            fields.push('lp')
-        }
-        if (this.data.type === 'Case') {
-            fields.push('caseDifficultyFirst')
-            fields.push('caseDifficultySecond')
         }
         if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
             fields.push('illustrator')
@@ -202,8 +212,8 @@ class Card extends HTMLElement {
                 }
             }
             content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
+                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-end ms-4 card_details--${key} text-left">${value}</div>
                 </div>`;
         }
 
@@ -212,7 +222,7 @@ class Card extends HTMLElement {
 >
     <div class="flex items-start">
         <div class="cardoverlay-image self-stretch">
-            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: unset;" loading="lazy" />
+            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 250px;" loading="lazy" />
         </div>
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">

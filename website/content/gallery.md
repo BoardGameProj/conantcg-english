@@ -1,6 +1,6 @@
 ---
-title: "Gallery"
+title: "图库"
 layout: gallery
 ---
 
-Look at the cards designed by the illustrators of the Conan TCG.
+查看画师为Conan TCG设计的卡牌。

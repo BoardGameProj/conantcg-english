@@ -152,7 +152,7 @@
     <form class="dark:bg-black">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
-    <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="card/cards" aria-live="polite"></span></h2>
+    <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">
         {{ $counter := 0 }}
@@ -173,8 +173,8 @@
         {{ $categories := slice }}
         {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
 
-        {{ with or (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
-            {{ with .Resize "250x" }}
+        {{ with or (resources.Get (printf "translations/%s.png" $card.card_num)) (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
+            {{ with .Resize "480x" }}
                 <dct-card
                         id="{{ printf "%.0f" $card.id }}"
                         image="{{ .RelPermalink }}"

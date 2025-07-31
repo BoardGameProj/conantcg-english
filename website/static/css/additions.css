@@ -77,6 +77,37 @@
 .card-color--Black {
     color: #000;
 }
+.card-color--红 {
+    /* text-red-800 */
+    color: #9B1C1C;
+}
+.card-color--黄 {
+    /* text-green-300 */
+    color: #FACA15;
+}
+.card-color--绿 {
+    /* text-green-700 */
+    color: #046C4E;
+}
+.card-color--蓝 {
+    /* text-blue-800 */
+    color: #1E429F;
+}
+.card-color--白 {
+    color: #fff;
+}
+.card-color--黑 {
+    color: #000;
+}
+
+.card-color-radius {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+}
 
 /* Tooltip container */
 .tooltip {
@@ -120,4 +151,14 @@
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+
+@font-face {
+  font-family: 'QiushuiShotai';
+  src: url('font/QiushuiShotai.ttf');
+}
+
+.card_details--cardText {
+    font-family: 'QiushuiShotai';
+    font-size: small;
 }

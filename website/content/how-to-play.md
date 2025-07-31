@@ -1,5 +1,5 @@
 ---
-title: "How to play"
+title: "如何游戏"
 layout: content
 ---
 
