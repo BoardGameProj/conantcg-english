@@ -213,7 +213,7 @@ class Card extends HTMLElement {
             }
             content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-left">${value}</div>
+                    <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;
         }
 

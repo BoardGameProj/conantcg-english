@@ -173,6 +173,12 @@
 
 .card_details--cardText {
     font-family: 'QiushuiShotai';
+    text-align: left;
+    font-size: small;
+}
+
+.card_details--illustrator {
+    font-family: 'QiushuiShotai';
     font-size: small;
 }
 
