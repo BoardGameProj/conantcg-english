@@ -222,7 +222,7 @@ class Card extends HTMLElement {
 >
     <div class="flex items-start">
         <div class="cardoverlay-image self-stretch">
-            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 250px;" loading="lazy" />
+            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 550px;" loading="lazy" />
         </div>
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">
