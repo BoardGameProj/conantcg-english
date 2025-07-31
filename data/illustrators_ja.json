@@ -1519,7 +1519,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 19,
+        "cardNum": 23,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1614,6 +1614,26 @@
             {
                 "card_num": "PR148",
                 "title": "服部平次",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR159",
+                "title": "大岡紅葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR160",
+                "title": "鈴木園子",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR165",
+                "title": "大岡紅葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR166",
+                "title": "鈴木園子",
                 "package": "PRカード"
             }
         ]
@@ -2649,6 +2669,22 @@
             {
                 "card_num": "PR097",
                 "title": "灰原哀",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "bomi",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "PR168",
+                "title": "遠山和葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR169",
+                "title": "服部平次",
                 "package": "PRカード"
             }
         ]
