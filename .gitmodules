@@ -1,3 +1,4 @@
 [submodule "website/themes/vnovel"]
-	path = website/themes/vnovel
-	url = https://github.com/opera7133/vnovel.git
+    path = website/themes/vnovel
+    url = https://github.com/opera7133/vnovel.git
+    ignore = all
