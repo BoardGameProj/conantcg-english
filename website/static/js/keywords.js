@@ -38,7 +38,7 @@ function processKeywords(text) {
         '登场时': {class: 'bg-blue-500 text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '当此牌于我方现场登场时，激活此能力'},
         '我方回合中': {class: 'bg-red-700 text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '此能力只能在我方回合时使用'},
         '对手回合中': {class: 'bg-yellow-500 text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '此能力只能在对手回合时使用'},
-        '休眠': {class: 'bg-purple-400 text-white text-sm me-1 rounded-lg', label: '$1 <i class="fa-solid bg-purple-400"></i>', tooltip: '使用此能力需要将此牌休眠'},
+        '休眠': {class: 'bg-purple-400 text-white text-sm me-1 rounded-lg', label: '$1 <i class="fa-solid bg-purple-400 rounded-lg"></i>', tooltip: '使用此能力需要将此牌休眠'},
         '介入': {class: 'text-blue-500', label: '<i class="fa-solid"></i> $1', tooltip: '接触时从手牌移除以使用'},
         '变装': {class: 'text-white text-sm', label: '<i class="fa-solid text-fuchsia-400">🎭</i><b>$1</b>', tooltip: ''},
         '变装时': {class: 'bg-fuchsia-400 text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '当此牌通过变装效果被打出时，激活此效果'}
