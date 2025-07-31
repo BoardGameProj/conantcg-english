@@ -203,7 +203,7 @@ class Card extends HTMLElement {
             let value = this.data[key]
             if (Array.isArray(value)) {
                 // Array values: keep words on one line, and join with comma
-                value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
+                value = value.map(v => v.replaceAll(' ', '&nbsp;')).join('，')
             }
             if (key === 'cardText') {
                 value = value.replaceAll('\n', '<br>')
@@ -227,7 +227,7 @@ class Card extends HTMLElement {
         <!-- Add color here as well for mobile view -->
         <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">
             <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="text-gray-300">&nbsp;${this.data.originalTitle}</small></h3>
+                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="text-gray-300 card_font">&nbsp;${this.data.originalTitle}</small></h3>
                 <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
             </div>
             <div class="px-2 py-2 text-lg lg:text-base">
