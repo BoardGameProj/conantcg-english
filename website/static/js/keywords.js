@@ -18,7 +18,8 @@ function processKeywords(text) {
     const keywords = {
         '结案': {class: 'bg-black text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: ''},
         '协助': {class: 'bg-black text-white text-sm p-0\.5 me-1 rounded-lg'},
-        '解决篇': {class: 'bg-black text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '此能力只能在我方案件进入解决篇时使用'},
+        '解决篇': {class: 'bg-black text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '此能力只能在我方案件为解决篇时使用'},
+        '案件篇': {class: 'bg-black text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: '此能力只能在我方案件为案件篇时使用'},
         '宣言': {class: 'bg-blue-500 text-white text-sm p-0\.5 me-1 rounded-lg', tooltip: ''},
         '蓝': {class: 'bg-blue-800 text-white card-color card-color-radius', tooltip: ''},
         '白': {class: 'bg-white card-color--Black card-color card-color-radius', tooltip: ''},
