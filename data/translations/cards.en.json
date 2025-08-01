@@ -584,7 +584,7 @@
   "cards.0256.hirameki": "抽1张牌。",
   "cards.0256.title": "白鸟任三郎",
   "cards.0257.feature": "[登场时] 抽1张牌。",
-  "cards.0257.hirameki": "Choose up to 1 \"江户川柯南\" card from your Remove Area and add it to your hand.",
+  "cards.0257.hirameki": "选最多1张我方移除区中<b>卡名为[江户川柯南]<\/b>的卡牌加入手牌。",
   "cards.0257.title": "毛利兰",
   "cards.0258.title": "平成的福尔摩斯",
   "cards.0259.feature": "[登场时] 抽1张牌。\n[对手回合中][从现场移除时] Remove 1 card from your hand.",
