@@ -150,7 +150,7 @@
     }
 </style>
 
-<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num="," filter-match-mode-title="contains" filter-match-mode-raw-text="contains" filter-mode-spkey="all">
+<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num="," filter-match-mode-title="contains" filter-match-mode-raw-text="contains" filter-mode-spkey="all" filter-mode-custom="all">
     <form class="dark:bg-black">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
@@ -201,6 +201,7 @@
                         ap="{{$card.ap}}"
                         lp="{{$card.lp}}"
                         illustrator="{{default "N/A" $card.illustrator}}"
+                        is-primary = "{{default "false" $card.is_primary}}"
                 >
                 </dct-card>
             {{ end }}

@@ -40,7 +40,9 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
     {{ $illustratorNames := slice }}
     {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
-    <!-- <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="所有"></domfilters-option> -->
+    <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="所有"></domfilters-option>
+    {{ $primarys := slice "首次" "中文" }}
+    <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}" noneValue="所有"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $types := slice  "搭档" "角色" "事件" "案件" }}

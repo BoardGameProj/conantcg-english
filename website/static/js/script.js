@@ -90,12 +90,33 @@ class Card extends HTMLElement {
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
         this.data.rawText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]]+/g, '')
-        this.data.rawText = placeTooltips(processKeywords(this.data.rawText)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g,'')
+        this.data.rawText = placeTooltips(processKeywords(this.data.rawText)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g, '')
         this.data.rawText = this.data.rawText.replaceAll(/<.*?>/g, '').trim()
 
-        if (this.data.rawText ==="") {
+        if (this.data.rawText === "") {
             this.data.rawText = "无"
         }
+
+        this.data.custom = this.getAttribute('is-primary') === "true" ? "首次" : this.getAttribute('is-primary');
+        const isChineseByProduct = (product) => {
+            if (!product) return false;
+            const productCode = product.trim().substring(0, 6);
+            const validProducts = [
+                "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06", // 新手卡组
+                "CT-P01", "CT-P02",                                         // 补充包
+            ];
+
+            return validProducts.includes(productCode); // 直接检查是否在合法列表
+        };
+        const chinesePRCards = new Set([
+            "PR002", "PR004", "PR005", "PR006", "PR007",
+            "PR008", "PR009", "PR010", "PR011", "PR017",
+            "PR018", "PR019", "PR020", "PR021", "PR022",
+            "PR023", "PR034", "PR035", "PR038", "PR052"
+        ]);
+        const isChinese = isChineseByProduct(this.data.product) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
+        this.data.custom = `${this.data.custom},${isChinese}`;
+
 
         // Prepare filter attributes
         const ignoreFilterAttributes = ['image']
@@ -220,11 +241,20 @@ class Card extends HTMLElement {
                     value = '–'
                 }
             }
-            content += `<div class="flex justify-between lg:py-0">
+
+            if (key === 'cardId' || key === 'cardNum') {
+                content += `<div class="flex justify-between lg:py-0">
+                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-end ms-4 card_details--${key} text-right"><a href="/cards/?card-id-num=${value}">${value}</a></div>
+                </div>`;
+            } else {
+                content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;
+            }
         }
+
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
      class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-lg shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
