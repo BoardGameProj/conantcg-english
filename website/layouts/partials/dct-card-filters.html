@@ -1,12 +1,12 @@
 <div class="flex flex-col">
-    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
+    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
         <domfilters-option title="名称" key="title" fieldtype="text"></domfilters-option>
-        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text"></domfilters-option>
-        {{ $productList := slice }}
-        {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
-        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
+        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text" class="whitespace-nowrap"></domfilters-option>
+        <domfilters-option title="ID" key="card-id" fieldtype="text" class="hidden"></domfilters-option>
+        <domfilters-option title="编号" key="card-num" fieldtype="text" class="hidden"></domfilters-option>
         <domfilters-option title="文本" key="raw-text" fieldtype="text"></domfilters-option>
-
+        {{ $primarys := slice "首次" "中文" }}
+        <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}" noneValue="所有"></domfilters-option>
     </div>
 
     <style>
@@ -38,20 +38,23 @@
     </style>
 
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-    {{ $illustratorNames := slice }}
-    {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
-    <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="所有"></domfilters-option>
-    {{ $primarys := slice "首次" "中文" }}
-    <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}" noneValue="所有"></domfilters-option>
+    {{ $productList := slice }}
+    {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
+    <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
+    {{ $traits := slice }}
+    {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+    {{ $traits = sort $traits }}
+    {{ $traits = union (slice "无") $traits }}
+    <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有" values="{{$traits| jsonify}}"></domfilters-option>
+    
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $types := slice  "搭档" "角色" "事件" "案件" }}
         <domfilters-option title="类型" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></domfilters-option>
-        {{ $traits := slice }}
-        {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
-        {{ $traits = sort $traits }}
-        {{ $traits = union (slice "无") $traits }}
-        <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有" values="{{$traits| jsonify}}"></domfilters-option>
+
+        {{ $illustratorNames := slice }}
+        {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
+        <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="所有"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" }}

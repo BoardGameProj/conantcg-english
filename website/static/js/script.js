@@ -242,10 +242,16 @@ class Card extends HTMLElement {
                 }
             }
 
-            if (key === 'cardId' || key === 'cardNum') {
+            if (key === 'cardId') {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-right"><a href="/cards/?card-id-num=${value}">${value}</a></div>
+                    <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-id-num=${value}">🔍</a></div>
+                </div>`;
+            } else if (key === 'cardNum') {
+                let search = value.trim().substring(0, 6); 
+                content += `<div class="flex justify-between lg:py-0">
+                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-num=${search}">🔍</a></div>
                 </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
