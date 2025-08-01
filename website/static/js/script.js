@@ -64,6 +64,7 @@ class Card extends HTMLElement {
         this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
         this.data.illustrator = this.getAttribute('illustrator') || ''
         this.data.spkey = []
+        this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
