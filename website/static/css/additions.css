@@ -176,6 +176,7 @@
     font-family: 'QiushuiShotai';
     text-align: left;
     font-size: small;
+    line-height: 2;
 }
 
 .card_details--illustrator {
@@ -185,4 +186,8 @@
 
 .card_font {
     font-family: 'QiushuiShotai';
+}
+
+.fa-solid {
+    line-height: inherit;
 }
