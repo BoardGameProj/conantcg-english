@@ -110,13 +110,13 @@ function processMechanics(text) {
     // Game mechanics, explained on the first occurrence in the text
     const mechanics = {
         '案件等级': {tooltip: '案件等级是指需要收集多少证据才能赢得游戏'},
-        'Deductions?': {tooltip: 'Put the card to Sleep and gain Evidence based on its LP'},
+        '推理': {tooltip: '休眠该牌以获得基于该牌LP数量的证据'},
         '能力': {tooltip: '“能力”是指在满足条件时可以使用的角色效果'},
-        '效果': {tooltip: '“效果”一词是指事件牌的激活'},
+        '效果': {tooltip: '“效果”一词是指事件牌发动'},
         '接触': {tooltip: '当一名角色以对手角色为对象时发生接触'},
-        '行动': {tooltip: 'An Action can be targeted against an opposing Case or Character.'},
-        'Guard': {tooltip: 'A Character is put to Sleep in order to defend against an Action.'},
-        '休眠': {tooltip: 'Sleeping characters can be targeted for Contact and cannot perform Actions.'},
+        '行动': {tooltip: '行动目标可以是一个对手的案件或角色'},
+        '防卫': {tooltip: '休眠一个角色以防卫某个行动'},
+        '休眠': {tooltip: '休眠角色可作为对象进行接触，且无法执行行动'},
         '眩晕': {tooltip: '处于眩晕状态的角色激活时改为休眠'}
         // 'Investigates?': {tooltip: '对手展示卡组顶指定数量的牌，然后以任意顺序移入卡组底'}
     }
