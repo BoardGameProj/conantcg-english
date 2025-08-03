@@ -56,55 +56,64 @@
     font-weight: bold;
 }
 .card-color--Red {
-    /* text-red-800 */
-    color: #9B1C1C;
+    background-color: red;
+    color: #fff;
 }
 .card-color--Yellow {
-    /* text-green-300 */
-    color: #FACA15;
+    /* text-yellw-300 */
+    background-color: orange;
+    color: #fff;
 }
 .card-color--Green {
     /* text-green-700 */
-    color: #046C4E;
+    background-color: rgb(12, 131, 12);
+    color: #fff;
 }
 .card-color--Blue {
     /* text-blue-800 */
-    color: #1E429F;
-}
-.card-color--White {
+    background-color: #1E429F;
     color: #fff;
 }
-.card-color--Black {
+.card-color--White {
+    background-color: rgb(209, 208, 208);
     color: #000;
+}
+.card-color--Black {
+    background-color: #000;
+    color: #fff;
 }
 
 .card-color--红 {
-    /* text-red-800 */
-    color: #9B1C1C;
-    background-color: #fff;
+    background-color: red;
+    color: #fff;
+    box-shadow: 0 0 0 1px white;
 }
 .card-color--黄 {
-    /* text-green-300 */
-    color: #FACA15;
-    background-color: #000;
+    /* text-yellow-300 */
+    background-color: orange;
+    color: #fff;
+    box-shadow: 0 0 0 1px white;
 }
 .card-color--绿 {
     /* text-green-700 */
-    color: #046C4E;
-    background-color: #fff;
+    background-color: rgb(12, 131, 12);
+    box-shadow: 0 0 0 1px white;
+    color: #fff;
 }
 .card-color--蓝 {
     /* text-blue-800 */
-    color: #1E429F;
-    background-color: #fff;
+    color: #fff;
+    background-color: #1E429F;
 }
 .card-color--白 {
-    color: #fff;
-    background-color: #000;
+    background-color: rgb(209, 208, 208);
+    color: #000;
+    box-shadow: 0 0 0 1px white;
 }
 .card-color--黑 {
-    color: #000;
-    background-color: #fff;
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 0 0 1px white;
 }
 
 .card-color-radius {
@@ -198,4 +207,9 @@
     width: auto;
     vertical-align: middle;
     margin: auto !important;
+}
+.card-rarity--yellow {
+    color: orange;
+    -webkit-text-stroke: 0.1px white;
+    font-weight: bold;
 }

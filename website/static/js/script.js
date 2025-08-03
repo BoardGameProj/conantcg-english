@@ -256,10 +256,10 @@ class Card extends HTMLElement {
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-num=${search}">🔍</a></div>
                 </div>`;
-            } else if (key === 'rarity') {
+            } else if (key === 'rarity' && ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'].includes(value)) {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} card-color--Yellow text-right">${value}</div>
+                    <div class="text-end ms-4 card_details--${key} card-rarity--yellow text-right">${value}</div>
                 </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
