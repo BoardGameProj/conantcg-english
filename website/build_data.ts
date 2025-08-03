@@ -15,24 +15,44 @@ const jsonSourceFiles = [
 ]
 
 for (const file of jsonSourceFiles) {
-    const targetPath = path.join('data/', file + '.json')
-    const additionalDataFilePath = path.join('../data/', file + '.additional.json')
+    const targetPath = path.join('data/', file + '.json');
+    const additionalDataDir = path.join('../data/');
 
-    const fileBuffer = fs.readFileSync(path.join('../data/', file + '.json'))
-    let fileContent = JSON.parse(fileBuffer.toString())
-    if (fs.existsSync(additionalDataFilePath)) {
-        const additionalBuffer = fs.readFileSync(additionalDataFilePath)
-        const additionalContent = JSON.parse(additionalBuffer.toString())
-        fileContent = deepmerge(fileContent, additionalContent)
+    const mainDataPath = path.join(additionalDataDir, file + '.json');
+    const fileBuffer = fs.readFileSync(mainDataPath);
+    let fileContent = JSON.parse(fileBuffer.toString());
+
+    // 查找所有匹配的补充文件（如 *.additional1.json, *.additional2.json 等）
+    const additionalFiles = fs.readdirSync(additionalDataDir)
+        .filter(additionalFile =>
+            additionalFile.startsWith(file + '.additional') &&
+            additionalFile.endsWith('.json') &&
+            additionalFile !== (file + '.json') // 排除主文件
+        );
+
+
+    for (const additionalFile of additionalFiles) {
+        const additionalPath = path.join(additionalDataDir, additionalFile);
+        try {
+            const additionalBuffer = fs.readFileSync(additionalPath)
+            const additionalContent = JSON.parse(additionalBuffer.toString());
+            fileContent = deepmerge(fileContent, additionalContent)
+            console.log(`Merged: ${additionalFile}`);
+        } catch (err) {
+            console.error(`Error merging ${additionalFile}:`, err)
+        }
     }
+
+    // 特殊处理 products_ja 和 types_ja
     if (file === 'products_ja') {
         fileContent = Object.fromEntries(
             Object.entries(fileContent).sort(([k1], [k2]) => k1 < k2 ? -1 : 1),
-        )
-        // remove promo cards as they are searchable by filtering for PR
+        );
         delete fileContent["products.PRカード"]
     } else if (file === 'types_ja') {
         delete fileContent['types.null']
     }
+
+
     fs.writeFileSync(targetPath, JSON.stringify(fileContent))
 }

@@ -1,6 +1,6 @@
-import {fetchHtmlDom} from "./html";
+import { fetchHtmlDom } from "./html";
 import * as fs from "fs";
-import {Readable} from "stream";
+import { Readable } from "stream";
 import config from "./config";
 
 const url = 'https://www.takaratomy.co.jp/products/conan-cardgame/cardlist'
@@ -10,9 +10,9 @@ const responseToReadable = (response: Response) => {
     const rs = new Readable();
     rs._read = async () => {
         const result = await reader.read();
-        if(!result.done){
+        if (!result.done) {
             rs.push(Buffer.from(result.value));
-        }else{
+        } else {
             rs.push(null);
             return;
         }
@@ -41,7 +41,9 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     const colorList = []
     if (data.color) {
         for (const c of data.color.split('')) {
-            colorList.push(c)
+            if (c !== ',') {
+                colorList.push(c)
+            }
         }
     }
     cards[data.card_num].color = colorList

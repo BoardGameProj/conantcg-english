@@ -128,6 +128,9 @@ class Card extends HTMLElement {
             if (['cardText'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
             }
+            if (setting === 'rarity' && value === 'D') {
+                value = 'C'
+            }
             if (setting === 'categories') {
                 if (!value || (value.length === 1 && value[0] === '')) {
                     value = ['无']
@@ -249,7 +252,7 @@ class Card extends HTMLElement {
                     <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-id-num=${value}">🔍</a></div>
                 </div>`;
             } else if (key === 'cardNum') {
-                let search = value.trim().substring(0, 6); 
+                let search = value.trim().substring(0, 6);
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-num=${search}">🔍</a></div>
