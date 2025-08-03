@@ -167,7 +167,7 @@
 
 .tooltip .tooltiptext {
     transform: translateX(-50%);
-    min-width: 9rem;
+    min-width: 7rem;
     margin-left: 0;
 }
 
