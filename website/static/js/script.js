@@ -70,12 +70,12 @@ class Card extends HTMLElement {
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
         let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
         if (hirameki !== '') {
-            hirameki = '<span class="text-orange-500 me-1"><i class="fa-solid">!</i> ' + createTooltip('灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki
+            hirameki = '<span class="text-orange-500 me-1"><img src="img/hirameki.svg" class="inline-icon">' + createTooltip('灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki
             this.data.spkey.push('灵光一闪')
         }
         let henso = this.hasAttribute('henso') ? this.getAttribute('henso') : ''
         if (henso !== '') {
-            henso = '<span class="text-fuchsia-400 me-1"><i class="fa-solid">🎭</i> ' + createTooltip('变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso)
+            henso = '<span class="text-fuchsia-400 me-1"><img src="img/disguise.svg" class="inline-icon">' + createTooltip('变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso)
             this.data.spkey.push('变装')
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
@@ -96,7 +96,9 @@ class Card extends HTMLElement {
         if (this.data.rawText === "") {
             this.data.rawText = "无"
         }
-
+        if (this.data.rarity === 'D') {
+            this.data.rarity = "C"
+        }
         this.data.custom = this.getAttribute('is-primary') === "true" ? "首次" : this.getAttribute('is-primary');
         const isChineseByProduct = (product) => {
             if (!product) return false;
@@ -127,9 +129,6 @@ class Card extends HTMLElement {
             let value = this.data[setting]
             if (['cardText'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
-            }
-            if (setting === 'rarity' && value === 'D') {
-                value = 'C'
             }
             if (setting === 'categories') {
                 if (!value || (value.length === 1 && value[0] === '')) {
@@ -256,6 +255,11 @@ class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-num=${search}">🔍</a></div>
+                </div>`;
+            } else if (key === 'rarity') {
+                content += `<div class="flex justify-between lg:py-0">
+                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-end ms-4 card_details--${key} card-color--Yellow text-right">${value}</div>
                 </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">

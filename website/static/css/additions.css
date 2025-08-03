@@ -119,7 +119,7 @@
 /* Tooltip container */
 .tooltip {
     position: relative;
-    display: inline-flex;
+    display: inline-block;
     text-decoration: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
@@ -190,4 +190,12 @@
 
 .fa-solid {
     line-height: inherit;
+}
+
+.inline-icon {
+    display: inline;
+    height: 1.8rem;
+    width: auto;
+    vertical-align: middle;
+    margin: auto !important;
 }
