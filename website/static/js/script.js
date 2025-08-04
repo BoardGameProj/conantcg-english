@@ -11,6 +11,49 @@ function kebabize(str) {
     return result;
 }
 
+function copyToClipboard(element) {
+    // 获取要复制的文本
+    const textToCopy = element.textContent;
+    
+    // 使用Clipboard API
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            // 保存原始文本
+            const originalText = element.textContent;
+            
+            // 显示复制成功反馈
+            element.textContent = '已复制!';
+            element.classList.add('text-green-500'); // 可选：添加成功样式
+            
+            // 2秒后恢复原始文本
+            setTimeout(() => {
+                element.textContent = originalText;
+                element.classList.remove('text-green-500');
+            }, 1500);
+        })
+        .catch(err => {
+            console.error('复制失败:', err);
+            
+            // 降级方案：使用document.execCommand
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            // 显示复制成功反馈（即使使用降级方案）
+            const originalText = element.textContent;
+            element.textContent = '已复制!';
+            setTimeout(() => {
+                element.textContent = originalText;
+            }, 1500);
+        });
+    
+    // 阻止事件冒泡，避免触发父元素的事件
+    event.stopPropagation();
+}
+
 const registeredForRendering = []
 document.addEventListener("DOMContentLoaded", () => {
     for (const card of registeredForRendering) {
@@ -89,12 +132,12 @@ class Card extends HTMLElement {
         this.data.cardText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('\n\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
-        this.data.rawText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]]+/g, '')
-        this.data.rawText = placeTooltips(processKeywords(this.data.rawText)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g, '')
-        this.data.rawText = this.data.rawText.replaceAll(/<.*?>/g, '').trim()
+        this.data.text = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('').replace(/[\s\r\n\t\[\]]+/g, '')
+        this.data.text = placeTooltips(processKeywords(this.data.text)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g, '')
+        this.data.text = this.data.text.replaceAll(/<.*?>/g, '').trim()
 
-        if (this.data.rawText === "") {
-            this.data.rawText = "无"
+        if (this.data.text === "") {
+            this.data.text = "无"
         }
         if (this.data.rarity === 'D') {
             this.data.rarity = "C"
@@ -248,13 +291,18 @@ class Card extends HTMLElement {
             if (key === 'cardId') {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-id-num=${value}">🔍</a></div>
+                    <div class="text-end ms-4 card_details--${key} text-right">
+                        <span class="copyable" onclick="copyToClipboard(this)">${value}</span>
+                        <a href="/cards/?card-id-num=${value}"> 🔍</a></div>
                 </div>`;
             } else if (key === 'cardNum') {
                 let search = value.trim().substring(0, 6);
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-right">${value} <a href="/cards/?card-num=${search}">🔍</a></div>
+                    <div class="text-end ms-4 card_details--${key} text-right">
+                        <span class="copyable" onclick="copyToClipboard(this)">${value}</span>
+                        <a href="/cards/?card-num=${search}"> 🔍</a>
+                    </div>
                 </div>`;
             } else if (key === 'rarity' && ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'].includes(value)) {
                 content += `<div class="flex justify-between lg:py-0">

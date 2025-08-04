@@ -1,74 +1,164 @@
 <div class="flex flex-col">
-    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
+    <div class="grid"
+        style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
         <domfilters-option title="名称" key="title" fieldtype="text"></domfilters-option>
-        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text" class="whitespace-nowrap"></domfilters-option>
+        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text"
+            class="whitespace-nowrap"></domfilters-option>
         <domfilters-option title="ID" key="card-id" fieldtype="text" class="hidden"></domfilters-option>
         <domfilters-option title="编号" key="card-num" fieldtype="text" class="hidden"></domfilters-option>
-        <domfilters-option title="文本" key="raw-text" fieldtype="text"></domfilters-option>
+        <domfilters-option title="文本" key="text" fieldtype="text"></domfilters-option>
         {{ $primarys := slice "首次" "中文" }}
-        <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}" noneValue="所有"></domfilters-option>
+        <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}"
+            noneValue="所有"></domfilters-option>
     </div>
 
     <style>
-        domfilters-option[key="rarity"] .flex > div > div {
+        domfilters-option[key="rarity"] .flex>div>div {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             justify-items: center;
 
-            label, label > span {
+            label,
+            label>span {
                 width: 100%;
                 text-align: center;
+                padding-left: 0%;
+                padding-right: 0%;
             }
         }
 
+        domfilters-option[key="spkey"] label:nth-child(2) {
+            & span::before {
+                content: "";
+                background-image: url('/img/hirameki.svg');
+            }
+
+            & input:checked+span {
+                color: #ff5a1f;
+                font-weight: bold;
+            }
+        }
+
+        domfilters-option[key="spkey"] label:nth-child(3) {
+            & span::before {
+                content: "";
+                background-image: url('/img/cut_in.svg');
+            }
+
+            & input:checked+span {
+                color: #3f83f8;
+                font-weight: bold;
+            }
+        }
+
+        domfilters-option[key="spkey"] label:nth-child(4) {
+            & span::before {
+                content: "";
+                background-image: url('/img/disguise.svg');
+            }
+
+            & input:checked+span {
+                color: #e879f9;
+                font-weight: bold;
+            }
+        }
+
+        domfilters-option[key="spkey"] span::before {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+
+        domfilters-option[key="spkey"] label input:not(:checked)+span::before {
+            filter: grayscale(100%) opacity(0.7);
+        }
+
+        domfilters-option[key="spkey"] label input:checked+span::before {
+            filter: none;
+        }
+
+
         @media screen and (min-width: 1025px) {
-            domfilters-option[key="rarity"] .flex > legend,
-            domfilters-option[key="ap"] .flex > legend {
+
+            domfilters-option[key="rarity"] .flex>legend,
+            domfilters-option[key="ap"] .flex>legend {
                 white-space: nowrap;
                 align-content: center;
                 height: calc(4rem + 2*0.5rem) !important;
             }
         }
+
         /* 移动端样式 */
-        @media (max-width: 768px) {
-            domfilters-option[key="rarity"] .flex > div > div {
+        @media screen and (max-width: 768px) {
+            domfilters-option[key="rarity"] .flex>div>div {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            domfilters-option[key="rarity"] .flex>div>div {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {
+            domfilters-option[key="cost"] .flex>div>div {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                justify-items: center;
+
+                label,
+                label>span {
+                    width: 100%;
+                    text-align: center;
+                    padding-left: 0%;
+                    padding-right: 0%;
+                }
             }
         }
     </style>
 
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-    {{ $productList := slice }}
-    {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .) }}{{end}}
-    <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
-    {{ $traits := slice }}
-    {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
-    {{ $traits = sort $traits }}
-    {{ $traits = union (slice "无") $traits }}
-    <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有" values="{{$traits| jsonify}}"></domfilters-option>
-    
+        {{ $productList := slice }}
+        {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .)
+        }}{{end}}
+        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}"
+            noneValue="所有"></domfilters-option>
+        {{ $traits := slice }}
+        {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+        {{ $traits = sort $traits }}
+        {{ $traits = union (slice "无") $traits }}
+        <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有"
+            values="{{$traits| jsonify}}"></domfilters-option>
+
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $types := slice  "搭档" "角色" "事件" "案件" }}
+        {{ $types := slice "搭档" "角色" "事件" "案件" }}
         <domfilters-option title="类型" key="type" fieldtype="checkbox" values="{{$types| jsonify}}"></domfilters-option>
 
         {{ $illustratorNames := slice }}
         {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
-        <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}" noneValue="所有"></domfilters-option>
+        <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}"
+            noneValue="所有"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" }}
-        <domfilters-option title="颜色" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
+        <domfilters-option title="颜色" key="color" fieldtype="checkbox"
+            values="{{$colors| jsonify}}"></domfilters-option>
         {{ $costs := slice "1" "2" "3" "4" "5" "6" "7" "8" "9" }}
         <domfilters-option title="等级" key="cost" fieldtype="checkbox" values="{{$costs| jsonify}}"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $lps := slice "无" "灵光一闪" "变装" "介入" }}
+        {{ $lps := slice "无" "灵光一闪" "介入" "变装" }}
         <domfilters-option title="效果" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $lps := slice "无" "0" "1" "2" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $rarities := slice "C" "R" "SR" "MR" "SRCP" "SEC" "CP" "RP" "SRP" "MRP" "MRCP" "PR" }}
-        <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox" values="{{$rarities| jsonify}}"></domfilters-option>
+        <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox"
+            values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $aps := slice "无" "0" "1000" "2000" "3000" "4000" "5000" "6000" "7000" "8000" }}
         <domfilters-option title="AP" key="ap" fieldtype="checkbox" values="{{$aps| jsonify}}"></domfilters-option>
     </div>

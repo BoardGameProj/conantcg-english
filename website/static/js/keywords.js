@@ -22,7 +22,7 @@ function processKeywords(text) {
         '案件篇': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方案件为案件篇时使用'},
         '宣言': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
         '蓝': {class: 'card-color--Blue card-color card-color-radius', tooltip: ''},
-        '白': {class: 'bg-white card-color--Black card-color card-color-radius', tooltip: ''},
+        '白': {class: 'bg-white card-color--White card-color card-color-radius', tooltip: ''},
         '黑': {class: 'bg-black text-white card-color card-color-radius', tooltip: ''},
         '黄': {class: 'card-color--Yellow card-color card-color-radius', tooltip: ''},
         '红': {class: 'card-color--Red text-white card-color card-color-radius', tooltip: ''},
