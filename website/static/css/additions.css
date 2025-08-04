@@ -213,3 +213,18 @@
     -webkit-text-stroke: 0.1px white;
     font-weight: bold;
 }
+.cut-in-line {
+    display: inline-block;
+    background-color: #1c64f269;
+    width: -webkit-fill-available;
+}
+.hirameki-line {
+    display: inline-block;
+    background-color: #fee8d85c;
+    width: -webkit-fill-available;
+}
+.henso-line {
+    display: inline-block;
+    background-color: #ff96ca75;
+    width: -webkit-fill-available;
+}

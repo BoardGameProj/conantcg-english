@@ -111,25 +111,26 @@ class Card extends HTMLElement {
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
-        let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
-        if (hirameki !== '') {
-            hirameki = '<span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon">灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki
-            this.data.spkey.push('灵光一闪')
-        }
         let henso = this.hasAttribute('henso') ? this.getAttribute('henso') : ''
         if (henso !== '') {
-            henso = '<span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon">变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso)
+            henso = '<span class="henso-line mb-1 mt-1 rounded-lg"><span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon">变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso) + '</span>'
             this.data.spkey.push('变装')
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
         if (cutIn.length) {
-            cutIn = '[介入] ' + cutIn
+            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg">[介入] ' + cutIn + '</span>'
             this.data.spkey.push('介入')
         }
+        let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
+        if (hirameki !== '') {
+            hirameki = '<span class="hirameki-line mb-1 mt-1 rounded-lg"><span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon">灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki + '</span>'
+            this.data.spkey.push('灵光一闪')
+        }
+
         if (!this.data.spkey || this.data.spkey.length === 0) {
             this.data.spkey = ['无']
         }
-        this.data.cardText = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('\n\n');
+        this.data.cardText = [feature, henso, cutIn, hirameki].filter((s) => s !== '').join('\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
         this.data.text = [feature, hirameki, henso, cutIn].filter((s) => s !== '').join('').replace(/[\s\r\n\t\[\]]+/g, '')
