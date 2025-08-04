@@ -50,24 +50,31 @@
         }
 
         @media screen and (min-width: 1025px) {
-            legend, label, label > input, label > select {
+
+            legend,
+            label,
+            label>input,
+            label>select {
                 height: calc(1.5rem + 2*0.5rem);
             }
         }
-        label > input, label > select {
+
+        label>input,
+        label>select {
             width: 100%;
         }
 
-        legend + * {
+        legend+* {
             width: 100%;
             padding: 0 0.5rem !important;
         }
 
-        input[type="text"], select {
+        input[type="text"],
+        select {
             padding-left: 0.5rem;
         }
 
-        legend + div > div {
+        legend+div>div {
             display: flex;
             flex-wrap: wrap;
             column-gap: .5rem;
@@ -79,7 +86,7 @@
             padding: .25rem 0;
         }
 
-        [type='checkbox']:not(:checked) + span {
+        [type='checkbox']:not(:checked)+span {
             background-color: gray;
         }
     }
@@ -108,14 +115,17 @@
         --dct-card-filters-grid-columns: 2;
         --dct-card-filters-grid-columns-custom: 4;
     }
+
     @media screen and (max-width: 1024px) {
         :root {
             --dct-card-filters-grid-columns: 1;
             --dct-card-filters-grid-columns-custom: 1;
         }
+
         .dct-card-shown {
             overflow: hidden;
         }
+
         [data-popover] {
             width: 100%;
             z-index: 10001;
@@ -125,15 +135,16 @@
                 overflow-y: scroll;
                 inset: 0 !important;
                 transform: unset !important;
-                background: 
-                    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                background:
+                    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                     url('/img/tiles.png') repeat;
             }
 
-            > .flex {
+            >.flex {
                 flex-direction: column !important;
                 align-items: center !important;
-                > div {
+
+                >div {
                     min-width: unset !important;
                     max-width: unset !important;
                 }
@@ -150,10 +161,35 @@
             display: none;
         }
     }
+
+    @media screen and (max-width: 1024px) {
+        .scrollable-form {
+            max-height: 38.2vh;
+            /* 限制最大高度（可调整） */
+            overflow-y: auto;
+            /* 垂直滚动 */
+            padding-right: 8px;
+            /* 避免滚动条遮挡内容 */
+        }
+
+        /* 滚动条美化（可选） */
+        .scrollable-form::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-form::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+        .scrollable-form::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
 </style>
 
 <filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num="," filter-match-mode-title="contains" filter-match-mode-text="contains" filter-mode-spkey="all" filter-mode-custom="all" filter-match-mode-card-num="contains">
-    <form class="dark:bg-black">
+    <form class="dark:bg-black scrollable-form">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
     <button onclick="window.location.href='/cards/'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">重置</button>
