@@ -192,7 +192,8 @@
     <form class="dark:bg-black scrollable-form">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
-    <button onclick="window.location.href='/cards/'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">重置</button>
+    <button type="button" id="custom-reset" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">清除</button>
+
     <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">
@@ -251,4 +252,30 @@
 
 <script type="module" src="js/dom-filters/script.js"></script>
 <script type="module" src="js/filter-container/filter-container.js"></script>
+<script>
+    document.getElementById('custom-reset').addEventListener('click', () => {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        // 重置所有表单控件的值
+        const inputs = Array.from(
+            filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
+        );
+
+        inputs.forEach(input => {
+            // 重置复选框和单选框
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                input.checked = false;
+            }
+            // 重置文本框和选择框
+            else if (input.type === 'text' || input.tagName === 'SELECT') {
+                input.value = '';
+            }
+
+            // 触发 input 事件让 filter-container 刷新
+            const event = new Event('input', { bubbles: true });
+            input.dispatchEvent(event);
+        });
+    });
+</script>
 {{ end }}
