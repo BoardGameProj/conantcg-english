@@ -2,8 +2,7 @@
     <div class="grid"
         style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
         <domfilters-option title="名称" key="title" fieldtype="text"></domfilters-option>
-        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text"
-            class="whitespace-nowrap"></domfilters-option>
+        <domfilters-option title="ID/编号" key="card-id-num" fieldtype="text" class="whitespace-nowrap"></domfilters-option>
         <domfilters-option title="ID" key="card-id" fieldtype="text" class="hidden"></domfilters-option>
         <domfilters-option title="编号" key="card-num" fieldtype="text" class="hidden"></domfilters-option>
         <domfilters-option title="文本" key="text" fieldtype="text"></domfilters-option>
@@ -145,15 +144,14 @@
             noneValue="所有"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
-        {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" }}
-        <domfilters-option title="颜色" key="color" fieldtype="checkbox"
-            values="{{$colors| jsonify}}"></domfilters-option>
+        {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" "多" }}
+        <domfilters-option title="颜色" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
         {{ $costs := slice "1" "2" "3" "4" "5" "6" "7" "8" "9" }}
         <domfilters-option title="等级" key="cost" fieldtype="checkbox" values="{{$costs| jsonify}}"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $lps := slice "无" "灵光一闪" "介入" "变装" }}
-        <domfilters-option title="效果" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
+        <domfilters-option title="能力" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $lps := slice "0" "1" "2" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $rarities := slice "C" "R" "SR" "MR" "SRCP" "SEC" "CP" "RP" "SRP" "MRP" "MRCP" "PR" }}

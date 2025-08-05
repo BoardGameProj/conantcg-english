@@ -174,6 +174,9 @@ class Card extends HTMLElement {
             if (['cardText'].includes(setting) && ['', '-'].includes(value)) {
                 value = null
             }
+            if (setting === 'color' && value.includes(',')) {
+                value += ',多'
+            }
             if (setting === 'categories') {
                 if (!value || (value.length === 1 && value[0] === '')) {
                     value = ['无']
