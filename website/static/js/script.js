@@ -106,6 +106,7 @@ class Card extends HTMLElement {
         this.data.caseDifficultyFirst = this.getAttribute('case-difficulty-first')
         this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
         this.data.illustrator = this.getAttribute('illustrator') || ''
+        this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
 
@@ -183,6 +184,20 @@ class Card extends HTMLElement {
                 }
                 value = value.join(',')
             }
+            if (setting === 'price') {
+                if (!value || value === 'N/A') {
+                    value = '无';
+                } else {
+                    const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''));
+                    const priceRange =
+                        numericValue <= 1.0 ? '0~1' :
+                        numericValue <= 10.0 ? '1~10' :
+                        numericValue <= 50.0 ? '10~50' :
+                        numericValue <= 100.0 ? '50~100' :
+                        '100+';
+                    value = priceRange;
+                }
+            }
             if (['cost', 'ap', 'lp', 'key'].includes(setting)) {
                 if (!value || (Array.isArray(value) && value.join('') === '')) {
                     value = ['无'];
@@ -249,7 +264,8 @@ class Card extends HTMLElement {
             lp: 'LP',
             illustrator: '画师',
             caseDifficultyFirst: '案件难度 (先手)',
-            caseDifficultySecond: '案件难度 (后手)'
+            caseDifficultySecond: '案件难度 (后手)',
+            price: '参考价'
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText', 'rarity']
@@ -277,7 +293,9 @@ class Card extends HTMLElement {
         if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
             fields.push('illustrator')
         }
-
+        if (this.data.price.length && this.data.price !== 'N/A') {
+            fields.push('price')
+        }
         let content = ''
         for (const key of fields) {
             let value = this.data[key]
