@@ -283,19 +283,18 @@ domfilters-option[key="rarity"] label {
 
 .version-tooltip {
     position: fixed;
-    z-index: 99;
+    z-index: 10002;
     background: white;
     border: 1px solid #ddd;
     border-radius: .5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     opacity: 0;
     max-width: 168px;
-    pointer-events: none !important;
-    will-change: transform;
+    pointer-events: none;
 }
-
 .version-tooltip.visible {
     opacity: 1;
+    transform: none !important;
 }
 
 .version-image {

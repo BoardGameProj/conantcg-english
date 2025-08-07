@@ -422,39 +422,80 @@ class Card extends HTMLElement {
         const overlay = document.querySelector(`#card-${this.data.id}`);
         if (!overlay) return;
 
-        // 已经添加过工具提示则跳过
         if (overlay.querySelector('.version-tooltip')) return;
 
         const tooltip = document.createElement('div');
         tooltip.className = 'version-tooltip';
         document.body.appendChild(tooltip);
-
-        // 新增：临时禁用pointer-events
         tooltip.style.pointerEvents = 'none';
 
-        const moveTooltip = (e) => {
-            const target = e.target.closest('.version-hover');
-            if (!target) return;
+        const isMobile = 'ontouchstart' in window;
 
-            // 修改为transform定位（性能更好）
-            tooltip.style.transform = `translate(${e.clientX - tooltip.offsetWidth/2}px, ${e.clientY - tooltip.offsetHeight - 20}px)`;
+        // 调整工具提示位置（确保始终在可视范围内）
+        const adjustTooltipPosition = (target) => {
+            const tooltipWidth = 168; // 工具提示最大宽度 168px
+            const tooltipHeight = 223; // 根据 CSS 设置的 max-height
+            const padding = 10; // 避免贴边
+
+            const targetRect = target.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // 计算建议位置（默认在正上方）
+            let left = targetRect.left + targetRect.width / 2 - tooltipWidth / 2;
+            let top = targetRect.top - tooltipHeight - 5;
+
+            // 边界检查（左）
+            if (left < padding) {
+                left = padding;
+            }
+            // 边界检查（右）
+            else if (left + tooltipWidth > viewportWidth - padding) {
+                left = viewportWidth - tooltipWidth - padding;
+            }
+
+            // 边界检查（如果在屏幕底部，改为上方显示）
+            if (top < padding) {
+                top = targetRect.bottom + 5; // 改在下方显示
+            }
+
+            // 直接设置绝对定位，不使用 `transform`（避免平滑移动）
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
         };
 
-        overlay.addEventListener('mouseover', (e) => {
-            const target = e.target.closest('.version-hover');
-            if (!target) return;
-
-            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" 
-                      alt="${target.dataset.cardNum}" loading="lazy">`;
-            moveTooltip(e);
+        const showTooltip = (e, target) => {
+            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" alt="${target.dataset.cardNum}" loading="lazy">`;
+            adjustTooltipPosition(target);
             tooltip.classList.add('visible');
-        });
+        };
 
-        overlay.addEventListener('mouseout', () => {
+        const hideTooltip = () => {
             tooltip.classList.remove('visible');
-        });
+        };
 
-        overlay.addEventListener('mousemove', moveTooltip);
+        if (isMobile) {
+            // 移动端：点击切换显示/隐藏
+            overlay.addEventListener('click', (e) => {
+                const target = e.target.closest('.version-hover');
+                if (!target) return;
+
+                if (tooltip.classList.contains('visible')) {
+                    hideTooltip();
+                } else {
+                    showTooltip(e, target);
+                }
+            });
+        } else {
+            // PC端：鼠标悬停
+            overlay.addEventListener('mouseover', (e) => {
+                const target = e.target.closest('.version-hover');
+                if (!target) return;
+                showTooltip(e, target);
+            });
+
+            overlay.addEventListener('mouseout', hideTooltip);
+        }
     }
 }
 
