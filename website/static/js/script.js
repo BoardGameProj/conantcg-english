@@ -333,6 +333,17 @@ class Card extends HTMLElement {
                         <a href="/cards/?card-num=${search}"> 🔍</a>
                     </div>
                 </div>`;
+            } else if (key === 'categories') {
+                const traits = value.split(',').map(v => v.trim()).filter(v => v);
+                const wrappedValues = traits.map(val => {
+                    return `<span class="mr-1 px-1 mt-1 rounded-lg" style="box-shadow: 0 0 0 1px white; font-family: 'QiushuiShotai';">${val}</span>`;
+                }).join('');
+
+                // 其余部分保持不变
+                content += `<div class="flex justify-between lg:py-0">
+                <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
+            </div>`;
             } else if (key === 'rarity' && ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'].includes(value)) {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
@@ -365,14 +376,14 @@ class Card extends HTMLElement {
 
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
-     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-lg shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
+     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
 >
     <div class="flex items-start">
         <div class="cardoverlay-image self-stretch">
             <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 300px;" loading="lazy" />
         </div>
         <!-- Add color here as well for mobile view -->
-        <div class="dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">
+        <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 550px;max-width: 550px;">
             <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
                 <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="text-gray-300 card_font">&nbsp;${this.data.originalTitle}</small></h3>
                 <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
