@@ -135,8 +135,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     border-radius: 50%;
 }
 
@@ -268,7 +268,7 @@ domfilters-option[key="rarity"] label {
     cursor: pointer;
     font-family: 'QiushuiShotai';
     /* transition: all 0.2s; */
-    box-shadow: 0 0 0 1px white;
+    box-shadow: 0 0 0 1px;
     position: relative;
     display: inline-flex;
 }
@@ -311,6 +311,10 @@ domfilters-option[key="rarity"] label {
 }
 
 .text-categories {
-    box-shadow: 0 0 0 1px white;
+    box-shadow: 0 0 0 1px;
     font-family: 'QiushuiShotai';
+}
+
+.box-shadow-1 {
+    box-shadow: 0 0 0 1px;
 }
