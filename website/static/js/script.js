@@ -11,29 +11,35 @@ function kebabize(str) {
     return result;
 }
 
-function copyToClipboard(element) {
-    // 获取要复制的文本
-    const textToCopy = element.textContent;
-    
+function copyToClipboard(element, event) {
+    // 阻止事件冒泡，避免触发父元素的事件
+    if (event) {
+        event.stopPropagation();
+    }
+
+    // 保存原始文本和类
+    const originalText = element.textContent;
+    const originalClasses = element.className;
+
+    // 防止重复点击
+    if (element.dataset.copying === 'true') {
+        return;
+    }
+
+    // 标记为正在复制中
+    element.dataset.copying = 'true';
+
+    // 获取要复制的文本 - 确保总是获取原始文本
+    const textToCopy = originalText;
+
+    // 更新UI反馈
+    element.textContent = '已复制!';
+    element.className = originalClasses + ' text-green-500'; // 添加成功样式
+
     // 使用Clipboard API
     navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-            // 保存原始文本
-            const originalText = element.textContent;
-            
-            // 显示复制成功反馈
-            element.textContent = '已复制!';
-            element.classList.add('text-green-500'); // 可选：添加成功样式
-            
-            // 2秒后恢复原始文本
-            setTimeout(() => {
-                element.textContent = originalText;
-                element.classList.remove('text-green-500');
-            }, 1500);
-        })
         .catch(err => {
             console.error('复制失败:', err);
-            
             // 降级方案：使用document.execCommand
             const textarea = document.createElement('textarea');
             textarea.value = textToCopy;
@@ -41,17 +47,15 @@ function copyToClipboard(element) {
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            
-            // 显示复制成功反馈（即使使用降级方案）
-            const originalText = element.textContent;
-            element.textContent = '已复制!';
+        })
+        .finally(() => {
+            // 恢复原始状态
             setTimeout(() => {
                 element.textContent = originalText;
-            }, 1500);
+                element.className = originalClasses; // 完全恢复原始类
+                element.dataset.copying = 'false';
+            }, 500);
         });
-    
-    // 阻止事件冒泡，避免触发父元素的事件
-    event.stopPropagation();
 }
 
 const registeredForRendering = []
@@ -106,6 +110,7 @@ class Card extends HTMLElement {
         this.data.caseDifficultyFirst = this.getAttribute('case-difficulty-first')
         this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
         this.data.illustrator = this.getAttribute('illustrator') || ''
+        this.data.otherVersions = (this.getAttribute('other-versions') || '').split(',').filter(Boolean);
         this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
@@ -191,10 +196,10 @@ class Card extends HTMLElement {
                     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''));
                     const priceRange =
                         numericValue <= 1.0 ? '0~1' :
-                        numericValue <= 10.0 ? '1~10' :
-                        numericValue <= 50.0 ? '10~50' :
-                        numericValue <= 100.0 ? '50~100' :
-                        '100+';
+                            numericValue <= 10.0 ? '1~10' :
+                                numericValue <= 50.0 ? '10~50' :
+                                    numericValue <= 100.0 ? '50~100' :
+                                        '100+';
                     value = priceRange;
                 }
             }
@@ -209,7 +214,6 @@ class Card extends HTMLElement {
             this.setAttribute('data-filter-' + kebabize(setting), value)
             this.removeAttribute(setting)
         }
-
         registeredForRendering.push(this)
     }
 
@@ -237,7 +241,6 @@ class Card extends HTMLElement {
             this.popover.show()
         })
     }
-
     prepareOverlays(img) {
         if (this.popover) {
             return
@@ -265,6 +268,7 @@ class Card extends HTMLElement {
             illustrator: '画师',
             caseDifficultyFirst: '案件难度 (先手)',
             caseDifficultySecond: '案件难度 (后手)',
+            otherVersions: '其他版本',
             price: '参考价'
         }
 
@@ -293,6 +297,9 @@ class Card extends HTMLElement {
         if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
             fields.push('illustrator')
         }
+        if (this.data.otherVersions && this.data.otherVersions.length > 0) {
+            fields.push('otherVersions')
+        }
         if (this.data.price.length && this.data.price !== 'N/A') {
             fields.push('price')
         }
@@ -301,7 +308,7 @@ class Card extends HTMLElement {
             let value = this.data[key]
             if (Array.isArray(value)) {
                 // Array values: keep words on one line, and join with comma
-                value = value.map(v => v.replaceAll(' ', '&nbsp;')).join('，')
+                value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
             }
             if (key === 'cardText') {
                 value = value.replaceAll('\n', '<br>')
@@ -314,7 +321,7 @@ class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this)">${value}</span>
+                        <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
                         <a href="/cards/?card-id-num=${value}"> 🔍</a></div>
                 </div>`;
             } else if (key === 'cardNum') {
@@ -322,7 +329,7 @@ class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this)">${value}</span>
+                        <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
                         <a href="/cards/?card-num=${search}"> 🔍</a>
                     </div>
                 </div>`;
@@ -331,6 +338,23 @@ class Card extends HTMLElement {
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} card-rarity--yellow text-right">${value}</div>
                 </div>`;
+            } else if (key === 'otherVersions') {
+                const versions = value.split(',').map(v => v.trim()).filter(v => v);
+                const wrappedValues = versions.map(val => {
+                    const versionCard = document.querySelector(`dct-card[card-num="${val}"]`);
+                    const versionImage = versionCard ? versionCard.getAttribute('image') : this.data.image;
+                    return `<span class="version-hover inline-block mr-1 tooltiptext px-1 mt-1 rounded-lg text-xs" 
+                                data-card-num="${val}" 
+                                data-image="${versionImage}">
+                            ${val}
+                        </span>`;
+                }).join('');
+
+                // 其余部分保持不变
+                content += `<div class="flex justify-between lg:py-0">
+                <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
+            </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
@@ -374,6 +398,52 @@ class Card extends HTMLElement {
                 }
             }
         )
+
+        setTimeout(() => {
+            if (!this._hoverInitialized && document.querySelector(`#card-${this.data.id} .version-hover`)) {
+                this.initVersionHover();
+                this._hoverInitialized = true;
+            }
+        }, 50);
+    }
+
+    initVersionHover() {
+        const overlay = document.querySelector(`#card-${this.data.id}`);
+        if (!overlay) return;
+
+        // 已经添加过工具提示则跳过
+        if (overlay.querySelector('.version-tooltip')) return;
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'version-tooltip';
+        document.body.appendChild(tooltip);
+
+        // 新增：临时禁用pointer-events
+        tooltip.style.pointerEvents = 'none';
+
+        const moveTooltip = (e) => {
+            const target = e.target.closest('.version-hover');
+            if (!target) return;
+
+            // 修改为transform定位（性能更好）
+            tooltip.style.transform = `translate(${e.clientX - tooltip.offsetWidth/2}px, ${e.clientY - tooltip.offsetHeight - 20}px)`;
+        };
+
+        overlay.addEventListener('mouseover', (e) => {
+            const target = e.target.closest('.version-hover');
+            if (!target) return;
+
+            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" 
+                      alt="${target.dataset.cardNum}" loading="lazy">`;
+            moveTooltip(e);
+            tooltip.classList.add('visible');
+        });
+
+        overlay.addEventListener('mouseout', () => {
+            tooltip.classList.remove('visible');
+        });
+
+        overlay.addEventListener('mousemove', moveTooltip);
     }
 }
 
