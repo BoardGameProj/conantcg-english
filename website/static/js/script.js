@@ -251,6 +251,7 @@ class Card extends HTMLElement {
             document.body.appendChild(container)
         }
         const container = document.getElementById('DCT-Overlays')
+        const popoverId = `card-${this.data.id}`
 
         const labels = {
             cardId: 'ID',
@@ -294,11 +295,11 @@ class Card extends HTMLElement {
         } else {
             fields.push('product')
         }
-        if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
-            fields.push('illustrator')
-        }
         if (this.data.otherVersions && this.data.otherVersions.length > 0) {
             fields.push('otherVersions')
+        }
+        if (this.data.illustrator.length && this.data.illustrator !== 'N/A') {
+            fields.push('illustrator')
         }
         if (this.data.price.length && this.data.price !== 'N/A') {
             fields.push('price')
@@ -316,7 +317,6 @@ class Card extends HTMLElement {
                     value = '–'
                 }
             }
-
             if (key === 'cardId') {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
@@ -336,10 +336,8 @@ class Card extends HTMLElement {
             } else if (key === 'categories') {
                 const traits = value.split(',').map(v => v.trim()).filter(v => v);
                 const wrappedValues = traits.map(val => {
-                    return `<span class="mr-1 px-1 mt-1 rounded-lg" style="box-shadow: 0 0 0 1px white; font-family: 'QiushuiShotai';">${val}</span>`;
+                    return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm text-categories">${val}</span>`;
                 }).join('');
-
-                // 其余部分保持不变
                 content += `<div class="flex justify-between lg:py-0">
                 <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
@@ -396,105 +394,113 @@ class Card extends HTMLElement {
     <div data-popper-arrow></div>
 </div>`
         this.popover = new Popover(
-            document.querySelector(`#DCT-Overlays #card-${this.data.id}`),
+            document.querySelector(`#DCT-Overlays #${popoverId}`),
             img,
             {
                 placement: 'auto',
                 triggerType: 'none',
                 onShow: () => {
                     document.querySelector('body').classList.add('dct-card-shown')
+                    this.initVersionHover() // Initialize hover on every show
                 },
                 onHide: () => {
                     document.querySelector('body').classList.remove('dct-card-shown')
+                    // Clean up any existing tooltip
+                    const existingTooltip = document.querySelector('.version-tooltip')
+                    if (existingTooltip) {
+                        existingTooltip.remove()
+                    }
                 }
             }
         )
 
-        setTimeout(() => {
-            if (!this._hoverInitialized && document.querySelector(`#card-${this.data.id} .version-hover`)) {
-                this.initVersionHover();
-                this._hoverInitialized = true;
-            }
-        }, 50);
+        this.initVersionHover()
     }
 
     initVersionHover() {
-        const overlay = document.querySelector(`#card-${this.data.id}`);
-        if (!overlay) return;
+        const popoverId = `card-${this.data.id}`
+        const overlay = document.querySelector(`#DCT-Overlays #${popoverId}`)
+        if (!overlay) return
 
-        if (overlay.querySelector('.version-tooltip')) return;
+        // Clean up previous tooltip if it exists
+        const existingTooltip = document.querySelector('.version-tooltip')
+        if (existingTooltip) {
+            existingTooltip.remove()
+        }
 
-        const tooltip = document.createElement('div');
-        tooltip.className = 'version-tooltip';
-        document.body.appendChild(tooltip);
-        tooltip.style.pointerEvents = 'none';
+        const tooltip = document.createElement('div')
+        tooltip.className = 'version-tooltip'
+        document.body.appendChild(tooltip)
+        tooltip.style.pointerEvents = 'none'
 
-        const isMobile = 'ontouchstart' in window;
+        const isMobile = 'ontouchstart' in window
 
-        // 调整工具提示位置（确保始终在可视范围内）
         const adjustTooltipPosition = (target) => {
-            const tooltipWidth = 168; // 工具提示最大宽度 168px
-            const tooltipHeight = 223; // 根据 CSS 设置的 max-height
-            const padding = 10; // 避免贴边
+            const tooltipWidth = 168
+            const tooltipHeight = 223
+            const padding = 10
 
-            const targetRect = target.getBoundingClientRect();
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
+            const targetRect = target.getBoundingClientRect()
+            const viewportWidth = window.innerWidth
+            const viewportHeight = window.innerHeight
 
-            // 计算建议位置（默认在正上方）
-            let left = targetRect.left + targetRect.width / 2 - tooltipWidth / 2;
-            let top = targetRect.top - tooltipHeight - 5;
+            let left = targetRect.left + targetRect.width / 2 - tooltipWidth / 2
+            let top = targetRect.top - tooltipHeight - 5
 
-            // 边界检查（左）
-            if (left < padding) {
-                left = padding;
-            }
-            // 边界检查（右）
+            if (left < padding) left = padding
             else if (left + tooltipWidth > viewportWidth - padding) {
-                left = viewportWidth - tooltipWidth - padding;
+                left = viewportWidth - tooltipWidth - padding
             }
 
-            // 边界检查（如果在屏幕底部，改为上方显示）
             if (top < padding) {
-                top = targetRect.bottom + 5; // 改在下方显示
+                top = targetRect.bottom + 5
             }
 
-            // 直接设置绝对定位，不使用 `transform`（避免平滑移动）
-            tooltip.style.left = `${left}px`;
-            tooltip.style.top = `${top}px`;
-        };
+            tooltip.style.left = `${left}px`
+            tooltip.style.top = `${top}px`
+        }
 
         const showTooltip = (e, target) => {
-            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" alt="${target.dataset.cardNum}" loading="lazy">`;
-            adjustTooltipPosition(target);
-            tooltip.classList.add('visible');
-        };
+            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" alt="${target.dataset.cardNum}" loading="lazy">`
+            adjustTooltipPosition(target)
+            tooltip.classList.add('visible')
+        }
 
         const hideTooltip = () => {
-            tooltip.classList.remove('visible');
-        };
+            tooltip.classList.remove('visible')
+        }
+
+        const handleMouseOver = (e) => {
+            const target = e.target.closest('.version-hover')
+            if (!target) return
+            showTooltip(e, target)
+        }
+
+        const handleMouseOut = () => {
+            hideTooltip()
+        }
+
+        const handleClick = (e) => {
+            const target = e.target.closest('.version-hover')
+            if (!target) return
+
+            if (tooltip.classList.contains('visible')) {
+                hideTooltip()
+            } else {
+                showTooltip(e, target)
+            }
+        }
+
+        // Clean up previous event listeners
+        overlay.removeEventListener('mouseover', handleMouseOver)
+        overlay.removeEventListener('mouseout', handleMouseOut)
+        overlay.removeEventListener('click', handleClick)
 
         if (isMobile) {
-            // 移动端：点击切换显示/隐藏
-            overlay.addEventListener('click', (e) => {
-                const target = e.target.closest('.version-hover');
-                if (!target) return;
-
-                if (tooltip.classList.contains('visible')) {
-                    hideTooltip();
-                } else {
-                    showTooltip(e, target);
-                }
-            });
+            overlay.addEventListener('click', handleClick)
         } else {
-            // PC端：鼠标悬停
-            overlay.addEventListener('mouseover', (e) => {
-                const target = e.target.closest('.version-hover');
-                if (!target) return;
-                showTooltip(e, target);
-            });
-
-            overlay.addEventListener('mouseout', hideTooltip);
+            overlay.addEventListener('mouseover', handleMouseOver)
+            overlay.addEventListener('mouseout', handleMouseOut)
         }
     }
 }

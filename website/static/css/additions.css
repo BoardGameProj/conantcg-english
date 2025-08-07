@@ -292,6 +292,7 @@ domfilters-option[key="rarity"] label {
     max-width: 168px;
     pointer-events: none;
 }
+
 .version-tooltip.visible {
     opacity: 1;
     transform: none !important;
@@ -307,4 +308,9 @@ domfilters-option[key="rarity"] label {
     .version-tooltip {
         z-index: 10002;
     }
+}
+
+.text-categories {
+    box-shadow: 0 0 0 1px white;
+    font-family: 'QiushuiShotai';
 }
