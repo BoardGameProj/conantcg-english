@@ -45,14 +45,18 @@ menu:
       name: "卡牌"
       url: "/cards/"
       weight: 3
+    - identifier: "deck"
+      name: "牌组"
+      url: "/deck/"
+      weight: 4
     - identifier: "Gallery"
       name: "图库"
       url: "/gallery/"
-      weight: 4
+      weight: 5
     - identifier: "errata"
       name: "勘误"
       url: "/errata/"
-      weight: 5
+      weight: 6
     - identifier: "discord"
       name: "Github"
       params:

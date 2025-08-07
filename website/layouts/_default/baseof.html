@@ -1,9 +1,34 @@
 <!DOCTYPE html>
-<html lang='{{ .Site.LanguageCode }}' class="dark">
+<html lang='{{ .Site.LanguageCode }}' class="dark" id="htmlElement">
     <head>
         <base href="{{ .Site.BaseURL }}" />
         {{- partial "head.html" . -}}
         {{ block "meta_tags" . }}{{end}}
+        <style>
+            .theme-toggle {
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+                cursor: pointer;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            .theme-toggle:hover {
+                transform: scale(1.1);
+            }
+            .theme-toggle.dark {
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+            }
+        </style>
     </head>
     
     {{ if (or .IsPage .IsHome) }}
@@ -17,6 +42,43 @@
             {{- block "main" . }}{{- end }}
         </div>
     </div>
+    
+    <!-- 暗黑模式切换按钮 -->
+    <div class="theme-toggle" id="themeToggle" title="切换暗黑模式">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </div>
+
     {{- partial "footer.html" . -}}
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.getElementById('htmlElement');
+            
+            // 检查本地存储中的主题设置
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                htmlElement.classList.remove('dark');
+                themeToggle.classList.remove('dark');
+            }
+            
+            // 切换主题
+            themeToggle.addEventListener('click', function() {
+                const isDark = htmlElement.classList.contains('dark');
+                
+                if (isDark) {
+                    htmlElement.classList.remove('dark');
+                    themeToggle.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    themeToggle.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    </script>
     </body>
 </html>
