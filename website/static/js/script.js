@@ -65,6 +65,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }, { once: true });
 
+const PopoverManager = {
+    isAnyPopoverOpen: false,
+    openPopover: null,
+
+    setPopoverOpen: function (popoverInstance) {
+        this.isAnyPopoverOpen = true;
+        this.openPopover = popoverInstance;
+    },
+
+    setPopoverClosed: function () {
+        this.isAnyPopoverOpen = false;
+        this.openPopover = null;
+    },
+
+    shouldAllowHover: function () {
+        return !this.isAnyPopoverOpen;
+    }
+};
+
 class Card extends HTMLElement {
     data = {
         id: '',
@@ -88,6 +107,7 @@ class Card extends HTMLElement {
     }
 
     popover = null
+    hoverTimeout = null
 
     // The browser calls this method when the element is
     // added to the DOM.
@@ -232,14 +252,54 @@ class Card extends HTMLElement {
 
         const overlaySelector = '#DCT-Overlays #' + popoverId
         // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
-        img.addEventListener('click', () => {
-            this.prepareOverlays(img)
-            window.dispatchEvent(new Event('resize'))
-            this.popover._targetEl = document.querySelector(overlaySelector)
-            this.popover._initialized = false
-            this.popover.init()
-            this.popover.show()
-        })
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.handleClick(img, popoverId);
+        });
+        img.addEventListener('mouseenter', () => {
+            if (window.innerWidth < 1026 || !PopoverManager.shouldAllowHover()) return;
+
+            this.hoverTimeout = setTimeout(() => {
+                if (!PopoverManager.isAnyPopoverOpen) {
+                    this.handleHover(img, popoverId);
+                }
+            }, 50);
+        });
+
+        img.addEventListener('mouseleave', () => {
+            if (this.hoverTimeout) {
+                clearTimeout(this.hoverTimeout);
+                this.hoverTimeout = null;
+            }
+
+            if (!PopoverManager.isAnyPopoverOpen && this.popover) {
+                this.popover.hide();
+            }
+        });
+    }
+    handleClick(img, popoverId) {
+        // 如果已经有弹窗打开，先关闭它
+        if (PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover !== this.popover) {
+            PopoverManager.openPopover.hide();
+        }
+
+        this.prepareOverlays(img);
+        window.dispatchEvent(new Event('resize'));
+        this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
+        this.popover._initialized = false;
+        this.popover.init();
+        this.popover.show();
+
+        PopoverManager.setPopoverOpen(this.popover);
+    }
+
+    handleHover(img, popoverId) {
+        this.prepareOverlays(img);
+        window.dispatchEvent(new Event('resize'));
+        this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
+        this.popover._initialized = false;
+        this.popover.init();
+        this.popover.show();
     }
     prepareOverlays(img) {
         if (this.popover) {
@@ -400,21 +460,27 @@ class Card extends HTMLElement {
                 placement: 'auto',
                 triggerType: 'none',
                 onShow: () => {
-                    document.querySelector('body').classList.add('dct-card-shown')
-                    this.initVersionHover() // Initialize hover on every show
+                    document.querySelector('body').classList.add('dct-card-shown');
+                    this.initVersionHover();
                 },
                 onHide: () => {
-                    document.querySelector('body').classList.remove('dct-card-shown')
-                    // Clean up any existing tooltip
-                    const existingTooltip = document.querySelector('.version-tooltip')
+                    document.querySelector('body').classList.remove('dct-card-shown');
+                    const existingTooltip = document.querySelector('.version-tooltip');
                     if (existingTooltip) {
-                        existingTooltip.remove()
+                        existingTooltip.remove();
                     }
+                    PopoverManager.setPopoverClosed();
                 }
             }
-        )
-
+        );
         this.initVersionHover()
+        document.addEventListener('click', (e) => {
+            if (PopoverManager.isAnyPopoverOpen &&
+                !e.target.closest('[data-popover]') &&
+                !e.target.closest('.dct-card-shown')) {
+                PopoverManager.openPopover.hide();
+            }
+        });
     }
 
     initVersionHover() {
