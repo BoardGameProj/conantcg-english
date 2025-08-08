@@ -17,13 +17,14 @@ function processKeywords(text) {
     // "square bracket" keywords, e.g. [On Play]
     const keywords = {
         '结案': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
+        '证据毁灭': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
         '协助': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg'},
         '解决篇': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方案件为解决篇时使用'},
         '案件篇': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方案件为案件篇时使用'},
         '宣言': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
         '蓝': {class: 'card-color--Blue card-color card-color-radius', tooltip: ''},
         '白': {class: 'bg-white card-color--White card-color card-color-radius', tooltip: ''},
-        '黑': {class: 'bg-black text-white card-color card-color-radius', tooltip: ''},
+        '黑': {class: 'bg-black text-white card-color card-color-radius card-color--Black', tooltip: ''},
         '黄': {class: 'card-color--Yellow card-color card-color-radius', tooltip: ''},
         '红': {class: 'card-color--Red text-white card-color card-color-radius', tooltip: ''},
         '绿': {class: 'card-color--Green card-color card-color-radius', tooltip: ''},
