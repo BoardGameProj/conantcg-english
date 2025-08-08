@@ -336,7 +336,7 @@ class Card extends HTMLElement {
             } else if (key === 'categories') {
                 const traits = value.split(',').map(v => v.trim()).filter(v => v);
                 const wrappedValues = traits.map(val => {
-                    return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm text-categories">${val}</span>`;
+                    return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm font-bold text-categories">${val}</span>`;
                 }).join('');
                 content += `<div class="flex justify-between lg:py-0">
                 <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
