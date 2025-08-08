@@ -237,13 +237,13 @@
 }
 
 .cut-in-line {
-    display: inline-flex;
+    display: inline-block;
     background-color: #e7f5fe;
     width: -webkit-fill-available;
 }
 
 .dark .cut-in-line {
-    display: inline-flex;
+    display: inline-block;
     background-color: #1c64f269;
     width: -webkit-fill-available;
 }

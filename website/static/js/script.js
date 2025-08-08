@@ -124,7 +124,7 @@ class Card extends HTMLElement {
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
         if (cutIn.length) {
-            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg"><b class="whitespace-nowrap">[介入]</b>&nbsp;<b>' + cutIn + '</b></span>'
+            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg"><b class="whitespace-nowrap px-1">[介入]</b> ' + cutIn + '</span>'
             this.data.spkey.push('介入')
         }
         let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
