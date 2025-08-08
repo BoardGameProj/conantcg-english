@@ -33,7 +33,7 @@ function processKeywords(text) {
         '(案件: )([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '$2 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '此能力只能在我方案件的颜色拥有$3色时使用'},
         '绊: (.*?)': {class: 'text-sm px-1 me-1 rounded-lg', label: '<span class="bg-black text-white px-1 rounded-l-lg" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white text-blod text-black px-1 box-shadow-1 rounded-r-lg">$2</b>', tooltip: '此能力只能在我方现场存在卡名为“$2”的角色时使用'},
         '档案: (\\d+)': {class: 'bg-red-700 text-sm px-1 me-1 rounded-lg', label: '档案<span class="card-color card-color-radius bg-white" style="color: #c81e1e">$2</span>', tooltip: '此能力只能在我方档案区至少有$2张牌时使用'},
-        '回合1': {class: 'bg-cyan-400 text-white text-sm px-1 me-1 rounded-lg', label: '回合<span class="card-color card-color-radius bg-white" style="color: #22d3ee">1</span>', tooltip: '此能力每回合只能使用1次'},
+        '回合1': {class: 'bg-cyan-400 text-white text-sm px-1 me-1 rounded-lg', label: '回合<span class="card-color card-color-radius bg-white ring-1" style="color: #22d3ee; width: 1rem; height: 1rem;">1</span>', tooltip: '此能力每回合只能使用1次'},
         '回合2': {class: 'bg-cyan-400 text-white text-sm px-1 me-1 rounded-lg', label: '回合<span class="card-color text-cyan-400 card-color-radius bg-white" style="color: #22d3ee">2</span>', tooltip: '此能力每回合只能使用2次'},
         '从现场移除时': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: '当此牌从现场移除时，激活此能力'},
         '登场时': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: '当此牌于我方现场登场时，激活此能力'},

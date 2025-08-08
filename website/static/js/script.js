@@ -119,17 +119,17 @@ class Card extends HTMLElement {
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
         let henso = this.hasAttribute('henso') ? this.getAttribute('henso') : ''
         if (henso !== '') {
-            henso = '<span class="henso-line mb-1 mt-1 rounded-lg"><span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon">变装', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso) + '</span>'
+            henso = '<span class="henso-line mb-1 mt-1 rounded-lg"><span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon"><b class="whitespace-nowrap">变装</b>', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span> ' + processKeywords(henso) + '</span>'
             this.data.spkey.push('变装')
         }
         let cutIn = processMechanics(this.hasAttribute('cut-in') ? this.getAttribute('cut-in') : '')
         if (cutIn.length) {
-            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg">[介入] ' + cutIn + '</span>'
+            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg"><b class="whitespace-nowrap">[介入]</b>&nbsp;<b>' + cutIn + '</b></span>'
             this.data.spkey.push('介入')
         }
         let hirameki = this.hasAttribute('hirameki') ? this.getAttribute('hirameki') : ''
         if (hirameki !== '') {
-            hirameki = '<span class="hirameki-line mb-1 mt-1 rounded-lg"><span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon">灵光一闪', '作为证据被移除时发动') + '</span> ' + hirameki + '</span>'
+            hirameki = '<span class="hirameki-line mb-1 mt-1 rounded-lg"><span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon"><b class="whitespace-nowrap">灵光一闪</b>', '作为证据被移除时发动') + '</span> <b>' + hirameki + '</b></span>'
             this.data.spkey.push('灵光一闪')
         }
 

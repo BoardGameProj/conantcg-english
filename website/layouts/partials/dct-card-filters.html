@@ -55,57 +55,59 @@
     </div>
 
 
-        <style>
-        domfilters-option[key="rarity"] .flex>div>div {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            justify-items: center;
-
-            label,
-            label>span {
-                width: 100%;
-                text-align: center;
-                padding-left: 0%;
-                padding-right: 0%;
+    <style>
+        @media screen and (min-width: 768px) {
+            domfilters-option[key="rarity"] .flex>div>div {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                justify-items: center;
+    
+                label,
+                label>span {
+                    width: 100%;
+                    text-align: center;
+                    padding-left: 0%;
+                    padding-right: 0%;
+                }
             }
         }
-
+    
         domfilters-option[key="spkey"] label:nth-child(2) {
             & span::before {
                 content: "";
                 background-image: url('/img/hirameki.svg');
             }
-
+    
             & input:checked+span {
                 color: #ff5a1f;
                 font-weight: bold;
             }
         }
-
+    
         domfilters-option[key="spkey"] label:nth-child(3) {
             & span::before {
                 content: "";
                 background-image: url('/img/cut_in.svg');
             }
-
+    
             & input:checked+span {
                 color: #3f83f8;
                 font-weight: bold;
             }
         }
-
+    
         domfilters-option[key="spkey"] label:nth-child(4) {
             & span::before {
                 content: "";
                 background-image: url('/img/disguise.svg');
             }
-
+    
             & input:checked+span {
                 color: #e879f9;
                 font-weight: bold;
             }
         }
-
+    
         domfilters-option[key="spkey"] span::before {
             width: 1.5rem;
             height: 1.5rem;
@@ -114,18 +116,18 @@
             background-repeat: no-repeat;
             vertical-align: middle;
         }
-
+    
         domfilters-option[key="spkey"] label input:not(:checked)+span::before {
             filter: grayscale(100%) opacity(0.7);
         }
-
+    
         domfilters-option[key="spkey"] label input:checked+span::before {
             filter: none;
         }
-
-
+    
+    
         @media screen and (min-width: 1025px) {
-
+    
             domfilters-option[key="rarity"] .flex>legend,
             domfilters-option[key="ap"] .flex>legend {
                 white-space: nowrap;
@@ -133,29 +135,55 @@
                 height: calc(4rem + 2*0.5rem) !important;
             }
         }
-
+    
         /* 移动端样式 */
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767.98px) and (min-width: 380px) {
             domfilters-option[key="rarity"] .flex>div>div {
+                display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
+                justify-items: center;
+    
+                label,
+                label>span {
+                    width: 100%;
+                    text-align: center;
+                    padding-left: 0%;
+                    padding-right: 0%;
+                }
             }
         }
-
-        @media screen and (max-width: 380px) {
-            domfilters-option[key="rarity"] .flex>div>div {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media screen and (min-width: 1025px) {
+    
+        /* @media screen and (max-width: 380px) {
+                domfilters-option[key="rarity"] .flex>div>div {
+                    grid-template-columns: 1fr 1fr;
+                }
+            } */
+    
+        @media screen and (min-width: 1025px) and (max-width: 1279.98px) {
             domfilters-option[key="cost"] .flex>div>div {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
-
+    
                 label,
                 label>span {
                     width: 100%;
+                    text-align: center;
+                    padding-left: 0%;
+                    padding-right: 0%;
+                }
+            }
+        }
+    
+        @media screen and (min-width: 1025px) and (max-width: 1279.98px) {
+            domfilters-option[key="price"] .flex>div>div {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                justify-items: center;
+    
+                label,
+                label>span {
+                    width: 105%;
                     text-align: center;
                     padding-left: 0%;
                     padding-right: 0%;

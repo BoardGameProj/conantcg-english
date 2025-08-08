@@ -198,13 +198,18 @@
 }
 
 .card_details--cardText {
+    text-align: left;
+    line-height: 2;
+}
+
+.dark .card_details--cardText {
     font-family: 'QiushuiShotai';
     text-align: left;
     font-size: small;
     line-height: 2;
 }
 
-.card_details--illustrator {
+.dark .card_details--illustrator {
     font-family: 'QiushuiShotai';
     font-size: small;
 }
@@ -232,12 +237,24 @@
 }
 
 .cut-in-line {
-    display: inline-block;
+    display: inline-flex;
+    background-color: #e7f5fe;
+    width: -webkit-fill-available;
+}
+
+.dark .cut-in-line {
+    display: inline-flex;
     background-color: #1c64f269;
     width: -webkit-fill-available;
 }
 
 .hirameki-line {
+    display: inline-block;
+    background-color: #ffe6d6;
+    width: -webkit-fill-available;
+}
+
+.dark .hirameki-line {
     display: inline-block;
     background-color: #fee8d85c;
     width: -webkit-fill-available;
@@ -245,9 +262,17 @@
 
 .henso-line {
     display: inline-block;
+    background-color: #ffeff7;
+    width: -webkit-fill-available;
+}
+
+.dark .henso-line {
+    display: inline-block;
     background-color: #ff96ca75;
     width: -webkit-fill-available;
 }
+
+
 
 domfilters-option[key="rarity"] label {
 
