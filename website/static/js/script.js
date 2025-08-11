@@ -519,7 +519,6 @@ class Card extends HTMLElement {
             }
             
             const isBelow = top < padding
-            const isBelow = top < padding
             if (top < padding) {
                 top = targetRect.bottom + 5
             }
