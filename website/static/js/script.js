@@ -517,17 +517,20 @@ class Card extends HTMLElement {
             else if (left + tooltipWidth > viewportWidth - padding) {
                 left = viewportWidth - tooltipWidth - padding
             }
-
+            
+            const isBelow = top < padding
+            const isBelow = top < padding
             if (top < padding) {
                 top = targetRect.bottom + 5
             }
 
             tooltip.style.left = `${left}px`
             tooltip.style.top = `${top}px`
+            tooltip.classList.toggle('tooltip-below', isBelow)
         }
 
         const showTooltip = (e, target) => {
-            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image" alt="${target.dataset.cardNum}" loading="lazy">`
+            tooltip.innerHTML = `<img src="${target.dataset.image}" class="version-image dark:text-white" alt="${target.dataset.cardNum}" loading="lazy">`
             adjustTooltipPosition(target)
             tooltip.classList.add('visible')
         }
