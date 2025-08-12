@@ -247,7 +247,60 @@ class Card extends HTMLElement {
         img.width = 160
         img.height = 222
         img.alt = `${this.data.title} (${this.data.cardNum})`
-        this.appendChild(img)
+        
+        // 创建卡片容器
+        const cardContainer = document.createElement('div')
+        cardContainer.classList.add('card-container')
+        
+        // 添加图片到容器
+        cardContainer.appendChild(img)
+        
+        // 创建"- 0 +"按钮组
+        const buttonGroup = document.createElement('div');
+        buttonGroup.classList.add('flex', 'items-center', 'justify-between', 'w-full', 'mt-2', 'hidden');
+        buttonGroup.classList.add('add-to-deck-btn'); // 保留原有类名以便显示/隐藏控制
+
+        // 减少按钮
+        const minusButton = document.createElement('button');
+        minusButton.type = 'button';
+        minusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-red-600', 'text-sm', 'flex', 'items-center', 'justify-center');
+        minusButton.textContent = '-';
+        minusButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (window.deckBuilder) {
+                window.deckBuilder.removeCardFromCurrentDeck(this.data.cardNum);
+            }
+        });
+
+        // 数量显示
+        const countDisplay = document.createElement('span');
+        countDisplay.classList.add('text-sm', 'text-white', 'font-medium');
+        countDisplay.textContent = '0';
+
+        // 增加按钮
+        const plusButton = document.createElement('button');
+        plusButton.type = 'button';
+        plusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-blue-600', 'text-sm', 'flex', 'items-center', 'justify-center');
+        plusButton.textContent = '+';
+        plusButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addCardToDeck(this.data.cardNum);
+        });
+
+        // 组装按钮组
+        buttonGroup.appendChild(minusButton);
+        buttonGroup.appendChild(countDisplay);
+        buttonGroup.appendChild(plusButton);
+
+        // 添加按钮组到容器
+        cardContainer.appendChild(buttonGroup);
+        
+        // 保存按钮组和数量显示的引用，以便后续更新
+        this.buttonGroup = buttonGroup;
+        this.countDisplay = countDisplay;
+        
+        // 将容器添加到组件
+        this.appendChild(cardContainer)
         //shadow.appendChild(wrapper)
 
         const overlaySelector = '#DCT-Overlays #' + popoverId
@@ -449,6 +502,7 @@ class Card extends HTMLElement {
             <div class="px-2 py-2 text-lg lg:text-base">
                 ${content}
             </div>
+            </div>
         </div>
     </div>
     <div data-popper-arrow></div>
@@ -481,6 +535,72 @@ class Card extends HTMLElement {
                 PopoverManager.openPopover.hide();
             }
         });
+    }
+    
+    // 更新牌组中的卡牌数量显示
+    updateDeckCount() {
+        if (!this.buttonGroup || !this.countDisplay) return;
+        
+        // 默认数量为 0
+        let count = 0;
+        let sameCardIdCount = 0;
+        let hasPartnerOrCase = false;
+
+        if (window.deckBuilder?.addedCards) {
+            // 统计所有 cardNum 匹配的卡牌总数
+            count = window.deckBuilder.addedCards
+                .filter(card => card.cardNum === this.data.cardNum)
+                .reduce((sum, card) => sum + (card.count || 1), 0); // 如果 card.count 不存在，默认按 1 计算
+            
+            // 统计相同 card-id 的卡牌数量
+            sameCardIdCount = window.deckBuilder.addedCards
+                .filter(card => card.id === this.data.cardId)
+                .reduce((sum, card) => sum + (card.count || 1), 0);
+            
+            // 检查是否已有搭档或案件卡牌
+            hasPartnerOrCase = window.deckBuilder.addedCards.some(card =>
+                (card.cardType === "搭档" && this.data.type === "搭档") ||
+                (card.cardType === "案件" && this.data.type === "案件")
+            );
+        }
+        
+        // 更新数量显示
+        this.countDisplay.textContent = count.toString();
+        
+        // 获取按钮组中的加减按钮
+        const minusButton = this.buttonGroup.children[0];
+        const countBUtton = this.buttonGroup.children[1];
+        const plusButton = this.buttonGroup.children[2];
+        
+        // 隐藏/显示加号按钮
+        if (plusButton) {
+            // 同ID的卡牌数量达到3张时隐藏加号按钮
+            if (sameCardIdCount >= 3) {
+                plusButton.classList.add('invisible');
+            }
+            // 搭档或案件卡牌已有一张时隐藏加号按钮
+            else if ((this.data.type === "搭档" || this.data.type === "案件") && hasPartnerOrCase) {
+                plusButton.classList.add('invisible');
+            }
+            // 其他情况显示加号按钮
+            else {
+                plusButton.classList.remove('invisible');
+            }
+        }
+        
+        // 隐藏/显示减号按钮
+        if (minusButton) {
+            // 数量为0时隐藏减号按钮
+            if (count === 0) {
+                minusButton.classList.add('invisible');
+                countBUtton.classList.add('invisible');
+            }
+            // 其他情况显示减号按钮
+            else {
+                minusButton.classList.remove('invisible');
+                countBUtton.classList.remove('invisible');
+            }
+        }
     }
 
     initVersionHover() {
@@ -575,3 +695,375 @@ class Card extends HTMLElement {
 
 // Register the CurrentDate component using the tag name <current-date>.
 customElements.define('dct-card', Card);
+
+// 通用的添加卡牌到牌组方法
+function addCardToDeck(cardNum) {
+    // 检查牌组构建面板是否已打开
+    const panel = document.getElementById('deck-builder-panel');
+    if (panel && !panel.classList.contains('hidden') && window.deckBuilder) {
+        // 如果牌组构建面板已打开，添加卡牌到当前构建的牌组
+        window.deckBuilder.addCardToCurrentDeck(cardNum);
+    } else{
+        alert('无法添加卡牌到牌组，请刷新页面后重试');
+    }
+}
+
+// 牌组构建器
+class DeckBuilder {
+    constructor() {
+        this.currentDeck = null;
+        this.addedCards = [];
+        this.init();
+    }
+
+    init() {
+        this.bindEvents();
+    }
+
+    // 绑定事件
+    bindEvents() {
+        // 新建牌组按钮点击事件
+        const newDeckBtn = document.getElementById('new-deck-btn');
+        if (newDeckBtn) {
+            newDeckBtn.addEventListener('click', () => {
+                this.openDeckBuilderPanel();
+            });
+        }
+
+        // 关闭牌组构建面板按钮点击事件
+        const closeDeckBuilderBtn = document.getElementById('close-deck-builder');
+        if (closeDeckBuilderBtn) {
+            closeDeckBuilderBtn.addEventListener('click', () => {
+                this.closeDeckBuilderPanel();
+            });
+        }
+
+        // 保存牌组按钮点击事件
+        const saveDeckBtn = document.getElementById('save-deck');
+        if (saveDeckBtn) {
+            saveDeckBtn.addEventListener('click', () => {
+                this.saveDeck();
+            });
+        }
+    }
+
+    // 打开牌组构建面板
+    openDeckBuilderPanel() {
+        const panel = document.getElementById('deck-builder-panel');
+        const newDeckBtn = document.getElementById('new-deck-btn');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        if (panel) {
+            // 初始化新的牌组
+            this.currentDeck = {
+                id: Date.now().toString(36) + Math.random().toString(36).substr(2),
+                name: '',
+                cards: []
+            };
+            this.addedCards = [];
+            
+            // 清空输入框和已添加的卡牌列表
+            const deckNameInput = document.getElementById('deck-name');
+            if (deckNameInput) {
+                deckNameInput.value = '';
+            }
+
+            const addedCardsContainer = document.getElementById('added-cards');
+            if (addedCardsContainer) {
+                addedCardsContainer.innerHTML = '';
+                // 调用renderAddedCards方法来渲染空的40个格子
+                this.renderAddedCards();
+            }
+            
+            // 显示面板
+            panel.classList.remove('hidden');
+            deckBuilderPanelButton.classList.remove('hidden');
+            newDeckBtn.classList.add('hidden');
+            
+            // 显示所有"添加到牌组"按钮
+            const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
+            addToDeckButtons.forEach(button => {
+                button.classList.remove('hidden');
+            });
+        }
+    }
+
+    // 关闭牌组构建面板
+    closeDeckBuilderPanel() {
+        const panel = document.getElementById('deck-builder-panel');
+        const newDeckBtn = document.getElementById('new-deck-btn');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        if (panel) {
+            panel.classList.add('hidden');
+            deckBuilderPanelButton.classList.add('hidden');
+            
+            // 隐藏所有"添加到牌组"按钮
+            const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
+            addToDeckButtons.forEach(button => {
+                button.classList.add('hidden');
+                newDeckBtn.classList.remove('hidden');
+            });
+        }
+    }
+
+    // 添加卡牌到当前牌组
+    addCardToCurrentDeck(cardNum) {
+        // 获取卡牌元素以获取图片
+        const cardElement = document.querySelector(`dct-card[card-num="${cardNum}"]`);
+        const cardimage = cardElement ? cardElement.getAttribute('image') : '';
+        const cardId  = cardElement ? cardElement.getAttribute('card-id') : '';
+        const cardName  = cardElement ? cardElement.getAttribute('data-filter-title') : '';
+        const cardType  = cardElement ? cardElement.getAttribute('data-filter-type') : '';
+
+        // 检查搭档数量
+        if (cardType === "搭档") {
+            const partnerExists = this.addedCards.some(card => card.cardType === "搭档");
+            if (partnerExists) {
+                alert(`搭档数量不能超过1张`);
+                return;
+            }
+        }
+        if (cardType === "案件") {
+        const caseExists = this.addedCards.some(card => card.cardType === "案件");
+        if (caseExists) {
+            alert(`案件数量不能超过1张`);
+            return;
+        }
+        }
+        
+        // 检查同一 card-id 的卡牌是否已经超过3张
+        const sameCardIdCount = this.addedCards
+            .filter(card => card.id === cardId)
+            .reduce((total, card) => total + card.count, 0);
+        
+        if (sameCardIdCount >= 3) {
+            alert(`同一ID【${cardId}】的数量不能超过3张`);
+            return;
+        }
+        
+        this.addedCards.push({ id: cardId, cardName: cardName, cardType: cardType, cardNum: cardNum, imgsrc: cardimage, count: 1 });
+        this.renderAddedCards();
+    }
+
+    // 从当前牌组中移除卡牌
+    removeCardFromCurrentDeck(cardNum) {
+        // 找到要移除的卡牌
+        const cardIndex = this.addedCards.findIndex(card => card.cardNum === cardNum);
+        if (cardIndex !== -1) {
+            const card = this.addedCards[cardIndex];
+            if (card.count > 1) {
+                // 如果数量大于1，减少数量
+                card.count -= 1;
+            } else {
+                // 如果数量为1，移除整个卡牌项
+                this.addedCards.splice(cardIndex, 1);
+            }
+            this.renderAddedCards();
+        }
+    }
+
+    // 渲染已添加的卡牌
+    renderAddedCards() {
+        // 获取所有不同的容器
+        const containerDeck = document.getElementById('added-deck');
+        const containerPartner = document.getElementById('added-partner');
+        const containerCase = document.getElementById('added-case');
+        const containerCards = document.getElementById('added-cards');
+        
+        // 如果容器不存在则返回
+        if (!containerDeck || !containerPartner || !containerCase || !containerCards) return;
+        
+        // 按 cardNum 升序排列（只对普通卡牌排序）
+        const sortedCards = [...this.addedCards].sort((a, b) => {
+            // 如果 cardNum 为空，则排在最后
+            if (!a.cardNum) return 1;
+            if (!b.cardNum) return -1;
+            
+            // 比较 cardNum
+            return a.cardNum.localeCompare(b.cardNum, undefined, {
+                numeric: true,
+                sensitivity: 'base'
+            });
+        });
+        
+        // 分离不同类型的卡牌
+        const partnerCard = sortedCards.find(card => card.cardType === "搭档");
+        const caseCard = sortedCards.find(card => card.cardType === "案件");
+        const normalCards = sortedCards.filter(card => card.cardType !== "搭档" && card.cardType !== "案件");
+        
+        // 渲染搭档卡牌（最多1张）
+        if (partnerCard) {
+            containerPartner.innerHTML = this.renderCardItem(partnerCard);
+        } else {
+            containerPartner.innerHTML = this.renderEmptyPartnerSlot();
+        }
+        
+        // 渲染案件卡牌（最多1张）
+        if (caseCard) {
+            containerCase.innerHTML = this.renderCardItem(caseCard);
+        } else {
+            containerCase.innerHTML = this.renderEmptyCaseSlot();
+        }
+        
+        // 始终显示40个网格格子（4行，每行10列）的普通卡牌
+        const totalSlots = 40;
+        
+        // 创建普通卡牌的网格容器
+        let cardsHtml = `<div class="grid grid-cols-10 gap-2 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
+        
+        // 渲染普通卡牌
+        normalCards.forEach(card => {
+            cardsHtml += this.renderCardItem(card);
+        });
+        
+        // 添加空的网格项以填充剩余空间
+        const emptySlots = Math.max(0, totalSlots - normalCards.length);
+        for (let i = 0; i < emptySlots; i++) {
+            cardsHtml += this.renderEmptySlot();
+        }
+        
+        cardsHtml += '</div>';
+        containerCards.innerHTML = cardsHtml;
+        
+        // 绑定所有移除卡牌按钮事件
+        this.bindRemoveCardEvents();
+        
+        // 更新所有卡片的数量显示
+        this.updateAllCardCounts();
+    };
+    
+    // 更新所有卡片的数量显示
+    updateAllCardCounts() {
+        // 获取所有卡片元素
+        const allCards = document.querySelectorAll('dct-card');
+        allCards.forEach(card => {
+            if (typeof card.updateDeckCount === 'function') {
+                card.updateDeckCount();
+            }
+        });
+    };
+
+    // 新的辅助方法：渲染单个卡牌项
+    renderCardItem(card) {
+        return `
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center relative" style="">
+                <div class="mb-1 relative w-full">
+                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
+                        <p class="text-2xs text-white text-center bg-black truncate" style="--tw-bg-opacity: 0.7;">${card.cardName}</p>
+                        <p class="text-2xs text-white text-center bg-black" style="--tw-bg-opacity: 0.7;">${card.id}/${card.cardNum}</p>
+                    </div>
+                </div>
+                <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        `;
+    }
+
+    // 新的辅助方法：渲染空位
+    renderEmptySlot() {
+        return `
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
+                <div class="text-gray-400 text-xs">角色<br>事件</div>
+            </div>
+        `;
+    };
+
+    renderEmptyPartnerSlot() {
+        return `
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
+                <div class="text-gray-400 text-xs">搭档</div>
+            </div>
+        `;
+    };
+
+    renderEmptyCaseSlot() {
+        return `
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1.4/1;">
+                <div class="text-gray-400 text-xs">案件</div>
+            </div>
+        `;
+    };
+    // 新的辅助方法：绑定移除卡牌事件
+    bindRemoveCardEvents() {
+        const removeButtons = document.querySelectorAll('.remove-card');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const cardNum = button.getAttribute('data-card-num');
+                this.removeCardFromCurrentDeck(cardNum);
+            });
+        });
+    }
+
+    // 保存牌组
+    saveDeck() {
+        const deckNameInput = document.getElementById('deck-name');
+        if (!deckNameInput) return;
+        
+        const deckName = deckNameInput.value.trim();
+        if (!deckName) {
+            alert('请输入牌组名称');
+            return;
+        }
+        
+        // 检查是否已添加卡牌
+        if (this.addedCards.length === 0) {
+            if (!confirm('未添加任何卡牌，确定要保存空牌组吗？')) {
+                return;
+            }
+        }
+        
+        // 创建牌组数据
+        const deck = {
+            id: this.currentDeck.id,
+            name: deckName,
+            createTime: new Date(),
+            lastModified: new Date(),
+            cards: this.addedCards.map(card => ({
+                id: card.id,
+                cardNum: card.cardNum,
+                count: card.count
+            }))
+        };
+        
+        // 保存到deckManager
+        if (window.deckManager) {
+            // 检查是否已存在同名牌组
+            const existingDeck = window.deckManager.decks.find(d => d.name === deckName);
+            if (existingDeck) {
+                if (!confirm(`已存在同名片组 "${deckName}"，确定要覆盖吗？`)) {
+                    return;
+                }
+                // 更新现有牌组
+                existingDeck.cards = deck.cards;
+                existingDeck.lastModified = new Date();
+            } else {
+                // 添加新牌组
+                window.deckManager.decks.push({
+                    id: deck.id,
+                    name: deck.name,
+                    createTime: new Date(deck.createTime),
+                    lastModified: new Date(deck.lastModified),
+                    cards: deck.cards
+                });
+            }
+            
+            // 保存牌组
+            window.deckManager.saveDecks();
+            
+            // 关闭面板
+            this.closeDeckBuilderPanel();
+            
+            alert('牌组保存成功');
+        } else {
+            alert('无法保存牌组，请刷新页面后重试');
+        }
+    }
+}
+
+// 初始化牌组构建器
+document.addEventListener('DOMContentLoaded', () => {
+    window.deckBuilder = new DeckBuilder();
+});
