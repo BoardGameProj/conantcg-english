@@ -1,6 +1,25 @@
 {{ define "main" }}
 <h1 class="text-3xl mt-3 mb-6 font-bold dark:text-white">{{ .Title }}</h1>
-<div class="dark:text-white text-lg py-3">
-    {{ .Content }}
+<div class="container mx-auto px-4 py-6">
+    
+    <div class="mb-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-4 dark:text-white">牌组</h2>
+        <div id="deckList" class="space-y-4">
+            
+            <div class="text-center py-8 text-gray-500 dark:text-gray-400" id="emptyDeckMessage">
+                暂无保存的牌组
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="text-center mt-8">
+        <a href="/deck/" class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 inline-block">
+            新建牌组
+        </a>
+    </div>
 </div>
+
+
+<script src="/js/deck_list.js"></script>
 {{ end }}
