@@ -414,3 +414,11 @@ dct-card img {
 .select-none {
     user-select: none;
 }
+
+.border-r {
+    border-right-width: 1px;
+}
+
+.border-r-0 {
+    border-right-width: 0px;
+}

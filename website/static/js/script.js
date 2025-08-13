@@ -243,7 +243,7 @@ class Card extends HTMLElement {
         const popoverId = `card-${this.data.id}`
         img.src = this.data.image
         img.setAttribute('loading', 'lazy')
-        img.classList.add('cursor-pointer', 'border', 'rounded-lg')
+        img.classList.add('cursor-pointer', 'border', 'rounded-lg', 'select-none')
         img.width = 160
         img.height = 222
         img.alt = `${this.data.title} (${this.data.cardNum})`
@@ -759,7 +759,7 @@ class DeckBuilder {
         }
     }
 
-    // 打开牌组构建面板
+    // 新建牌组构建面板
     newDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
@@ -767,8 +767,10 @@ class DeckBuilder {
         if (panel) {
             // 初始化新的牌组
             this.currentDeck = {
-                id: Date.now().toString(36) + Math.random().toString(36).substr(2),
+                deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
                 name: '',
+                description: '', 
+                timestamp: new Date().toISOString(),
                 cards: []
             };
             this.addedCards = [];
@@ -778,7 +780,10 @@ class DeckBuilder {
             if (deckNameInput) {
                 deckNameInput.value = '';
             }
-
+            const deckDescriptionInput = document.getElementById('deck-description');
+            if (deckDescriptionInput) {
+                deckDescriptionInput.value = '';
+            }
             const addedCardsContainer = document.getElementById('added-cards');
             if (addedCardsContainer) {
                 addedCardsContainer.innerHTML = '';
@@ -962,7 +967,7 @@ class DeckBuilder {
         
         cardsHtml += '</div>';
         containerCards.innerHTML = cardsHtml;
-        
+
         // 绑定所有移除卡牌按钮事件
         this.bindRemoveCardEvents();
         
@@ -989,7 +994,7 @@ class DeckBuilder {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center relative" style="">
                 <div class="mb-1 relative w-full">
-                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover">
+                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
                         <p class="text-2xs text-white text-center bg-black truncate" style="--tw-bg-opacity: 0.7;">${card.cardName}</p>
                         <p class="text-2xs text-white text-center bg-black max-w-full" style="--tw-bg-opacity: 0.7; font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
@@ -1008,7 +1013,7 @@ class DeckBuilder {
     renderEmptySlot() {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
-                <div class="text-gray-400 text-xs">角色<br>事件</div>
+                <div class="text-gray-400 text-xs select-none">角色<br>事件</div>
             </div>
         `;
     };
@@ -1016,7 +1021,7 @@ class DeckBuilder {
     renderEmptyPartnerSlot() {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
-                <div class="text-gray-400 text-xs">搭档</div>
+                <div class="text-gray-400 text-xs select-none">搭档</div>
             </div>
         `;
     };
@@ -1024,7 +1029,7 @@ class DeckBuilder {
     renderEmptyCaseSlot() {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1.4/1;">
-                <div class="text-gray-400 text-xs">案件</div>
+                <div class="text-gray-400 text-xs select-none">案件</div>
             </div>
         `;
     };
@@ -1042,65 +1047,55 @@ class DeckBuilder {
     // 保存牌组
     saveDeck() {
         const deckNameInput = document.getElementById('deck-name');
-        if (!deckNameInput) return;
-        
-        const deckName = deckNameInput.value.trim();
-        if (!deckName) {
-            alert('请输入牌组名称');
-            return;
+        const deckDescriptionInput = document.getElementById('deck-description');
+
+        if (!this.currentDeck || !this.addedCards) {
+            console.error("没有可用的牌组数据或卡牌");
+            return false;
         }
-        
-        // 检查是否已添加卡牌
+
+        this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
+        this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
         if (this.addedCards.length === 0) {
-            if (!confirm('未添加任何卡牌，确定要保存空牌组吗？')) {
-                return;
-            }
+            console.warn("牌组中没有卡牌，但仍然保存");
         }
         
-        // 创建牌组数据
-        const deck = {
-            id: this.currentDeck.id,
-            name: deckName,
-            createTime: new Date(),
-            lastModified: new Date(),
+        if (!this.currentDeck.deckid) {
+            this.currentDeck.deckid = Date.now().toString(36) + Math.random().toString(36).slice(2);
+        }
+
+        // 创建简化的牌组JSON数据
+        const deckData = {
+            deckid: this.currentDeck.deckid,
+            name: this.currentDeck.deckName,
+            description: this.currentDeck.deckDescription,
+            timestamp: new Date().toISOString(),
             cards: this.addedCards.map(card => ({
-                id: card.id,
                 cardNum: card.cardNum,
-                count: card.count
             }))
         };
         
-        // 保存到deckManager
-        if (window.deckManager) {
-            // 检查是否已存在同名牌组
-            const existingDeck = window.deckManager.decks.find(d => d.name === deckName);
-            if (existingDeck) {
-                if (!confirm(`已存在同名片组 "${deckName}"，确定要覆盖吗？`)) {
-                    return;
-                }
-                // 更新现有牌组
-                existingDeck.cards = deck.cards;
-                existingDeck.lastModified = new Date();
-            } else {
-                // 添加新牌组
-                window.deckManager.decks.push({
-                    id: deck.id,
-                    name: deck.name,
-                    createTime: new Date(deck.createTime),
-                    lastModified: new Date(deck.lastModified),
-                    cards: deck.cards
-                });
-            }
+        try {
+            // 获取已有的牌组列表
+            let existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
             
-            // 保存牌组
-            window.deckManager.saveDecks();
+            // 检查同名冲突
+            const existingIndex = existingDecks.findIndex(deck => deck.deckid === deckData.deckid);
+            if (existingIndex >= 0) {
+                existingDecks[existingIndex] = deckData;  // 覆盖
+            } else {
+                existingDecks.push(deckData);             // 新增
+            }
+                
+            // 保存更新后的列表
+            localStorage.setItem('conan-tcg-decks', JSON.stringify(existingDecks));
             
             // 关闭面板
-            this.closeDeckBuilderPanel();
-            
+            this.closeDeckBuilderPanel && this.closeDeckBuilderPanel();
             alert('牌组保存成功');
-        } else {
-            alert('无法保存牌组，请刷新页面后重试');
+        } catch (error) {
+            console.error('保存牌组失败:', error);
+            alert('保存牌组失败，可能是存储空间不足');
         }
     }
     
@@ -1156,7 +1151,7 @@ class DeckBuilder {
             }
         });
         
-        let barChartHtml = '<div class="mb-4">';
+        let barChartHtml = '<div class="">';
         barChartHtml += '<div class="flex items-end h-32 gap-1">';
 
         // 找到最大值用于计算条形图高度
@@ -1173,7 +1168,7 @@ class DeckBuilder {
                         <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out" style="height: ${heightPercent}rem;">
                         </div>
                     </div>
-                    <div class="border-t border-gray-400 dark:border-gray-300" style="width: 125%"></div>
+                    <div class="border-t" style="width: ${i === 1 || i === 9 ? '100%' : '200%'}"></div>
                     <span class="text-xs mt-1 dark:text-white">${i}</span>
                 </div>
             `;
@@ -1181,28 +1176,30 @@ class DeckBuilder {
         barChartHtml += '</div></div>';
         
         // 创建表格
-        let tableHtml = '<div>';
-        tableHtml += '<table class="w-full border-collapse border border-gray-300 rounded-lg dark:border-gray-600">';
-        tableHtml += '<thead>';
-        tableHtml += '<tr class="bg-gray-100 dark:bg-gray-700">';
-        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/character.svg" class="inline-icon"></th>';
-        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/event.svg" class="inline-icon"></th>';
-        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/hirameki.svg" class="inline-icon"></th>';
-        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/cut_in.svg" class="inline-icon"></th>';
-        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/disguise.svg" class="inline-icon"></th>';
-        tableHtml += '</tr>';
-        tableHtml += '</thead>';
-        tableHtml += '<tbody>';
-        tableHtml += '<tr>';
-        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${roleCount}</td>`;
-        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${eventCount}</td>`;
-        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${hiramekiCount}</td>`;
-        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${cutInCount}</td>`;
-        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${disguiseCount}</td>`;
-        tableHtml += '</tr>';
-        tableHtml += '</tbody>';
-        tableHtml += '</table>';
-        tableHtml += '</div>';
+        let tableHtml = `
+        <div class="max-w-full overflow-x-auto">
+            <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
+                <div class="grid grid-cols-5">
+                ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
+                    .map((icon, index) => `
+                    <div class="p-2 border-b border-gray-300 dark:border-gray-600 
+                                ${index !== 4 ? 'border-r' : ''}
+                                bg-gray-100 dark:bg-gray-700 dark:text-white text-center">
+                        <img src="img/${icon}.svg" class="inline-icon">
+                    </div>`)
+                    .join('')}
+
+                ${[roleCount, eventCount, hiramekiCount, cutInCount, disguiseCount]
+                    .map((value, index) => `
+                    <div class="p-2 border-gray-300 dark:border-gray-600 
+                                ${index !== 4 ? 'border-r' : ''}
+                                dark:text-white text-center">
+                        ${value}
+                    </div>`)
+                    .join('')}
+                </div>
+            </div>
+        </div>`;
         
         // 将图表和表格添加到容器中
         statisticsContainer.innerHTML = barChartHtml + tableHtml;

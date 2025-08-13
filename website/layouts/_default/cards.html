@@ -230,7 +230,7 @@
     <!-- 牌组构建面板 -->
     <div id="deck-builder-container">
         <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
-            <div class="mb-4" id="deck-description">
+            <div class="mb-4" id="deck-descibe">
                 <div class="flex justify-between items-center mb-4">
                 <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label>
                 <button type="button" id="hide-deck-builder"
@@ -244,6 +244,12 @@
                 <input type="text" id="deck-name"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                     placeholder="输入牌组名称">
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                <label for="deck-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 hidden">牌组描述</label>
+                <input type="text" id="deck-description"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    placeholder="输入牌组描述">
                 </div>
             </div>
             <div class="mb-4">
@@ -396,7 +402,7 @@
     });
     const panel = document.getElementById('deck-builder-panel');
     const container = document.getElementById('deck-builder-container');
-    const deckDescription = document.getElementById('deck-description');
+    const deckDescription = document.getElementById('deck-descibe');
     const placeholder = document.getElementById('panel-placeholder');
     
     let panelHeight = panel.offsetHeight * 0.5;
