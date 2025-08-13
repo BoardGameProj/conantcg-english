@@ -396,7 +396,7 @@ dct-card img {
     width: 60%;
     /* max-width: 60%; */
     z-index: 9;
-    --tw-bg-opacity:0.93;
+    --tw-bg-opacity: 0.93;
 }
 
 #deck-builder-panel.hidden-completely {
@@ -408,7 +408,8 @@ dct-card img {
 }
 
 #panel-placeholder {
-    visibility: hidden; /* 不可见但占空间 */
+    visibility: hidden;
+    /* 不可见但占空间 */
 }
 
 .select-none {
@@ -437,7 +438,6 @@ dct-card img {
 }
 
 .import-content {
-    background: white;
     padding: 20px;
     border-radius: 8px;
     width: 80%;

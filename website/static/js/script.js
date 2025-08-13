@@ -1225,12 +1225,12 @@ class DeckBuilder {
         const importDialog = document.createElement('div');
         importDialog.className = 'import-dialog';
         importDialog.innerHTML = `
-        <div class="import-content">
+        <div class="import-content bg-white dark:bg-gray-800 dark:text-white border">
             <h3>导入牌组</h3>
-            <textarea id="deck-json-input" placeholder="请粘贴牌组JSON数据..." style="width: 100%; height: 200px; margin: 10px 0;"></textarea>
+            <textarea id="deck-json-input" class= "bg-white text-black" placeholder="请粘贴牌组JSON数据..." style="width: 100%; height: 200px; margin: 10px 0;"></textarea>
             <div class="import-buttons">
-                <button id="confirm-import" class="btn-primary">确认导入</button>
-                <button id="cancel-import" class="btn-secondary">取消</button>
+                <button id="confirm-import" class="btn-primary inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">确认导入</button>
+                <button id="cancel-import" class="btn-secondary inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">取消</button>
             </div>
             <p id="import-error" style="color: red; display: none;"></p>
         </div>
