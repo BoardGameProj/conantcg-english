@@ -968,6 +968,9 @@ class DeckBuilder {
         
         // 更新所有卡片的数量显示
         this.updateAllCardCounts();
+        
+        // 渲染统计数据
+        this.renderStatistics();
     };
     
     // 更新所有卡片的数量显示
@@ -1099,6 +1102,110 @@ class DeckBuilder {
         } else {
             alert('无法保存牌组，请刷新页面后重试');
         }
+    }
+    
+    // 渲染统计数据
+    renderStatistics() {
+        const statisticsContainer = document.getElementById('added-statistics');
+        if (!statisticsContainer) return;
+        
+        // 统计等级1-9的卡牌数量
+        const costCounts = Array(10).fill(0); // 索引0-9，但只使用1-9
+        this.addedCards.forEach(card => {
+            // 获取卡牌元素以获取cost属性
+            const cardElement = document.querySelector(`dct-card[card-num="${card.cardNum}"]`);
+            const cost = cardElement ? cardElement.getAttribute('data-filter-cost') : '';
+            
+            // 只统计角色和事件卡牌的等级
+            const cardType = cardElement ? cardElement.getAttribute('data-filter-type') : '';
+            if ((cardType === '角色' || cardType === '事件') && cost && !isNaN(cost)) {
+                const costNum = parseInt(cost);
+                if (costNum >= 1 && costNum <= 9) {
+                    costCounts[costNum] += card.count;
+                }
+            }
+        });
+        
+        // 统计各类型卡牌数量
+        let roleCount = 0;      // 角色
+        let eventCount = 0;     // 事件
+        let hiramekiCount = 0;  // 灵光一闪
+        let cutInCount = 0;     // 介入
+        let disguiseCount = 0;  // 变装
+        
+        this.addedCards.forEach(card => {
+            // 统计角色和事件卡牌
+            const cardElement = document.querySelector(`dct-card[card-num="${card.cardNum}"]`);
+            const cardType = cardElement ? cardElement.getAttribute('data-filter-type') : '';
+            if (cardType === '角色') {
+                roleCount += card.count;
+            } else if (cardType === '事件') {
+                eventCount += card.count;
+            }
+            
+            // 统计特殊关键字卡牌
+            const spkey = cardElement ? cardElement.getAttribute('data-filter-spkey') : '';
+            if (spkey && spkey.includes('灵光一闪')) {
+                hiramekiCount += card.count;
+            }
+            if (spkey && spkey.includes('介入')) {
+                cutInCount += card.count;
+            }
+            if (spkey && spkey.includes('变装')) {
+                disguiseCount += card.count;
+            }
+        });
+        
+        let barChartHtml = '<div class="mb-4">';
+        barChartHtml += '<div class="flex items-end h-32 gap-1">';
+
+        // 找到最大值用于计算条形图高度
+        const maxCount = Math.max(...costCounts.slice(1, 10), 1);
+
+        // 生成1-9级的条形图
+        for (let i = 1; i <= 9; i++) {
+            const heightPercent = (costCounts[i] / maxCount) * 6;
+            barChartHtml += `
+                <div class="flex flex-col items-center flex-1">
+                    <!-- 将数字显示在顶部 -->
+                    <span class="text-xs dark:text-white font-bold mb-1"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
+                    <div class="flex justify-center w-full" style="height: 80%;">
+                        <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out" style="height: ${heightPercent}rem;">
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-400 dark:border-gray-300" style="width: 125%"></div>
+                    <span class="text-xs mt-1 dark:text-white">${i}</span>
+                </div>
+            `;
+        }
+        barChartHtml += '</div></div>';
+        
+        // 创建表格
+        let tableHtml = '<div>';
+        tableHtml += '<table class="w-full border-collapse border border-gray-300 rounded-lg dark:border-gray-600">';
+        tableHtml += '<thead>';
+        tableHtml += '<tr class="bg-gray-100 dark:bg-gray-700">';
+        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/character.svg" class="inline-icon"></th>';
+        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/event.svg" class="inline-icon"></th>';
+        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/hirameki.svg" class="inline-icon"></th>';
+        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/cut_in.svg" class="inline-icon"></th>';
+        tableHtml += '<th class="border border-gray-300 dark:border-gray-600 p-2 dark:text-white"><img src="img/disguise.svg" class="inline-icon"></th>';
+        tableHtml += '</tr>';
+        tableHtml += '</thead>';
+        tableHtml += '<tbody>';
+        tableHtml += '<tr>';
+        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${roleCount}</td>`;
+        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${eventCount}</td>`;
+        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${hiramekiCount}</td>`;
+        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${cutInCount}</td>`;
+        tableHtml += `<td class="border border-gray-300 dark:border-gray-600 p-2 text-center dark:text-white">${disguiseCount}</td>`;
+        tableHtml += '</tr>';
+        tableHtml += '</tbody>';
+        tableHtml += '</table>';
+        tableHtml += '</div>';
+        
+        // 将图表和表格添加到容器中
+        statisticsContainer.innerHTML = barChartHtml + tableHtml;
     }
 }
 
