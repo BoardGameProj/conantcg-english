@@ -422,3 +422,30 @@ dct-card img {
 .border-r-0 {
     border-right-width: 0px;
 }
+
+.import-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.import-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.import-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

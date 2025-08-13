@@ -247,14 +247,14 @@ class Card extends HTMLElement {
         img.width = 160
         img.height = 222
         img.alt = `${this.data.title} (${this.data.cardNum})`
-        
+
         // 创建卡片容器
         const cardContainer = document.createElement('div')
         cardContainer.classList.add('card-container')
-        
+
         // 添加图片到容器
         cardContainer.appendChild(img)
-        
+
         // 创建"- 0 +"按钮组
         const buttonGroup = document.createElement('div');
         buttonGroup.classList.add('flex', 'items-center', 'justify-between', 'w-full', 'mt-2', 'hidden');
@@ -294,11 +294,11 @@ class Card extends HTMLElement {
 
         // 添加按钮组到容器
         cardContainer.appendChild(buttonGroup);
-        
+
         // 保存按钮组和数量显示的引用，以便后续更新
         this.buttonGroup = buttonGroup;
         this.countDisplay = countDisplay;
-        
+
         // 将容器添加到组件
         this.appendChild(cardContainer)
         //shadow.appendChild(wrapper)
@@ -537,11 +537,11 @@ class Card extends HTMLElement {
             }
         });
     }
-    
+
     // 更新牌组中的卡牌数量显示
     updateDeckCount() {
         if (!this.buttonGroup || !this.countDisplay) return;
-        
+
         // 默认数量为 0
         let count = 0;
         let sameCardIdCount = 0;
@@ -552,27 +552,27 @@ class Card extends HTMLElement {
             count = window.deckBuilder.addedCards
                 .filter(card => card.cardNum === this.data.cardNum)
                 .reduce((sum, card) => sum + (card.count || 1), 0); // 如果 card.count 不存在，默认按 1 计算
-            
+
             // 统计相同 card-id 的卡牌数量
             sameCardIdCount = window.deckBuilder.addedCards
                 .filter(card => card.id === this.data.cardId)
                 .reduce((sum, card) => sum + (card.count || 1), 0);
-            
+
             // 检查是否已有搭档或案件卡牌
             hasPartnerOrCase = window.deckBuilder.addedCards.some(card =>
                 (card.cardType === "搭档" && this.data.type === "搭档") ||
                 (card.cardType === "案件" && this.data.type === "案件")
             );
         }
-        
+
         // 更新数量显示
         this.countDisplay.textContent = count.toString();
-        
+
         // 获取按钮组中的加减按钮
         const minusButton = this.buttonGroup.children[0];
         const countBUtton = this.buttonGroup.children[1];
         const plusButton = this.buttonGroup.children[2];
-        
+
         // 隐藏/显示加号按钮
         if (plusButton) {
             // 同ID的卡牌数量达到3张时隐藏加号按钮
@@ -588,7 +588,7 @@ class Card extends HTMLElement {
                 plusButton.classList.remove('invisible');
             }
         }
-        
+
         // 隐藏/显示减号按钮
         if (minusButton) {
             // 数量为0时隐藏减号按钮
@@ -638,7 +638,7 @@ class Card extends HTMLElement {
             else if (left + tooltipWidth > viewportWidth - padding) {
                 left = viewportWidth - tooltipWidth - padding
             }
-            
+
             const isBelow = top < padding
             if (top < padding) {
                 top = targetRect.bottom + 5
@@ -704,7 +704,7 @@ function addCardToDeck(cardNum) {
     if (panel && !panel.classList.contains('hidden') && window.deckBuilder) {
         // 如果牌组构建面板已打开，添加卡牌到当前构建的牌组
         window.deckBuilder.addCardToCurrentDeck(cardNum);
-    } else{
+    } else {
         alert('无法添加卡牌到牌组，请刷新页面后重试');
     }
 }
@@ -757,6 +757,18 @@ class DeckBuilder {
                 this.saveDeck();
             });
         }
+        const exportDeckBtn = document.getElementById('export-deck');
+        if (exportDeckBtn) {
+            exportDeckBtn.addEventListener('click', () => {
+                this.exportDeck('copy');
+            });
+        }
+        const importDeckBtn = document.getElementById('import-deck');
+        if (importDeckBtn) {
+            importDeckBtn.addEventListener('click', () => {
+                this.importDeck('copy');
+            });
+        }
     }
 
     // 新建牌组构建面板
@@ -769,12 +781,12 @@ class DeckBuilder {
             this.currentDeck = {
                 deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
                 name: '',
-                description: '', 
+                description: '',
                 timestamp: new Date().toISOString(),
                 cards: []
             };
             this.addedCards = [];
-            
+
             // 清空输入框和已添加的卡牌列表
             const deckNameInput = document.getElementById('deck-name');
             if (deckNameInput) {
@@ -790,12 +802,12 @@ class DeckBuilder {
                 // 调用renderAddedCards方法来渲染空的40个格子
                 this.renderAddedCards();
             }
-            
+
             // 显示面板
             panel.classList.remove('hidden');
             deckBuilderPanelButton.classList.remove('hidden');
             newDeckBtn.classList.add('hidden');
-            
+
             // 显示所有"添加到牌组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
@@ -812,7 +824,7 @@ class DeckBuilder {
             panel.classList.remove('hidden-completely');
             deckBuilderPanelButton.classList.remove('hidden');
             openDeckBtn.classList.add('hidden');
-            
+
             // 隐藏所有"添加到牌组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
@@ -828,7 +840,7 @@ class DeckBuilder {
         if (panel) {
             panel.classList.add('hidden');
             deckBuilderPanelButton.classList.add('hidden');
-            
+
             // 隐藏所有"添加到牌组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
@@ -851,41 +863,67 @@ class DeckBuilder {
 
     // 添加卡牌到当前牌组
     addCardToCurrentDeck(cardNum) {
-        // 获取卡牌元素以获取图片
-        const cardElement = document.querySelector(`dct-card[card-num="${cardNum}"]`);
-        const cardimage = cardElement ? cardElement.getAttribute('image') : '';
-        const cardId  = cardElement ? cardElement.getAttribute('card-id') : '';
-        const cardName  = cardElement ? cardElement.getAttribute('data-filter-title') : '';
-        const cardType  = cardElement ? cardElement.getAttribute('data-filter-type') : '';
+        const errorDisplay = document.getElementById('import-error');
 
-        // 检查搭档数量
-        if (cardType === "搭档") {
-            const partnerExists = this.addedCards.some(card => card.cardType === "搭档");
-            if (partnerExists) {
-                alert(`搭档数量不能超过1张`);
-                return;
+        try {
+            // 获取卡牌元素以获取图片
+            const cardElement = document.querySelector(`dct-card[card-num="${cardNum}"]`);
+            if (!cardElement) {
+                throw new Error(`卡牌编号 ${cardNum} 不存在`);
             }
+
+            const cardimage = cardElement ? cardElement.getAttribute('image') : '';
+            const cardId = cardElement ? cardElement.getAttribute('card-id') : '';
+            const cardName = cardElement ? cardElement.getAttribute('data-filter-title') : '';
+            const cardType = cardElement ? cardElement.getAttribute('data-filter-type') : '';
+
+            // 检查搭档数量
+            if (cardType === "搭档") {
+                const partnerExists = this.addedCards.some(card => card.cardType === "搭档");
+                if (partnerExists) {
+                    throw new Error(`牌组中只能有1张搭档卡`);
+                }
+            }
+
+            // 检查案件数量
+            if (cardType === "案件") {
+                const caseExists = this.addedCards.some(card => card.cardType === "案件");
+                if (caseExists) {
+                    throw new Error(`牌组中只能有1张案件卡`);
+                }
+            }
+
+            // 检查同一 card-id 的卡牌是否已经超过3张
+            const sameCardIdCount = this.addedCards
+                .filter(card => card.id === cardId)
+                .reduce((total, card) => total + card.count, 0);
+
+            if (sameCardIdCount >= 3) {
+                throw new Error(`同一ID【${cardId}】的数量不能超过3张`);
+            }
+
+            // 如果所有检查都通过，添加卡牌
+            this.addedCards.push({
+                id: cardId,
+                cardName: cardName,
+                cardType: cardType,
+                cardNum: cardNum,
+                imgsrc: cardimage,
+                count: 1
+            });
+
+            this.renderAddedCards();
+            return true;
+
+        } catch (error) {
+            // 显示错误信息
+            if (errorDisplay) {
+                errorDisplay.textContent = error.message;
+                errorDisplay.style.display = 'block';
+            }
+            console.error('添加卡牌失败:', error);
+            return false;
         }
-        if (cardType === "案件") {
-        const caseExists = this.addedCards.some(card => card.cardType === "案件");
-        if (caseExists) {
-            alert(`案件数量不能超过1张`);
-            return;
-        }
-        }
-        
-        // 检查同一 card-id 的卡牌是否已经超过3张
-        const sameCardIdCount = this.addedCards
-            .filter(card => card.id === cardId)
-            .reduce((total, card) => total + card.count, 0);
-        
-        if (sameCardIdCount >= 3) {
-            alert(`同一ID【${cardId}】的数量不能超过3张`);
-            return;
-        }
-        
-        this.addedCards.push({ id: cardId, cardName: cardName, cardType: cardType, cardNum: cardNum, imgsrc: cardimage, count: 1 });
-        this.renderAddedCards();
     }
 
     // 从当前牌组中移除卡牌
@@ -912,72 +950,72 @@ class DeckBuilder {
         const containerPartner = document.getElementById('added-partner');
         const containerCase = document.getElementById('added-case');
         const containerCards = document.getElementById('added-cards');
-        
+
         // 如果容器不存在则返回
         if (!containerDeck || !containerPartner || !containerCase || !containerCards) return;
-        
+
         // 按 cardNum 升序排列（只对普通卡牌排序）
         const sortedCards = [...this.addedCards].sort((a, b) => {
             // 如果 cardNum 为空，则排在最后
             if (!a.cardNum) return 1;
             if (!b.cardNum) return -1;
-            
+
             // 比较 cardNum
             return a.cardNum.localeCompare(b.cardNum, undefined, {
                 numeric: true,
                 sensitivity: 'base'
             });
         });
-        
+
         // 分离不同类型的卡牌
         const partnerCard = sortedCards.find(card => card.cardType === "搭档");
         const caseCard = sortedCards.find(card => card.cardType === "案件");
         const normalCards = sortedCards.filter(card => card.cardType !== "搭档" && card.cardType !== "案件");
-        
+
         // 渲染搭档卡牌（最多1张）
         if (partnerCard) {
             containerPartner.innerHTML = this.renderCardItem(partnerCard);
         } else {
             containerPartner.innerHTML = this.renderEmptyPartnerSlot();
         }
-        
+
         // 渲染案件卡牌（最多1张）
         if (caseCard) {
             containerCase.innerHTML = this.renderCardItem(caseCard);
         } else {
             containerCase.innerHTML = this.renderEmptyCaseSlot();
         }
-        
+
         // 始终显示40个网格格子（4行，每行10列）的普通卡牌
         const totalSlots = 40;
-        
+
         // 创建普通卡牌的网格容器
         let cardsHtml = `<div class="grid grid-cols-10 gap-2 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
-        
+
         // 渲染普通卡牌
         normalCards.forEach(card => {
             cardsHtml += this.renderCardItem(card);
         });
-        
+
         // 添加空的网格项以填充剩余空间
         const emptySlots = Math.max(0, totalSlots - normalCards.length);
         for (let i = 0; i < emptySlots; i++) {
             cardsHtml += this.renderEmptySlot();
         }
-        
+
         cardsHtml += '</div>';
         containerCards.innerHTML = cardsHtml;
 
         // 绑定所有移除卡牌按钮事件
         this.bindRemoveCardEvents();
-        
+
         // 更新所有卡片的数量显示
         this.updateAllCardCounts();
-        
+
         // 渲染统计数据
         this.renderStatistics();
     };
-    
+
     // 更新所有卡片的数量显示
     updateAllCardCounts() {
         // 获取所有卡片元素
@@ -1057,9 +1095,10 @@ class DeckBuilder {
         this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
         this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
         if (this.addedCards.length === 0) {
-            console.warn("牌组中没有卡牌，但仍然保存");
+            alert("牌组为空，保存牌组失败");
+            return false;
         }
-        
+
         if (!this.currentDeck.deckid) {
             this.currentDeck.deckid = Date.now().toString(36) + Math.random().toString(36).slice(2);
         }
@@ -1070,15 +1109,13 @@ class DeckBuilder {
             name: this.currentDeck.deckName,
             description: this.currentDeck.deckDescription,
             timestamp: new Date().toISOString(),
-            cards: this.addedCards.map(card => ({
-                cardNum: card.cardNum,
-            }))
+            cards: this.addedCards.map(card => card.cardNum)
         };
-        
+
         try {
             // 获取已有的牌组列表
             let existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
-            
+
             // 检查同名冲突
             const existingIndex = existingDecks.findIndex(deck => deck.deckid === deckData.deckid);
             if (existingIndex >= 0) {
@@ -1086,10 +1123,10 @@ class DeckBuilder {
             } else {
                 existingDecks.push(deckData);             // 新增
             }
-                
+
             // 保存更新后的列表
             localStorage.setItem('conan-tcg-decks', JSON.stringify(existingDecks));
-            
+
             // 关闭面板
             this.closeDeckBuilderPanel && this.closeDeckBuilderPanel();
             alert('牌组保存成功');
@@ -1098,19 +1135,201 @@ class DeckBuilder {
             alert('保存牌组失败，可能是存储空间不足');
         }
     }
-    
+
+    exportDeck(method = 'download') {
+        const deckNameInput = document.getElementById('deck-name');
+        const deckDescriptionInput = document.getElementById('deck-description');
+
+        if (!this.currentDeck || !this.addedCards) {
+            console.error("没有可用的牌组数据或卡牌");
+            return false;
+        }
+
+        this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
+        this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
+        if (this.addedCards.length === 0) {
+            console.warn("牌组中没有卡牌，但仍然导出");
+        }
+
+        if (!this.currentDeck.deckid) {
+            this.currentDeck.deckid = Date.now().toString(36) + Math.random().toString(36).slice(2);
+        }
+
+        // 创建简化的牌组JSON数据
+        const deckData = {
+            deckid: this.currentDeck.deckid,
+            name: this.currentDeck.deckName,
+            description: this.currentDeck.deckDescription,
+            timestamp: new Date().toISOString(),
+            cards: this.addedCards.map(card => card.cardNum)
+        };
+
+        // 导出为JSON文件（自动下载）
+
+        if (method === 'copy') {
+            // 复制到剪贴板
+            try {
+                const dataStr = JSON.stringify(deckData, null, 2);
+                navigator.clipboard.writeText(dataStr)
+                    .then(() => alert('牌组已复制到剪贴板'))
+                    .catch(err => {
+                        console.error('复制失败:', err);
+                        alert('复制失败，请尝试下载方式');
+                    });
+                return true;
+            } catch (error) {
+                console.error('复制牌组失败:', error);
+                alert('复制牌组失败，请尝试下载方式');
+                return false;
+            }
+        } else {
+            try {
+                const jsonStr = JSON.stringify(deckData, null, 2); // 格式化 JSON
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+
+                // 生成安全的文件名
+                const deckName = deckData.name
+                    ? deckData.name.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_') // 允许中文
+                    : 'deck';
+                a.download = `${deckName}_${Date.now()}.json`;
+
+                // 静默触发点击，不引起页面跳转/刷新
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+
+                // 清理 URL 对象，避免内存泄漏
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+
+                return true;
+            } catch (error) {
+                console.error('导出牌组失败:', error);
+                alert('导出牌组失败');
+                return false;
+            }
+        }
+    }
+
+    importDeck() {
+        const panel = document.getElementById('deck-builder-panel');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+
+        // 创建导入对话框
+        const importDialog = document.createElement('div');
+        importDialog.className = 'import-dialog';
+        importDialog.innerHTML = `
+        <div class="import-content">
+            <h3>导入牌组</h3>
+            <textarea id="deck-json-input" placeholder="请粘贴牌组JSON数据..." style="width: 100%; height: 200px; margin: 10px 0;"></textarea>
+            <div class="import-buttons">
+                <button id="confirm-import" class="btn-primary">确认导入</button>
+                <button id="cancel-import" class="btn-secondary">取消</button>
+            </div>
+            <p id="import-error" style="color: red; display: none;"></p>
+        </div>
+    `;
+
+        document.body.appendChild(importDialog);
+        // 处理导入取消
+        document.getElementById('cancel-import').addEventListener('click', () => {
+            document.body.removeChild(importDialog);
+        });
+        // 处理导入确认
+        document.getElementById('confirm-import').addEventListener('click', () => {
+            const jsonInput = document.getElementById('deck-json-input').value.trim();
+            const errorDisplay = document.getElementById('import-error');
+            errorDisplay.style.display = 'none';
+
+            if (!jsonInput) {
+                errorDisplay.textContent = '请输入有效的JSON数据';
+                errorDisplay.style.display = 'block';
+                return;
+            }
+
+            try {
+                const deckData = JSON.parse(jsonInput);
+
+                if (!deckData.cards || !Array.isArray(deckData.cards)) {
+                    throw new Error('无效的牌组数据格式，缺少 cards 数组');
+                }
+
+                // 初始化牌组数据
+                this.currentDeck = {
+                    deckid: deckData.deckid || Date.now().toString(36) + Math.random().toString(36).slice(2),
+                    name: deckData.name || '导入的牌组',
+                    description: deckData.description || '',
+                    timestamp: deckData.timestamp || new Date().toISOString(),
+                    cards: []
+                };
+
+                this.addedCards = [];
+                let hasError = false;
+
+                // 遍历所有卡牌并收集错误
+                for (const cardNum of deckData.cards.filter(cardNum => cardNum)) {
+                    const addResult = this.addCardToCurrentDeck(cardNum);
+                    if (!addResult) {
+                        hasError = true;
+                    }
+                }
+
+                if (hasError) {
+                    // addCardToCurrentDeck 已显示具体错误，这里不需要再次显示
+                    return;
+                }
+
+                // 更新UI
+                const deckNameInput = document.getElementById('deck-name');
+                if (deckNameInput) {
+                    deckNameInput.value = this.currentDeck.name;
+                }
+
+                const deckDescriptionInput = document.getElementById('deck-description');
+                if (deckDescriptionInput) {
+                    deckDescriptionInput.value = this.currentDeck.description;
+                }
+
+                // 渲染卡牌
+                const addedCardsContainer = document.getElementById('added-cards');
+                if (addedCardsContainer) {
+                    addedCardsContainer.innerHTML = '';
+                    this.renderAddedCards();
+                }
+
+                // 显示面板
+                panel.classList.remove('hidden');
+                deckBuilderPanelButton.classList.remove('hidden');
+
+                // 移除导入对话框
+                document.body.removeChild(importDialog);
+
+            } catch (error) {
+                errorDisplay.textContent = `导入失败: ${error.message}`;
+                errorDisplay.style.display = 'block';
+                console.error('导入牌组失败:', error);
+            }
+        });
+    }
+
     // 渲染统计数据
     renderStatistics() {
         const statisticsContainer = document.getElementById('added-statistics');
         if (!statisticsContainer) return;
-        
+
         // 统计等级1-9的卡牌数量
         const costCounts = Array(10).fill(0); // 索引0-9，但只使用1-9
         this.addedCards.forEach(card => {
             // 获取卡牌元素以获取cost属性
             const cardElement = document.querySelector(`dct-card[card-num="${card.cardNum}"]`);
             const cost = cardElement ? cardElement.getAttribute('data-filter-cost') : '';
-            
+
             // 只统计角色和事件卡牌的等级
             const cardType = cardElement ? cardElement.getAttribute('data-filter-type') : '';
             if ((cardType === '角色' || cardType === '事件') && cost && !isNaN(cost)) {
@@ -1120,14 +1339,14 @@ class DeckBuilder {
                 }
             }
         });
-        
+
         // 统计各类型卡牌数量
         let roleCount = 0;      // 角色
         let eventCount = 0;     // 事件
         let hiramekiCount = 0;  // 灵光一闪
         let cutInCount = 0;     // 介入
         let disguiseCount = 0;  // 变装
-        
+
         this.addedCards.forEach(card => {
             // 统计角色和事件卡牌
             const cardElement = document.querySelector(`dct-card[card-num="${card.cardNum}"]`);
@@ -1137,7 +1356,7 @@ class DeckBuilder {
             } else if (cardType === '事件') {
                 eventCount += card.count;
             }
-            
+
             // 统计特殊关键字卡牌
             const spkey = cardElement ? cardElement.getAttribute('data-filter-spkey') : '';
             if (spkey && spkey.includes('灵光一闪')) {
@@ -1150,7 +1369,7 @@ class DeckBuilder {
                 disguiseCount += card.count;
             }
         });
-        
+
         let barChartHtml = '<div class="">';
         barChartHtml += '<div class="flex items-end h-32 gap-1">';
 
@@ -1174,33 +1393,33 @@ class DeckBuilder {
             `;
         }
         barChartHtml += '</div></div>';
-        
+
         // 创建表格
         let tableHtml = `
         <div class="max-w-full overflow-x-auto">
             <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
                 <div class="grid grid-cols-5">
                 ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
-                    .map((icon, index) => `
+                .map((icon, index) => `
                     <div class="p-2 border-b border-gray-300 dark:border-gray-600 
                                 ${index !== 4 ? 'border-r' : ''}
                                 bg-gray-100 dark:bg-gray-700 dark:text-white text-center">
                         <img src="img/${icon}.svg" class="inline-icon">
                     </div>`)
-                    .join('')}
+                .join('')}
 
                 ${[roleCount, eventCount, hiramekiCount, cutInCount, disguiseCount]
-                    .map((value, index) => `
+                .map((value, index) => `
                     <div class="p-2 border-gray-300 dark:border-gray-600 
                                 ${index !== 4 ? 'border-r' : ''}
                                 dark:text-white text-center">
                         ${value}
                     </div>`)
-                    .join('')}
+                .join('')}
                 </div>
             </div>
         </div>`;
-        
+
         // 将图表和表格添加到容器中
         statisticsContainer.innerHTML = barChartHtml + tableHtml;
     }
