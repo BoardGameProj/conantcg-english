@@ -96,6 +96,8 @@ module:
       target: "static/css/additions.css"
     - source: "static/js/keywords.js"
       target: "static/js/keywords.js"
+    - source: "static/js/deck_list.js"
+      target: "static/js/deck_list.js"
     - source: assets
       target: assets
     - source: "../data/images/cards"
