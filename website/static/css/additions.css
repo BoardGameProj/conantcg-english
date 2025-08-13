@@ -196,6 +196,8 @@
 @font-face {
     font-family: 'QiushuiShotai';
     src: url('font/QiushuiShotai.ttf');
+        src: url('/css/font/QiushuiShotai.woff2') format('woff2');
+    font-display: swap;
 }
 
 .card_details--cardText {

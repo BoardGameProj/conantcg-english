@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang='{{ .Site.LanguageCode }}' class="dark" id="htmlElement">
     <head>
+        <link rel="preload" href="/css/font/QiushuiShotai.woff2" as="font" type="font/woff2" crossorigin>
         <base href="{{ .Site.BaseURL }}" />
         {{- partial "head.html" . -}}
         {{ block "meta_tags" . }}{{end}}
