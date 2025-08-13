@@ -364,13 +364,53 @@ dct-card img {
 }
 
 .grid-cards-custom1 {
-  /* 固定比例网格 */
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  
-  /* 根据卡片比例设置行高 */
-  --card-ratio: 1.4;
-  grid-template-rows: repeat(4, minmax(0, calc(10% * var(--card-ratio))));
-  
-  /* 保持整体宽高比 */
-  /* aspect-ratio: 5/7; (10/2)行数×1.4 ≈ 5/7，因为4行×1.4=5.6 */
+    /* 固定比例网格 */
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+
+    /* 根据卡片比例设置行高 */
+    --card-ratio: 1.4;
+    grid-template-rows: repeat(4, minmax(0, calc(10% * var(--card-ratio))));
+
+    /* 保持整体宽高比 */
+    /* aspect-ratio: 5/7; (10/2)行数×1.4 ≈ 5/7，因为4行×1.4=5.6 */
+}
+
+#deck-builder-container {
+    position: relative;
+
+    /* 让 sticky 计算相对于它 */
+}
+
+#deck-builder-panel {
+    /* 默认状态：跟随文档流 */
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+#deck-builder-panel.sticky-float {
+    /* 悬浮状态：固定在顶部中央 */
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    /* max-width: 60%; */
+    z-index: 9;
+    --tw-bg-opacity:0.93;
+}
+
+#deck-builder-panel.hidden-completely {
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#panel-placeholder {
+    visibility: hidden; /* 不可见但占空间 */
+}
+
+.select-none {
+    user-select: none;
 }

@@ -263,7 +263,7 @@ class Card extends HTMLElement {
         // 减少按钮
         const minusButton = document.createElement('button');
         minusButton.type = 'button';
-        minusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-red-600', 'text-sm', 'flex', 'items-center', 'justify-center');
+        minusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-red-600', 'text-sm', 'flex', 'items-center', 'justify-center', 'select-none');
         minusButton.textContent = '-';
         minusButton.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -274,13 +274,13 @@ class Card extends HTMLElement {
 
         // 数量显示
         const countDisplay = document.createElement('span');
-        countDisplay.classList.add('text-sm', 'text-white', 'font-medium');
+        countDisplay.classList.add('text-sm', 'text-white', 'font-medium', 'select-none');
         countDisplay.textContent = '0';
 
         // 增加按钮
         const plusButton = document.createElement('button');
         plusButton.type = 'button';
-        plusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-blue-600', 'text-sm', 'flex', 'items-center', 'justify-center');
+        plusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-blue-600', 'text-sm', 'flex', 'items-center', 'justify-center', 'select-none');
         plusButton.textContent = '+';
         plusButton.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -432,18 +432,19 @@ class Card extends HTMLElement {
             }
             if (key === 'cardId') {
                 content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-start font-bold whitespace-nowrap" >${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
                         <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
-                        <a href="/cards/?card-id-num=${value}"> 🔍</a></div>
+                        <button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">🔍</button>
+                    </div>
                 </div>`;
             } else if (key === 'cardNum') {
                 let search = value.trim().substring(0, 6);
                 content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
                         <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
-                        <a href="/cards/?card-num=${search}"> 🔍</a>
+                        <button class="search-form-btn" data-target-key="card-num" data-value="${value}">🔍</button>
                     </div>
                 </div>`;
             } else if (key === 'categories') {
@@ -452,12 +453,12 @@ class Card extends HTMLElement {
                     return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm font-bold text-categories">${val}</span>`;
                 }).join('');
                 content += `<div class="flex justify-between lg:py-0">
-                <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
             </div>`;
             } else if (key === 'rarity' && ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'].includes(value)) {
                 content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} card-rarity--yellow text-right">${value}</div>
                 </div>`;
             } else if (key === 'otherVersions') {
@@ -474,12 +475,12 @@ class Card extends HTMLElement {
 
                 // 其余部分保持不变
                 content += `<div class="flex justify-between lg:py-0">
-                <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
             </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold" style="white-space: nowrap;">${labels[key]}</div>
+                    <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;
             }
@@ -726,7 +727,7 @@ class DeckBuilder {
         const newDeckBtn = document.getElementById('new-deck-btn');
         if (newDeckBtn) {
             newDeckBtn.addEventListener('click', () => {
-                this.openDeckBuilderPanel();
+                this.newDeckBuilderPanel();
             });
         }
 
@@ -737,7 +738,18 @@ class DeckBuilder {
                 this.closeDeckBuilderPanel();
             });
         }
-
+        const hideDeckBuilderBtn = document.getElementById('hide-deck-builder');
+        if (hideDeckBuilderBtn) {
+            hideDeckBuilderBtn.addEventListener('click', () => {
+                this.hideDeckBuilderPanel();
+            });
+        }
+        const openDeckBuilderBtn = document.getElementById('open-deck-btn');
+        if (openDeckBuilderBtn) {
+            openDeckBuilderBtn.addEventListener('click', () => {
+                this.openDeckBuilderPanel();
+            });
+        }
         // 保存牌组按钮点击事件
         const saveDeckBtn = document.getElementById('save-deck');
         if (saveDeckBtn) {
@@ -748,7 +760,7 @@ class DeckBuilder {
     }
 
     // 打开牌组构建面板
-    openDeckBuilderPanel() {
+    newDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
@@ -786,7 +798,23 @@ class DeckBuilder {
             });
         }
     }
-
+    openDeckBuilderPanel() {
+        const panel = document.getElementById('deck-builder-panel');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const openDeckBtn = document.getElementById('open-deck-btn');
+        if (panel) {
+            panel.classList.remove('hidden');
+            panel.classList.remove('hidden-completely');
+            deckBuilderPanelButton.classList.remove('hidden');
+            openDeckBtn.classList.add('hidden');
+            
+            // 隐藏所有"添加到牌组"按钮
+            const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
+            addToDeckButtons.forEach(button => {
+                button.classList.remove('hidden');
+            });
+        }
+    }
     // 关闭牌组构建面板
     closeDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
@@ -802,6 +830,17 @@ class DeckBuilder {
                 button.classList.add('hidden');
                 newDeckBtn.classList.remove('hidden');
             });
+        }
+    }
+
+    hideDeckBuilderPanel() {
+        const panel = document.getElementById('deck-builder-panel');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const openDeckBtn = document.getElementById('open-deck-btn');
+        if (panel) {
+            panel.classList.add('hidden-completely');
+            // deckBuilderPanelButton.classList.add('hidden');
+            openDeckBtn.classList.remove('hidden');
         }
     }
 
@@ -950,7 +989,7 @@ class DeckBuilder {
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
                         <p class="text-2xs text-white text-center bg-black truncate" style="--tw-bg-opacity: 0.7;">${card.cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black" style="--tw-bg-opacity: 0.7;">${card.id}/${card.cardNum}</p>
+                        <p class="text-2xs text-white text-center bg-black max-w-full" style="--tw-bg-opacity: 0.7; font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
                     </div>
                 </div>
                 <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">

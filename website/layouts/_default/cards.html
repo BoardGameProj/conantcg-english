@@ -203,8 +203,12 @@
                 class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-green-700 rounded-lg whitespace-nowrap hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                 新建牌组
             </button>
+            <button type="button" id="open-deck-btn"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hidden">
+                打开牌组
+            </button>
         </div>
-        <div id="deck-builder-panel-button" class="flex justify-end items-center pad-2 hidden">
+        <div id="deck-builder-panel-button" class="flex justify-end items-center pad-2 gap-2 hidden">
             <button type="button" id="save-deck"
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 保存牌组
@@ -217,48 +221,50 @@
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                 导入牌组
             </button>
-            <button type="button" id="save-deck"
+            <button type="button" id="close-deck-builder"
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                 退出牌组
             </button>
         </div>
     </div>
     <!-- 牌组构建面板 -->
-    <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
-        <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold dark:text-white">构建牌组</h3>
-            <button type="button" id="close-deck-builder"
-                class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div class="mb-4">
-            <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label>
-            <input type="text" id="deck-name"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                placeholder="输入牌组名称">
-        </div>
-        <div class="mb-4">
-            <div id="added-deck" class="grid grid-cols-6 gap-1"
-                style="grid-template-areas: 'A C C C C D' 'B C C C C E';">
-                <div id="added-partner" class="grid grid-cols-1 [grid-area:A] items-center justify-center relative">
-                    <!-- 已添加的搭档将在这里显示 -->
+    <div id="deck-builder-container">
+        <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
+            <div class="mb-4" id="deck-description">
+                <div class="flex justify-between items-center mb-4">
+                <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label>
+                <button type="button" id="hide-deck-builder"
+                    class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 L18 12"></path>
+                    </svg>
+                </button>
                 </div>
-                <div id="added-statistics" class="grid grid-cols-1 [grid-area:D] items-center justify-center relative">
-                    <!-- 已添加的统计数据将在这里显示 -->
+                <div class="flex justify-between items-center mb-4">
+                <input type="text" id="deck-name"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    placeholder="输入牌组名称">
                 </div>
-                <div id="added-cards" class="[grid-area:C]">
-                    <!-- 已添加的卡牌将在这里显示 -->
-                </div>
-                <div id="added-case" class="[grid-area:B] flex flex-col items-center justify-center">
-                    <!-- 已添加的卡牌将在这里显示 -->
+            </div>
+            <div class="mb-4">
+                <div id="added-deck" class="grid grid-cols-6 gap-1"
+                    style="grid-template-areas: 'A C C C C D' 'B C C C C E';">
+                    <div id="added-partner" class="grid grid-cols-1 [grid-area:A] items-center justify-center relative">
+                        <!-- 已添加的搭档将在这里显示 -->
+                    </div>
+                    <div id="added-statistics" class="grid grid-cols-1 [grid-area:D] items-center justify-center relative">
+                        <!-- 已添加的统计数据将在这里显示 -->
+                    </div>
+                    <div id="added-cards" class="[grid-area:C]">
+                        <!-- 已添加的卡牌将在这里显示 -->
+                    </div>
+                    <div id="added-case" class="[grid-area:B] flex flex-col items-center justify-center">
+                        <!-- 已添加的卡牌将在这里显示 -->
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="panel-placeholder" style="display: none;"></div>
     </div>
 </div>
     <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
@@ -348,6 +354,78 @@
             const event = new Event('input', { bubbles: true });
             input.dispatchEvent(event);
         });
+    })
+
+    function setFormInputValue(key, value) {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        const input = document.querySelector(`input[name="${key}"], [data-filter-key="${key}"]`);
+        if (!input) {
+            console.warn(`未找到匹配的输入字段：${key}`);
+            return false;
+        }
+        
+        const inputs = Array.from(
+            filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
+        );
+
+        inputs.forEach(input => {
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                input.checked = false;
+            }
+            else if (input.type === 'text' || input.tagName === 'SELECT') {
+                input.value = '';
+            }
+            const event = new Event('input', { bubbles: true });
+            input.dispatchEvent(event);
+        });
+
+        input.value = value;
+        const event = new Event('input', { bubbles: true });
+        input.dispatchEvent(event);
+        return true;
+    }
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('search-form-btn')) {
+            const btn = event.target;
+            const { targetKey, value } = btn.dataset;  // 解构获取参数
+            setFormInputValue(targetKey, value);       // 调用核心函数
+        }
     });
+    const panel = document.getElementById('deck-builder-panel');
+    const container = document.getElementById('deck-builder-container');
+    const deckDescription = document.getElementById('deck-description');
+    const placeholder = document.getElementById('panel-placeholder');
+    
+    let panelHeight = panel.offsetHeight * 0.5;
+    updatePlaceholderHeight();
+    
+    window.addEventListener('scroll', () => {
+        if (panel.classList.contains('hidden')) return; // 隐藏时不执行
+
+        const containerRect = container.getBoundingClientRect();
+
+        // 检查是否完全滚动出屏幕（顶部或底部）
+        // const isOutOfView = containerRect.top > window.innerHeight || containerRect.bottom < 0;
+        const elementHeight = containerRect.bottom - containerRect.top;
+        const halfHeight = elementHeight * 0.5;
+
+        const isOutOfView = containerRect.bottom < halfHeight || containerRect.top > window.innerHeight - halfHeight
+
+        
+        // 切换悬浮状态
+        panel.classList.toggle('sticky-float', isOutOfView);
+        deckDescription.classList.toggle('hidden', isOutOfView);
+        placeholder.style.display = isOutOfView ? 'block' : 'none';
+    })
+
+    function updatePlaceholderHeight() {
+        panelHeight = panel.offsetHeight;
+        placeholder.style.height = `${panelHeight}px`;
+    }
+    
+    window.addEventListener('resize', updatePlaceholderHeight);
 </script>
 {{ end }}
