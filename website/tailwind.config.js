@@ -92,7 +92,8 @@ module.exports = {
     'group-hover:opacity-100', // 显式指定需要保障的group-hover类
     'group-hover:bg-opacity-70',
     'group-hover:bg-black/20',
-    'group-hover:scale-105'
+    'group-hover:scale-105',
+    'col-span-5'
   ],
 
   // 插件配置

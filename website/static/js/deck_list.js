@@ -35,21 +35,34 @@ async function loadCardsData() {
 // 从本地存储加载牌组
 function loadDecks() {
     try {
+        // 等待卡牌数据加载完成
+        if (!cardsData || Object.keys(cardsData).length === 0) {
+            console.log('等待卡牌数据加载...');
+            setTimeout(loadDecks, 100); // 延迟100ms再尝试
+            return;
+        }
+
         const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
         const deckListContainer = document.getElementById('deckList');
         const emptyDeckMessage = document.getElementById('emptyDeckMessage');
 
-        if (decks.length === 0) {
-            emptyDeckMessage.style.display = 'block';
+        // 添加元素存在性检查
+        if (!deckListContainer) {
+            console.error('Required elements not found');
             return;
         }
 
-        emptyDeckMessage.style.display = 'none';
+        if (decks.length === 0) {
+            emptyDeckMessage.style.display = 'block';
+            deckListContainer.style.display = 'none'; // 隐藏列表容器
+            return;
+        }
 
         // 预计算所有可用颜色
         const allColors = new Set();
         decks.forEach(deck => {
             const deckColors = getDeckColors(deck);
+            console.log(deck)
             // 使用动态获取的颜色名称
             deck.colorTags = Array.from(deckColors).map(c => getColorName(c) || c).join(',');
             deckColors.forEach(color => allColors.add(color));
@@ -60,7 +73,7 @@ function loadDecks() {
 
         // 生成牌组列表HTML
         deckListContainer.innerHTML = `
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-1">
                 ${decks.map(deck => createDeckCard(deck)).join('')}
             </div>
         `;
@@ -119,19 +132,30 @@ function getCardName(cardNum) {
 
 // 创建牌组卡片HTML
 function createDeckCard(deck) {
-    const totalCardsCount = deck.cards?.length || 0;
     const createdTime = new Date(deck.timestamp).toLocaleString('zh-CN');
     const colorTags = deck.colorTags || '';
 
-    // 查找搭档牌
+    let totalCardsCount = 0;
     let partnerCard = null;
+    let caseCard = null;
 
     if (deck.cards) {
         for (const cardNum of deck.cards) {
             const cardData = cardsData[cardNum];
-            if (cardData && cardsDataCN[`types.${cardData.type}`] === "搭档") {
-                partnerCard = cardData;
-                break;
+            if (cardData) {
+                const cardType = cardsDataCN[`types.${cardData.type}`];
+                // 如果是搭档牌，记录下来但不计入总数
+                if (cardType === "搭档") {
+                    partnerCard = cardData;
+                    continue;
+                }
+                // 如果是案件牌，也不计入总数
+                if (cardType === "案件") {
+                    caseCard = cardData;
+                    continue;
+                }
+                // 其他牌才计入总数
+                totalCardsCount++;
             }
         }
     }
@@ -162,7 +186,12 @@ function createDeckCard(deck) {
                                 </svg>
                             </button>
                         </div>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">${totalCardsCount}张卡牌</span>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400" title="${totalCardsCount}张卡牌">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                            </svg>
+                            <span class="text-sm">${totalCardsCount}</span>
+                        </div>
                     </div>
                     <div class="flex items-start group">
                         ${deck.description ? `
@@ -307,9 +336,9 @@ function showDeckDetail(deckId) {
         const cards = [...partnerCards, ...caseCards];
 
         return `
-            <div class="mb-6">
+            <div class="mr-6 mr-5">
                 <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">${title}</h4>
-                <div class="grid grid-cols-10 gap-3">
+                <div class="grid grid-cols-1 gap-1">
                     ${cards.map(card => createCardImageHtml(card)).join('')}
                 </div>
             </div>
@@ -318,7 +347,7 @@ function showDeckDetail(deckId) {
 
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[90vh] flex flex-col">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
                     <div>
@@ -333,14 +362,14 @@ function showDeckDetail(deckId) {
                 </div>
                 
                 <!-- 内容区域 -->
-                <div class="flex-1 overflow-y-auto p-4">
+                <div class="grid grid-cols-6 overflow-y-auto p-4">
                     ${partnerCaseHtml}
                     
                     <!-- 其他卡牌部分 -->
                     ${otherCards.length > 0 ? `
-                        <div class="mb-6">
-                            <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">其他卡牌 (${otherCards.length}张)</h4>
-                            <div class="grid grid-cols-10 gap-2">
+                        <div class="col-span-5 mb-6">
+                            <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">卡牌 (${otherCards.length}张)</h4>
+                            <div class="grid grid-cols-10 sm:grid-cols-4 md:grid-cols-10 gap-1">
                                 ${otherCards.map(card => createCardImageHtml(card)).join('')}
                             </div>
                         </div>
@@ -536,7 +565,7 @@ function createCardImageHtml(card) {
                  alt="${cardName}"
                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
                  onerror="this.src='/img/fallback.jpg'">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-md"></div>
+            <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
         </div>
     `;
 }
@@ -551,7 +580,48 @@ function exportDeck(deckId) {
 }
 
 function cloneDeck(deckId) {
-    alert('复制功能待实现');
+    try {
+        const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+        const originalDeck = decks.find(d => d.deckid === deckId);
+
+        if (!originalDeck) {
+            showToast('找不到要复制的牌组', false);
+            return;
+        }
+
+        // 创建副本
+        const clonedDeck = {
+            ...originalDeck,
+            deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
+            timestamp: new Date().toISOString(),
+            name: originalDeck.name ? `${originalDeck.name}_副本` : '未命名牌组_副本'
+        };
+
+        // 保存新牌组
+        decks.push(clonedDeck);
+        localStorage.setItem('conan-tcg-decks', JSON.stringify(decks));
+
+        // 直接刷新牌组列表
+        loadDecks();
+
+        showToast(`已成功复制牌组: ${clonedDeck.name}`);
+
+        // 延迟执行滚动，确保元素已渲染
+        setTimeout(() => {
+            const newDeckElement = document.querySelector(`[data-deck-id="${clonedDeck.deckid}"]`);
+            if (newDeckElement) {
+                newDeckElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                newDeckElement.animate([
+                    { backgroundColor: 'rgba(163, 230, 53, 0.3)' },
+                    { backgroundColor: 'transparent' }
+                ], { duration: 1000, easing: 'ease-out' });
+            }
+        }, 500);
+
+    } catch (error) {
+        console.error('复制牌组失败:', error);
+        showToast('复制牌组失败', false);
+    }
 }
 
 function confirmDeleteDeck(deckId) {
