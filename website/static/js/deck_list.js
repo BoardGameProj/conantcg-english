@@ -158,10 +158,15 @@ function createDeckCard(deck) {
             }
         }
     }
+    const isChinese = isChineseByProduct(partnerCard.package) || chinesePRCards.has(partnerCard.cardNum);
+
+    const imageUrl = isChinese 
+        ? `https://img.915159.xyz/DCCG/${partnerCard.card_num}.png`
+        : `https://img.915159.xyz/DCCG/ja/${partnerCard.card_num}.ja.jpg`;
 
     // 生成搭档牌图片HTML
     const partnerImgHtml = partnerCard
-        ? `<img src="https://img.915159.xyz/DCCG/${partnerCard.card_num}.png" 
+        ? `<img src="${imageUrl}" 
                 alt="${partnerCard.name}" 
                 class="w-20 object-cover rounded-md border border-gray-200 dark:border-gray-600 mb-2"
                 onerror="this.style.display='none'">`
@@ -636,11 +641,38 @@ function saveDeckToLocalStorage(updatedDeck) {
     }
 }
 
+
+function isChineseByProduct(product) {
+    if (!product) return false;
+    const productCode = product.trim().substring(0, 6);
+    const validProducts = [
+        "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06", // 新手卡组
+        "CT-P01", "CT-P02",                                         // 补充包
+    ];
+    return validProducts.includes(productCode);
+}
+
+const chinesePRCards = new Set([
+    "PR002", "PR004", "PR005", "PR006", "PR007",
+    "PR008", "PR009", "PR010", "PR011", "PR017",
+    "PR018", "PR019", "PR020", "PR021", "PR022",
+    "PR023", "PR034", "PR035", "PR038", "PR052"
+]);
+
 function createCardImageHtml(card) {
     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
+    
+    // 判断是否是中文卡牌（根据你的逻辑）
+    const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.cardNum);
+    
+    // 中文卡牌用 CN 目录，否则用默认目录
+    const imageUrl = isChinese 
+        ? `https://img.915159.xyz/DCCG/${card.card_num}.png`
+        : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
+
     return `
         <div class="relative group">
-            <img src="https://img.915159.xyz/DCCG/${card.card_num}.png" 
+            <img src="${imageUrl}" 
                  alt="${cardName}"
                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
                  onerror="this.src='/img/fallback.jpg'">
@@ -648,6 +680,20 @@ function createCardImageHtml(card) {
         </div>
     `;
 }
+
+
+// function createCardImageHtml(card) {
+//     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
+//     return `
+//         <div class="relative group">
+//             <img src="https://img.915159.xyz/DCCG/${card.card_num}.png" 
+//                  alt="${cardName}"
+//                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
+//                  onerror="this.src='/img/fallback.jpg'">
+//             <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
+//         </div>
+//     `;
+// }
 
 // 编辑牌组
 function editDeck(deckId) {

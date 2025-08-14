@@ -1127,7 +1127,7 @@ class DeckBuilder {
     renderEmptySlot() {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
-                <div class="text-gray-400 text-xs select-none">角色<br>事件</div>
+                <div class="text-gray-400 text-xs select-none"><!-- 角色<br>事件 --></div>
             </div>
         `;
     };
