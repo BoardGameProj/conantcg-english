@@ -62,7 +62,6 @@ function loadDecks() {
         const allColors = new Set();
         decks.forEach(deck => {
             const deckColors = getDeckColors(deck);
-            console.log(deck)
             // 使用动态获取的颜色名称
             deck.colorTags = Array.from(deckColors).map(c => getColorName(c) || c).join(',');
             deckColors.forEach(color => allColors.add(color));
@@ -270,7 +269,7 @@ function createColorTags(colors) {
     ];
 
     let tagsHtml = `
-        <button class="color-tag px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 selected"
+        <button class="color-tag px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 selected hidden"
                 data-color="all">
             全部
         </button>
