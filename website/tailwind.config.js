@@ -15,6 +15,8 @@ module.exports = {
   theme: {
     extend: {
       // 自定义颜色
+      opacity: ['group-hover'],
+      scale: ['group-hover'],
       colors: {
         warmgray: {
           50: "#fafafa",
@@ -76,7 +78,7 @@ module.exports = {
     }
   },
 
-  // 保障动态类生成（Tailwind v3+配置方式）
+
   safelist: [
     {
       pattern: /(bg|text|border)-(warmgray|primary|black|white)/, // 颜色安全列表
@@ -84,8 +86,13 @@ module.exports = {
     {
       pattern: /(opacity|bg-opacity)-[0-9]+/, // 透明度安全列表
     },
+    {
+      pattern: /group-hover:(opacity|bg-opacity|bg-black|scale)-.+/
+    },
     'group-hover:opacity-100', // 显式指定需要保障的group-hover类
-    'group-hover:bg-opacity-70'
+    'group-hover:bg-opacity-70',
+    'group-hover:bg-black/20',
+    'group-hover:scale-105'
   ],
 
   // 插件配置

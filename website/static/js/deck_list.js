@@ -535,7 +535,7 @@ function createCardImageHtml(card) {
             <img src="https://img.915159.xyz/DCCG/${card.card_num}.png" 
                  alt="${cardName}"
                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
-                 onerror="this.src='/images/card-placeholder.jpg'">
+                 onerror="this.src='/img/fallback.jpg'">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-md"></div>
         </div>
     `;
@@ -560,12 +560,44 @@ function confirmDeleteDeck(deckId) {
     }
 }
 
+
+function showToast(message, isSuccess = true) {
+    const toast = document.createElement('div');
+    toast.className = `toast ${isSuccess ? 'bg-green-500' : 'bg-red-500'} text-white px-4 py-2 rounded fixed top-4 right-4 z-50`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
+}
+
+
 function deleteDeck(deckId) {
     const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+    const deckToDelete = decks.find(d => d.deckid === deckId);
     const updatedDecks = decks.filter(d => d.deckid !== deckId);
     localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
+    showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`);
 
-    // 关闭模态框并刷新列表
-    document.querySelector('.modal-backdrop')?.remove();
-    loadDecks();
+    // 添加删除动画效果
+    const deletedCard = document.querySelector(`.deck-card[data-deck-id="${deckId}"]`);
+    if (deletedCard) {
+        deletedCard.style.transition = 'all 0.3s ease';
+        deletedCard.style.transform = 'scale(0)';
+        setTimeout(() => {
+            deletedCard.remove();
+            // 关闭模态框
+            document.querySelector('.modal-backdrop')?.remove();
+            // 检查是否还有牌组
+            if (updatedDecks.length === 0) {
+                document.getElementById('emptyDeckMessage').style.display = 'block';
+            }
+        }, 300);
+    } else {
+        // 常规处理
+        document.querySelector('.modal-backdrop')?.remove();
+        loadDecks();
+    }
 }
