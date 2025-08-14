@@ -317,7 +317,7 @@ function showDeckDetail(deckId) {
     })();
 
     const modalHtml = `
-        <div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-auto">
+        <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] flex flex-col">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
@@ -531,9 +531,13 @@ function saveDeckToLocalStorage(updatedDeck) {
 function createCardImageHtml(card) {
     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
     return `
+        <div class="relative group">
             <img src="https://img.915159.xyz/DCCG/${card.card_num}.png" 
-                class="w-16 rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105 z-10"
-                onerror="this.src='/images/card-placeholder.jpg'">
+                 alt="${cardName}"
+                 class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
+                 onerror="this.src='/images/card-placeholder.jpg'">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-md"></div>
+        </div>
     `;
 }
 

@@ -1034,8 +1034,8 @@ class DeckBuilder {
                 <div class="mb-1 relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
-                        <p class="text-2xs text-white text-center bg-black truncate" style="--tw-bg-opacity: 0.7;">${card.cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black max-w-full" style="--tw-bg-opacity: 0.7; font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
                     </div>
                 </div>
                 <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">
