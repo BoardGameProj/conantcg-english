@@ -450,6 +450,7 @@ dct-card img {
     justify-content: space-between;
     margin-top: 15px;
 }
+
 /* 颜色标签样式 */
 #colorTags {
     display: flex;
@@ -490,4 +491,25 @@ dct-card img {
     background-color: #3b82f6;
     color: white;
     border-color: #3b82f6;
+}
+
+
+/* 模态框动画 */
+.modal-backdrop {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 卡片悬停效果 */
+.deck-card:hover {
+    transform: translateY(-2px);
 }

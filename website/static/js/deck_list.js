@@ -64,16 +64,37 @@ function loadDecks() {
                 ${decks.map(deck => createDeckCard(deck)).join('')}
             </div>
         `;
+        deckListContainer.addEventListener('click', (e) => {
+            // 如果是编辑按钮/描述按钮或它们的子元素
+            if (e.target.closest('.edit-deck-btn') ||
+                e.target.closest('.edit-desc-btn') ||
+                e.target.closest('input.deck-name-input') ||
+                e.target.closest('textarea.deck-description-input')) {
+                return;
+            }
 
+            // 否则处理牌组点击
+            const deckCard = e.target.closest('.deck-card');
+            if (deckCard) {
+                const deckId = deckCard.dataset.deckId;
+                showDeckDetail(deckId);
+            }
+        });
         // 添加编辑功能
         decks.forEach(deck => {
             const deckElement = document.querySelector(`[data-deck-id="${deck.deckid}"]`);
             if (deckElement) {
                 const editBtn = deckElement.querySelector('.edit-deck-btn');
-                editBtn?.addEventListener('click', () => editDeckName(deck, deckElement));
+                editBtn?.addEventListener('click', (e) => {
+                    e.stopPropagation(); // 阻止事件冒泡
+                    editDeckName(deck, deckElement);
+                });
 
                 const editDescBtn = deckElement.querySelector('.edit-desc-btn');
-                editDescBtn?.addEventListener('click', () => editDeckDescription(deck, deckElement));
+                editDescBtn?.addEventListener('click', (e) => {
+                    e.stopPropagation(); // 阻止事件冒泡
+                    editDeckDescription(deck, deckElement);
+                });
             }
         });
 
@@ -101,10 +122,10 @@ function createDeckCard(deck) {
     const totalCardsCount = deck.cards?.length || 0;
     const createdTime = new Date(deck.timestamp).toLocaleString('zh-CN');
     const colorTags = deck.colorTags || '';
-    
+
     // 查找搭档牌
     let partnerCard = null;
-    
+
     if (deck.cards) {
         for (const cardNum of deck.cards) {
             const cardData = cardsData[cardNum];
@@ -114,9 +135,9 @@ function createDeckCard(deck) {
             }
         }
     }
-    
+
     // 生成搭档牌图片HTML
-    const partnerImgHtml = partnerCard 
+    const partnerImgHtml = partnerCard
         ? `<img src="https://img.915159.xyz/DCCG/${partnerCard.card_num}.png" 
                 alt="${partnerCard.name}" 
                 class="w-20 object-cover rounded-md border border-gray-200 dark:border-gray-600 mb-2"
@@ -250,6 +271,109 @@ function createColorTags(colors) {
     });
 }
 
+function showDeckDetail(deckId) {
+    const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+    const deck = decks.find(d => d.deckid === deckId);
+    if (!deck) return;
+
+    // 分类卡片
+    const partnerCards = [];
+    const caseCards = [];
+    const otherCards = [];
+
+    deck.cards?.forEach(cardNum => {
+        const cardData = cardsData[cardNum];
+        if (!cardData) return;
+
+        const cardType = cardsDataCN[`types.${cardData.type}`];
+
+        if (cardType === "搭档") {
+            partnerCards.push(cardData);
+        } else if (cardType === "案件") {
+            caseCards.push(cardData);
+        } else {
+            otherCards.push(cardData);
+        }
+    });
+
+    // 生成搭档和案件部分的HTML
+    const partnerCaseHtml = (() => {
+        if (partnerCards.length === 0 && caseCards.length === 0) return '';
+
+        const title =
+            partnerCards.length > 0 && caseCards.length > 0 ? "搭档 & 案件" :
+                partnerCards.length > 0 ? "搭档" : "案件";
+
+        const cards = [...partnerCards, ...caseCards];
+
+        return `
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">${title}</h4>
+                <div class="grid grid-cols-10 gap-3">
+                    ${cards.map(card => createCardImageHtml(card)).join('')}
+                </div>
+            </div>
+        `;
+    })();
+
+    const modalHtml = `
+        <div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-auto">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] flex flex-col">
+                <!-- 顶部标题和关闭按钮 -->
+                <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
+                    <div>
+                        <h3 class="text-xl font-bold dark:text-white">${deck.name || '未命名牌组'}</h3>
+                        ${deck.description ? `<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${deck.description}</p>` : ''}
+                    </div>
+                    <button onclick="document.querySelector('.modal-backdrop').remove()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- 内容区域 -->
+                <div class="flex-1 overflow-y-auto p-4">
+                    ${partnerCaseHtml}
+                    
+                    <!-- 其他卡牌部分 -->
+                    ${otherCards.length > 0 ? `
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">其他卡牌 (${otherCards.length}张)</h4>
+                            <div class="grid grid-cols-10 gap-2">
+                                ${otherCards.map(card => createCardImageHtml(card)).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <!-- 底部按钮 -->
+                <div class="flex justify-end gap-3 p-4 border-t dark:border-gray-700">
+                    <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                        编辑牌组
+                    </button>
+                    <button onclick="exportDeck('${deckId}')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
+                        导出牌组
+                    </button>
+                    <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors">
+                        复制牌组
+                    </button>
+                    <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+                        删除牌组
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // 添加到DOM
+    const modal = document.createElement('div');
+    modal.className = 'modal-backdrop';
+    modal.innerHTML = modalHtml;
+    document.body.appendChild(modal);
+    window.scrollTo(0, 0);
+}
+
 // 切换颜色选中状态
 function toggleColorSelection(color, element) {
     if (color === 'all') {
@@ -285,7 +409,7 @@ function editDeckName(deck, deckElement) {
     const input = document.createElement('input');
     input.type = 'text';
     input.value = currentName;
-    input.className = 'rounded-full font-bold dark:text-white bg-transparent border-b border-gray-400 focus:outline-none focus:border-blue-500';
+    input.className = 'deck-name-input rounded-full font-bold dark:text-white bg-transparent border-b border-gray-400 focus:outline-none focus:border-blue-500';
 
     const originalContent = nameElement.innerHTML;
     const originalClassName = nameElement.className;
@@ -319,7 +443,7 @@ function editDeckDescription(deck, deckElement) {
 
     const textarea = document.createElement('textarea');
     textarea.value = currentDesc;
-    textarea.className = 'w-full text-sm rounded border border-gray-300 dark:border-gray-600 dark:text-white dark:bg-gray-700 p-2 focus:outline-none focus:border-blue-500';
+    textarea.className = 'deck-description-input w-full text-sm rounded border border-gray-300 dark:border-gray-600 dark:text-white dark:bg-gray-700 p-2 focus:outline-none focus:border-blue-500';
     textarea.rows = 3;
     textarea.style.width = '100%';
 
@@ -402,4 +526,42 @@ function saveDeckToLocalStorage(updatedDeck) {
     } catch (error) {
         console.error('Failed to save deck to localStorage:', error);
     }
+}
+
+function createCardImageHtml(card) {
+    const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
+    return `
+            <img src="https://img.915159.xyz/DCCG/${card.card_num}.png" 
+                class="w-16 rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105 z-10"
+                onerror="this.src='/images/card-placeholder.jpg'">
+    `;
+}
+
+// 空的功能函数（待实现）
+function editDeck(deckId) {
+    alert('编辑功能待实现');
+}
+
+function exportDeck(deckId) {
+    alert('导出功能待实现');
+}
+
+function cloneDeck(deckId) {
+    alert('复制功能待实现');
+}
+
+function confirmDeleteDeck(deckId) {
+    if (confirm('确定要删除这个牌组吗？此操作不可恢复。')) {
+        deleteDeck(deckId);
+    }
+}
+
+function deleteDeck(deckId) {
+    const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+    const updatedDecks = decks.filter(d => d.deckid !== deckId);
+    localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
+
+    // 关闭模态框并刷新列表
+    document.querySelector('.modal-backdrop')?.remove();
+    loadDecks();
 }
