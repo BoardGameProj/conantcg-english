@@ -570,9 +570,10 @@ function createCardImageHtml(card) {
     `;
 }
 
-// 空的功能函数（待实现）
+// 编辑牌组
 function editDeck(deckId) {
-    alert('编辑功能待实现');
+    // 跳转到卡牌编辑页面，并传递deckId参数
+    window.location.href = `/cards?deckId=${encodeURIComponent(deckId)}`;
 }
 
 function exportDeck(deckId) {

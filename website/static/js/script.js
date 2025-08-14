@@ -815,6 +815,82 @@ class DeckBuilder {
             });
         }
     }
+
+    // 加载指定ID的牌组
+    loadDeckById(deckId) {
+        try {
+            // 从localStorage获取牌组数据
+            const existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
+            const deckData = existingDecks.find(deck => deck.deckid === deckId);
+            
+            if (!deckData) {
+                console.error(`未找到ID为 ${deckId} 的牌组`);
+                return false;
+            }
+
+            // 初始化牌组数据
+            this.currentDeck = {
+                deckid: deckData.deckid,
+                name: deckData.name || '导入的牌组',
+                description: deckData.description || '',
+                timestamp: deckData.timestamp || new Date().toISOString(),
+                cards: []
+            };
+
+            this.addedCards = [];
+            let hasError = false;
+
+            // 遍历所有卡牌并添加到牌组
+            for (const cardNum of deckData.cards.filter(cardNum => cardNum)) {
+                const addResult = this.addCardToCurrentDeck(cardNum);
+                if (!addResult) {
+                    hasError = true;
+                }
+            }
+
+            if (hasError) {
+                // addCardToCurrentDeck 已显示具体错误，这里不需要再次显示
+                return false;
+            }
+
+            // 更新UI
+            const deckNameInput = document.getElementById('deck-name');
+            if (deckNameInput) {
+                deckNameInput.value = this.currentDeck.name;
+            }
+
+            const deckDescriptionInput = document.getElementById('deck-description');
+            if (deckDescriptionInput) {
+                deckDescriptionInput.value = this.currentDeck.description;
+            }
+
+            // 渲染卡牌
+            this.renderAddedCards();
+
+            // 显示面板
+            const panel = document.getElementById('deck-builder-panel');
+            const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+            const newDeckBtn = document.getElementById('new-deck-btn');
+            
+            if (panel) {
+                panel.classList.remove('hidden');
+                deckBuilderPanelButton.classList.remove('hidden');
+                newDeckBtn.classList.add('hidden');
+
+                // 显示所有"添加到牌组"按钮
+                const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
+                addToDeckButtons.forEach(button => {
+                    button.classList.remove('hidden');
+                });
+            }
+
+            return true;
+        } catch (error) {
+            console.error('加载牌组失败:', error);
+            return false;
+        }
+    }
+
     openDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
@@ -1428,4 +1504,12 @@ class DeckBuilder {
 // 初始化牌组构建器
 document.addEventListener('DOMContentLoaded', () => {
     window.deckBuilder = new DeckBuilder();
+    
+    // 检查URL参数，如果存在deckId则加载对应的牌组
+    const urlParams = new URLSearchParams(window.location.search);
+    const deckId = urlParams.get('deckId');
+    
+    if (deckId && window.deckBuilder) {
+        window.deckBuilder.loadDeckById(deckId);
+    }
 });
