@@ -89,46 +89,80 @@ function getColorName(color) {
     return cardsDataCN[`colors.${color}`];
 }
 
+// 获取卡牌名称
+function getCardName(cardNum) {
+    let card_id = cardsData[cardNum];
+    return cardsDataCN[`cards.${card_id}.title`];
+}
+
+
 // 创建牌组卡片HTML
 function createDeckCard(deck) {
     const totalCardsCount = deck.cards?.length || 0;
     const createdTime = new Date(deck.timestamp).toLocaleString('zh-CN');
     const colorTags = deck.colorTags || '';
+    
+    // 查找搭档牌
+    let partnerCard = null;
+    
+    if (deck.cards) {
+        for (const cardNum of deck.cards) {
+            const cardData = cardsData[cardNum];
+            if (cardData && cardsDataCN[`types.${cardData.type}`] === "搭档") {
+                partnerCard = cardData;
+                break;
+            }
+        }
+    }
+    
+    // 生成搭档牌图片HTML
+    const partnerImgHtml = partnerCard 
+        ? `<img src="https://img.915159.xyz/DCCG/${partnerCard.card_num}.png" 
+                alt="${partnerCard.name}" 
+                class="w-20 object-cover rounded-md border border-gray-200 dark:border-gray-600 mb-2"
+                onerror="this.style.display='none'">`
+        : '';
+
     return `
         <div class="deck-card border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow duration-200" 
              data-deck-id="${deck.deckid}" 
              data-filter-color="${colorTags}">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
-                <div class="flex items-center gap-2">
-                    <h4 class="text-lg font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h4>
-                    <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
-                            data-deck-id="${deck.deckid}" 
-                            title="重命名牌组">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                    </button>
+            <div class="flex items-start gap-3">
+                ${partnerImgHtml}
+                <div class="flex-1">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <div class="flex items-center gap-2 group">
+                            <h4 class="text-lg font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h4>
+                            <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
+                                    data-deck-id="${deck.deckid}" 
+                                    title="重命名牌组">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">${totalCardsCount}张卡牌</span>
+                    </div>
+                    <div class="flex items-start group">
+                        ${deck.description ? `
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-2 deck-description flex-grow italic overflow-scroll" style="max-height: 2.8rem">${deck.description}</p>
+                        ` : `
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-2 deck-description flex-grow italic"></p>
+                        `}
+                        <div class="edit-desc-container">
+                            <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
+                                    data-deck-id="${deck.deckid}" 
+                                    title="编辑描述">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">${createdTime}</p>
+                    </div>
                 </div>
-                <span class="text-sm text-gray-500 dark:text-gray-400">${totalCardsCount}张卡牌</span>
-            </div>
-            <div class="flex items-start group">
-                ${deck.description ? `
-                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 deck-description flex-grow italic">${deck.description}</p>
-                ` : `
-                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 deck-description flex-grow italic"></p>
-                `}
-                <div class="edit-desc-container">
-                    <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
-                            data-deck-id="${deck.deckid}" 
-                            title="编辑描述">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${createdTime}</p>
             </div>
         </div>
     `;
