@@ -287,7 +287,7 @@ function editDeckDescription(deck, deckElement) {
     textarea.value = currentDesc;
     textarea.className = 'w-full text-sm rounded border border-gray-300 dark:border-gray-600 dark:text-white dark:bg-gray-700 p-2 focus:outline-none focus:border-blue-500';
     textarea.rows = 3;
-    textarea.style.width = '100%'; // 确保宽度填满
+    textarea.style.width = '100%';
 
     const originalContent = descElement.innerHTML;
     const originalClassName = descElement.className;
@@ -303,50 +303,49 @@ function editDeckDescription(deck, deckElement) {
 
     const saveChanges = () => {
         const newDesc = textarea.value.trim();
-        
-        if (newDesc !== currentDesc) {
-            deck.description = newDesc || null;
-            saveDeckToLocalStorage(deck);
-            
-            if (newDesc) {
-                descElement.textContent = newDesc;
-                descElement.classList.remove('italic');
-            } else {
-                descElement.innerHTML = originalContent; // 恢复原来的状态
-                if (!deck.description) {
-                    descElement.classList.add('italic');
-                }
-            }
+        deck.description = newDesc || null; // 保存空描述为null
+        saveDeckToLocalStorage(deck);
+
+        if (newDesc) {
+            descElement.textContent = newDesc;
+            descElement.classList.remove('italic');
         } else {
-            descElement.innerHTML = originalContent;
+            descElement.innerHTML = ''; // 清空描述
+            descElement.classList.add('italic'); // 添加斜体样式
         }
-        
+
+        // 恢复初始状态
         descElement.className = originalClassName;
         if (editButtonContainer) {
             editButtonContainer.style.display = 'block';
         }
-        
+
         // 移除事件监听器
+        document.removeEventListener('click', handleOutsideClick);
+    };
+
+    const cancelChanges = () => {
+        descElement.innerHTML = originalContent;
+        descElement.className = originalClassName;
+        if (editButtonContainer) {
+            editButtonContainer.style.display = 'block';
+        }
         document.removeEventListener('click', handleOutsideClick);
     };
 
     const handleOutsideClick = (e) => {
         if (!descElement.contains(e.target)) {
-            saveChanges();
+            saveChanges(); // 点击外部总是保存，即使清空了
         }
     };
 
     textarea.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // 阻止回车换行
-            saveChanges();
+            saveChanges(); // 按Enter保存
         } else if (e.key === 'Escape') {
-            descElement.innerHTML = originalContent;
-            descElement.className = originalClassName;
-            if (editButtonContainer) {
-                editButtonContainer.style.display = 'block';
-            }
-            document.removeEventListener('click', handleOutsideClick);
+            e.preventDefault();
+            cancelChanges(); // 按Escape取消
         }
     });
 
