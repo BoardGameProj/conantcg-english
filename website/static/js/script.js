@@ -1382,13 +1382,13 @@ class DeckBuilder {
             barChartHtml += `
                 <div class="flex flex-col items-center flex-1">
                     <!-- 将数字显示在顶部 -->
-                    <span class="text-xs dark:text-white font-bold mb-1"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
+                    <span class="text-xs dark:text-gray-400 font-bold mb-1"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
                     <div class="flex justify-center w-full" style="height: 80%;">
                         <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out" style="height: ${heightPercent}rem;">
                         </div>
                     </div>
-                    <div class="border-t" style="width: ${i === 1 || i === 9 ? '100%' : '200%'}"></div>
-                    <span class="text-xs mt-1 dark:text-white">${i}</span>
+                    <div class="border-t" style="border-color: #9ca3af;width: ${i === 1 || i === 9 ? '100%' : '200%'}"></div>
+                    <span class="text-xs mt-1 dark:text-gray-400">${i}</span>
                 </div>
             `;
         }

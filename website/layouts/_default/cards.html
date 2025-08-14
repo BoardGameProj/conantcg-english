@@ -232,7 +232,15 @@
         <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
             <div class="mb-4" id="deck-descibe">
                 <div class="flex justify-between items-center mb-4">
-                <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label>
+                    <!-- <div class="flex justify-between items-center mb-4"> -->
+                        <input type="text" id="deck-name"
+                        class="mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        placeholder="输入牌组名称">
+                    <!-- </div> -->
+                        <input type="text" id="deck-description"
+                            class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                            placeholder="输入牌组描述">
+                <!-- <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label> -->
                 <button type="button" id="hide-deck-builder"
                     class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -240,17 +248,13 @@
                     </svg>
                 </button>
                 </div>
-                <div class="flex justify-between items-center mb-4">
-                <input type="text" id="deck-name"
+
+                <!-- <div class="flex justify-between items-center mb-4"> -->
+                <!-- <label for="deck-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 hidden">牌组描述</label> -->
+                <!-- <input type="text" id="deck-description"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                    placeholder="输入牌组名称">
-                </div>
-                <div class="flex justify-between items-center mb-4">
-                <label for="deck-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 hidden">牌组描述</label>
-                <input type="text" id="deck-description"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                    placeholder="输入牌组描述">
-                </div>
+                    placeholder="输入牌组描述"> -->
+                <!-- </div> -->
             </div>
             <div class="mb-4">
                 <div id="added-deck" class="grid grid-cols-6 gap-1"

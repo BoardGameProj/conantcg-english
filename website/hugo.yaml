@@ -106,3 +106,7 @@ module:
       target: "assets/translations"
     - source: "../data/images/products"
       target: "assets/products"
+    - source: "data/cards_ja.json"
+      target: "static/data/cards_ja.json"
+    - source: "i18n/en.json"
+      target: "static/data/en.json"
