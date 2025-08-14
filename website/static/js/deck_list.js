@@ -73,7 +73,7 @@ function loadDecks() {
 
         // 生成牌组列表HTML
         deckListContainer.innerHTML = `
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-1">
                 ${decks.map(deck => createDeckCard(deck)).join('')}
             </div>
         `;
@@ -300,6 +300,7 @@ function createColorTags(colors) {
     });
 }
 
+// 修改后的showDeckDetail函数
 function showDeckDetail(deckId) {
     const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
     const deck = decks.find(d => d.deckid === deckId);
@@ -350,9 +351,40 @@ function showDeckDetail(deckId) {
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[90vh] flex flex-col">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
-                    <div>
-                        <h3 class="text-xl font-bold dark:text-white">${deck.name || '未命名牌组'}</h3>
-                        ${deck.description ? `<p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${deck.description}</p>` : ''}
+                    <div class="relative w-full">
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-xl font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h3>
+                            <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
+                                    data-deck-id="${deck.deckid}" 
+                                    title="重命名牌组">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                </svg>
+                            </button>
+                        </div>
+                        ${deck.description ? `
+                            <div class="flex items-start mt-1">
+                                <p class="text-sm text-gray-600 dark:text-gray-300 deck-description flex-grow italic">${deck.description}</p>
+                                <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
+                                        data-deck-id="${deck.deckid}" 
+                                        title="编辑描述">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        ` : `
+                            <div class="flex items-start mt-1">
+                                <p class="text-sm text-gray-600 dark:text-gray-300 deck-description flex-grow italic"></p>
+                                <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
+                                        data-deck-id="${deck.deckid}" 
+                                        title="编辑描述">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        `}
                     </div>
                     <button onclick="document.querySelector('.modal-backdrop').remove()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -401,8 +433,35 @@ function showDeckDetail(deckId) {
     modal.innerHTML = modalHtml;
     document.body.appendChild(modal);
     window.scrollTo(0, 0);
+    
+    // 添加编辑事件监听器
+    const modalDeckName = modal.querySelector('.deck-name');
+    const modalDeckDesc = modal.querySelector('.deck-description');
+    const modalEditBtn = modal.querySelector('.edit-deck-btn');
+    const modalEditDescBtn = modal.querySelector('.edit-desc-btn');
+    
+    if (modalEditBtn) {
+        modalEditBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            editDeckName(deck, { 
+                querySelector: () => modalDeckName,
+                appendChild: (child) => modalDeckName.innerHTML = '',
+                nextElementSibling: null
+            });
+        });
+    }
+    
+    if (modalEditDescBtn) {
+        modalEditDescBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            editDeckDescription(deck, { 
+                querySelector: () => modalDeckDesc,
+                appendChild: (child) => modalDeckDesc.innerHTML = '',
+                nextElementSibling: modalEditDescBtn.parentElement
+            });
+        });
+    }
 }
-
 // 切换颜色选中状态
 function toggleColorSelection(color, element) {
     if (color === 'all') {
@@ -465,10 +524,10 @@ function editDeckName(deck, deckElement) {
 }
 
 // 编辑牌组描述
-function editDeckDescription(deck, deckElement) {
-    const descElement = deckElement.querySelector('.deck-description');
+function editDeckDescription(deck, scopeElement) {
+    const descElement = scopeElement.querySelector('.deck-description');
     const currentDesc = deck.description || '';
-    const editButtonContainer = descElement.nextElementSibling;
+    const editButtonContainer = scopeElement.nextElementSibling;
 
     const textarea = document.createElement('textarea');
     textarea.value = currentDesc;
@@ -479,9 +538,9 @@ function editDeckDescription(deck, deckElement) {
     const originalContent = descElement.innerHTML;
     const originalClassName = descElement.className;
 
-    // 隐藏编辑按钮
-    if (editButtonContainer) {
-        editButtonContainer.style.display = 'none';
+    // 在模态框中隐藏编辑按钮
+    if (editButtonContainer && editButtonContainer.querySelector('.edit-desc-btn')) {
+        editButtonContainer.querySelector('.edit-desc-btn').style.display = 'none';
     }
 
     descElement.innerHTML = '';
@@ -493,18 +552,39 @@ function editDeckDescription(deck, deckElement) {
         deck.description = newDesc || null; // 保存空描述为null
         saveDeckToLocalStorage(deck);
 
+        // 检查是否是模态框中的编辑
+        const isModal = document.querySelector('.modal-backdrop');
+
         if (newDesc) {
             descElement.textContent = newDesc;
             descElement.classList.remove('italic');
+            
+            // 如果是模态框中的编辑，同时更新列表视图
+            if (isModal) {
+                const deckCard = document.querySelector(`.deck-card[data-deck-id="${deck.deckid}"] .deck-description`);
+                if (deckCard) {
+                    deckCard.textContent = newDesc;
+                    deckCard.classList.remove('italic');
+                }
+            }
         } else {
             descElement.innerHTML = ''; // 清空描述
             descElement.classList.add('italic'); // 添加斜体样式
+            
+            // 如果是模态框中的编辑，同时更新列表视图
+            if (isModal) {
+                const deckCard = document.querySelector(`.deck-card[data-deck-id="${deck.deckid}"] .deck-description`);
+                if (deckCard) {
+                    deckCard.innerHTML = '';
+                    deckCard.classList.add('italic');
+                }
+            }
         }
 
         // 恢复初始状态
         descElement.className = originalClassName;
-        if (editButtonContainer) {
-            editButtonContainer.style.display = 'block';
+        if (editButtonContainer && editButtonContainer.querySelector('.edit-desc-btn')) {
+            editButtonContainer.querySelector('.edit-desc-btn').style.display = 'block';
         }
 
         // 移除事件监听器
@@ -514,14 +594,14 @@ function editDeckDescription(deck, deckElement) {
     const cancelChanges = () => {
         descElement.innerHTML = originalContent;
         descElement.className = originalClassName;
-        if (editButtonContainer) {
-            editButtonContainer.style.display = 'block';
+        if (editButtonContainer && editButtonContainer.querySelector('.edit-desc-btn')) {
+            editButtonContainer.querySelector('.edit-desc-btn').style.display = 'block';
         }
         document.removeEventListener('click', handleOutsideClick);
     };
 
     const handleOutsideClick = (e) => {
-        if (!descElement.contains(e.target)) {
+        if (!descElement.contains(e.target) && e.target !== textarea) {
             saveChanges(); // 点击外部总是保存，即使清空了
         }
     };

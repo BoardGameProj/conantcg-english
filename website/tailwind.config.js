@@ -55,41 +55,71 @@ module.exports = {
         128: "32rem"
       },
 
-      // 深色模式下的排版样式
       typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            maxWidth: "none" // 移除prose默认宽度限制
-          }
-        },
+        DEFAULT: {},
         dark: {
           css: {
             color: theme("colors.gray.200"),
             a: {
-              color: theme("colors.primary.light"),
+              color: theme("colors.gray.200"),
               "&:hover": {
-                color: theme("colors.primary.DEFAULT"),
+                color: theme("colors.gray.200"),
               },
             },
-            // 其他深色模式排版样式...
-          }
-        }
-      })
+            "h2 a": {
+              color: theme("colors.gray.200"),
+            },
+            h1: {
+              color: theme("colors.gray.200"),
+            },
+            h2: {
+              color: theme("colors.gray.200"),
+            },
+            h3: {
+              color: theme("colors.gray.200"),
+            },
+            h4: {
+              color: theme("colors.gray.200"),
+            },
+            h5: {
+              color: theme("colors.gray.200"),
+            },
+            h6: {
+              color: theme("colors.gray.200"),
+            },
+            th: {
+              color: theme("colors.gray.200"),
+            },
+            strong: {
+              color: theme("colors.gray.200"),
+            },
+            code: {
+              color: theme("colors.gray.200"),
+            },
+            figcaption: {
+              color: theme("colors.gray.200"),
+            },
+            blockquote: {
+              color: theme("colors.gray.200"),
+            },
+          },
+        },
+      }),
     }
   },
 
 
   safelist: [
     {
-      pattern: /(bg|text|border)-(warmgray|primary|black|white)/, // 颜色安全列表
+      pattern: /(bg|text|border)-(warmgray|primary|black|white)/,
     },
     {
-      pattern: /(opacity|bg-opacity)-[0-9]+/, // 透明度安全列表
+      pattern: /(opacity|bg-opacity)-[0-9]+/,
     },
     {
       pattern: /group-hover:(opacity|bg-opacity|bg-black|scale)-.+/
     },
-    'group-hover:opacity-100', // 显式指定需要保障的group-hover类
+    'group-hover:opacity-100',
     'group-hover:bg-opacity-70',
     'group-hover:bg-black/20',
     'group-hover:scale-105',
@@ -98,8 +128,7 @@ module.exports = {
 
   // 插件配置
   plugins: [
-    require("@tailwindcss/typography"), // 排版插件
-    require('flowbite/plugin'),         // Flowbite组件库
-    // require('tailwindcss-textshadow')   // 文本阴影插件（可选）
+    require("@tailwindcss/typography"),
+    require('flowbite/plugin'),
   ]
 }
