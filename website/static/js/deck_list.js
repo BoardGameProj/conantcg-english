@@ -675,7 +675,7 @@ function createCardImageHtml(card) {
             <img src="${imageUrl}" 
                  alt="${cardName}"
                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
-                 onerror="this.src='/img/fallback.jpg'">
+                 onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
             <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
         </div>
     `;
