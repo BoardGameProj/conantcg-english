@@ -110,3 +110,5 @@ module:
       target: "static/data/cards_ja.json"
     - source: "i18n/en.json"
       target: "static/data/en.json"
+    - source: "assets/img/fallback.jpg"
+      target: "static/img/fallback.jpg"
