@@ -257,19 +257,17 @@
                 <!-- </div> -->
             </div>
             <div class="mb-4">
-                <div id="added-deck" class="grid grid-cols-6 gap-1"
-                    style="grid-template-areas: 'A C C C C D' 'B C C C C E';">
-                    <div id="added-partner" class="grid grid-cols-1 [grid-area:A] items-center justify-center relative">
-                        <!-- 已添加的搭档将在这里显示 -->
+                <div id="added-deck" class="grid grid-cols-7 items-start gap-1">
+                    <div class="relative">
+                        <div id="added-partner" class="mb-2" style="max-width: 98%;"><!-- 已添加的搭档将在这里显示 --></div>
+                        <div id="added-case" class="items-start" style="max-width: 98%;"><!-- 已添加的卡牌将在这里显示 --></div>
                     </div>
-                    <div id="added-statistics" class="grid grid-cols-1 [grid-area:D] items-center justify-center relative">
+
+                    <div id="added-cards" class="col-span-5">
+                        <!-- 已添加的卡牌将在这里显示 -->
+                    </div>
+                    <div id="added-statistics" class="items-center justify-center relative">
                         <!-- 已添加的统计数据将在这里显示 -->
-                    </div>
-                    <div id="added-cards" class="[grid-area:C]">
-                        <!-- 已添加的卡牌将在这里显示 -->
-                    </div>
-                    <div id="added-case" class="[grid-area:B] flex flex-col items-center justify-center">
-                        <!-- 已添加的卡牌将在这里显示 -->
                     </div>
                 </div>
             </div>

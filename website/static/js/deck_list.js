@@ -675,20 +675,20 @@ function createCardImageHtml(card) {
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
     return `
-            <div class="relative group">
-                <div class="overflow-hidden rounded-md border border-gray-200 dark:border-gray-600"> <!-- 新增的父容器 -->
+            <div class="relative rounded-lg group">
+                <div class="overflow-hidden rounded-md border border-gray-200 dark:border-gray-600 group-hover:scale-105">
                     <img src="${imageUrl}" 
                         alt="${cardName}"
-                        class="w-full transition-transform group-hover:scale-105"
+                        class="w-full transition-transform group-hover:scale-105 rounded-lg"
                         onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
                 </div>
-                <div class="absolute bottom-0 left-0 right-0 rounded-b-xl">
+                <div class="absolute bottom-0 left-0 right-0 rounded-b-lg">
                     <div class="transform transition-transform group-hover:scale-105"> <!-- 把缩放应用到父容器 -->
                         <p class="text-2xs text-white text-center bg-black/70 truncate">${cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black/70 max-w-full" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
                     </div>
                 </div>
-                <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
+                <div class="absolute inset-0 bg-black/0 transition-all rounded-lg"></div>
             </div>
     `;
 }

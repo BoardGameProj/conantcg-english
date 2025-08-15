@@ -138,6 +138,7 @@ export class DeckBuilder {
             }
 
             // 显示面板
+            panel.classList.remove('hidden-completely');
             panel.classList.remove('hidden');
             deckBuilderPanelButton.classList.remove('hidden');
             newDeckBtn.classList.add('hidden');
@@ -255,6 +256,7 @@ export class DeckBuilder {
 
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
+        const openDeckBtn = document.getElementById('open-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
 
         if (panel) {
@@ -267,6 +269,7 @@ export class DeckBuilder {
             });
 
             newDeckBtn.classList.remove('hidden');
+            openDeckBtn.classList.add('hidden');
         }
 
         if (window.location.search.includes('deckId')) {
@@ -399,10 +402,10 @@ export class DeckBuilder {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center relative" style="">
                 <div class="mb-1 relative w-full">
-                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none">
-                    <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
+                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
+                    <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
                         <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black/70 max-w-full" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
                     </div>
                 </div>
                 <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">
@@ -738,7 +741,7 @@ export class DeckBuilder {
         });
 
         let barChartHtml = '<div class="">';
-        barChartHtml += '<div class="flex items-end h-32 gap-1">';
+        barChartHtml += '<div class="flex items-end h-32 gap-1 mb-6">';
 
         // 找到最大值用于计算条形图高度
         const maxCount = Math.max(...costCounts.slice(1, 10), 1);
