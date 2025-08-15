@@ -377,7 +377,7 @@ function showDeckDetail(deckId) {
     `;
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[90vh] flex flex-col">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[85vh] flex flex-col" style="max-height: 85vh">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
                     <div class="relative w-full">
@@ -394,7 +394,7 @@ function showDeckDetail(deckId) {
                             ${descEditBtnHtml}
                         </div>
                     </div>
-                    <button onclick="document.querySelector('.modal-backdrop').remove()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                    <button class="modal-close-btn text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -437,10 +437,23 @@ function showDeckDetail(deckId) {
 
     // 添加到DOM
     const modal = document.createElement('div');
-    modal.className = 'modal-backdrop';
+    modal.className = 'modal-backdrop'; // 初始状态透明且隐藏
     modal.innerHTML = modalHtml;
     document.body.appendChild(modal);
+
+    requestAnimationFrame(() => {
+        modal.style.opacity = '1';     // 淡入
+        modal.style.visibility = 'visible';
+    });
     window.scrollTo(0, 0);
+
+    const closeModal = () => {
+        modal.style.opacity = '0';
+        modal.style.visibility = 'hidden';
+        setTimeout(() => modal.remove(), 200); // 等动画结束后移除
+    };
+    
+    modal.querySelector('.modal-close-btn').addEventListener('click', closeModal);
 
     // 添加编辑事件监听器
     const modalDeckName = modal.querySelector('.deck-name');

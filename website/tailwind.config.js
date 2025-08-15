@@ -5,7 +5,9 @@ module.exports = {
     "./**/*.md",
     "./config.toml",
     "./node_modules/flowbite/**/*.js",
-    "./src/**/*.{js,ts,jsx,tsx}"  // 如果使用JS框架请添加
+    "./**/*.{html,js}",
+    "./static/js/**/*.js",
+    "./**/*.{js,ts,jsx,tsx}"  // 如果使用JS框架请添加
   ],
 
   // 启用黑暗模式（class驱动）
@@ -124,6 +126,7 @@ module.exports = {
     'group-hover:bg-black/20',
     'group-hover:scale-105',
     'group-hover:scale-110',
+    'max-h-[90vh]',
     'col-span-5'
   ],
 
