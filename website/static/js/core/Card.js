@@ -1,5 +1,5 @@
 import { PopoverManager } from './PopoverManager.js';
-import { kebabize, registeredForRendering } from '../utils.js';
+import { kebabize, copyToClipboard, registeredForRendering } from '../utils.js';
 
 export class Card extends HTMLElement {
     data = {
