@@ -118,9 +118,6 @@ module.exports = {
     {
       pattern: /(opacity|bg-opacity)-[0-9]+/,
     },
-    {
-      pattern: /group-hover:(opacity|bg-opacity|bg-black|scale)-.+/
-    },
     'group-hover:opacity-100',
     'group-hover:bg-opacity-70',
     'group-hover:bg-black/20',

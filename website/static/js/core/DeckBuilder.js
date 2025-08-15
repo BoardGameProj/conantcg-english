@@ -32,6 +32,22 @@ export class DeckBuilder {
                 this.hideDeckBuilderPanel();
             });
         }
+        
+        // 切换牌组构建面板可见性按钮点击事件
+        const toggleDeckBuilderBtn = document.getElementById('toggle-deck-builder');
+        if (toggleDeckBuilderBtn) {
+            toggleDeckBuilderBtn.addEventListener('click', () => {
+                this.toggleDeckBuilderPanel();
+            });
+        }
+        
+        // 切换牌组构建面板可见性按钮点击事件（浮动按钮）
+        const toggleDeckBuilderFloatingBtn = document.getElementById('toggle-deck-builder-floating');
+        if (toggleDeckBuilderFloatingBtn) {
+            toggleDeckBuilderFloatingBtn.addEventListener('click', () => {
+                this.toggleDeckBuilderPanel();
+            });
+        }
         const openDeckBuilderBtn = document.getElementById('open-deck-btn');
         if (openDeckBuilderBtn) {
             openDeckBuilderBtn.addEventListener('click', () => {
@@ -110,6 +126,7 @@ export class DeckBuilder {
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
         if (panel) {
             // 初始化新的牌组
             this.currentDeck = {
@@ -140,6 +157,7 @@ export class DeckBuilder {
             // 显示面板
             panel.classList.remove('hidden-completely');
             panel.classList.remove('hidden');
+            toggleDeckBuilderFloatingPanelButton.classList.remove('hidden');
             deckBuilderPanelButton.classList.remove('hidden');
             newDeckBtn.classList.add('hidden');
 
@@ -258,6 +276,7 @@ export class DeckBuilder {
         const newDeckBtn = document.getElementById('new-deck-btn');
         const openDeckBtn = document.getElementById('open-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
 
         if (panel) {
             panel.classList.add('hidden');
@@ -270,12 +289,31 @@ export class DeckBuilder {
 
             newDeckBtn.classList.remove('hidden');
             openDeckBtn.classList.add('hidden');
+            toggleDeckBuilderFloatingPanelButton.classList.add('hidden');
         }
 
         if (window.location.search.includes('deckId')) {
             const url = new URL(window.location);
             url.searchParams.delete('deckId');
             window.history.replaceState({}, '', url);
+        }
+    }
+
+    // 切换牌组构建面板可见性
+    toggleDeckBuilderPanel() {
+        const panel = document.getElementById('deck-builder-panel');
+        const openDeckBtn = document.getElementById('open-deck-btn');
+        if (panel) {
+            // 检查面板当前是否完全隐藏
+            if (panel.classList.contains('hidden-completely')) {
+                // 如果是隐藏的，显示面板
+                panel.classList.remove('hidden-completely');
+                openDeckBtn.classList.add('hidden');
+            } else {
+                // 如果是显示的，隐藏面板
+                panel.classList.add('hidden-completely');
+                openDeckBtn.classList.remove('hidden');
+            }
         }
     }
 
