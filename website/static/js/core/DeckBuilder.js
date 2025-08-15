@@ -1,3 +1,5 @@
+import { showToast, showConfirm } from '../utils.js';
+
 export class DeckBuilder {
     constructor() {
         this.currentDeck = null;
@@ -22,8 +24,8 @@ export class DeckBuilder {
         // 关闭牌组构建面板按钮点击事件
         const closeDeckBuilderBtn = document.getElementById('close-deck-builder');
         if (closeDeckBuilderBtn) {
-            closeDeckBuilderBtn.addEventListener('click', () => {
-                this.closeDeckBuilderPanel();
+            closeDeckBuilderBtn.addEventListener('click', async () => {
+                await this.closeDeckBuilderPanel();
             });
         }
         const hideDeckBuilderBtn = document.getElementById('hide-deck-builder');
@@ -32,7 +34,7 @@ export class DeckBuilder {
                 this.hideDeckBuilderPanel();
             });
         }
-        
+
         // 切换牌组构建面板可见性按钮点击事件
         const toggleDeckBuilderBtn = document.getElementById('toggle-deck-builder');
         if (toggleDeckBuilderBtn) {
@@ -40,7 +42,7 @@ export class DeckBuilder {
                 this.toggleDeckBuilderPanel();
             });
         }
-        
+
         // 切换牌组构建面板可见性按钮点击事件（浮动按钮）
         const toggleDeckBuilderFloatingBtn = document.getElementById('toggle-deck-builder-floating');
         if (toggleDeckBuilderFloatingBtn) {
@@ -267,40 +269,55 @@ export class DeckBuilder {
     }
 
     // 关闭牌组构建面板
-    closeDeckBuilderPanel(method = 'exit') {
-        // Show confirmation dialog only if there are cards in the deck and method is not 'save'
+    // 关闭牌组构建面板
+    async closeDeckBuilderPanel(method = 'exit') {
+        // 检查是否需要确认 (有卡牌且不是保存操作)
         if (this.addedCards.length > 0 && method !== 'save') {
-            const confirmClose = confirm('确定要退出牌组构建吗？未保存的更改将会丢失。');
-            if (!confirmClose) {
-                return; // Don't close if user cancels
+            try {
+                // 使用 showConfirm 代替原生 confirm
+                const confirmClose = await showConfirm('确定要退出牌组构建吗？未保存的更改将会丢失。', {
+                    title: '退出确认',
+                    type: 'warning',
+                    confirmText: '退出',
+                    cancelText: '取消'
+                });
+
+                if (!confirmClose) {
+                    return; // 用户取消则不关闭
+                }
+            } catch (error) {
+                console.error('确认对话框出错:', error);
+                return; // 出错时也不关闭
             }
         }
 
-        const panel = document.getElementById('deck-builder-panel');
-        const newDeckBtn = document.getElementById('new-deck-btn');
-        const openDeckBtn = document.getElementById('open-deck-btn');
-        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
-        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
-
-
+        // 更新URL (如果包含deckId)
         if (window.location.search.includes('deckId')) {
             const url = new URL(window.location);
             url.searchParams.delete('deckId');
             window.history.replaceState({}, '', url);
         }
 
+        // 获取DOM元素
+        const panel = document.getElementById('deck-builder-panel');
+        const newDeckBtn = document.getElementById('new-deck-btn');
+        const openDeckBtn = document.getElementById('open-deck-btn');
+        const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
+
         if (panel) {
+            // 隐藏面板和相关元素
             panel.classList.add('hidden');
             deckBuilderPanelButton.classList.add('hidden');
+            toggleDeckBuilderFloatingPanelButton.classList.add('invisible');
+            openDeckBtn.classList.add('hidden');
+            newDeckBtn.classList.remove('hidden');
 
+            // 隐藏所有"添加到牌组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
                 button.classList.add('hidden');
             });
-
-            newDeckBtn.classList.remove('hidden');
-            openDeckBtn.classList.add('hidden');
-            toggleDeckBuilderFloatingPanelButton.classList.add('invisible');
         }
     }
 
@@ -508,7 +525,7 @@ export class DeckBuilder {
         this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
         this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
         if (this.addedCards.length === 0) {
-            alert("牌组为空，保存牌组失败");
+            showToast("牌组为空，保存牌组失败", { isSuccess: false });
             return false;
         }
 
@@ -542,10 +559,10 @@ export class DeckBuilder {
 
             // 关闭面板
             this.closeDeckBuilderPanel && this.closeDeckBuilderPanel('save');
-            alert('牌组保存成功');
+            showToast('牌组保存成功');
         } catch (error) {
             console.error('保存牌组失败:', error);
-            alert('保存牌组失败，可能是存储空间不足');
+            showToast('保存牌组失败，可能是存储空间不足', { isSuccess: false });
         }
     }
 
@@ -584,15 +601,15 @@ export class DeckBuilder {
             try {
                 const dataStr = JSON.stringify(deckData, null, 2);
                 navigator.clipboard.writeText(dataStr)
-                    .then(() => alert('牌组已复制到剪贴板'))
+                    .then(() => showToast('牌组已复制到剪贴板'))
                     .catch(err => {
                         console.error('复制失败:', err);
-                        alert('复制失败，请尝试下载方式');
+                        showToast('复制失败，请尝试下载方式', { isSuccess: false });
                     });
                 return true;
             } catch (error) {
                 console.error('复制牌组失败:', error);
-                alert('复制牌组失败，请尝试下载方式');
+                showToast('复制牌组失败，请尝试下载方式', { isSuccess: false });
                 return false;
             }
         } else {
@@ -624,7 +641,7 @@ export class DeckBuilder {
                 return true;
             } catch (error) {
                 console.error('导出牌组失败:', error);
-                alert('导出牌组失败');
+                showToast('导出牌组失败', { isSuccess: false });
                 return false;
             }
         }
@@ -844,6 +861,6 @@ window.addCardToDeck = function (cardNum) {
     if (window.deckBuilder) {
         return window.deckBuilder.addCardToDeck(cardNum);
     }
-    alert('牌组构建器未初始化');
+    showToast('牌组构建器未初始化', { isSuccess: false });
     return false;
 };

@@ -452,7 +452,7 @@ function showDeckDetail(deckId) {
         modal.style.visibility = 'hidden';
         setTimeout(() => modal.remove(), 200); // 等动画结束后移除
     };
-    
+
     modal.querySelector('.modal-close-btn').addEventListener('click', closeModal);
 
     // 添加编辑事件监听器
@@ -705,7 +705,7 @@ function createCardImageHtml(card) {
             </div>
     `;
 }
-                    
+
 // function createCardImageHtml(card) {
 //     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 //     return `
@@ -731,7 +731,7 @@ function exportDeck(deckId, method = 'download') {
         const deck = decks.find(d => d.deckid === deckId);
 
         if (!deck) {
-            showToast('找不到要导出的牌组', false);
+            showToast('找不到要导出的牌组', { isSuccess: false });
             return false;
         }
 
@@ -753,7 +753,7 @@ function exportDeck(deckId, method = 'download') {
                 .then(() => showToast('牌组已复制到剪贴板'))
                 .catch(err => {
                     console.error('复制失败:', err);
-                    showToast('复制失败，请尝试下载方式', false);
+                    showToast('复制失败，请尝试下载方式', { isSuccess: false });
                 });
             return true;
         } else {
@@ -762,12 +762,12 @@ function exportDeck(deckId, method = 'download') {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            
+
             // 生成安全的文件名
-            const fileName = (deck.name 
-                ? deck.name.replace(/[^\w\u4e00-\u9fa5]/g, '_') 
+            const fileName = (deck.name
+                ? deck.name.replace(/[^\w\u4e00-\u9fa5]/g, '_')
                 : 'conan_deck') + '.json';
-            
+
             a.download = fileName;
             document.body.appendChild(a);
             a.click();
@@ -783,7 +783,7 @@ function exportDeck(deckId, method = 'download') {
 
     } catch (error) {
         console.error('导出牌组失败:', error);
-        showToast('导出牌组失败', false);
+        showToast('导出牌组失败', { isSuccess: false });
         return false;
     }
 }
@@ -794,7 +794,7 @@ function cloneDeck(deckId) {
         const originalDeck = decks.find(d => d.deckid === deckId);
 
         if (!originalDeck) {
-            showToast('找不到要复制的牌组', false);
+            showToast('找不到要复制的牌组', { isSuccess: false });
             return;
         }
 
@@ -829,27 +829,236 @@ function cloneDeck(deckId) {
 
     } catch (error) {
         console.error('复制牌组失败:', error);
-        showToast('复制牌组失败', false);
+        showToast('复制牌组失败', { isSuccess: false });
     }
 }
 
-function confirmDeleteDeck(deckId) {
-    if (confirm('确定要删除这个牌组吗？此操作不可恢复。')) {
+async function confirmDeleteDeck(deckId) {
+    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。')
+    if (result) {
         deleteDeck(deckId);
+        console.log('用户确认');
     }
+    console.log('用户取消');
 }
 
+/**
+ * 显示现代化确认对话框
+ * @param {string} message - 确认消息
+ * @param {Object} [options] - 配置选项
+ * @param {string} [options.title='确认'] - 对话框标题
+ * @param {string} [options.confirmText='确定'] - 确认按钮文本
+ * @param {string} [options.cancelText='取消'] - 取消按钮文本
+ * @param {string} [options.type='warning'] - 类型 (info, success, warning, error)
+ * @param {string} [options.icon] - 自定义图标HTML
+ * @returns {Promise<boolean>} - 返回用户选择结果(true: 确认, false: 取消)
+ */
+function showConfirm(message, {
+    title = '确认',
+    confirmText = '确定',
+    cancelText = '取消',
+    type = 'warning',
+    icon = null
+} = {}) {
+    return new Promise((resolve) => {
+        // 创建遮罩层
+        const overlay = document.createElement('div');
+        overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+        overlay.style.backdropFilter = 'blur(2px)';
 
-function showToast(message, isSuccess = true) {
+        // 创建对话框容器
+        const dialog = document.createElement('div');
+        dialog.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full transform transition-all duration-300 opacity-0 translate-y-4';
+
+        // 图标配置
+        const icons = {
+            info: `<svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
+            success: `<svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`,
+            warning: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`,
+            error: `<svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`
+        };
+
+        const dialogIcon = icon || icons[type];
+
+        // 对话框内容
+        dialog.innerHTML = `
+            <div class="p-6">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        ${dialogIcon}
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                            ${title}
+                        </h3>
+                        <div class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                            <p>${message}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button type="button" class="cancel-btn px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                        ${cancelText}
+                    </button>
+                    <button type="button" class="confirm-btn px-4 py-2 text-sm font-medium text-white bg-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-600 rounded-md hover:bg-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-500">
+                        ${confirmText}
+                    </button>
+                </div>
+            </div>
+        `;
+
+        overlay.appendChild(dialog);
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden'; // 禁止背景滚动
+
+        // 添加动画
+        setTimeout(() => {
+            dialog.style.opacity = '1';
+            dialog.style.transform = 'translateY(0)';
+        }, 10);
+
+        // 确认按钮事件
+        const confirmBtn = dialog.querySelector('.confirm-btn');
+        confirmBtn.addEventListener('click', () => {
+            closeDialog(true);
+        });
+
+        // 取消按钮事件
+        const cancelBtn = dialog.querySelector('.cancel-btn');
+        cancelBtn.addEventListener('click', () => {
+            closeDialog(false);
+        });
+
+        // 点击遮罩层关闭（可选项）
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeDialog(false);
+            }
+        });
+
+        // 关闭对话框函数
+        function closeDialog(result) {
+            dialog.style.opacity = '0';
+            dialog.style.transform = 'translateY(4px)';
+
+            setTimeout(() => {
+                document.body.removeChild(overlay);
+                document.body.style.overflow = '';
+                resolve(result);
+            }, 300);
+        }
+    });
+}
+
+/**
+ * 显示Toast通知
+ * @param {string} message - 要显示的消息
+ * @param {Object} [options] - 配置选项
+ * @param {boolean} [options.isSuccess=true] - 是否为成功状态
+ * @param {string} [options.position='top-right'] - 位置 (top-right, top-left, bottom-right, bottom-left)
+ * @param {number} [options.duration=3000] - 显示时长(毫秒)
+ * @param {string} [options.icon] - 自定义图标HTML
+ */
+function showToast(message, {
+    isSuccess = true,
+    position = 'top-right',
+    duration = 3000,
+    icon = null
+} = {}) {
+    // 创建Toast元素
     const toast = document.createElement('div');
-    toast.className = `toast ${isSuccess ? 'bg-green-500' : 'bg-red-500'} text-white px-4 py-2 rounded fixed top-4 right-4 z-50`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
+    const toastId = `toast-${Date.now()}`;
 
+    // 基础样式类
+    const baseClasses = [
+        'fixed',
+        'z-50',
+        'max-w-xs',
+        'rounded-lg',
+        'shadow-lg',
+        'p-4',
+        'flex',
+        'items-start',
+        'transform',
+        'transition-all',
+        'duration-300',
+        'ease-in-out'
+    ];
+
+    // 根据状态添加颜色类
+    const colorClasses = isSuccess
+        ? ['bg-green-500', 'text-white']
+        : ['bg-red-500', 'text-white'];
+
+    // 根据位置添加定位类
+    const positionMap = {
+        'top-right': ['top-4', 'right-4'],
+        'top-left': ['top-4', 'left-4'],
+        'bottom-right': ['bottom-4', 'right-4'],
+        'bottom-left': ['bottom-4', 'left-4']
+    };
+
+    // 合并所有类
+    toast.className = [...baseClasses, ...colorClasses, ...positionMap[position]].join(' ');
+    toast.id = toastId;
+    toast.role = 'alert';
+    toast.setAttribute('aria-live', 'assertive');
+
+    // 默认图标
+    const defaultIcon = isSuccess
+        ? `<svg class="w-6 h-6 flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+           </svg>`
+        : `<svg class="w-6 h-6 flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+           </svg>`;
+
+    // 使用自定义图标或默认图标
+    const toastIcon = icon || defaultIcon;
+
+    // 添加内容
+    toast.innerHTML = `
+        ${toastIcon}
+        <div class="flex-1">
+            <p class="text-sm font-medium">${message}</p>
+        </div>
+        <button onclick="document.getElementById('${toastId}').remove()" class="ml-2 text-white opacity-70 hover:opacity-100 focus:outline-none">
+            <span class="sr-only">关闭</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    `;
+
+    // 添加淡入效果
+    document.body.appendChild(toast);
     setTimeout(() => {
+        toast.style.opacity = '1';
+    }, 10);
+
+    // 自动关闭
+    let timeoutId = setTimeout(() => {
         toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
         setTimeout(() => toast.remove(), 300);
-    }, 2000);
+    }, duration);
+
+    // 鼠标悬停时暂停自动关闭
+    toast.addEventListener('mouseenter', () => {
+        clearTimeout(timeoutId);
+    });
+
+    toast.addEventListener('mouseleave', () => {
+        toast.style.opacity = '1';
+        timeoutId = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(100%)';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    });
+
+    // 返回toast元素以便外部操作
+    return toast;
 }
 
 
@@ -858,7 +1067,7 @@ function deleteDeck(deckId) {
     const deckToDelete = decks.find(d => d.deckid === deckId);
     const updatedDecks = decks.filter(d => d.deckid !== deckId);
     localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
-    showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`);
+    showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, { isSuccess: false });
 
     // 添加删除动画效果
     const deletedCard = document.querySelector(`.deck-card[data-deck-id="${deckId}"]`);
