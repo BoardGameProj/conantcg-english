@@ -310,8 +310,14 @@ function createColorTags(colors) {
     });
 }
 
+let currentModal = null;
+
 // 修改后的showDeckDetail函数
 function showDeckDetail(deckId) {
+    if (currentModal) {
+        currentModal.remove();
+        currentModal = null;
+    }
     const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
     const deck = decks.find(d => d.deckid === deckId);
     if (!deck) return;
@@ -439,18 +445,23 @@ function showDeckDetail(deckId) {
     const modal = document.createElement('div');
     modal.className = 'modal-backdrop'; // 初始状态透明且隐藏
     modal.innerHTML = modalHtml;
+    currentModal = modal;
     document.body.appendChild(modal);
 
     requestAnimationFrame(() => {
         modal.style.opacity = '1';     // 淡入
         modal.style.visibility = 'visible';
     });
-    window.scrollTo(0, 0);
 
     const closeModal = () => {
-        modal.style.opacity = '0';
-        modal.style.visibility = 'hidden';
-        setTimeout(() => modal.remove(), 200); // 等动画结束后移除
+        currentModal.style.opacity = '0';
+        currentModal.style.visibility = 'hidden';
+        setTimeout(() => {
+            if (currentModal) {
+                currentModal.remove();
+                currentModal = null;
+            }
+        }, 200);
     };
 
     modal.querySelector('.modal-close-btn').addEventListener('click', closeModal);
@@ -834,7 +845,7 @@ function cloneDeck(deckId) {
 }
 
 async function confirmDeleteDeck(deckId) {
-    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。')
+    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。', {type: `error`, icon: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`})
     if (result) {
         deleteDeck(deckId);
         console.log('用户确认');
@@ -897,7 +908,7 @@ function showConfirm(message, {
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end space-x-3">
-                    <button type="button" class="cancel-btn px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <button type="button" class="cancel-btn px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-300 dark:bg-gray-700 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                         ${cancelText}
                     </button>
                     <button type="button" class="confirm-btn px-4 py-2 text-sm font-medium text-white bg-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-600 rounded-md hover:bg-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${type === 'success' ? 'green' : type === 'error' ? 'red' : 'blue'}-500">
@@ -1063,29 +1074,43 @@ function showToast(message, {
 
 
 function deleteDeck(deckId) {
-    const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
-    const deckToDelete = decks.find(d => d.deckid === deckId);
-    const updatedDecks = decks.filter(d => d.deckid !== deckId);
-    localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
-    showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, { isSuccess: false });
-
-    // 添加删除动画效果
+    // 先执行视觉上的"删除"效果（即时反馈）
     const deletedCard = document.querySelector(`.deck-card[data-deck-id="${deckId}"]`);
     if (deletedCard) {
-        deletedCard.style.transition = 'all 0.3s ease';
-        deletedCard.style.transform = 'scale(0)';
-        setTimeout(() => {
+        // 立即开始动画效果（视觉上先隐藏）
+        deletedCard.style.opacity = '0';
+        deletedCard.style.transform = 'scale(0.8)';
+        deletedCard.style.transition = 'all 0.2s ease';
+    }
+
+    // 然后在动画进行的同时处理数据和实际删除
+    setTimeout(() => {
+        const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+        const deckToDelete = decks.find(d => d.deckid === deckId);
+        const updatedDecks = decks.filter(d => d.deckid !== deckId);
+        localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
+        
+        showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, { 
+            isSuccess: false, 
+            icon: `<svg class="w-6 h-6 flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+               </svg>` 
+        });
+
+        // 动画完成后移除元素
+        if (deletedCard) {
             deletedCard.remove();
             // 关闭模态框
             document.querySelector('.modal-backdrop')?.remove();
+            
             // 检查是否还有牌组
             if (updatedDecks.length === 0) {
                 document.getElementById('emptyDeckMessage').style.display = 'block';
             }
-        }, 300);
-    } else {
-        // 常规处理
-        document.querySelector('.modal-backdrop')?.remove();
-        loadDecks();
-    }
+        } else {
+            // 常规处理（如果没有找到对应UI元素）
+            document.querySelector('.modal-backdrop')?.remove();
+            loadDecks();
+        }
+    }, 100); // 使用更短的延迟（100ms而非300ms）
 }
