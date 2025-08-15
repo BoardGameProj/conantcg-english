@@ -23,7 +23,8 @@
             <template data-target-field>
                 <label>
                     <input data-setup-input class="hidden" />
-                    <span class="px-4 p-1 bg-white cursor-pointer rounded-lg" style="border: 1px solid black;" data-set-text-value></span>
+                    <span class="px-4 p-1 bg-white cursor-pointer rounded-lg" style="border: 1px solid black;"
+                        data-set-text-value></span>
                 </label>
             </template>
         </div>
@@ -190,14 +191,17 @@
 
 
 
-<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num="," filter-match-mode-title="contains" filter-match-mode-text="contains" filter-mode-spkey="all" filter-mode-custom="all" filter-match-mode-card-num="contains">
+<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num=","
+    filter-match-mode-title="contains" filter-match-mode-text="contains" filter-mode-spkey="all"
+    filter-mode-custom="all" filter-match-mode-card-num="contains">
     <form class="dark:bg-black scrollable-form">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
     <div class="mb-4">
         <div class="flex items-center justify-between">
             <div>
-                <button type="button" id="custom-reset" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">清除</button>
+                <button type="button" id="custom-reset"
+                    class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">清除</button>
                 <button type="button" id="new-deck-btn"
                     class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-green-700 rounded-lg whitespace-nowrap hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                     新建牌组
@@ -227,9 +231,12 @@
             </div>
         </div>
         <button type="button" id="toggle-deck-builder-floating"
-            class="fixed justify-end top-6 transform translate-y-1/2 z-50 inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 invisible"  style="right: 7rem">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            class="fixed justify-end top-6 transform translate-y-1/2 z-50 inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 invisible"
+            style="right: 7rem">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
             </svg>
         </button>
         <div id="deck-builder-container">
@@ -237,20 +244,22 @@
                 <div class="mb-4" id="deck-descibe">
                     <div class="flex justify-between items-center mb-4">
                         <!-- <div class="flex justify-between items-center mb-4"> -->
-                            <input type="text" id="deck-name"
+                        <input type="text" id="deck-name"
                             class="mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                             placeholder="输入牌组名称">
                         <!-- </div> -->
-                            <input type="text" id="deck-description"
-                                class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                                placeholder="输入牌组描述">
-                    <!-- <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label> -->
-                    <button type="button" id="hide-deck-builder"
-                        class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 L18 12"></path>
-                        </svg>
-                    </button>
+                        <input type="text" id="deck-description"
+                            class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                            placeholder="输入牌组描述">
+                        <!-- <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label> -->
+                        <button type="button" id="hide-deck-builder"
+                            class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 L18 12">
+                                </path>
+                            </svg>
+                        </button>
                     </div>
 
                     <!-- <div class="flex justify-between items-center mb-4"> -->
@@ -280,7 +289,8 @@
         </div>
     </div>
 
-    <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
+    <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span>
+    </h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">
         {{ $counter := 0 }}
@@ -337,7 +347,7 @@
             {{ end }}
         {{ end }}
         {{ $counter = add $counter 1 }}
-    {{ end }}
+        {{ end }}
     </div>
 </filter-container>
 
@@ -378,7 +388,7 @@
             console.warn(`未找到匹配的输入字段：${key}`);
             return false;
         }
-        
+
         const inputs = Array.from(
             filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
         );
@@ -411,10 +421,10 @@
     const container = document.getElementById('deck-builder-container');
     const deckDescription = document.getElementById('deck-descibe');
     const placeholder = document.getElementById('panel-placeholder');
-    
+
     let panelHeight = panel.offsetHeight * 0.5;
     updatePlaceholderHeight();
-    
+
     window.addEventListener('scroll', () => {
         if (panel.classList.contains('hidden')) return; // 隐藏时不执行
 
@@ -427,7 +437,7 @@
 
         const isOutOfView = containerRect.bottom < halfHeight || containerRect.top > window.innerHeight - halfHeight
 
-        
+
         // 切换悬浮状态
         panel.classList.toggle('sticky-float', isOutOfView);
         deckDescription.classList.toggle('hidden', isOutOfView);
@@ -438,7 +448,7 @@
         panelHeight = panel.offsetHeight;
         placeholder.style.height = `${panelHeight}px`;
     }
-    
+
     window.addEventListener('resize', updatePlaceholderHeight);
 </script>
 {{ end }}
