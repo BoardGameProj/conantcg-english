@@ -194,93 +194,92 @@
     <form class="dark:bg-black scrollable-form">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>
-<!-- 新建牌组按钮和构建面板 -->
-<div class="mb-4">
-    <div class="flex items-center justify-between">
-        <div>
-            <button type="button" id="custom-reset" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">清除</button>
-            <button type="button" id="new-deck-btn"
-                class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-green-700 rounded-lg whitespace-nowrap hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                新建牌组
-            </button>
-            <button type="button" id="open-deck-btn"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hidden">
-                打开牌组
-            </button>
-        </div>
-        <div id="deck-builder-panel-button" class="flex justify-end items-center pad-2 gap-2 hidden">
-            <button type="button" id="save-deck"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                保存牌组
-            </button>
-            <button type="button" id="export-deck"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                导出牌组
-            </button>
-            <button type="button" id="import-deck"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
-                导入牌组
-            </button>
-            <button type="button" id="close-deck-builder"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                退出牌组
-            </button>
-        </div>
-    </div>
-    <!-- 牌组构建面板 -->
-    <div id="deck-builder-container">
-        <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
-            <div class="mb-4" id="deck-descibe">
-                <div class="flex justify-between items-center mb-4">
-                    <!-- <div class="flex justify-between items-center mb-4"> -->
-                        <input type="text" id="deck-name"
-                        class="mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                        placeholder="输入牌组名称">
-                    <!-- </div> -->
-                        <input type="text" id="deck-description"
-                            class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                            placeholder="输入牌组描述">
-                <!-- <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label> -->
-                <button type="button" id="hide-deck-builder"
-                    class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 L18 12"></path>
-                    </svg>
+    <div class="mb-4">
+        <div class="flex items-center justify-between">
+            <div>
+                <button type="button" id="custom-reset" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded-lg whitespace-nowrap hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">清除</button>
+                <button type="button" id="new-deck-btn"
+                    class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-green-700 rounded-lg whitespace-nowrap hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    新建牌组
                 </button>
-                </div>
-
-                <!-- <div class="flex justify-between items-center mb-4"> -->
-                <!-- <label for="deck-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 hidden">牌组描述</label> -->
-                <!-- <input type="text" id="deck-description"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
-                    placeholder="输入牌组描述"> -->
-                <!-- </div> -->
+                <button type="button" id="open-deck-btn"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hidden">
+                    打开牌组
+                </button>
             </div>
-            <div class="mb-4">
-                <div id="added-deck" class="grid grid-cols-7 items-start gap-1">
-                    <div class="relative">
-                        <div id="added-partner" class="mb-2" style="max-width: 98%;"><!-- 已添加的搭档将在这里显示 --></div>
-                        <div id="added-case" class="items-start" style="max-width: 98%;"><!-- 已添加的卡牌将在这里显示 --></div>
-                    </div>
-
-                    <div id="added-cards" class="col-span-5">
-                        <!-- 已添加的卡牌将在这里显示 -->
-                    </div>
-                    <div id="added-statistics" class="items-center justify-center relative">
-                        <!-- 已添加的统计数据将在这里显示 -->
-                    </div>
-                </div>
+            <div id="deck-builder-panel-button" class="flex justify-end items-center pad-2 gap-2 hidden">
+                <button type="button" id="save-deck"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    保存牌组
+                </button>
+                <button type="button" id="export-deck"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    导出牌组
+                </button>
+                <button type="button" id="import-deck"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                    导入牌组
+                </button>
+                <button type="button" id="close-deck-builder"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    退出牌组
+                </button>
             </div>
         </div>
-        <div id="panel-placeholder" style="display: none;"></div>
+        <button type="button" id="toggle-deck-builder-floating"
+            class="fixed justify-end top-6 transform translate-y-1/2 z-50 inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 invisible"  style="right: 7rem">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <div id="deck-builder-container">
+            <div id="deck-builder-panel" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hidden">
+                <div class="mb-4" id="deck-descibe">
+                    <div class="flex justify-between items-center mb-4">
+                        <!-- <div class="flex justify-between items-center mb-4"> -->
+                            <input type="text" id="deck-name"
+                            class="mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                            placeholder="输入牌组名称">
+                        <!-- </div> -->
+                            <input type="text" id="deck-description"
+                                class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                                placeholder="输入牌组描述">
+                    <!-- <label for="deck-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">牌组名称</label> -->
+                    <button type="button" id="hide-deck-builder"
+                        class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 L18 12"></path>
+                        </svg>
+                    </button>
+                    </div>
+
+                    <!-- <div class="flex justify-between items-center mb-4"> -->
+                    <!-- <label for="deck-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 hidden">牌组描述</label> -->
+                    <!-- <input type="text" id="deck-description"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        placeholder="输入牌组描述"> -->
+                    <!-- </div> -->
+                </div>
+                <div class="mb-4">
+                    <div id="added-deck" class="grid grid-cols-7 items-start gap-1">
+                        <div class="relative">
+                            <div id="added-partner" class="mb-2" style="max-width: 98%;"><!-- 已添加的搭档将在这里显示 --></div>
+                            <div id="added-case" class="items-start" style="max-width: 98%;"><!-- 已添加的卡牌将在这里显示 --></div>
+                        </div>
+
+                        <div id="added-cards" class="col-span-5">
+                            <!-- 已添加的卡牌将在这里显示 -->
+                        </div>
+                        <div id="added-statistics" class="items-center justify-center relative">
+                            <!-- 已添加的统计数据将在这里显示 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-placeholder" style="display: none;"></div>
+        </div>
     </div>
-    <button type="button" id="toggle-deck-builder-floating"
-        class="fixed justify-end mr-8 top-6 transform translate-y-1/2 z-50 inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hidden"  style="right: 7rem">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-    </button>
-</div>
+
     <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span></h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">

@@ -409,7 +409,7 @@ function showDeckDetail(deckId) {
                     ${otherCards.length > 0 ? `
                         <div class="col-span-5 mb-6">
                             <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">卡牌 (${otherCards.length}张)</h4>
-                            <div class="grid grid-cols-10 sm:grid-cols-4 md:grid-cols-10 gap-1">
+                            <div class="grid grid-cols-10 sm:grid-cols-4 md:grid-cols-10 gap-2">
                                 ${otherCards.map(card => createCardImageHtml(card)).join('')}
                             </div>
                         </div>

@@ -157,7 +157,7 @@ export class DeckBuilder {
             // 显示面板
             panel.classList.remove('hidden-completely');
             panel.classList.remove('hidden');
-            toggleDeckBuilderFloatingPanelButton.classList.remove('hidden');
+            toggleDeckBuilderFloatingPanelButton.classList.remove('invisible');
             deckBuilderPanelButton.classList.remove('hidden');
             newDeckBtn.classList.add('hidden');
 
@@ -224,11 +224,13 @@ export class DeckBuilder {
             const panel = document.getElementById('deck-builder-panel');
             const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
             const newDeckBtn = document.getElementById('new-deck-btn');
+            const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
 
             if (panel) {
                 panel.classList.remove('hidden');
                 deckBuilderPanelButton.classList.remove('hidden');
                 newDeckBtn.classList.add('hidden');
+                toggleDeckBuilderFloatingPanelButton.classList.remove('invisible');
 
                 // 显示所有"添加到牌组"按钮
                 const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
@@ -248,10 +250,12 @@ export class DeckBuilder {
         const panel = document.getElementById('deck-builder-panel');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
         const openDeckBtn = document.getElementById('open-deck-btn');
+        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
         if (panel) {
             panel.classList.remove('hidden');
             panel.classList.remove('hidden-completely');
             deckBuilderPanelButton.classList.remove('hidden');
+            toggleDeckBuilderFloatingPanelButton.classList.remove('hidden');
             openDeckBtn.classList.add('hidden');
 
             // 隐藏所有"添加到牌组"按钮
@@ -278,6 +282,13 @@ export class DeckBuilder {
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
         const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
 
+
+        if (window.location.search.includes('deckId')) {
+            const url = new URL(window.location);
+            url.searchParams.delete('deckId');
+            window.history.replaceState({}, '', url);
+        }
+
         if (panel) {
             panel.classList.add('hidden');
             deckBuilderPanelButton.classList.add('hidden');
@@ -289,13 +300,7 @@ export class DeckBuilder {
 
             newDeckBtn.classList.remove('hidden');
             openDeckBtn.classList.add('hidden');
-            toggleDeckBuilderFloatingPanelButton.classList.add('hidden');
-        }
-
-        if (window.location.search.includes('deckId')) {
-            const url = new URL(window.location);
-            url.searchParams.delete('deckId');
-            window.history.replaceState({}, '', url);
+            toggleDeckBuilderFloatingPanelButton.classList.add('invisible');
         }
     }
 
@@ -628,6 +633,7 @@ export class DeckBuilder {
     importDeck() {
         const panel = document.getElementById('deck-builder-panel');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
 
         // 创建导入对话框
         const importDialog = document.createElement('div');
@@ -714,6 +720,7 @@ export class DeckBuilder {
                 // 显示面板
                 panel.classList.remove('hidden');
                 deckBuilderPanelButton.classList.remove('hidden');
+                toggleDeckBuilderFloatingPanelButton.classList.remove('invisible');
 
                 // 移除导入对话框
                 document.body.removeChild(importDialog);
