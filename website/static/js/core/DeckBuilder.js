@@ -244,9 +244,9 @@ export class DeckBuilder {
     }
 
     // 关闭牌组构建面板
-    closeDeckBuilderPanel() {
-        // Show confirmation dialog only if there are cards in the deck
-        if (this.addedCards.length > 0) {
+    closeDeckBuilderPanel(method = 'exit') {
+        // Show confirmation dialog only if there are cards in the deck and method is not 'save'
+        if (this.addedCards.length > 0 && method !== 'save') {
             const confirmClose = confirm('确定要退出牌组构建吗？未保存的更改将会丢失。');
             if (!confirmClose) {
                 return; // Don't close if user cancels
@@ -495,7 +495,7 @@ export class DeckBuilder {
             localStorage.setItem('conan-tcg-decks', JSON.stringify(existingDecks));
 
             // 关闭面板
-            this.closeDeckBuilderPanel && this.closeDeckBuilderPanel();
+            this.closeDeckBuilderPanel && this.closeDeckBuilderPanel('save');
             alert('牌组保存成功');
         } catch (error) {
             console.error('保存牌组失败:', error);
@@ -792,7 +792,7 @@ export class DeckBuilder {
     }
 }
 
-window.addCardToDeck = function(cardNum) {
+window.addCardToDeck = function (cardNum) {
     if (window.deckBuilder) {
         return window.deckBuilder.addCardToDeck(cardNum);
     }

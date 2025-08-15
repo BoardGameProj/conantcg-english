@@ -161,7 +161,7 @@ function createDeckCard(deck) {
 
     // 添加安全检查
     const isChinese = partnerCard ?
-        (isChineseByProduct(partnerCard.package) || chinesePRCards.has(partnerCard.cardNum)) :
+        (isChineseByProduct(partnerCard.package) || chinesePRCards.has(partnerCard.card_num)) :
         false;
 
     const imageUrl = partnerCard ?
@@ -669,7 +669,7 @@ function createCardImageHtml(card) {
     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 
     // 判断是否是中文卡牌（根据你的逻辑）
-    const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.cardNum);
+    const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.card_num);
 
     // 中文卡牌用 CN 目录，否则用默认目录
     const imageUrl = isChinese
@@ -682,12 +682,15 @@ function createCardImageHtml(card) {
                  alt="${cardName}"
                  class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
                  onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
+            <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
+                        <p class="text-2xs text-white text-center bg-black/70 truncate">${cardName}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
+                    </div>
             <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
         </div>
     `;
 }
-
-
+                    
 // function createCardImageHtml(card) {
 //     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 //     return `
