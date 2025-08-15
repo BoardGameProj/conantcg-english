@@ -908,21 +908,37 @@ class DeckBuilder {
             });
         }
     }
+
     // 关闭牌组构建面板
     closeDeckBuilderPanel() {
+        // Show confirmation dialog only if there are cards in the deck
+        if (this.addedCards.length > 0) {
+            const confirmClose = confirm('确定要退出牌组构建吗？未保存的更改将会丢失。');
+            if (!confirmClose) {
+                return; // Don't close if user cancels
+            }
+        }
+
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
+        
         if (panel) {
             panel.classList.add('hidden');
             deckBuilderPanelButton.classList.add('hidden');
 
-            // 隐藏所有"添加到牌组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
                 button.classList.add('hidden');
-                newDeckBtn.classList.remove('hidden');
             });
+            
+            newDeckBtn.classList.remove('hidden');
+        }
+
+        if (window.location.search.includes('deckId')) {
+            const url = new URL(window.location);
+            url.searchParams.delete('deckId');
+            window.history.replaceState({}, '', url);
         }
     }
 

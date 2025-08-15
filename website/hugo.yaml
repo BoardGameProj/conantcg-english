@@ -98,6 +98,8 @@ module:
       target: "static/js/keywords.js"
     - source: "static/js/deck_list.js"
       target: "static/js/deck_list.js"
+    - source: "static/js"
+      target: "static/js"
     - source: assets
       target: assets
     - source: "../data/images/cards"
