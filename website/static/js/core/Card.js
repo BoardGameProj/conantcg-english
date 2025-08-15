@@ -160,14 +160,14 @@ export class Card extends HTMLElement {
         const popoverId = `card-${this.data.id}`
         img.src = this.data.image
         img.setAttribute('loading', 'lazy')
-        img.classList.add('cursor-pointer', 'border', 'rounded-lg', 'select-none')
+        img.classList.add('cursor-pointer', 'border', 'rounded-lg', 'select-none', 'group-hover:scale-105')
         img.width = 160
         img.height = 222
         img.alt = `${this.data.title} (${this.data.cardNum})`
 
         // 创建卡片容器
         const cardContainer = document.createElement('div')
-        cardContainer.classList.add('card-container')
+        cardContainer.classList.add('card-container', 'group')
 
         // 添加图片到容器
         cardContainer.appendChild(img)
