@@ -356,45 +356,43 @@ function showDeckDetail(deckId) {
         `;
     })();
 
+    const titleEditBtnHtml = `
+        <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
+                data-deck-id="${deck.deckid}" 
+                title="重命名牌组">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+        </button>
+    `;
+
+    const descEditBtnHtml = `
+        <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
+                data-deck-id="${deck.deckid}" 
+                title="编辑描述">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+        </button>
+    `;
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[90vh] flex flex-col">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
                     <div class="relative w-full">
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 group">
                             <h3 class="text-xl font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h3>
-                            <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
-                                    data-deck-id="${deck.deckid}" 
-                                    title="重命名牌组">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                </svg>
-                            </button>
+                            ${titleEditBtnHtml}
                         </div>
-                        ${deck.description ? `
-                            <div class="flex items-start mt-1">
-                                <p class="text-sm text-gray-600 dark:text-gray-300 deck-description flex-grow italic">${deck.description}</p>
-                                <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
-                                        data-deck-id="${deck.deckid}" 
-                                        title="编辑描述">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        ` : `
-                            <div class="flex items-start mt-1">
+                        <div class="flex items-start group">
+                            ${deck.description ? `
+                                <p class="text-sm text-gray-600 dark:text-gray-300 deck-description flex-grow italic overflow-scroll" style="max-height: 2.8rem">${deck.description}</p>
+                            ` : `
                                 <p class="text-sm text-gray-600 dark:text-gray-300 deck-description flex-grow italic"></p>
-                                <button class="edit-desc-btn text-gray-500 hover:text-blue-500 focus:outline-none" 
-                                        data-deck-id="${deck.deckid}" 
-                                        title="编辑描述">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        `}
+                            `}
+                            ${descEditBtnHtml}
+                        </div>
                     </div>
                     <button onclick="document.querySelector('.modal-backdrop').remove()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -404,7 +402,7 @@ function showDeckDetail(deckId) {
                 </div>
                 
                 <!-- 内容区域 -->
-                <div class="grid grid-cols-6 overflow-y-auto p-4">
+                <div class="grid grid-cols-6 grid-rows-2 overflow-y-auto p-4">
                     ${partnerCaseHtml}
                     
                     <!-- 其他卡牌部分 -->
@@ -423,7 +421,7 @@ function showDeckDetail(deckId) {
                     <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
                         编辑牌组
                     </button>
-                    <button onclick="exportDeck('${deckId}')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
+                    <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
                         导出牌组
                     </button>
                     <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors">
@@ -677,17 +675,21 @@ function createCardImageHtml(card) {
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
     return `
-        <div class="relative group">
-            <img src="${imageUrl}" 
-                 alt="${cardName}"
-                 class="w-full rounded-md border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-105"
-                 onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
-            <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-xl">
+            <div class="relative group">
+                <div class="overflow-hidden rounded-md border border-gray-200 dark:border-gray-600"> <!-- 新增的父容器 -->
+                    <img src="${imageUrl}" 
+                        alt="${cardName}"
+                        class="w-full transition-transform group-hover:scale-105"
+                        onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 rounded-b-xl">
+                    <div class="transform transition-transform group-hover:scale-105"> <!-- 把缩放应用到父容器 -->
                         <p class="text-2xs text-white text-center bg-black/70 truncate">${cardName}</p>
                         <p class="text-2xs text-white text-center bg-black/70 max-w-full" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
                     </div>
-            <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
-        </div>
+                </div>
+                <div class="absolute inset-0 bg-black/0 transition-all rounded-md"></div>
+            </div>
     `;
 }
                     
@@ -710,8 +712,67 @@ function editDeck(deckId) {
     window.location.href = `/cards?deckId=${encodeURIComponent(deckId)}`;
 }
 
-function exportDeck(deckId) {
-    alert('导出功能待实现');
+function exportDeck(deckId, method = 'download') {
+    try {
+        const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
+        const deck = decks.find(d => d.deckid === deckId);
+
+        if (!deck) {
+            showToast('找不到要导出的牌组', false);
+            return false;
+        }
+
+        // 准备要导出的数据
+        const exportData = {
+            deckid: deck.deckid,
+            name: deck.name || '未命名牌组',
+            description: deck.description || '',
+            timestamp: deck.timestamp || new Date().toISOString(),
+            cards: deck.cards || []
+        };
+
+        const jsonStr = JSON.stringify(exportData, null, 2);
+
+        // 处理不同的导出方式
+        if (method === 'copy') {
+            // 复制到剪贴板
+            navigator.clipboard.writeText(jsonStr)
+                .then(() => showToast('牌组已复制到剪贴板'))
+                .catch(err => {
+                    console.error('复制失败:', err);
+                    showToast('复制失败，请尝试下载方式', false);
+                });
+            return true;
+        } else {
+            // 默认下载方式
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成安全的文件名
+            const fileName = (deck.name 
+                ? deck.name.replace(/[^\w\u4e00-\u9fa5]/g, '_') 
+                : 'conan_deck') + '.json';
+            
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('牌组导出成功');
+            }, 100);
+            return true;
+        }
+
+    } catch (error) {
+        console.error('导出牌组失败:', error);
+        showToast('导出牌组失败', false);
+        return false;
+    }
 }
 
 function cloneDeck(deckId) {
@@ -724,12 +785,12 @@ function cloneDeck(deckId) {
             return;
         }
 
-        // 创建副本
+        // 创建复制
         const clonedDeck = {
             ...originalDeck,
             deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
             timestamp: new Date().toISOString(),
-            name: originalDeck.name ? `${originalDeck.name}_副本` : '未命名牌组_副本'
+            name: originalDeck.name ? `${originalDeck.name} 复制` : '未命名牌组 复制'
         };
 
         // 保存新牌组

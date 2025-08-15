@@ -123,6 +123,7 @@ module.exports = {
     'group-hover:bg-opacity-70',
     'group-hover:bg-black/20',
     'group-hover:scale-105',
+    'group-hover:scale-110',
     'col-span-5'
   ],
 
