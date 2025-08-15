@@ -141,28 +141,34 @@ function createDeckCard(deck) {
     if (deck.cards) {
         for (const cardNum of deck.cards) {
             const cardData = cardsData[cardNum];
-            if (cardData) {
-                const cardType = cardsDataCN[`types.${cardData.type}`];
-                // 如果是搭档牌，记录下来但不计入总数
-                if (cardType === "搭档") {
-                    partnerCard = cardData;
-                    continue;
-                }
-                // 如果是案件牌，也不计入总数
-                if (cardType === "案件") {
-                    caseCard = cardData;
-                    continue;
-                }
-                // 其他牌才计入总数
-                totalCardsCount++;
+            if (!cardData) continue;
+
+            const cardType = cardsDataCN[`types.${cardData.type}`];
+
+            // 确保只处理有效卡片数据
+            if (cardType === "搭档") {
+                partnerCard = cardData || {}; // 确保不会为null
+                continue;
             }
+
+            if (cardType === "案件") {
+                caseCard = cardData || {}; // 确保不会为null
+                continue;
+            }
+            totalCardsCount++;
         }
     }
-    const isChinese = isChineseByProduct(partnerCard.package) || chinesePRCards.has(partnerCard.cardNum);
 
-    const imageUrl = isChinese 
-        ? `https://img.915159.xyz/DCCG/${partnerCard.card_num}.png`
-        : `https://img.915159.xyz/DCCG/ja/${partnerCard.card_num}.ja.jpg`;
+    // 添加安全检查
+    const isChinese = partnerCard ?
+        (isChineseByProduct(partnerCard.package) || chinesePRCards.has(partnerCard.cardNum)) :
+        false;
+
+    const imageUrl = partnerCard ?
+        (isChinese ?
+            `https://img.915159.xyz/DCCG/${partnerCard.card_num}.png` :
+            `https://img.915159.xyz/DCCG/ja/${partnerCard.card_num}.ja.jpg`) :
+        '';
 
     // 生成搭档牌图片HTML
     const partnerImgHtml = partnerCard
@@ -437,28 +443,28 @@ function showDeckDetail(deckId) {
     modal.innerHTML = modalHtml;
     document.body.appendChild(modal);
     window.scrollTo(0, 0);
-    
+
     // 添加编辑事件监听器
     const modalDeckName = modal.querySelector('.deck-name');
     const modalDeckDesc = modal.querySelector('.deck-description');
     const modalEditBtn = modal.querySelector('.edit-deck-btn');
     const modalEditDescBtn = modal.querySelector('.edit-desc-btn');
-    
+
     if (modalEditBtn) {
         modalEditBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            editDeckName(deck, { 
+            editDeckName(deck, {
                 querySelector: () => modalDeckName,
                 appendChild: (child) => modalDeckName.innerHTML = '',
                 nextElementSibling: null
             });
         });
     }
-    
+
     if (modalEditDescBtn) {
         modalEditDescBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            editDeckDescription(deck, { 
+            editDeckDescription(deck, {
                 querySelector: () => modalDeckDesc,
                 appendChild: (child) => modalDeckDesc.innerHTML = '',
                 nextElementSibling: modalEditDescBtn.parentElement
@@ -562,7 +568,7 @@ function editDeckDescription(deck, scopeElement) {
         if (newDesc) {
             descElement.textContent = newDesc;
             descElement.classList.remove('italic');
-            
+
             // 如果是模态框中的编辑，同时更新列表视图
             if (isModal) {
                 const deckCard = document.querySelector(`.deck-card[data-deck-id="${deck.deckid}"] .deck-description`);
@@ -574,7 +580,7 @@ function editDeckDescription(deck, scopeElement) {
         } else {
             descElement.innerHTML = ''; // 清空描述
             descElement.classList.add('italic'); // 添加斜体样式
-            
+
             // 如果是模态框中的编辑，同时更新列表视图
             if (isModal) {
                 const deckCard = document.querySelector(`.deck-card[data-deck-id="${deck.deckid}"] .deck-description`);
@@ -643,11 +649,11 @@ function saveDeckToLocalStorage(updatedDeck) {
 
 
 function isChineseByProduct(product) {
-    if (!product) return false;
+    if (!product || typeof product !== 'string') return false;
     const productCode = product.trim().substring(0, 6);
     const validProducts = [
-        "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06", // 新手卡组
-        "CT-P01", "CT-P02",                                         // 补充包
+        "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06",
+        "CT-P01", "CT-P02",
     ];
     return validProducts.includes(productCode);
 }
@@ -661,12 +667,12 @@ const chinesePRCards = new Set([
 
 function createCardImageHtml(card) {
     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
-    
+
     // 判断是否是中文卡牌（根据你的逻辑）
     const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.cardNum);
-    
+
     // 中文卡牌用 CN 目录，否则用默认目录
-    const imageUrl = isChinese 
+    const imageUrl = isChinese
         ? `https://img.915159.xyz/DCCG/${card.card_num}.png`
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
