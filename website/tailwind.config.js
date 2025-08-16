@@ -7,7 +7,7 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
     "./**/*.{html,js}",
     "./static/js/**/*.js",
-    "./**/*.{js,ts,jsx,tsx}"  // 如果使用JS框架请添加
+    "./**/*.{js,ts,jsx,tsx}"
   ],
 
   // 启用黑暗模式（class驱动）

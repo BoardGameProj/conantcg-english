@@ -282,4 +282,3 @@ export function showConfirm(message, {
 
 // 注册卡片渲染队列
 export const registeredForRendering = [];
-window.copyToClipboard = copyToClipboard;

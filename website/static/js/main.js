@@ -1,7 +1,7 @@
 import { Card } from './core/Card.js';
 import { DeckBuilder } from './core/DeckBuilder.js';
 import { PopoverManager } from './core/PopoverManager.js';
-import { registeredForRendering } from './utils.js';
+import { copyToClipboard, registeredForRendering } from './utils.js';
 
 // 初始化牌组构建器
 window.deckBuilder = new DeckBuilder();
@@ -22,5 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 暴露必要全局变量
+window.copyToClipboard = copyToClipboard;
 window.PopoverManager = PopoverManager;
 window.Card = Card;
