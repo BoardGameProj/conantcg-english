@@ -53,8 +53,7 @@ function loadDecks() {
         }
 
         if (decks.length === 0) {
-            emptyDeckMessage.style.display = 'block';
-            deckListContainer.style.display = 'none'; // 隐藏列表容器
+            emptyDeckMessage.classList.remove('hidden');
             return;
         }
 
@@ -845,7 +844,7 @@ function cloneDeck(deckId) {
 }
 
 async function confirmDeleteDeck(deckId) {
-    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。', {type: `error`, icon: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`})
+    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。', { type: `error`, icon: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>` })
     if (result) {
         deleteDeck(deckId);
         console.log('用户确认');
@@ -1089,23 +1088,32 @@ function deleteDeck(deckId) {
         const deckToDelete = decks.find(d => d.deckid === deckId);
         const updatedDecks = decks.filter(d => d.deckid !== deckId);
         localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
-        
-        showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, { 
-            isSuccess: false, 
+
+        showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, {
+            isSuccess: false,
             icon: `<svg class="w-6 h-6 flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-               </svg>` 
+               </svg>`
         });
 
         // 动画完成后移除元素
         if (deletedCard) {
             deletedCard.remove();
+            
+            const allColors = new Set();
+            updatedDecks.forEach(deck => {
+                const deckColors = getDeckColors(deck);
+                deck.colorTags = Array.from(deckColors).map(c => getColorName(c) || c).join(',');
+                deckColors.forEach(color => allColors.add(color));
+            });
+            createColorTags(allColors);
+            
             // 关闭模态框
             document.querySelector('.modal-backdrop')?.remove();
-            
+
             // 检查是否还有牌组
             if (updatedDecks.length === 0) {
-                document.getElementById('emptyDeckMessage').style.display = 'block';
+                document.getElementById('emptyDeckMessage').classList?.remove('hidden');
             }
         } else {
             // 常规处理（如果没有找到对应UI元素）
