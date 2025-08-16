@@ -191,7 +191,7 @@ export class Card extends HTMLElement {
 
         // 数量显示
         const countDisplay = document.createElement('span');
-        countDisplay.classList.add('text-sm', 'text-white', 'font-medium', 'select-none');
+        countDisplay.classList.add('text-sm', 'text-black', 'dark:text-white', 'font-medium', 'select-none');
         countDisplay.textContent = '0';
 
         // 增加按钮
