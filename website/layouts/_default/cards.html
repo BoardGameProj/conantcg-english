@@ -231,8 +231,8 @@
             </div>
         </div>
         <button type="button" id="toggle-deck-builder-floating"
-            class="fixed justify-end top-6 transform translate-y-1/2 z-50 inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 invisible"
-            style="right: 7rem">
+            class="fixed inline-flex items-center px-3 py-3 text-base font-medium text-center text-white bg-gray-700 rounded-full shadow-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hidden"
+            style="z-index: 10;">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -421,6 +421,7 @@
     const container = document.getElementById('deck-builder-container');
     const deckDescription = document.getElementById('deck-descibe');
     const placeholder = document.getElementById('panel-placeholder');
+    const floatingButton = document.getElementById('toggle-deck-builder-floating');
 
     let panelHeight = panel.offsetHeight * 0.5;
     updatePlaceholderHeight();
@@ -441,6 +442,7 @@
         // 切换悬浮状态
         panel.classList.toggle('sticky-float', isOutOfView);
         deckDescription.classList.toggle('hidden', isOutOfView);
+        floatingButton.classList.toggle('hidden', !isOutOfView);
         placeholder.style.display = isOutOfView ? 'block' : 'none';
     })
 

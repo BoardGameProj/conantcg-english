@@ -400,6 +400,16 @@ dct-card img {
     --tw-bg-opacity: 0.93;
 }
 
+#toggle-deck-builder-floating {
+    position: fixed;
+    top: calc(0% + 1.0rem);
+    right: calc(20% - 4.0rem);
+}
+
+#toggle-deck-builder-floating.hidden {
+    display: none !important;
+}
+
 #deck-builder-panel.hidden-completely {
     width: 0 !important;
     height: 0 !important;
@@ -461,7 +471,6 @@ dct-card img {
     top: 0;
     padding: 1rem 0;
     background-color: rgba(255, 255, 255, 0.9);
-    z-index: 10;
 }
 
 .dark #colorTags {
