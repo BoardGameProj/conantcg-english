@@ -3,109 +3,115 @@ title: "如何游戏"
 layout: content
 ---
 
-This is a card game where you, along with characters from "Detective Conan", aim to solve a case before your opponent does.
-Use your very own deck to gather evidence towards your case, take action against the opponent's case, and reach for victory together with your partnered detective!
+这是一款与《名侦探柯南》角色一起破案的卡牌对战游戏。
+通过自定义牌组收集案件证据，干扰对手的破案进程，最终与搭档侦探联手赢得胜利！
 
-There is also an unofficial English translation of the Game Rules, which you can find [here on Google Drive](https://drive.google.com/drive/folders/1BZEynJiohcfcnQyTDPPjC936GzdK6Isw?usp=sharing) (thanks to [potatolanes](https://twitter.com/potatolanes)).
+本游戏规则非官方英文翻译版可在[Google云端硬盘查看](https://drive.google.com/drive/folders/1BZEynJiohcfcnQyTDPPjC936GzdK6Isw?usp=sharing)（由[potatolanes](https://twitter.com/potatolanes)制作）。
 
-## Game Victory Conditions
+## 胜利条件
 
-Gather a number of "Evidence" greater than or equal to the "Case Level", then use your Partner's `[Case Closed]` ability to win the game.
+收集的“证据”数量为“案件等级”以上，使用搭档的【结案】能力获得游戏胜利。
 
-## Card Types
+## 卡牌种类
 
-|Case|Partner|Character|Event|
+|案件|搭档|角色|事件|
 |---|---|---|---|
-| ![Case card](img/card-case.jpg) | ![Partner card](img/card-partner.jpg) | ![Character card](img/card-character.jpg) | ![Event card](img/card-event.jpg) |
+| ![案件卡](img/card-case.jpg) | ![搭档卡](img/card-partner.jpg) | ![角色卡](img/card-character.jpg) | ![事件卡](img/card-event.jpg) |
 
-There are four card types:
+游戏包含四类卡牌:
 
-* **Case card:** Represents the case you are trying to solve. It denotes the Case Level, or the amount of evidence you need to win the game, which depends on whether you go first or second. Use a token to denote whether it is currently the Case Phase or Resolution Phase of your case.
-* **Partner card:** Acts as your partner for the game. You can use it to deduce to gain evidence, and some cards have effects that require a specific color Partner to work. It also has the special `[Assist]` and `[Case Closed]` abilities, which are what you use to win the game.
-* **Character cards:** The main cards that go into your deck. They're the cards that you play onto your Scene (as in crime scene), and are what you mainly use to gain evidence.
-* **Event cards:** Support cards. They feature scenes from the manga, and are discarded once you use their effects.
-  * Some Events have effects that set them to a character. After resolving that effect, set the Event underneath the Character card. Remove the Event, when the Character leaves the Scene.
+* **案件牌:** 代表侦办的案件。左下角和右下角的案件难度表示获胜所需证据数量（先手/后手难度不同），使用标记物区分【案件篇】与【解决篇】。
+* **搭档牌:** 作为本局游戏的搭档。可用于推理获取证据，部分卡牌效果需要特定颜色搭档才能发动。拥有【协助】和【结案】两种特殊能力。
+* **角色牌:** 牌组核心卡牌，需于“现场”登场，主要用于获取证据。
+* **事件牌:** 辅助卡牌，使用后进入移除区。
+  * 部分事件卡可配置给角色牌（置于角色牌下方），当该角色离场时移除所配置的事件牌
 
-As a rule of thumb, you play the game with one Partner card and one Case card, along with a 40-card deck of Character and Event cards. You can only have up to 3 copies of the same card, based on the ID of the card.
+基础规则: 使用1张搭档牌 + 1张案件牌 + 40张角色/事件牌构成的牌组（相同卡牌最多3张，以卡牌ID为准）。
 
-### Color restriction
+### 颜色限制
 
-There is no color restriction on cards you can put in your deck. However a card can't be used from hand or through a Next Hint, if it's not the same color as your Case card. 
-This doesn't apply to cards that are played through card effects, or cards that are used through `<Cut In>` or `<Spark>`.
+组牌时无颜色限制，但从手牌中打出或通过“提示”使用卡牌时，卡牌颜色需与案件牌一致。通过卡牌效果/`<介入>`/`<灵光一闪>`使用的卡牌不受此限。
 
-## Playing Area
+## 对战区域
 
-![Playing Area](img/board.jpg)
+![对战区域](img/board.jpg)
 
-* **Scene:** Where you play Character cards onto. You can only have up to 5 Characters on the Scene at a time. If you were to play another one, you can choose to discard a Character already on the Scene to play the new one.
-* **Partner:** Place your Partner card here at the start of a game.
-* **Case:** Place your Case card here at the start of a game.
-  * A marker denotes if the case is in "Case Phase" (at the start of the game) or in "Resolution Phase".
-  * The number of evidence needed depends on whether a player goes first or second. If you go first, place the marker on the bottom right corner, and if you go second place iot on the bottom left corner.
-* **Deck:** Where you place the deck that you draw cards from.
-* **File Area:** Place Files here from your deck facedown, sideways. Files determine what level cards you are allowed to play.
-* **Assist:** The black box in the File Area, where you place your Partner after using its `[Assist]` ability.
-* **Evidence Area:** Place Evidence here from your deck facedown. You get Evidence by making deductions or actions with your Partner or Character cards.
-* **Remove Area:** Where you place your Character or Event cards that are removed from game.
 
-## Game Setup
+* **A 搭档:** 将搭档牌放置在此处。
+  * 收集对应案件等级数量的证据，使用搭档的【结案】能力，赢得游戏。※在案件篇状态下无法进行【结案】，不能赢得游戏。
+* **B 案件:** 将案件牌放置在此处，并在其上放置案件篇/解决篇指示物。
+  * 使用标记物区分案件阶段。
+  * 根据先手/后手将标记物置于右下/左下角（决定案件难度）。
+* **C 卡组:** 放置我方卡组。
+  * 若卡组中没有卡牌，将移除区中的卡牌洗混后放置在卡组(刷新)。之后对手获得1个证据。若在抽指定数量的卡牌或放置指定数量的卡牌到证据/档案区的过程中进行刷新，在完成刷新后，继续执行剩余的张数。
+* **D 现场:** 放置角色的位置（同时最多放置5人，可以放置相同角色）。当回合出现在现场中的角色处于自报家门状态，不能进行推理和行动。若在现场中有5人时打出其他角色，将任意角色移除后再打出（交换）。
+* **E 证据区:** 若获得证据，将每张证据依次面朝下横向放置在此处。
+* **F 档案区:** 将卡牌背朝上横向排列在此处。进行协助的搭档也会移入此区域。从手牌中使用角色牌或事件牌时，需参考档案区中放置的卡牌数量。
+* **★ 协助区:** 档案区中的黑色格，放置使用过【协助】的搭档牌。
+  * 进行协助的搭档移入档案区。进行协助时若档案区有总计7张以上卡牌……
+    * 【案件篇】将进入【解决篇】，搭档进行【协助】时，若档案有总计案件等级数量以上卡牌，案件进入解决篇。将案件篇/解决篇指示物翻面，以此进入解决篇。
+* **G 移除区:** 正面放置被移除的证据或角色，以及使用过的事件。
 
-![Game Setup](img/board2.jpg)
+## 准备游戏
 
-When you start a game, you place your Partner and Case cards onto the playing area, then shuffle your deck. Both players draw a starting hand of 5 cards, and are allowed to mulligan their hand by shuffling any cards from their hand into the deck and drawing the same number of cards.
+![游戏设置](img/board2.jpg)
 
-**Note:** If your deck happens to run out of cards in the middle of a game, you shuffle all the cards in the Remove Area into your deck. If you do so, the opponent gains one Evidence.
+初始设置: 放置搭档牌与案件牌，将剩下的40张牌（卡组）充分洗混后双方从卡组顶抽5张牌作为手牌。先手方决定是否进行重抽（若进行重抽，选手牌中任意张牌放回卡组洗混，抽同样数量的牌）。然后后手方决定是否进行重抽。
 
-## Turn Flow
+**注意:** 若卡组中没有卡牌，将移除区中的卡牌洗混后放置在卡组(刷新)。之后对手获得1个证据。
 
-1. **Auto Phase** (do each of these in order)
-   1. Put your Partner card into Active mode. If it's in the File Area, put it back in the Partner zone.
-   2. Take your Characters that are in Sleep mode but put them into Active mode.
-   3. Draw 1 card from your deck and add it to your hand.
-   4. Take 2 cards from the top of your deck and put them into your File Area facedown. These act as your Files, which determine what level cards you are allowed to play. (Note: for the player going first, they only add 1 File instead of 2 on their first turn.)
-2. **Main Phase** (do any of these in any order)
-   1. **Play a card from your hand,** namely a Character card or an Event card. You can only play cards with a Level (top left corner number) that is lower than or equal to the amount of Files that you have. By default, you can only play one card per turn. This can not be done, if a Next Hint was already used that turn.
-   2. **Use a Next Hint.** Any time during the Main Phase, you can choose to use a Next Hint, in which you can add a File to your hand. Then as part of Next Hint, you can play another card from your hand, keeping in mind the newly decreased File count. You can also choose to not play any cards, but you can't play a card after the Next Hint is over.
-   3. **Use a Character card's "Declare" effect.** Declare effects are effects that you can choose to activate during the Main Phase. Generally, these effects can only be used once per turn or have some sort of requirement to be used.
-       * They can be used even on a Character that was played that turn.
-       * They can be used even if the Character is in Sleep Mode. (Unless [Sleep] is part of the cost.)
-   4. **Make a Deduction.** Select a Partner or Character card and put it into Sleep mode (turn it sideways). If you do, gain Evidence by putting cards from the top of your deck facedown into the Evidence Area. The amount of Evidence you gain is based on the LP of the card used to deduce. Note: A Character can't made a deduction the turn it is played ("Intro Mode")
-   5. **Take an action.** You can take an action with a Character card by sleeping it. Like deductions, a Character can't take action the turn it is played. When you take action, you can either target the opposing case, or an opposing Character that's in Sleep or Stun mode. The opponent can choose to guard the action by sleeping a Character they control.  
-       * **Action (Case):**  If the opponent does not guard when you take action on their case, the opponent discards an Evidence and you gain an Evidence.
-         * Note: The case must have 1 or more Evidence to target. 
-       * **Action (Character):** If the opponent does not guard when you take action on their character, **Contact** starts.
-         * The players can then use one card with `[Cut In]` from their hand to increase the AP of their Character. The player with the lower AP character (or the defending player if AP is equal) decides first, whether he wants to use a Cut In. Then, the other player decides.
-         * Compare the two Characters' AP, and remove the defending Character if the Character making the action has equal or higher AP. If the defending character has higher AP, nothing happens.
-         * Note: If a Character is removed in the middle of a Contact (e.g. by effects), the Contact ends.
-   7. **Use your Partner's abilities.** A Partner card has two abilities: `[Assist]` and `[Case Closed]`.  
-      * **For Assist**, sleep the Partner card and put it into your File Area. This increases the number of cards in your File Area, thus increasing the Level threshold of what cards you can play. In addition, after using `[Assist]`, if the number of cards in your File Area are 7 or higher, the case changes from Case Phase to Resolution Phase. (Denote this status with a token or marker)  
-      * **For Case Closed**, activate only if the case is in Resolution Phase. By sleeping the Partner, if your Evidence count is greater than or equal to your Case Level, you win the game. Using this ability is the primary way in which you win the game.  
-     * Note that both abilities require you to Sleep the Partner, which means you can't use these abilities the same turn you deduce with the Partner, nor can you use both in one turn.
-4. End Phase
-   * Your turn ends, and the game is passed onto the opponent. Any effects that end or activate when your turn ends occur now.
+## 回合流程
 
-## General flow of the game
+1. **自动阶段**（按照以下顺序执行操作）
+   1. 激活搭档。（若放置在档案区的搭档牌移回搭档区）
+   2. 将所有处于休眠状态的角色激活。
+   3. 抽取卡组顶牌加入手牌。
+   4. 将卡组顶2张牌依次背朝上放入档案区。（先手玩家第1回合只放入1张）
 
-1. Accumulate Files throughout the game, using them to play Character or Event cards.
-2. Make deductions with your Characters or Partner to gain Evidence. Take actions with your Characters to disrupt the opponent by removing their Evidence or Characters.
-3. When you reach 7 Files (including the Partner card), use your Partner's `[Assist]` to turn your case into Resolution Phase.
-4. Reach enough Evidence to match your Case Level, then use your Partner's `[Case Closed]` to win the game.
+    ※（因在第1回合中或其他原因）不能进行操作时，跳过步骤1和2。
 
-## Keywords
+2. **主要阶段**（可以任意顺序，执行以下6种操作）
+   1. **使用手牌:** 可打出等级≤档案数的角色/事件牌（默认每回合1张，若已使用“提示”则不可打出）
+   2. **提示:** 将1张档案卡加入手牌后，可立即打出1张新的卡牌（需符合新的档案数量要求）
+   3. **使用角色的【宣言】能力:** 满足条件即可激活，一般来说，此能力每回合只能使用1次，或者有某种使用要求。
+       * 当回合新登场的角色也可发动
+       * 休眠状态的角色也可发动（除非效果需付出【休眠】代价）
+   4. **推理:** 选1张搭档或角色休眠（使其横置）。若如此做，通过将牌堆顶的牌翻面放入证据区域获得证据。你获得的证据数量基于用于推理的牌的体力点数。请注意：角色在被放置（入局模式）的回合无法进行推理。
+   5. **行动**：休眠角色卡来执行行动（新部署角色不可行动）。可选择针对对手案件或休眠/眩晕状态的角色，对手可通过休眠角色进行防御：
+       * **案件行动**：防御失败时，对手弃1证据，你获得1证据（需目标案件有证据时才可行动）
+       * **角色行动**：防御失败时进入"对决"流程
+         * 双方可使用手牌中的`<切入>`卡提升角色AP（AP较低方/平局时防守方优先决定是否使用）
+         * 对比双方角色AP，进攻方AP≥防守方时后者离场
+         * 注：对决中途若角色离场，则立即终止
+   6. **使用搭档能力**：
+      * **协查**：休眠搭档卡移至档案区，提升可打出卡牌等级上限。当档案数≥7时，案件进入解决阶段
+      * **结案**（仅解决阶段可用）：休眠搭档卡，若证据数≥案件难度则获胜  
+      * 注：两种能力都需休眠搭档，故每回合只能选择其一
+3. **结束阶段**
+   * 处理回合结束时的效果，进入对手回合。
 
-### Actions
+## 游戏策略
 
-* **Deduction**: Put the card to Sleep and gain Evidence based on its LP
-* **Guard**: A Character on the Scene can be put to Sleep in order to defend against an Action.
-* **Cut In**: You may use this during Contact by removing this card from your hand and boost your Character by the amount on the card.
-* **Investigate X**: Your opponent reveals the top X card(s) of their deck and places it at the bottom of their deck in any order.
-* **Mislead X**: You may put a character with this ability to Sleep when your opponent's card uses Deduction, in order to make that card lose X LP during this Deduction.
-* **Haste**: Characters with "Haste" ability can immediately perform Deductions or Actions during the turn it is played.
-* **Rush**: Characters with "Rush" ability can immediately perform Actions during the turn it is played.
-* **Bullet**: The opponent cannot Guard against Actions by characters with "Bullet" ability.
-* **Disguise**: During Contact, you may swap this card from hand with the Character that is in a Contact. Return the swapped out Character to the bottom of the deck. The "On Disguise" card effect activates when a card is played via Disguise.
+1. 积累档案以打出高等级卡牌。
+2. 通过推理获取证据，采取行动干扰对手。
+3. 档案数达7时使用`[协助]`进入解决阶段。
+4. 证据达标后发动`[结案]`取胜。
 
-### States
+## 关键词
 
-* **Sleep**: Sleeping characters cannot perform Actions and they can be targeted for Contact.
-* **Stun**: When a character is stunned, it is turned upside down for the next turn. When it would be set to Active, it is put to Sleep instead (sideways).
+### 行动类
+
+* **推理:** 休眠该牌以获得基于该牌LP数量的证据。
+* **防卫:** 休眠一个角色以防卫某个行动。
+* **介入:** 接触时从手牌移除以提升一个角色AP。
+* **搜查X:** 对手展示卡组顶X张牌，然后以任意顺序移入卡组底。
+* **误导X:** 将此角色休眠，对手进行推理时LP-X。
+* **迅速:** 登场回合可以立刻进行推理或行动。
+* **突击:** 登场回合可以立刻进行行动。
+* **弹丸:** 此角色的行动不能被防卫。
+* **变装:** 从手牌中打出替换接触中的角色。（将被替换的角色移入卡组底），触发“变装时”效果。
+
+### 状态类
+
+* **休眠:** 无法行动且可被接触。
+* **眩晕:** 处于倒置状态，下回合激活时改为休眠。
