@@ -699,7 +699,7 @@ function createCardImageHtml(card) {
 
     return `
     <div class="group">
-        <div class="relative rounded-lg border group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
+        <div class="relative rounded-lg border border-gray-900 dark:border-gray-400 group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
             <div class="relative w-full">
                 <img src="${imageUrl}" 
                      alt="${cardName}"
