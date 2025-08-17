@@ -702,7 +702,7 @@ function createCardImageHtml(card) {
                      alt="${cardName}"
                      class="w-full h-auto rounded-lg"
                      onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
-                <div class="absolute left-0 right-0 bottom-0 w-full bg-black/70 backdrop-blur-sm pb-1 rounded-b-lg">
+                <div class="absolute left-0 right-0 bottom-0 w-full bg-black/70 pb-1 rounded-b-lg">
                     <div class="text-center w-full">
                         <p class="text-2xs text-white truncate mx-1">${cardName}</p>
                         <p class="text-2xs text-white" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
