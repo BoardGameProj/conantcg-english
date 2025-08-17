@@ -424,7 +424,7 @@ export class DeckBuilder {
         const totalSlots = 40;
 
         // 创建普通卡牌的网格容器
-        let cardsHtml = `<div class="grid grid-cols-10 gap-2 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
+        let cardsHtml = `<div class="grid grid-cols-10 gap-1 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
 
         // 渲染普通卡牌
         normalCards.forEach(card => {
@@ -464,8 +464,8 @@ export class DeckBuilder {
     // 新的辅助方法：渲染单个卡牌项
     renderCardItem(card) {
         return `
-            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center relative" style="">
-                <div class="mb-1 relative w-full">
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-0.5 flex flex-col items-center relative" style="">
+                <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
                         <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
@@ -474,7 +474,7 @@ export class DeckBuilder {
                 </div>
                 <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
