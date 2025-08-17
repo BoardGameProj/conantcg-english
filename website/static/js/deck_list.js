@@ -689,30 +689,27 @@ const chinesePRCards = new Set([
 function createCardImageHtml(card) {
     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 
-    // 判断是否是中文卡牌（根据你的逻辑）
     const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.card_num);
 
-    // 中文卡牌用 CN 目录，否则用默认目录
     const imageUrl = isChinese
         ? `https://img.915159.xyz/DCCG/${card.card_num}.png`
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
     return `
-            <div class="relative rounded-lg group">
-                <div class="overflow-hidden rounded-md border border-gray-200 dark:border-gray-600 group-hover:scale-105">
-                    <img src="${imageUrl}" 
-                        alt="${cardName}"
-                        class="w-full transition-transform group-hover:scale-105 rounded-lg"
-                        onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 rounded-b-lg">
-                    <div class="transform transition-transform group-hover:scale-105"> <!-- 把缩放应用到父容器 -->
-                        <p class="text-2xs text-white text-center bg-black/70 truncate">${cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
+        <div class="relative rounded-lg group overflow-hidden w-full">
+            <div class="relative w-full group-hover:scale-105 transition-transform duration-300">
+                <img src="${imageUrl}" 
+                     alt="${cardName}"
+                     class="w-full h-auto rounded-lg"
+                     onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
+                <div class="absolute left-0 right-0 bottom-0 w-full bg-black/70 backdrop-blur-sm pb-1 rounded-b-lg">
+                    <div class="text-center w-full">
+                        <p class="text-2xs text-white truncate mx-1">${cardName}</p>
+                        <p class="text-2xs text-white" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
                     </div>
                 </div>
-                <div class="absolute inset-0 bg-black/0 transition-all rounded-lg"></div>
             </div>
+        </div>
     `;
 }
 
