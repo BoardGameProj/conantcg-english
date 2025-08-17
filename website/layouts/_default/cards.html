@@ -370,7 +370,9 @@
             }
             // 重置文本框和选择框
             else if (input.type === 'text' || input.tagName === 'SELECT') {
-                input.value = '';
+                if (input.id !== 'deck-name' && input.id !== 'deck-description') {
+                    input.value = '';
+                }
             }
 
             // 触发 input 事件让 filter-container 刷新
@@ -398,7 +400,9 @@
                 input.checked = false;
             }
             else if (input.type === 'text' || input.tagName === 'SELECT') {
-                input.value = '';
+                if (input.id !== 'deck-name' && input.id !== 'deck-description') {
+                    input.value = '';
+                }
             }
             const event = new Event('input', { bubbles: true });
             input.dispatchEvent(event);
