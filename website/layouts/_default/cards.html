@@ -270,7 +270,7 @@
                     <!-- </div> -->
                 </div>
                 <div class="mb-4">
-                    <div id="added-deck" class="grid grid-cols-7 items-start gap-1">
+                    <div id="added-deck" class="grid grid-cols-7 items-start gap-1 h-full">
                         <div class="relative">
                             <div id="added-partner" class="mb-2" style="max-width: 98%;"><!-- 已添加的搭档将在这里显示 --></div>
                             <div id="added-case" class="items-start" style="max-width: 98%;"><!-- 已添加的卡牌将在这里显示 --></div>
@@ -279,7 +279,7 @@
                         <div id="added-cards" class="col-span-5">
                             <!-- 已添加的卡牌将在这里显示 -->
                         </div>
-                        <div id="added-statistics" class="items-center justify-center relative">
+                        <div id="added-statistics" class="h-full">
                             <!-- 已添加的统计数据将在这里显示 -->
                         </div>
                     </div>
@@ -436,7 +436,8 @@
         const elementHeight = containerRect.bottom - containerRect.top;
         const halfHeight = elementHeight * 0.5;
 
-        const isOutOfView = containerRect.bottom < halfHeight || containerRect.top > window.innerHeight - halfHeight
+        // const isOutOfView = containerRect.bottom < halfHeight || containerRect.top > window.innerHeight - halfHeight
+        const isOutOfView = containerRect.bottom < halfHeight
 
 
         // 切换悬浮状态

@@ -464,7 +464,7 @@ export class DeckBuilder {
     // 新的辅助方法：渲染单个卡牌项
     renderCardItem(card) {
         return `
-            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-0.5 flex flex-col items-center relative" style="">
+            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-0.5 flex flex-col items-center relative group" style="">
                 <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
@@ -472,7 +472,7 @@ export class DeckBuilder {
                         <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
                     </div>
                 </div>
-                <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300" data-card-num="${card.cardNum}">
+                <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -856,14 +856,14 @@ export class DeckBuilder {
             </div>
         </div>`;
 
-        let logoHtml = `<img class="logo-image items-end mb-8 p-2 select-none" src="/img/cmn_logo@2x.png" alt="Logo">`;
+        let logoHtml = `<img class="logo-image items-end ml-1 mb-8 p-2 select-none" src="/img/cmn_logo@2x.png" alt="Logo">`;
         statisticsContainer.innerHTML = `
             <div class="flex flex-col justify-between h-full">
                 <div>
                     ${tableHtml}
                     ${barChartHtml}
                 </div>
-                <div class="flex justify-end">
+                <div class="">
                     ${logoHtml}
                 </div>
             </div>
