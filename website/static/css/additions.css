@@ -386,6 +386,12 @@ dct-card img {
     /* 默认状态：跟随文档流 */
     position: relative;
     margin-top: 0.5rem;
+    --tw-bg-opacity: 0.7;
+}
+
+#deck-name,
+#deck-description {
+    --tw-bg-opacity: 0.7;
 }
 
 #deck-builder-panel.sticky-float {
@@ -545,4 +551,8 @@ dct-card img {
     max-width: 90vw;
     max-height: 90vh;
     overflow: auto;
+}
+
+.dark .logo-image {
+    content: url('/img/cmn_logo_sp@2x.png');
 }

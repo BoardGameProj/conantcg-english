@@ -813,7 +813,7 @@ function cloneDeck(deckId) {
             ...originalDeck,
             deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
             timestamp: new Date().toISOString(),
-            name: originalDeck.name ? `${originalDeck.name} 复制` : '未命名牌组 复制'
+            name: originalDeck.name ? `${originalDeck.name} - 副本` : '未命名牌组 - 副本'
         };
 
         // 保存新牌组

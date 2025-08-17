@@ -222,7 +222,7 @@ export class DeckBuilder {
             const newDeckBtn = document.getElementById('new-deck-btn');
             const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
             const svg = document.querySelector('#toggle-deck-builder-floating svg');
-            
+
 
             if (panel) {
                 panel.classList.remove('hidden');
@@ -807,7 +807,7 @@ export class DeckBuilder {
         });
 
         let barChartHtml = '<div class="">';
-        barChartHtml += '<div class="flex items-end h-32 gap-1 mb-6">';
+        barChartHtml += '<div class="flex items-end h-32 gap-1 my-6 ml-1 w-full">';
 
         // 找到最大值用于计算条形图高度
         const maxCount = Math.max(...costCounts.slice(1, 10), 1);
@@ -816,9 +816,9 @@ export class DeckBuilder {
         for (let i = 1; i <= 9; i++) {
             const heightPercent = (costCounts[i] / maxCount) * 6;
             barChartHtml += `
-                <div class="flex flex-col items-center flex-1">
+                <div class="flex flex-col items-center flex-1 w-full">
                     <!-- 将数字显示在顶部 -->
-                    <span class="text-xs dark:text-gray-400 font-bold mb-1"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
+                    <span class="text-xs dark:text-gray-400 font-bold"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
                     <div class="flex justify-center w-full" style="height: 80%;">
                         <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out" style="height: ${heightPercent}rem;">
                         </div>
@@ -832,23 +832,23 @@ export class DeckBuilder {
 
         // 创建表格
         let tableHtml = `
-        <div class="max-w-full overflow-x-auto">
+        <div class="max-w-full overflow-x-auto ml-1">
             <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
                 <div class="grid grid-cols-5">
                 ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
                 .map((icon, index) => `
-                    <div class="p-2 border-b border-gray-300 dark:border-gray-600 
+                    <div class="p-1 border-b border-gray-300 dark:border-gray-600 
                                 ${index !== 4 ? 'border-r' : ''}
-                                bg-gray-100 dark:bg-gray-700 dark:text-white text-center">
-                        <img src="img/${icon}.svg" class="inline-icon">
+                                 dark:text-gray-400 text-center">
+                        <img src="img/${icon}.svg">
                     </div>`)
                 .join('')}
 
                 ${[roleCount, eventCount, hiramekiCount, cutInCount, disguiseCount]
                 .map((value, index) => `
-                    <div class="p-2 border-gray-300 dark:border-gray-600 
+                    <div class="p-1 border-gray-300 dark:border-gray-600 
                                 ${index !== 4 ? 'border-r' : ''}
-                                dark:text-white text-center">
+                                dark:text-gray-400 text-center">
                         ${value}
                     </div>`)
                 .join('')}
@@ -856,8 +856,18 @@ export class DeckBuilder {
             </div>
         </div>`;
 
-        // 将图表和表格添加到容器中
-        statisticsContainer.innerHTML = barChartHtml + tableHtml;
+        let logoHtml = `<img class="logo-image items-end mb-8 p-2 select-none" src="/img/cmn_logo@2x.png" alt="Logo">`;
+        statisticsContainer.innerHTML = `
+            <div class="flex flex-col justify-between h-full">
+                <div>
+                    ${tableHtml}
+                    ${barChartHtml}
+                </div>
+                <div class="flex justify-end">
+                    ${logoHtml}
+                </div>
+            </div>
+        `;
     }
 }
 
