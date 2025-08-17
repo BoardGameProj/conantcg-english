@@ -57,6 +57,8 @@ function loadDecks() {
             return;
         }
 
+        decks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
         // 预计算所有可用颜色
         const allColors = new Set();
         decks.forEach(deck => {
