@@ -532,6 +532,7 @@ function editDeckName(deck, deckElement) {
 
     const originalContent = nameElement.innerHTML;
     const originalClassName = nameElement.className;
+    const isModal = document.querySelector('.modal-backdrop');
 
     nameElement.innerHTML = '';
     nameElement.appendChild(input);
@@ -544,6 +545,9 @@ function editDeckName(deck, deckElement) {
             deck.name = newName;
             saveDeckToLocalStorage(deck);
             nameElement.textContent = newName;
+            if (isModal) {
+                loadDecks();
+            }
         } else {
             nameElement.innerHTML = originalContent;
         }
@@ -562,8 +566,8 @@ function editDeckDescription(deck, scopeElement) {
 
     const textarea = document.createElement('textarea');
     textarea.value = currentDesc;
-    textarea.className = 'deck-description-input w-full text-sm rounded border border-gray-300 dark:border-gray-600 dark:text-white dark:bg-gray-700 p-2 focus:outline-none focus:border-blue-500';
-    textarea.rows = 3;
+    textarea.className = 'deck-description-input w-full text-sm rounded-lg border dark:text-white dark:bg-gray-700 p-2 focus:outline-none focus:border-blue-500';
+    textarea.rows = 2;
     textarea.style.width = '100%';
 
     const originalContent = descElement.innerHTML;
@@ -592,11 +596,7 @@ function editDeckDescription(deck, scopeElement) {
 
             // 如果是模态框中的编辑，同时更新列表视图
             if (isModal) {
-                const deckCard = document.querySelector(`.deck-card[data-deck-id="${deck.deckid}"] .deck-description`);
-                if (deckCard) {
-                    deckCard.textContent = newDesc;
-                    deckCard.classList.remove('italic');
-                }
+                loadDecks();
             }
         } else {
             descElement.innerHTML = ''; // 清空描述
@@ -1096,7 +1096,7 @@ function deleteDeck(deckId) {
         // 动画完成后移除元素
         if (deletedCard) {
             deletedCard.remove();
-            
+
             const allColors = new Set();
             updatedDecks.forEach(deck => {
                 const deckColors = getDeckColors(deck);
@@ -1104,7 +1104,7 @@ function deleteDeck(deckId) {
                 deckColors.forEach(color => allColors.add(color));
             });
             createColorTags(allColors);
-            
+
             // 关闭模态框
             document.querySelector('.modal-backdrop')?.remove();
 
