@@ -420,51 +420,53 @@ export class DeckBuilder {
             containerCase.innerHTML = this.renderEmptyCaseSlot();
         }
 
-        // 始终显示40个网格格子（4行，每行10列）的普通卡牌
-        const totalSlots = 40;
-
+        // 计算普通卡牌数量
+        const normalCardCount = normalCards.length;
+        
         // 创建普通卡牌的网格容器
         let cardsHtml = `<div class="grid grid-cols-10 gap-1 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
-
-        // 渲染普通卡牌
-        normalCards.forEach(card => {
-            cardsHtml += this.renderCardItem(card);
-        });
-
-        // 添加空的网格项以填充剩余空间
-        const emptySlots = Math.max(0, totalSlots - normalCards.length);
-        for (let i = 0; i < emptySlots; i++) {
+        
+        // 前40张卡牌 (固定显示区域)
+        for (let i = 0; i < Math.min(normalCardCount, 40); i++) {
+            cardsHtml += this.renderCardItem(normalCards[i]);
+        }
+        
+        // 添加空位填满40个格子
+        for (let i = normalCardCount; i < 40; i++) {
             cardsHtml += this.renderEmptySlot();
         }
-
+        
         cardsHtml += '</div>';
+        
+        // 如果有超过40张的卡牌，添加滚动区域
+        if (normalCardCount > 40) {
+            cardsHtml += `
+                <div class="overflow-y-auto max-h-32 border-t border-red-600 dark:border-red-600 mt-2 pt-2">
+                    <div class="grid grid-cols-10 gap-1">
+            `;
+            
+            // 第41张及之后的卡牌 (滚动区域)
+            for (let i = 40; i < normalCardCount; i++) {
+                cardsHtml += this.renderCardItem(normalCards[i], true); // 传递true表示超出限制
+            }
+            
+            cardsHtml += `</div></div>`;
+        }
+        
         containerCards.innerHTML = cardsHtml;
 
-        // 绑定所有移除卡牌按钮事件
         this.bindRemoveCardEvents();
-
-        // 更新所有卡片的数量显示
         this.updateAllCardCounts();
-
-        // 渲染统计数据
         this.renderStatistics();
-    };
+    }
 
-    // 更新所有卡片的数量显示
-    updateAllCardCounts() {
-        // 获取所有卡片元素
-        const allCards = document.querySelectorAll('dct-card');
-        allCards.forEach(card => {
-            if (typeof card.updateDeckCount === 'function') {
-                card.updateDeckCount();
-            }
-        });
-    };
-
-    // 新的辅助方法：渲染单个卡牌项
-    renderCardItem(card) {
+    renderCardItem(card, overLimit = false) {
+        const borderColor = overLimit 
+            ? 'border-red-600 dark:border-red-600' 
+            : 'border-gray-900 dark:border-gray-400';
+            
         return `
-            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-0.5 flex flex-col items-center relative group" style="">
+            <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group">
                 <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
@@ -481,7 +483,16 @@ export class DeckBuilder {
         `;
     }
 
-    // 新的辅助方法：渲染空位
+    updateAllCardCounts() {
+        // 获取所有卡片元素
+        const allCards = document.querySelectorAll('dct-card');
+        allCards.forEach(card => {
+            if (typeof card.updateDeckCount === 'function') {
+                card.updateDeckCount();
+            }
+        });
+    };
+
     renderEmptySlot() {
         return `
             <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">

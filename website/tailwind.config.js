@@ -118,13 +118,17 @@ module.exports = {
     {
       pattern: /(opacity|bg-opacity)-[0-9]+/,
     },
+    {
+      pattern: /(max|min)-(w|h)-[0-9]+/,
+    },
     'group-hover:opacity-100',
     'group-hover:bg-opacity-70',
     'group-hover:bg-black/20',
     'group-hover:scale-105',
     'group-hover:scale-110',
     'max-h-[90vh]',
-    'col-span-5'
+    'col-span-5',
+    'max-h-32'
   ],
 
   // 插件配置
