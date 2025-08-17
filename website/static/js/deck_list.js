@@ -32,7 +32,7 @@ async function loadCardsData() {
     }
 }
 
-// 从本地存储加载牌组
+// 从本地存储加载卡组
 function loadDecks() {
     try {
         // 等待卡牌数据加载完成
@@ -71,7 +71,7 @@ function loadDecks() {
         // 创建颜色标签
         createColorTags(allColors);
 
-        // 生成牌组列表HTML
+        // 生成卡组列表HTML
         deckListContainer.innerHTML = `
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-1">
                 ${decks.map(deck => createDeckCard(deck)).join('')}
@@ -86,7 +86,7 @@ function loadDecks() {
                 return;
             }
 
-            // 否则处理牌组点击
+            // 否则处理卡组点击
             const deckCard = e.target.closest('.deck-card');
             if (deckCard) {
                 const deckId = deckCard.dataset.deckId;
@@ -130,7 +130,7 @@ function getCardName(cardNum) {
 }
 
 
-// 创建牌组卡片HTML
+// 创建卡组卡片HTML
 function createDeckCard(deck) {
     const createdTime = new Date(deck.timestamp).toLocaleString('zh-CN');
     const colorTags = deck.colorTags || '';
@@ -188,10 +188,10 @@ function createDeckCard(deck) {
                 <div class="flex-1">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                         <div class="flex items-center gap-2 group">
-                            <h4 class="text-lg font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h4>
+                            <h4 class="text-lg font-bold dark:text-white deck-name">${deck.name || '未命名卡组'}</h4>
                             <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
                                     data-deck-id="${deck.deckid}" 
-                                    title="重命名牌组">
+                                    title="重命名卡组">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                                 </svg>
@@ -229,7 +229,7 @@ function createDeckCard(deck) {
     `;
 }
 
-// 获取牌组颜色集合
+// 获取卡组颜色集合
 function getDeckColors(deck) {
     const colors = new Set();
     deck.cards?.forEach(cardNum => {
@@ -366,7 +366,7 @@ function showDeckDetail(deckId) {
     const titleEditBtnHtml = `
         <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
                 data-deck-id="${deck.deckid}" 
-                title="重命名牌组">
+                title="重命名卡组">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
             </svg>
@@ -389,7 +389,7 @@ function showDeckDetail(deckId) {
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
                     <div class="relative w-full">
                         <div class="flex items-center gap-2 group">
-                            <h3 class="text-xl font-bold dark:text-white deck-name">${deck.name || '未命名牌组'}</h3>
+                            <h3 class="text-xl font-bold dark:text-white deck-name">${deck.name || '未命名卡组'}</h3>
                             ${titleEditBtnHtml}
                         </div>
                         <div class="flex items-start group">
@@ -415,7 +415,7 @@ function showDeckDetail(deckId) {
                     <!-- 其他卡牌部分 -->
                     ${otherCards.length > 0 ? `
                         <div class="col-span-5 mb-6">
-                            <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">卡牌 (${otherCards.length}张)</h4>
+                            <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">卡组 (${otherCards.length}张)</h4>
                             <div class="grid grid-cols-10 sm:grid-cols-4 md:grid-cols-10 gap-2">
                                 ${otherCards.map(card => createCardImageHtml(card)).join('')}
                             </div>
@@ -426,16 +426,16 @@ function showDeckDetail(deckId) {
                 <!-- 底部按钮 -->
                 <div class="flex justify-end gap-3 p-4 border-t dark:border-gray-700">
                     <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                        编辑牌组
+                        编辑卡组
                     </button>
                     <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
-                        导出牌组
+                        导出卡组
                     </button>
                     <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors">
-                        复制牌组
+                        复制卡组
                     </button>
                     <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
-                        删除牌组
+                        删除卡组
                     </button>
                 </div>
             </div>
@@ -522,10 +522,10 @@ function toggleColorSelection(color, element) {
     filterDecks();
 }
 
-// 编辑牌组名称
+// 编辑卡组名称
 function editDeckName(deck, deckElement) {
     const nameElement = deckElement.querySelector('.deck-name');
-    const currentName = deck.name || '未命名牌组';
+    const currentName = deck.name || '未命名卡组';
 
     const input = document.createElement('input');
     input.type = 'text';
@@ -541,7 +541,7 @@ function editDeckName(deck, deckElement) {
     input.focus();
 
     const saveChanges = () => {
-        const newName = input.value.trim() || '未命名牌组';
+        const newName = input.value.trim() || '未命名卡组';
 
         if (newName !== currentName) {
             deck.name = newName;
@@ -560,7 +560,7 @@ function editDeckName(deck, deckElement) {
     input.addEventListener('blur', saveChanges);
 }
 
-// 编辑牌组描述
+// 编辑卡组描述
 function editDeckDescription(deck, scopeElement) {
     const descElement = scopeElement.querySelector('.deck-description');
     const currentDesc = deck.description || '';
@@ -655,7 +655,7 @@ function editDeckDescription(deck, scopeElement) {
     }, 0);
 }
 
-// 保存牌组到localStorage
+// 保存卡组到localStorage
 function saveDeckToLocalStorage(updatedDeck) {
     try {
         const decks = JSON.parse(localStorage.getItem('conan-tcg-decks') || '[]');
@@ -730,7 +730,7 @@ function createCardImageHtml(card) {
 //     `;
 // }
 
-// 编辑牌组
+// 编辑卡组
 function editDeck(deckId) {
     // 跳转到卡牌编辑页面，并传递deckId参数
     window.location.href = `/cards?deckId=${encodeURIComponent(deckId)}`;
@@ -742,14 +742,14 @@ function exportDeck(deckId, method = 'download') {
         const deck = decks.find(d => d.deckid === deckId);
 
         if (!deck) {
-            showToast('找不到要导出的牌组', { isSuccess: false });
+            showToast('找不到要导出的卡组', { isSuccess: false });
             return false;
         }
 
         // 准备要导出的数据
         const exportData = {
             deckid: deck.deckid,
-            name: deck.name || '未命名牌组',
+            name: deck.name || '未命名卡组',
             description: deck.description || '',
             timestamp: deck.timestamp || new Date().toISOString(),
             cards: deck.cards || []
@@ -761,7 +761,7 @@ function exportDeck(deckId, method = 'download') {
         if (method === 'copy') {
             // 复制到剪贴板
             navigator.clipboard.writeText(jsonStr)
-                .then(() => showToast('牌组已复制到剪贴板'))
+                .then(() => showToast('卡组已复制到剪贴板'))
                 .catch(err => {
                     console.error('复制失败:', err);
                     showToast('复制失败，请尝试下载方式', { isSuccess: false });
@@ -787,14 +787,14 @@ function exportDeck(deckId, method = 'download') {
             setTimeout(() => {
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
-                showToast('牌组导出成功');
+                showToast('卡组导出成功');
             }, 100);
             return true;
         }
 
     } catch (error) {
-        console.error('导出牌组失败:', error);
-        showToast('导出牌组失败', { isSuccess: false });
+        console.error('导出卡组失败:', error);
+        showToast('导出卡组失败', { isSuccess: false });
         return false;
     }
 }
@@ -805,7 +805,7 @@ function cloneDeck(deckId) {
         const originalDeck = decks.find(d => d.deckid === deckId);
 
         if (!originalDeck) {
-            showToast('找不到要复制的牌组', { isSuccess: false });
+            showToast('找不到要复制的卡组', { isSuccess: false });
             return;
         }
 
@@ -814,17 +814,17 @@ function cloneDeck(deckId) {
             ...originalDeck,
             deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
             timestamp: new Date().toISOString(),
-            name: originalDeck.name ? `${originalDeck.name} - 副本` : '未命名牌组 - 副本'
+            name: originalDeck.name ? `${originalDeck.name} - 副本` : '未命名卡组 - 副本'
         };
 
-        // 保存新牌组
+        // 保存新卡组
         decks.push(clonedDeck);
         localStorage.setItem('conan-tcg-decks', JSON.stringify(decks));
 
-        // 直接刷新牌组列表
+        // 直接刷新卡组列表
         loadDecks();
 
-        showToast(`已成功复制牌组: ${clonedDeck.name}`);
+        showToast(`已成功复制卡组: ${clonedDeck.name}`);
 
         // 延迟执行滚动，确保元素已渲染
         setTimeout(() => {
@@ -839,13 +839,13 @@ function cloneDeck(deckId) {
         }, 500);
 
     } catch (error) {
-        console.error('复制牌组失败:', error);
-        showToast('复制牌组失败', { isSuccess: false });
+        console.error('复制卡组失败:', error);
+        showToast('复制卡组失败', { isSuccess: false });
     }
 }
 
 async function confirmDeleteDeck(deckId) {
-    const result = await showConfirm('确定要删除这个牌组吗？此操作不可恢复。', { type: `error`, icon: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>` })
+    const result = await showConfirm('确定要删除这个卡组吗？此操作不可恢复。', { type: `error`, icon: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>` })
     if (result) {
         deleteDeck(deckId);
         console.log('用户确认');
@@ -1090,7 +1090,7 @@ function deleteDeck(deckId) {
         const updatedDecks = decks.filter(d => d.deckid !== deckId);
         localStorage.setItem('conan-tcg-decks', JSON.stringify(updatedDecks));
 
-        showToast(`已删除牌组: ${deckToDelete?.name || '未命名牌组'}`, {
+        showToast(`已删除卡组: ${deckToDelete?.name || '未命名卡组'}`, {
             isSuccess: false,
             icon: `<svg class="w-6 h-6 flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -1112,7 +1112,7 @@ function deleteDeck(deckId) {
             // 关闭模态框
             document.querySelector('.modal-backdrop')?.remove();
 
-            // 检查是否还有牌组
+            // 检查是否还有卡组
             if (updatedDecks.length === 0) {
                 document.getElementById('emptyDeckMessage').classList?.remove('hidden');
             }

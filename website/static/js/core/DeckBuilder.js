@@ -13,7 +13,7 @@ export class DeckBuilder {
 
     // 绑定事件
     bindEvents() {
-        // 新建牌组按钮点击事件
+        // 新建卡组按钮点击事件
         const newDeckBtn = document.getElementById('new-deck-btn');
         if (newDeckBtn) {
             newDeckBtn.addEventListener('click', () => {
@@ -21,7 +21,7 @@ export class DeckBuilder {
             });
         }
 
-        // 关闭牌组构建面板按钮点击事件
+        // 关闭卡组构建面板按钮点击事件
         const closeDeckBuilderBtn = document.getElementById('close-deck-builder');
         if (closeDeckBuilderBtn) {
             closeDeckBuilderBtn.addEventListener('click', async () => {
@@ -35,7 +35,7 @@ export class DeckBuilder {
             });
         }
 
-        // 切换牌组构建面板可见性按钮点击事件（浮动按钮）
+        // 切换卡组构建面板可见性按钮点击事件（浮动按钮）
         const toggleDeckBuilderFloatingBtn = document.getElementById('toggle-deck-builder-floating');
         if (toggleDeckBuilderFloatingBtn) {
             toggleDeckBuilderFloatingBtn.addEventListener('click', () => {
@@ -48,7 +48,7 @@ export class DeckBuilder {
                 this.openDeckBuilderPanel();
             });
         }
-        // 保存牌组按钮点击事件
+        // 保存卡组按钮点击事件
         const saveDeckBtn = document.getElementById('save-deck');
         if (saveDeckBtn) {
             saveDeckBtn.addEventListener('click', () => {
@@ -89,7 +89,7 @@ export class DeckBuilder {
             // 检查搭档/案件卡限制
             if ((cardData.cardType === "搭档" || cardData.cardType === "案件") &&
                 this.addedCards.some(c => c.cardType === cardData.cardType)) {
-                throw new Error(`牌组中只能有1张${cardData.cardType}卡`);
+                throw new Error(`卡组中只能有1张${cardData.cardType}卡`);
             }
 
             // 检查同ID卡牌限制
@@ -115,7 +115,7 @@ export class DeckBuilder {
         }
     }
 
-    // 新建牌组构建面板
+    // 新建卡组构建面板
     newDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
@@ -123,7 +123,7 @@ export class DeckBuilder {
         const toggleDeckBuilderFloatingPanelButton = document.getElementById('toggle-deck-builder-floating');
         const svg = document.querySelector('#toggle-deck-builder-floating svg');
         if (panel) {
-            // 初始化新的牌组
+            // 初始化新的卡组
             this.currentDeck = {
                 deckid: Date.now().toString(36) + Math.random().toString(36).slice(2),
                 name: '',
@@ -157,7 +157,7 @@ export class DeckBuilder {
             newDeckBtn.classList.add('hidden');
             svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
 
-            // 显示所有"添加到牌组"按钮
+            // 显示所有"添加到卡组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
                 button.classList.remove('hidden');
@@ -165,22 +165,22 @@ export class DeckBuilder {
         }
     }
 
-    // 加载指定ID的牌组
+    // 加载指定ID的卡组
     loadDeckById(deckId) {
         try {
-            // 从localStorage获取牌组数据
+            // 从localStorage获取卡组数据
             const existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
             const deckData = existingDecks.find(deck => deck.deckid === deckId);
 
             if (!deckData) {
-                console.error(`未找到ID为 ${deckId} 的牌组`);
+                console.error(`未找到ID为 ${deckId} 的卡组`);
                 return false;
             }
 
-            // 初始化牌组数据
+            // 初始化卡组数据
             this.currentDeck = {
                 deckid: deckData.deckid,
-                name: deckData.name || '导入的牌组',
+                name: deckData.name || '导入的卡组',
                 description: deckData.description || '',
                 timestamp: deckData.timestamp || new Date().toISOString(),
                 cards: []
@@ -189,7 +189,7 @@ export class DeckBuilder {
             this.addedCards = [];
             let hasError = false;
 
-            // 遍历所有卡牌并添加到牌组
+            // 遍历所有卡牌并添加到卡组
             for (const cardNum of deckData.cards.filter(cardNum => cardNum)) {
                 const addResult = this.addCardToCurrentDeck(cardNum);
                 if (!addResult) {
@@ -231,7 +231,7 @@ export class DeckBuilder {
                 // toggleDeckBuilderFloatingPanelButton.classList.remove('hidden');
                 svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
 
-                // 显示所有"添加到牌组"按钮
+                // 显示所有"添加到卡组"按钮
                 const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
                 addToDeckButtons.forEach(button => {
                     button.classList.remove('hidden');
@@ -240,7 +240,7 @@ export class DeckBuilder {
 
             return true;
         } catch (error) {
-            console.error('加载牌组失败:', error);
+            console.error('加载卡组失败:', error);
             return false;
         }
     }
@@ -259,7 +259,7 @@ export class DeckBuilder {
             openDeckBtn.classList.add('hidden');
             svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
 
-            // 隐藏所有"添加到牌组"按钮
+            // 隐藏所有"添加到卡组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
                 button.classList.remove('hidden');
@@ -267,14 +267,14 @@ export class DeckBuilder {
         }
     }
 
-    // 关闭牌组构建面板
-    // 关闭牌组构建面板
+    // 关闭卡组构建面板
+    // 关闭卡组构建面板
     async closeDeckBuilderPanel(method = 'exit') {
         // 检查是否需要确认 (有卡牌且不是保存操作)
         if (this.addedCards.length > 0 && method !== 'save') {
             try {
                 // 使用 showConfirm 代替原生 confirm
-                const confirmClose = await showConfirm('确定要退出牌组构建吗？未保存的更改将会丢失。', {
+                const confirmClose = await showConfirm('确定要退出卡组构建吗？未保存的更改将会丢失。', {
                     title: '退出确认',
                     type: 'warning',
                     confirmText: '退出',
@@ -312,7 +312,7 @@ export class DeckBuilder {
             openDeckBtn.classList.add('hidden');
             newDeckBtn.classList.remove('hidden');
 
-            // 隐藏所有"添加到牌组"按钮
+            // 隐藏所有"添加到卡组"按钮
             const addToDeckButtons = document.querySelectorAll('.add-to-deck-btn');
             addToDeckButtons.forEach(button => {
                 button.classList.add('hidden');
@@ -320,7 +320,7 @@ export class DeckBuilder {
         }
     }
 
-    // 切换牌组构建面板可见性
+    // 切换卡组构建面板可见性
     toggleDeckBuilderPanel() {
         const panel = document.getElementById('deck-builder-panel');
         const openDeckBtn = document.getElementById('open-deck-btn');
@@ -354,13 +354,13 @@ export class DeckBuilder {
         }
     }
 
-    // 添加卡牌到当前牌组
+    // 添加卡牌到当前卡组
 
     addCardToCurrentDeck(cardNum) {
         return this.addCardToDeck(cardNum);
     }
 
-    // 从当前牌组中移除卡牌
+    // 从当前卡组中移除卡牌
     removeCardFromCurrentDeck(cardNum) {
         // 找到要移除的卡牌
         const cardIndex = this.addedCards.findIndex(card => card.cardNum === cardNum);
@@ -527,20 +527,20 @@ export class DeckBuilder {
         });
     }
 
-    // 保存牌组
+    // 保存卡组
     saveDeck() {
         const deckNameInput = document.getElementById('deck-name');
         const deckDescriptionInput = document.getElementById('deck-description');
 
         if (!this.currentDeck || !this.addedCards) {
-            console.error("没有可用的牌组数据或卡牌");
+            console.error("没有可用的卡组数据或卡牌");
             return false;
         }
 
         this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
-        this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
+        this.currentDeck.deckName = deckNameInput.value.trim() || '新建卡组';
         if (this.addedCards.length === 0) {
-            showToast("牌组为空，保存牌组失败", { isSuccess: false });
+            showToast("卡组为空，保存卡组失败", { isSuccess: false });
             return false;
         }
 
@@ -548,7 +548,7 @@ export class DeckBuilder {
             this.currentDeck.deckid = Date.now().toString(36) + Math.random().toString(36).slice(2);
         }
 
-        // 创建简化的牌组JSON数据
+        // 创建简化的卡组JSON数据
         const deckData = {
             deckid: this.currentDeck.deckid,
             name: this.currentDeck.deckName,
@@ -558,7 +558,7 @@ export class DeckBuilder {
         };
 
         try {
-            // 获取已有的牌组列表
+            // 获取已有的卡组列表
             let existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
 
             // 检查同名冲突
@@ -574,10 +574,10 @@ export class DeckBuilder {
 
             // 关闭面板
             this.closeDeckBuilderPanel && this.closeDeckBuilderPanel('save');
-            showToast('牌组保存成功');
+            showToast('卡组保存成功');
         } catch (error) {
-            console.error('保存牌组失败:', error);
-            showToast('保存牌组失败，可能是存储空间不足', { isSuccess: false });
+            console.error('保存卡组失败:', error);
+            showToast('保存卡组失败，可能是存储空间不足', { isSuccess: false });
         }
     }
 
@@ -586,21 +586,21 @@ export class DeckBuilder {
         const deckDescriptionInput = document.getElementById('deck-description');
 
         if (!this.currentDeck || !this.addedCards) {
-            console.error("没有可用的牌组数据或卡牌");
+            console.error("没有可用的卡组数据或卡牌");
             return false;
         }
 
         this.currentDeck.deckDescription = deckDescriptionInput.value.trim() || '';
-        this.currentDeck.deckName = deckNameInput.value.trim() || '新建牌组';
+        this.currentDeck.deckName = deckNameInput.value.trim() || '新建卡组';
         if (this.addedCards.length === 0) {
-            console.warn("牌组中没有卡牌，但仍然导出");
+            console.warn("卡组中没有卡牌，但仍然导出");
         }
 
         if (!this.currentDeck.deckid) {
             this.currentDeck.deckid = Date.now().toString(36) + Math.random().toString(36).slice(2);
         }
 
-        // 创建简化的牌组JSON数据
+        // 创建简化的卡组JSON数据
         const deckData = {
             deckid: this.currentDeck.deckid,
             name: this.currentDeck.deckName,
@@ -616,15 +616,15 @@ export class DeckBuilder {
             try {
                 const dataStr = JSON.stringify(deckData, null, 2);
                 navigator.clipboard.writeText(dataStr)
-                    .then(() => showToast('牌组已复制到剪贴板'))
+                    .then(() => showToast('卡组已复制到剪贴板'))
                     .catch(err => {
                         console.error('复制失败:', err);
                         showToast('复制失败，请尝试下载方式', { isSuccess: false });
                     });
                 return true;
             } catch (error) {
-                console.error('复制牌组失败:', error);
-                showToast('复制牌组失败，请尝试下载方式', { isSuccess: false });
+                console.error('复制卡组失败:', error);
+                showToast('复制卡组失败，请尝试下载方式', { isSuccess: false });
                 return false;
             }
         } else {
@@ -655,8 +655,8 @@ export class DeckBuilder {
 
                 return true;
             } catch (error) {
-                console.error('导出牌组失败:', error);
-                showToast('导出牌组失败', { isSuccess: false });
+                console.error('导出卡组失败:', error);
+                showToast('导出卡组失败', { isSuccess: false });
                 return false;
             }
         }
@@ -672,8 +672,8 @@ export class DeckBuilder {
         importDialog.className = 'import-dialog';
         importDialog.innerHTML = `
         <div class="import-content bg-white dark:bg-gray-800 dark:text-white border">
-            <h3>导入牌组</h3>
-            <textarea id="deck-json-input" class= "bg-white text-black" placeholder="请粘贴牌组JSON数据..." style="width: 100%; height: 200px; margin: 10px 0;"></textarea>
+            <h3>导入卡组</h3>
+            <textarea id="deck-json-input" class= "bg-white text-black" placeholder="请粘贴卡组JSON数据..." style="width: 100%; height: 200px; margin: 10px 0;"></textarea>
             <div class="import-buttons">
                 <button id="confirm-import" class="btn-primary inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">确认导入</button>
                 <button id="cancel-import" class="btn-secondary inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">取消</button>
@@ -703,13 +703,13 @@ export class DeckBuilder {
                 const deckData = JSON.parse(jsonInput);
 
                 if (!deckData.cards || !Array.isArray(deckData.cards)) {
-                    throw new Error('无效的牌组数据格式，缺少 cards 数组');
+                    throw new Error('无效的卡组数据格式，缺少 cards 数组');
                 }
 
-                // 初始化牌组数据
+                // 初始化卡组数据
                 this.currentDeck = {
                     deckid: deckData.deckid || Date.now().toString(36) + Math.random().toString(36).slice(2),
-                    name: deckData.name || '导入的牌组',
+                    name: deckData.name || '导入的卡组',
                     description: deckData.description || '',
                     timestamp: deckData.timestamp || new Date().toISOString(),
                     cards: []
@@ -760,7 +760,7 @@ export class DeckBuilder {
             } catch (error) {
                 errorDisplay.textContent = `导入失败: ${error.message}`;
                 errorDisplay.style.display = 'block';
-                console.error('导入牌组失败:', error);
+                console.error('导入卡组失败:', error);
             }
         });
     }
@@ -886,6 +886,6 @@ window.addCardToDeck = function (cardNum) {
     if (window.deckBuilder) {
         return window.deckBuilder.addCardToDeck(cardNum);
     }
-    showToast('牌组构建器未初始化', { isSuccess: false });
+    showToast('卡组构建器未初始化', { isSuccess: false });
     return false;
 };

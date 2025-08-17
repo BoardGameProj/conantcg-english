@@ -46,7 +46,7 @@ menu:
       url: "/cards/"
       weight: 3
     - identifier: "deck"
-      name: "牌组"
+      name: "卡组"
       url: "/deck/"
       weight: 4
     - identifier: "Gallery"

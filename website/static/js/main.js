@@ -3,7 +3,7 @@ import { DeckBuilder } from './core/DeckBuilder.js';
 import { PopoverManager } from './core/PopoverManager.js';
 import { copyToClipboard, registeredForRendering } from './utils.js';
 
-// 初始化牌组构建器
+// 初始化卡组构建器
 window.deckBuilder = new DeckBuilder();
 
 // 保留原有DOMContentLoaded逻辑

@@ -1,4 +1,4 @@
 ---
-title: "牌组"
+title: "卡组"
 layout: deck
 ---

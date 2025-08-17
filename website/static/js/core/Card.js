@@ -455,7 +455,7 @@ export class Card extends HTMLElement {
         });
     }
 
-    // 更新牌组中的卡牌数量显示
+    // 更新卡组中的卡牌数量显示
     updateDeckCount() {
         if (!this.buttonGroup || !this.countDisplay) return;
 
