@@ -128,6 +128,7 @@ module.exports = {
     'group-hover:scale-110',
     'max-h-[90vh]',
     'col-span-5',
+    'border-[5px]',
     'max-h-32'
   ],
 

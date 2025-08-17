@@ -422,40 +422,41 @@ export class DeckBuilder {
 
         // 计算普通卡牌数量
         const normalCardCount = normalCards.length;
-        
+
         // 创建普通卡牌的网格容器
         let cardsHtml = `<div class="grid grid-cols-10 gap-1 grid-cards-custom" style="grid-template-rows: repeat(4, minmax(0, 1fr));">`;
-        
+
         // 前40张卡牌 (固定显示区域)
         for (let i = 0; i < Math.min(normalCardCount, 40); i++) {
             cardsHtml += this.renderCardItem(normalCards[i]);
         }
-        
+
         // 添加空位填满40个格子
         for (let i = normalCardCount; i < 40; i++) {
             cardsHtml += this.renderEmptySlot();
         }
-        
+
         cardsHtml += '</div>';
-        
+
         // 如果有超过40张的卡牌，添加滚动区域
         if (normalCardCount > 40) {
             cardsHtml += `
                 <div class="overflow-y-auto max-h-32 border-t border-red-600 dark:border-red-600 mt-2 pt-2">
                     <div class="grid grid-cols-10 gap-1">
             `;
-            
+
             // 第41张及之后的卡牌 (滚动区域)
             for (let i = 40; i < normalCardCount; i++) {
                 cardsHtml += this.renderCardItem(normalCards[i], true); // 传递true表示超出限制
             }
-            
+
             cardsHtml += `</div></div>`;
         }
-        
+
         containerCards.innerHTML = cardsHtml;
 
         this.bindRemoveCardEvents();
+        this.bindAddCardEvents();
         this.updateAllCardCounts();
         this.renderStatistics();
     }
@@ -464,9 +465,31 @@ export class DeckBuilder {
         const borderColor = overLimit 
             ? 'border-red-600 dark:border-red-600' 
             : 'border-gray-900 dark:border-gray-400';
+        
+        // 检查是否应该显示添加按钮
+        let shouldShowAddButton = true;
+        
+        if (this.addedCards) {
+            // 统计相同card-id的卡牌数量
+            const sameCardIdCount = this.addedCards
+                .filter(c => c.id === card.id)
+                .reduce((sum, c) => sum + c.count, 0);
+                
+            // 如果同ID卡牌数量>=3，不显示添加按钮
+            if (sameCardIdCount >= 3) {
+                shouldShowAddButton = false;
+            }
             
+            // 如果是搭档/案件卡且已有一张，不显示添加按钮
+            if ((card.cardType === "搭档" || card.cardType === "案件") && 
+                this.addedCards.some(c => c.cardType === card.cardType)) {
+                shouldShowAddButton = false;
+            }
+        }
+
         return `
-            <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group">
+        <div class="group">
+            <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group-hover:scale-105">
                 <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
                     <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
@@ -479,7 +502,17 @@ export class DeckBuilder {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
+                ${shouldShowAddButton ? `
+                <button type="button" class="add-card absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
+                    <div class="bg-white/80 dark:bg-gray-700/80 rounded-full p-1 shadow-sm border border-gray-300 dark:border-gray-500">
+                        <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                    </div>
+                </button>
+                ` : ''}
             </div>
+        </div>
         `;
     }
 
@@ -523,6 +556,16 @@ export class DeckBuilder {
             button.addEventListener('click', (e) => {
                 const cardNum = button.getAttribute('data-card-num');
                 this.removeCardFromCurrentDeck(cardNum);
+            });
+        });
+    }
+
+    bindAddCardEvents() {
+        const addButtons = document.querySelectorAll('.add-card');
+        addButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const cardNum = button.getAttribute('data-card-num');
+                this.addCardToDeck(cardNum);
             });
         });
     }
@@ -831,7 +874,7 @@ export class DeckBuilder {
                     <!-- 将数字显示在顶部 -->
                     <span class="text-xs dark:text-gray-400 font-bold"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
                     <div class="flex justify-center w-full" style="height: 80%;">
-                        <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out" style="height: ${heightPercent}rem;">
+                        <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out rounded-t" style="height: ${heightPercent}rem;">
                         </div>
                     </div>
                     <div class="border-t" style="border-color: #9ca3af;width: ${i === 1 || i === 9 ? '100%' : '200%'}"></div>
