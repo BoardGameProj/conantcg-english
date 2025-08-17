@@ -698,8 +698,9 @@ function createCardImageHtml(card) {
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
     return `
-        <div class="relative rounded-lg group overflow-hidden w-full">
-            <div class="relative w-full group-hover:scale-105 transition-transform duration-300">
+    <div class="group">
+        <div class="relative rounded-lg border group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
+            <div class="relative w-full">
                 <img src="${imageUrl}" 
                      alt="${cardName}"
                      class="w-full h-auto rounded-lg"
@@ -712,6 +713,7 @@ function createCardImageHtml(card) {
                 </div>
             </div>
         </div>
+    </div>
     `;
 }
 
