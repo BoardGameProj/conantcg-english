@@ -327,21 +327,62 @@ function showDeckDetail(deckId) {
     const partnerCards = [];
     const caseCards = [];
     const otherCards = [];
+    //统计部分
+    const costCounts = Array(10).fill(0); // 索引0-9，但只使用1-9
 
     deck.cards?.forEach(cardNum => {
         const cardData = cardsData[cardNum];
         if (!cardData) return;
-
+        const cost = cardData.cost;
         const cardType = cardsDataCN[`types.${cardData.type}`];
 
         if (cardType === "搭档") {
             partnerCards.push(cardData);
         } else if (cardType === "案件") {
             caseCards.push(cardData);
+        } else if ( cost && !isNaN(cost)) {
+            const costNum = parseInt(cost);
+            if (costNum >= 1 && costNum <= 9) {
+                costCounts[costNum]++;
+            }
+            otherCards.push(cardData);
         } else {
             otherCards.push(cardData);
         }
-    });
+    })
+
+    let roleCount = 0;      // 角色
+    let eventCount = 0;     // 事件
+    let hiramekiCount = 0;  // 灵光一闪
+    let cutInCount = 0;     // 介入
+    let disguiseCount = 0;  // 变装
+
+    deck.cards?.forEach(cardNum => {
+        // 统计角色和事件卡牌
+        const cardData = cardsData[cardNum];
+        if (!cardData) return;
+        const cardType = cardsDataCN[`types.${cardData.type}`];
+
+        if (cardType === '角色') {
+            roleCount++;
+        } else if (cardType === '事件') {
+            eventCount++;
+        }
+
+        // 统计特殊关键字卡牌
+        const hirameki = cardData.hirameki
+        const cut_in = cardData.cut_in
+        const henso = cardData.henso
+        if (hirameki) {
+            hiramekiCount++;
+        }
+        if (cut_in) {
+            cutInCount++;
+        }
+        if (henso) {
+            disguiseCount++;
+        }
+    })
 
     // 生成搭档和案件部分的HTML
     const partnerCaseHtml = (() => {
@@ -362,6 +403,69 @@ function showDeckDetail(deckId) {
             </div>
         `;
     })();
+
+    //统计部分
+    let barChartHtml = '<div class="">';
+    barChartHtml += '<div class="flex items-end h-32 gap-1 my-6 ml-3 w-full">';
+
+    // 找到最大值用于计算条形图高度
+    const maxCount = Math.max(...costCounts.slice(1, 10), 1);
+
+    // 生成1-9级的条形图
+    for (let i = 1; i <= 9; i++) {
+        const heightPercent = (costCounts[i] / maxCount) * 6;
+        barChartHtml += `
+            <div class="flex flex-col items-center flex-1 w-full">
+                <!-- 将数字显示在顶部 -->
+                <span class="text-xs dark:text-gray-400 font-bold"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
+                <div class="flex justify-center w-full" style="height: 80%;">
+                    <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out rounded-t" style="height: ${heightPercent}rem;">
+                    </div>
+                </div>
+                <div class="border-t"${i===9 && costCounts[i] === 0 ? ' hidden' : ''} style="border-color: #9ca3af; width: 200%;}"></div>
+                <span class="text-xs mt-1 dark:text-gray-400"${i===9 && costCounts[i] === 0 ? ' hidden' : ''}>${i}</span>
+            </div>
+        `;
+    }
+    barChartHtml += '</div></div>';
+
+    let tableHtml = `
+    <div class="max-w-full overflow-x-auto ml-3">
+        <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
+            <div class="grid grid-cols-5">
+            ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
+            .map((icon, index) => `
+                <div class="p-1 border-b border-gray-300 dark:border-gray-600 
+                            ${index !== 4 ? 'border-r' : ''}
+                            dark:text-gray-400 text-center">
+                    <img src="img/${icon}.svg">
+                </div>`)
+            .join('')}
+
+            ${[roleCount, eventCount, hiramekiCount, cutInCount, disguiseCount]
+            .map((value, index) => `
+                <div class="p-1 border-gray-300 dark:border-gray-600 
+                            ${index !== 4 ? 'border-r' : ''}
+                            dark:text-gray-400 text-center">
+                    ${value}
+                </div>`)
+            .join('')}
+            </div>
+        </div>
+    </div>`;
+    let logoHtml = `<img class="logo-image items-end ml-1 mb-8 p-2 select-none" src="/img/cmn_logo@2x.png" alt="Logo">`;
+    const statisticsHtml = `
+        <div class="flex flex-col justify-between h-full">
+            <div>
+                <h4 class="text-lg font-semibold dark:text-gray-200 mb-3">统计</h4>
+                ${tableHtml}
+                ${barChartHtml}
+            </div>
+            <div class="">
+                ${logoHtml}
+            </div>
+        </div>
+    `;
 
     const titleEditBtnHtml = `
         <button class="edit-deck-btn text-gray-500 hover:text-blue-500 focus:outline-none opacity-0 group-hover:opacity-100 transition-opacity" 
@@ -384,7 +488,7 @@ function showDeckDetail(deckId) {
     `;
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[85vh] flex flex-col" style="max-height: 85vh">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[75vh] flex flex-col" style="max-height: 75vh">
                 <!-- 顶部标题和关闭按钮 -->
                 <div class="flex justify-between items-start p-4 border-b dark:border-gray-700">
                     <div class="relative w-full">
@@ -409,7 +513,7 @@ function showDeckDetail(deckId) {
                 </div>
                 
                 <!-- 内容区域 -->
-                <div class="grid grid-cols-6 grid-rows-2 overflow-y-auto p-4">
+                <div class="grid grid-cols-7 overflow-y-auto p-4 h-full">
                     ${partnerCaseHtml}
                     
                     <!-- 其他卡牌部分 -->
@@ -421,6 +525,8 @@ function showDeckDetail(deckId) {
                             </div>
                         </div>
                     ` : ''}
+
+                    ${statisticsHtml}
                 </div>
                 
                 <!-- 底部按钮 -->

@@ -462,26 +462,26 @@ export class DeckBuilder {
     }
 
     renderCardItem(card, overLimit = false) {
-        const borderColor = overLimit 
-            ? 'border-red-600 dark:border-red-600' 
+        const borderColor = overLimit
+            ? 'border-red-600 dark:border-red-600'
             : 'border-gray-900 dark:border-gray-400';
-        
+
         // 检查是否应该显示添加按钮
         let shouldShowAddButton = true;
-        
+
         if (this.addedCards) {
             // 统计相同card-id的卡牌数量
             const sameCardIdCount = this.addedCards
                 .filter(c => c.id === card.id)
                 .reduce((sum, c) => sum + c.count, 0);
-                
+
             // 如果同ID卡牌数量>=3，不显示添加按钮
             if (sameCardIdCount >= 3) {
                 shouldShowAddButton = false;
             }
-            
+
             // 如果是搭档/案件卡且已有一张，不显示添加按钮
-            if ((card.cardType === "搭档" || card.cardType === "案件") && 
+            if ((card.cardType === "搭档" || card.cardType === "案件") &&
                 this.addedCards.some(c => c.cardType === card.cardType)) {
                 shouldShowAddButton = false;
             }
