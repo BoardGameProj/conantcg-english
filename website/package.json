@@ -15,7 +15,8 @@
     "@zachleat/filter-container": "git+https://github.com/saitho/filter-container",
     "caniuse-lite": "^1.0.30001735",
     "deepmerge": "^4.3.1",
-    "flowbite": "^2.5.2"
+    "flowbite": "^2.5.2",
+    "modern-screenshot": "^4.6.5"
   },
   "scripts": {
     "start": "concurrently bun:watch:*",

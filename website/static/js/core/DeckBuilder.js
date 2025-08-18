@@ -55,6 +55,12 @@ export class DeckBuilder {
                 this.saveDeck();
             });
         }
+        const shareDeckBtn = document.getElementById('share-deck');
+        if (shareDeckBtn) {
+            shareDeckBtn.addEventListener('click', () => {
+                this.shareDeck();
+            });
+        }
         const exportDeckBtn = document.getElementById('export-deck');
         if (exportDeckBtn) {
             exportDeckBtn.addEventListener('click', () => {
@@ -492,7 +498,7 @@ export class DeckBuilder {
             <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group-hover:scale-105">
                 <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
-                    <div class="absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
+                    <div class="card-identify absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
                         <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
                         <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
                     </div>
@@ -622,6 +628,76 @@ export class DeckBuilder {
             console.error('保存卡组失败:', error);
             showToast('保存卡组失败，可能是存储空间不足', { isSuccess: false });
         }
+    }
+
+    // 在DeckBuilder类中添加优化后的shareDeck方法
+    shareDeck() {
+        const panel = document.getElementById('deck-builder-panel');
+        if (!panel || this.addedCards.length === 0) {
+            showToast("没有可分享的卡组内容", { isSuccess: false });
+            return;
+        }
+
+        // 显示加载状态
+        const toastId = showToast("正在准备卡组分享预览...", { duration: 300 });
+
+        // 创建预览悬浮窗
+        const previewModal = document.createElement('div');
+        previewModal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4';
+        previewModal.innerHTML = `
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-full max-h-screen overflow-auto relative">
+                <div class="sticky top-0 bg-white dark:bg-gray-800 p-2 flex justify-between items-center border-b">
+                    <h3 class="text-lg font-bold dark:text-white">卡组分享预览</h3>
+                    <button id="close-preview" class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="deck-preview-content" class="p-4">
+                    <div class="flex justify-center items-center h-64">
+                        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                    </div>
+                </div>
+                <div class="sticky bottom-0 bg-white dark:bg-gray-800 p-3 border-t text-center text-sm text-gray-500 dark:text-gray-400">
+                    右键点击图片选择"另存为"，或直接截图保存
+                </div>
+            </div>
+        `;
+
+        // 添加到文档
+        document.body.appendChild(previewModal);
+        
+        // 关闭按钮事件
+        previewModal.querySelector('#close-preview').addEventListener('click', () => {
+            document.body.removeChild(previewModal);
+        });
+        
+        // 设置防抖延迟，确保DOM更新完成
+        setTimeout(() => {
+            // 克隆面板主要部分
+            const deckContent = panel.querySelector('.deck-content-wrapper') || panel;
+            const clone = deckContent.cloneNode(true);
+            
+            // 调整克隆元素的样式
+            clone.style.maxWidth = '150vh'; // 设置合适宽度
+            clone.style.height = 'auto';
+            clone.style.maxHeight = '70vh';
+            clone.style.overflow = 'visible';
+            clone.style.margin = '0 auto';
+            
+            // 移除交互元素
+            const interactiveElements = clone.querySelectorAll(
+                'button, input, textarea, select, .interactive, [onclick], [onhover], .card-identify'
+            );
+            interactiveElements.forEach(el => el.remove());
+            
+            // 更新预览内容
+            const previewContent = document.getElementById('deck-preview-content');
+            previewContent.innerHTML = ''; // 清除加载动画
+            previewContent.appendChild(clone);
+            
+        }, 300); // 300ms延迟确保DOM稳定
     }
 
     exportDeck(method = 'download') {
