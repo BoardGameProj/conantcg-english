@@ -660,43 +660,43 @@ export class DeckBuilder {
                     </div>
                 </div>
                 <div class="sticky bottom-0 bg-white dark:bg-gray-800 p-3 border-t text-center text-sm text-gray-500 dark:text-gray-400">
-                    右键点击图片选择"另存为"，或直接截图保存
+                    功能未实现，请直接截图保存
                 </div>
             </div>
         `;
 
         // 添加到文档
         document.body.appendChild(previewModal);
-        
+
         // 关闭按钮事件
         previewModal.querySelector('#close-preview').addEventListener('click', () => {
             document.body.removeChild(previewModal);
         });
-        
+
         // 设置防抖延迟，确保DOM更新完成
         setTimeout(() => {
             // 克隆面板主要部分
             const deckContent = panel.querySelector('.deck-content-wrapper') || panel;
             const clone = deckContent.cloneNode(true);
-            
+
             // 调整克隆元素的样式
             clone.style.maxWidth = '150vh'; // 设置合适宽度
             clone.style.height = 'auto';
             clone.style.maxHeight = '70vh';
             clone.style.overflow = 'visible';
             clone.style.margin = '0 auto';
-            
+
             // 移除交互元素
             const interactiveElements = clone.querySelectorAll(
                 'button, input, textarea, select, .interactive, [onclick], [onhover], .card-identify'
             );
             interactiveElements.forEach(el => el.remove());
-            
+
             // 更新预览内容
             const previewContent = document.getElementById('deck-preview-content');
             previewContent.innerHTML = ''; // 清除加载动画
             previewContent.appendChild(clone);
-            
+
         }, 300); // 300ms延迟确保DOM稳定
     }
 
@@ -946,7 +946,7 @@ export class DeckBuilder {
         for (let i = 1; i <= 9; i++) {
             const heightPercent = (costCounts[i] / maxCount) * 6;
             barChartHtml += `
-                <div class="flex flex-col items-center flex-1 w-full">
+                <div class="flex flex-col items-center flex-1 w-full select-none">
                     <!-- 将数字显示在顶部 -->
                     <span class="text-xs dark:text-gray-400 font-bold"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
                     <div class="flex justify-center w-full" style="height: 80%;">
@@ -964,7 +964,7 @@ export class DeckBuilder {
         let tableHtml = `
         <div class="max-w-full overflow-x-auto ml-1">
             <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
-                <div class="grid grid-cols-5">
+                <div class="grid grid-cols-5 select-none">
                 ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
                 .map((icon, index) => `
                     <div class="p-1 border-b border-gray-300 dark:border-gray-600 

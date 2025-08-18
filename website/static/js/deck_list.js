@@ -340,7 +340,7 @@ function showDeckDetail(deckId) {
             partnerCards.push(cardData);
         } else if (cardType === "案件") {
             caseCards.push(cardData);
-        } else if ( cost && !isNaN(cost)) {
+        } else if (cost && !isNaN(cost)) {
             const costNum = parseInt(cost);
             if (costNum >= 1 && costNum <= 9) {
                 costCounts[costNum]++;
@@ -405,7 +405,7 @@ function showDeckDetail(deckId) {
     })();
 
     //统计部分
-    let barChartHtml = '<div class="">';
+    let barChartHtml = '<div class="select-none">';
     barChartHtml += '<div class="flex items-end h-32 gap-1 my-6 ml-3 w-full">';
 
     // 找到最大值用于计算条形图高度
@@ -422,8 +422,8 @@ function showDeckDetail(deckId) {
                     <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out rounded-t" style="height: ${heightPercent}rem;">
                     </div>
                 </div>
-                <div class="border-t"${i===9 && costCounts[i] === 0 ? ' hidden' : ''} style="border-color: #9ca3af; width: 200%;}"></div>
-                <span class="text-xs mt-1 dark:text-gray-400"${i===9 && costCounts[i] === 0 ? ' hidden' : ''}>${i}</span>
+                <div class="border-t"${i === 9 && costCounts[i] === 0 ? ' hidden' : ''} style="border-color: #9ca3af; width: 200%;}"></div>
+                <span class="text-xs mt-1 dark:text-gray-400"${i === 9 && costCounts[i] === 0 ? ' hidden' : ''}>${i}</span>
             </div>
         `;
     }
@@ -432,7 +432,7 @@ function showDeckDetail(deckId) {
     let tableHtml = `
     <div class="max-w-full overflow-x-auto ml-3">
         <div class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
-            <div class="grid grid-cols-5">
+            <div class="grid grid-cols-5 select-none">
             ${['character', 'event', 'hirameki', 'cut_in', 'disguise']
             .map((icon, index) => `
                 <div class="p-1 border-b border-gray-300 dark:border-gray-600 
@@ -531,16 +531,16 @@ function showDeckDetail(deckId) {
                 
                 <!-- 底部按钮 -->
                 <div class="flex justify-end gap-3 p-4 border-t dark:border-gray-700">
-                    <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                    <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors select-none">
                         编辑卡组
                     </button>
-                    <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
+                    <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors select-none">
                         导出卡组
                     </button>
-                    <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors">
+                    <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors select-none">
                         复制卡组
                     </button>
-                    <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+                    <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors select-none">
                         删除卡组
                     </button>
                 </div>
@@ -809,7 +809,7 @@ function createCardImageHtml(card) {
             <div class="relative w-full">
                 <img src="${imageUrl}" 
                      alt="${cardName}"
-                     class="w-full h-auto rounded-lg"
+                     class="w-full h-auto rounded-lg select-none"
                      onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
                 <div class="absolute left-0 right-0 bottom-0 w-full bg-black/70 pb-1 rounded-b-lg">
                     <div class="text-center w-full">
