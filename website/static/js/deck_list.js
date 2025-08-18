@@ -417,13 +417,13 @@ function showDeckDetail(deckId) {
         barChartHtml += `
             <div class="flex flex-col items-center flex-1 w-full">
                 <!-- 将数字显示在顶部 -->
-                <span class="text-xs dark:text-gray-400 font-bold"${costCounts[i] === 0 ? ' hidden' : ''}>${costCounts[i]}</span>
+                <span class="text-xs dark:text-gray-400 font-bold ${costCounts[i] === 0 ? 'hidden' : ''}">${costCounts[i]}</span>
                 <div class="flex justify-center w-full" style="height: 80%;">
                     <div class="w-full bg-gray-500 dark:bg-gray-100 transition-all duration-300 ease-in-out rounded-t" style="height: ${heightPercent}rem;">
                     </div>
                 </div>
-                <div class="border-t"${i === 9 && costCounts[i] === 0 ? ' hidden' : ''} style="border-color: #9ca3af; width: 200%;}"></div>
-                <span class="text-xs mt-1 dark:text-gray-400"${i === 9 && costCounts[i] === 0 ? ' hidden' : ''}>${i}</span>
+                <div class="border-t ${i === 9 && costCounts[i] === 0 ? 'hidden' : ''}" style="border-color: #9ca3af; width: 200%;}"></div>
+                <span class="text-xs mt-1 dark:text-gray-400 ${i === 9 && costCounts[i] === 0 ? 'hidden' : ''}">${i}</span>
             </div>
         `;
     }
@@ -513,7 +513,7 @@ function showDeckDetail(deckId) {
                 </div>
                 
                 <!-- 内容区域 -->
-                <div class="grid grid-cols-7 overflow-y-auto p-4 h-full">
+                <div class="grid overflow-y-auto p-4 h-full ${partnerCaseHtml ? 'grid-cols-7' : 'grid-cols-6'}">
                     ${partnerCaseHtml}
                     
                     <!-- 其他卡牌部分 -->
@@ -524,7 +524,7 @@ function showDeckDetail(deckId) {
                                 ${otherCards.map(card => createCardImageHtml(card)).join('')}
                             </div>
                         </div>
-                    ` : ''}
+                    ` : '<div class="col-span-5 mb-6"></div>'}
 
                     ${statisticsHtml}
                 </div>
