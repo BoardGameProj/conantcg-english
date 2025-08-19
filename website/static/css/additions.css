@@ -556,3 +556,45 @@ dct-card img {
 .dark .logo-image {
     content: url('/img/cmn_logo_sp@2x.png');
 }
+
+.cardoverlay-image {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    width: fit-content;
+}
+
+.card-img-effect-container {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+    display: inline-block;
+}
+
+.card-img-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    pointer-events: none;
+    display: none;
+    background: linear-gradient(115deg,
+            transparent 0%,
+            #06e8ff var(--per, 30%),
+            #ffab2e calc(var(--per, 30%) + 25%),
+            #ff2212 calc(var(--per, 30%) + 50%),
+            transparent 100%);
+    mix-blend-mode: overlay;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.card-img {
+    display: block;
+    position: relative;
+    z-index: 0;
+}

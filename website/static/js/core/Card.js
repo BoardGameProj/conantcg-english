@@ -405,26 +405,30 @@ export class Card extends HTMLElement {
 
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
-     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
->
-    <div class="flex items-start">
-        <div class="cardoverlay-image self-stretch">
-            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" class="rounded-xl" style="max-width: 300px;" loading="lazy" />
-        </div>
-        <!-- Add color here as well for mobile view -->
-        <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
-            <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="dark:text-gray-300 card_font">&nbsp;${this.data.originalTitle}</small></h3>
-                <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
+                    class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white">
+            <div class="flex items-start">
+                <div class="cardoverlay-image self-stretch">
+                    <div class="card-img-effect-container rounded-xl" style="width: fit-content;">
+                        <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" 
+                            class="card-img rounded-xl" style="max-width: 300px;" loading="lazy" />
+                        <div class="card-img-effect rounded-xl"></div>
+                    </div>
+                </div>
+                <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
+                    <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="dark:text-gray-300 card_font">&nbsp;${this.data.originalTitle}</small></h3>
+                        <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
+                    </div>
+                    <div class="px-2 py-2 text-lg lg:text-base">
+                        ${content}
+                    </div>
+                    </div>
+                </div>
             </div>
-            <div class="px-2 py-2 text-lg lg:text-base">
-                ${content}
+            <div data-popper-arrow>
             </div>
-            </div>
-        </div>
-    </div>
-    <div data-popper-arrow></div>
-</div>`
+        </div>`;
+
         this.popover = new Popover(
             document.querySelector(`#DCT-Overlays #${popoverId}`),
             img,
@@ -445,7 +449,42 @@ export class Card extends HTMLElement {
                 }
             }
         );
-        this.initVersionHover()
+
+        this.initVersionHover();
+        setTimeout(() => {
+            const cardImage = container.querySelector(`#card-${this.data.id} .cardoverlay-image`);
+            if (cardImage) {
+                const container = cardImage.querySelector('.card-img-effect-container');
+                const effect = cardImage.querySelector('.card-img-effect');
+                const img = cardImage.querySelector('.card-img');
+
+                cardImage.addEventListener('mousemove', (e) => {
+                    const rect = img.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+
+                    // 只更新特效位置
+                    const percentage = (x / rect.width * 100).toFixed(2);
+                    effect.style.setProperty('--per', `${percentage}%`);
+
+                    // 保持原有旋转逻辑
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((e.clientY - rect.top - centerY) / centerY * 10).toFixed(2);
+                    const rotateY = -((x - centerX) / centerX * 10).toFixed(2);
+                    container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                cardImage.addEventListener('mouseenter', () => {
+                    effect.style.display = 'block';
+                });
+
+                cardImage.addEventListener('mouseleave', () => {
+                    container.style.transform = 'rotateX(0) rotateY(0)';
+                    effect.style.display = 'none';
+                });
+            }
+        }, 50);
+
         document.addEventListener('click', (e) => {
             if (PopoverManager.isAnyPopoverOpen &&
                 !e.target.closest('[data-popover]') &&
