@@ -411,7 +411,7 @@ export class Card extends HTMLElement {
                     <div class="card-img-effect-container rounded-xl" style="width: fit-content;">
                         <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" 
                             class="card-img rounded-xl" style="max-width: 300px;" loading="lazy" />
-                        <div class="card-img-effect rounded-xl"></div>
+                        <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
                     </div>
                 </div>
                 <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
@@ -474,8 +474,11 @@ export class Card extends HTMLElement {
                     container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                 });
 
+                const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
                 cardImage.addEventListener('mouseenter', () => {
-                    effect.style.display = 'block';
+                    if (allowedRarities.includes(this.data.rarity)) {
+                        effect.style.display = 'block';
+                    }
                 });
 
                 cardImage.addEventListener('mouseleave', () => {
