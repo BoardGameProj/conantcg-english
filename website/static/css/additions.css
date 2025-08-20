@@ -558,6 +558,7 @@ dct-card img {
 }
 
 .cardoverlay-image {
+    align-content: center;
     position: relative;
     transform-style: preserve-3d;
     perspective: 500px;
