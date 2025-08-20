@@ -617,7 +617,7 @@ export class Card extends HTMLElement {
             overlay.addEventListener('mouseout', handleMouseOut)
         }
     }
-    
+
     initRarityEffect() {
         const popoverId = `card-${this.data.id}`;
         const overlay = document.querySelector(`#DCT-Overlays #${popoverId}`);
@@ -626,10 +626,13 @@ export class Card extends HTMLElement {
         const cardImage = overlay.querySelector('.cardoverlay-image');
         if (!cardImage) return;
 
-        // 清理旧的监听器（如果存在）
+        // 清理旧的监听器
         cardImage.removeEventListener('mousemove', this._rarityEffectMoveHandler);
         cardImage.removeEventListener('mouseenter', this._rarityEffectEnterHandler);
         cardImage.removeEventListener('mouseleave', this._rarityEffectLeaveHandler);
+        cardImage.removeEventListener('touchmove', this._rarityEffectTouchHandler);
+        cardImage.removeEventListener('touchstart', this._rarityEffectStartHandler);
+        cardImage.removeEventListener('touchend', this._rarityEffectEndHandler);
 
         const container = cardImage.querySelector('.card-img-effect-container');
         const effect = cardImage.querySelector('.card-img-effect');
@@ -637,48 +640,76 @@ export class Card extends HTMLElement {
 
         if (!container || !effect || !img) return;
 
-        // 绑定带持久化的处理器
-        this._rarityEffectMoveHandler = (e) => {
+        // 共用的变换处理函数
+        const applyTransform = (clientX, clientY) => {
             requestAnimationFrame(() => {
-                if (!container.isConnected) { // 检查元素是否仍在DOM中
-                    cardImage.removeEventListener('mousemove', this._rarityEffectMoveHandler);
-                    return;
-                }
+                if (!container.isConnected) return;
+
                 const rect = img.getBoundingClientRect();
-                container.style.transform = `rotateX(${((e.clientY - rect.top - rect.height / 2) / (rect.height / 2) * 10).toFixed(2)}deg) 
-                               rotateY(${-((e.clientX - rect.left - rect.width / 2) / (rect.width / 2) * 10).toFixed(2)}deg)`;
+                container.style.transform = `rotateX(${((clientY - rect.top - rect.height / 2) / (rect.height / 2) * 10).toFixed(2)}deg) 
+                           rotateY(${-((clientX - rect.left - rect.width / 2) / (rect.width / 2) * 10).toFixed(2)}deg)`;
 
                 // 仅稀有度符合时才更新光效位置
                 const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
                 if (allowedRarities.includes(this.data.rarity)) {
-                    effect.style.setProperty('--per', `${((e.clientX - rect.left) / rect.width * 100).toFixed(2)}%`);
+                    effect.style.setProperty('--per', `${((clientX - rect.left) / rect.width * 100).toFixed(2)}%`);
                 }
             });
         };
 
+        // 鼠标事件处理器
+        this._rarityEffectMoveHandler = (e) => {
+            applyTransform(e.clientX, e.clientY);
+        };
+
         this._rarityEffectEnterHandler = () => {
-            // 稀有度检测仅影响光效显示
             const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
             if (allowedRarities.includes(this.data.rarity)) {
                 effect.style.display = 'block';
-                setTimeout(() => effect.style.opacity = '1', 10); // 小延迟触发CSS过渡
+                setTimeout(() => effect.style.opacity = '1', 10);
             }
         };
 
         this._rarityEffectLeaveHandler = () => {
             effect.style.opacity = '0';
             setTimeout(() => {
-                if (effect.style.opacity === '0') { // 确保过渡完成
+                if (effect.style.opacity === '0') {
                     effect.style.display = 'none';
                     container.style.transform = 'rotateX(0) rotateY(0)';
                 }
             }, 300);
         };
 
-        // 添加新监听器
-        cardImage.addEventListener('mousemove', this._rarityEffectMoveHandler);
-        cardImage.addEventListener('mouseenter', this._rarityEffectEnterHandler);
-        cardImage.addEventListener('mouseleave', this._rarityEffectLeaveHandler);
+        // 触摸事件处理器
+        this._rarityEffectTouchHandler = (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                applyTransform(touch.clientX, touch.clientY);
+            }
+        };
+
+        this._rarityEffectStartHandler = () => {
+            this._rarityEffectEnterHandler();
+        };
+
+        this._rarityEffectEndHandler = () => {
+            this._rarityEffectLeaveHandler();
+        };
+
+        // 添加监听器
+        const isMobile = 'ontouchstart' in window;
+
+        if (isMobile) {
+            // 移动端使用触摸事件
+            cardImage.addEventListener('touchstart', this._rarityEffectStartHandler);
+            cardImage.addEventListener('touchmove', this._rarityEffectTouchHandler);
+            cardImage.addEventListener('touchend', this._rarityEffectEndHandler);
+        } else {
+            // PC端使用鼠标事件
+            cardImage.addEventListener('mousemove', this._rarityEffectMoveHandler);
+            cardImage.addEventListener('mouseenter', this._rarityEffectEnterHandler);
+            cardImage.addEventListener('mouseleave', this._rarityEffectLeaveHandler);
+        }
 
         // 初始化状态
         effect.style.opacity = '0';
