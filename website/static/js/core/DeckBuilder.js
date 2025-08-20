@@ -4,7 +4,49 @@ export class DeckBuilder {
     constructor() {
         this.currentDeck = null;
         this.addedCards = [];
+        this.editing = false; // 添加编辑状态标记
+
+
+        this.initBeforeUnloadListener();
+        this.initRouterChangeListener();
+
         this.init();
+    }
+
+    initBeforeUnloadListener() {
+        window.addEventListener('beforeunload', (e) => {
+            if (this.editing && this.addedCards.length > 0) {
+                e.preventDefault();
+                e.returnValue = '你有未保存的卡组更改，确定要离开吗？';
+                return e.returnValue;
+            }
+        });
+    }
+    
+    initRouterChangeListener() {
+        // 监听Vue router变化
+        if (window.vueRouter) {
+            window.vueRouter.beforeEach((to, from, next) => {
+                if (this.editing && this.addedCards.length > 0) {
+                    const answer = confirm('你有未保存的卡组更改，确定要离开当前页面吗？');
+                    if (!answer) {
+                        return false;
+                    }
+                }
+                next();
+            });
+        }
+        
+        // 监听history API变化
+        window.addEventListener('popstate', () => {
+            if (this.editing && this.addedCards.length > 0) {
+                const answer = confirm('你有未保存的卡组更改，确定要离开当前页面吗？');
+                if (!answer) {
+                    window.history.pushState(null, '', window.location.href);
+                    return false;
+                }
+            }
+        });
     }
 
     init() {
@@ -123,6 +165,7 @@ export class DeckBuilder {
 
     // 新建卡组构建面板
     newDeckBuilderPanel() {
+        this.editing = true;
         const panel = document.getElementById('deck-builder-panel');
         const newDeckBtn = document.getElementById('new-deck-btn');
         const deckBuilderPanelButton = document.getElementById('deck-builder-panel-button');
@@ -173,6 +216,7 @@ export class DeckBuilder {
 
     // 加载指定ID的卡组
     loadDeckById(deckId) {
+        this.editing = true;
         try {
             // 从localStorage获取卡组数据
             const existingDecks = JSON.parse(localStorage.getItem('conan-tcg-decks')) || [];
@@ -276,6 +320,7 @@ export class DeckBuilder {
     // 关闭卡组构建面板
     // 关闭卡组构建面板
     async closeDeckBuilderPanel(method = 'exit') {
+        this.editing = false;
         // 检查是否需要确认 (有卡牌且不是保存操作)
         if (this.addedCards.length > 0 && method !== 'save') {
             try {
@@ -624,6 +669,7 @@ export class DeckBuilder {
 
     // 保存卡组
     saveDeck() {
+        this.editing = false;
         const deckNameInput = document.getElementById('deck-name');
         const deckDescriptionInput = document.getElementById('deck-description');
 
