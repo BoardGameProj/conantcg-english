@@ -601,3 +601,7 @@ dct-card img {
     position: relative;
     z-index: 0;
 }
+
+.pointer-events-none {
+  pointer-events: none !important;
+}

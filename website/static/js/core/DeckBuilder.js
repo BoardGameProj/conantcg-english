@@ -415,15 +415,19 @@ export class DeckBuilder {
         // 渲染搭档卡牌（最多1张）
         if (partnerCard) {
             containerPartner.innerHTML = this.renderCardItem(partnerCard);
+            containerPartner.classList?.remove('cursor-pointer')
         } else {
             containerPartner.innerHTML = this.renderEmptyPartnerSlot();
+            containerPartner.classList?.add('cursor-pointer')
         }
 
         // 渲染案件卡牌（最多1张）
         if (caseCard) {
             containerCase.innerHTML = this.renderCardItem(caseCard);
+            containerCase.classList?.remove('cursor-pointer')
         } else {
             containerCase.innerHTML = this.renderEmptyCaseSlot();
+            containerCase.classList?.add('cursor-pointer')
         }
 
         // 计算普通卡牌数量
@@ -534,7 +538,7 @@ export class DeckBuilder {
 
     renderEmptySlot() {
         return `
-            <div class="border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
+            <div class="card-slot cursor-pointer border border-dashed border-gray-900 dark:border-gray-400 rounded-lg p-1 flex flex-col items-center justify-center w-full" style="aspect-ratio: 1/1.4;">
                 <div class="text-gray-400 text-xs select-none"><!-- 角色<br>事件 --></div>
             </div>
         `;

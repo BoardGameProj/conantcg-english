@@ -277,8 +277,12 @@
                 <div class="mb-4">
                     <div id="added-deck" class="grid grid-cols-7 items-start gap-1 h-full">
                         <div class="relative self-center">
-                            <div id="added-partner" class="mb-2" style="max-width: 98%;"><!-- 已添加的搭档将在这里显示 --></div>
-                            <div id="added-case" class="items-start" style="max-width: 98%;"><!-- 已添加的卡牌将在这里显示 --></div>
+                            <div id="added-partner" class="mb-2 cursor-pointer" style="max-width: 98%;">
+                                <!-- 已添加的搭档将在这里显示 -->
+                            </div>
+                            <div id="added-case" class="items-start cursor-pointer" style="max-width: 98%;">
+                                <!-- 已添加的卡牌将在这里显示 -->
+                            </div>
                         </div>
 
                         <div id="added-cards" class="col-span-5">
@@ -462,6 +466,61 @@
     }
 
     window.addEventListener('resize', updatePlaceholderHeight);
+
+    const partnerContainer = document.getElementById('added-partner');
+    function hasPartnerCard() {
+        return partnerContainer.querySelector('.group') !== null;
+    }
+
+    const caseContainer = document.getElementById('added-case');
+    function hasCaseCard() {
+        return caseContainer.querySelector('.group') !== null;
+    }
+
+    // 点击事件处理
+    partnerContainer.addEventListener('click', (event) => {
+        // 如果有卡牌，或者点击的是删除按钮，则不执行
+        if (hasPartnerCard() || event.target.closest('.remove-card') || event.target.closest('.add-card')) {
+            return;
+        }
+
+        event.stopPropagation();
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        filterContainer.querySelectorAll('input[type="checkbox"]').forEach(input => {
+            if (input.name === 'type' && input.value === '搭档') {
+                input.checked = true;
+            } else if (input.name === 'color' && input.value === '多') {
+                input.checked = false;
+            } else if (['type', 'spkey', 'cost', 'lp', 'ap'].includes(input.name)) {
+                input.checked = false;
+            }
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    });
+
+    caseContainer.addEventListener('click', (event) => {
+        // 如果有卡牌，或者点击的是删除按钮，则不执行
+        if (hasCaseCard() || event.target.closest('.remove-card') || event.target.closest('.add-card')) {
+            return;
+        }
+
+        event.stopPropagation();
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        filterContainer.querySelectorAll('input[type="checkbox"]').forEach(input => {
+            if (input.name === 'type' && input.value === '案件') {
+                input.checked = true;
+            } else if (['type', 'spkey', 'cost', 'lp', 'ap'].includes(input.name)) {
+                input.checked = false;
+            }
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    });
+
+    const cardsContainer = document.getElementById('added-cards');
+
 </script>
-<!-- <script src="https://unpkg.com/modern-screenshot"></script> -->
 {{ end }}
