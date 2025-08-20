@@ -644,15 +644,22 @@ export class Card extends HTMLElement {
         const applyTransform = (clientX, clientY) => {
             requestAnimationFrame(() => {
                 if (!container.isConnected) return;
+                
+                const multiple = 15;
+                const box = img.getBoundingClientRect();
+                // container.style.transform = `rotateX(${((clientY - box.top - box.height / 2) / (box.height / 2) * 10).toFixed(2)}deg) 
+                //            rotateY(${-((clientX - box.left - box.width / 2) / (box.width / 2) * 10).toFixed(2)}deg)`;
+                const calcX = -(clientY - box.y - box.height / 2) / multiple;
+                const calcY = (clientX - box.x - box.width / 2) / multiple;
 
-                const rect = img.getBoundingClientRect();
-                container.style.transform = `rotateX(${((clientY - rect.top - rect.height / 2) / (rect.height / 2) * 10).toFixed(2)}deg) 
-                           rotateY(${-((clientX - rect.left - rect.width / 2) / (rect.width / 2) * 10).toFixed(2)}deg)`;
+                container.style.transform = "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
 
                 // 仅稀有度符合时才更新光效位置
                 const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
                 if (allowedRarities.includes(this.data.rarity)) {
-                    effect.style.setProperty('--per', `${((clientX - rect.left) / rect.width * 100).toFixed(2)}%`);
+                    effect.style.setProperty('--per', `${((clientX - box.left) / box.width * 100).toFixed(2)}%`);
+                    // const percentage = parseInt((clientX - box.x) / box.width * 1000) / 10;
+                    // effect.style.setProperty(`--per: ${percentage}%`);
                 }
             });
         };
