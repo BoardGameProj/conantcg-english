@@ -501,7 +501,7 @@ export class Card extends HTMLElement {
         // 隐藏/显示加号按钮
         if (plusButton) {
             // 同ID的卡牌数量达到3张时隐藏加号按钮
-            if (sameCardIdCount >= 3) {
+            if (this.data.cardId != '0627' && sameCardIdCount >= 3) {
                 plusButton.classList.add('invisible');
             }
             // 搭档或案件卡牌已有一张时隐藏加号按钮

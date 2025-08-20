@@ -145,7 +145,7 @@ export class DeckBuilder {
                 .filter(c => c.id === cardData.id)
                 .reduce((sum, c) => sum + c.count, 0);
 
-            if (sameIdCount >= 3) {
+            if (cardData.id !== '0627' && sameIdCount >= 3) {
                 throw new Error(`同一ID【${cardData.id}】的数量不能超过3张`);
             }
 
@@ -317,7 +317,6 @@ export class DeckBuilder {
         }
     }
 
-    // 关闭卡组构建面板
     // 关闭卡组构建面板
     async closeDeckBuilderPanel(method = 'exit') {
         this.editing = false;
@@ -573,7 +572,7 @@ export class DeckBuilder {
                 .reduce((sum, c) => sum + c.count, 0);
 
             // 如果同ID卡牌数量>=3，不显示添加按钮
-            if (sameCardIdCount >= 3) {
+            if (card.id!== '0627' && sameCardIdCount >= 3) {
                 shouldShowAddButton = false;
             }
 
