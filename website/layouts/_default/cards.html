@@ -488,10 +488,16 @@
         const filterContainer = document.querySelector('filter-container');
         if (!filterContainer) return;
 
+        const colorInputs = Array.from(filterContainer.querySelectorAll('input[name="color"][type="checkbox"]'));
+        const multiColorInput = colorInputs.find(input => input.value === '多');
+
+        const isOnlyMultiSelected = multiColorInput?.checked &&
+            colorInputs.every(input => input.value === '多' || !input.checked);
+
         filterContainer.querySelectorAll('input[type="checkbox"]').forEach(input => {
             if (input.name === 'type' && input.value === '搭档') {
                 input.checked = true;
-            } else if (input.name === 'color' && input.value === '多') {
+            } else if (input.name === 'color' && isOnlyMultiSelected && input.value === '多') {
                 input.checked = false;
             } else if (['type', 'spkey', 'cost', 'lp', 'ap'].includes(input.name)) {
                 input.checked = false;

@@ -451,9 +451,9 @@ export class DeckBuilder {
         // 如果有超过40张的卡牌，添加滚动区域
         if (normalCardCount > 40) {
             cardsHtml += `
-                <div class="overflow-y-auto max-h-32 border-t border-red-600 dark:border-red-600 mt-2 pt-2">
-                    <div class="grid grid-cols-10 gap-1">
-            `;
+            <div class="overflow-y-auto max-h-32 border-t border-red-600 dark:border-red-600 mt-2 pt-2">
+                <div class="grid grid-cols-10 gap-1">
+        `;
 
             // 第41张及之后的卡牌 (滚动区域)
             for (let i = 40; i < normalCardCount; i++) {
@@ -464,6 +464,48 @@ export class DeckBuilder {
         }
 
         containerCards.innerHTML = cardsHtml;
+
+        // 绑定卡槽点击事件（新增的部分）
+        containerCards.querySelectorAll('.card-slot').forEach(slot => {
+            slot.addEventListener('click', (event) => {
+                // 如果有卡牌，或者点击的是删除按钮，则不执行
+                if (slot.querySelector('.group') ||
+                    event.target.closest('.remove-card') ||
+                    event.target.closest('.add-card')) {
+                    return;
+                }
+
+                event.stopPropagation();
+                const filterContainer = document.querySelector('filter-container');
+                if (!filterContainer) {
+                    console.error('未找到filter-container元素');
+                    return;
+                }
+
+                const colorInputs = Array.from(filterContainer.querySelectorAll('input[name="color"][type="checkbox"]'));
+                const multiColorInput = colorInputs.find(input => input.value === '多');
+
+                const isOnlyMultiSelected = multiColorInput?.checked &&
+                    colorInputs.every(input => input.value === '多' || !input.checked);
+
+                filterContainer.querySelectorAll('input[type="checkbox"]').forEach(input => {
+                    if (input.name === 'type' && (input.value === '角色' || input.value === '事件')) {
+                        input.checked = true;
+                    } else if (input.name === 'color' && isOnlyMultiSelected && input.value === '多') {
+                        input.checked = false;
+                    } else if (['type'].includes(input.name)) {
+                        input.checked = false;
+                    }
+
+                    // 确保触发事件
+                    const inputEvent = new Event('input', {
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    input.dispatchEvent(inputEvent);
+                });
+            });
+        });
 
         this.bindRemoveCardEvents();
         this.bindAddCardEvents();
