@@ -438,6 +438,7 @@ export class Card extends HTMLElement {
                 onShow: () => {
                     document.querySelector('body').classList.add('dct-card-shown');
                     this.initVersionHover();
+                    setTimeout(() => this.initRarityEffect(), 50);
                 },
                 onHide: () => {
                     document.querySelector('body').classList.remove('dct-card-shown');
@@ -451,42 +452,7 @@ export class Card extends HTMLElement {
         );
 
         this.initVersionHover();
-        setTimeout(() => {
-            const cardImage = container.querySelector(`#card-${this.data.id} .cardoverlay-image`);
-            if (cardImage) {
-                const container = cardImage.querySelector('.card-img-effect-container');
-                const effect = cardImage.querySelector('.card-img-effect');
-                const img = cardImage.querySelector('.card-img');
-
-                cardImage.addEventListener('mousemove', (e) => {
-                    const rect = img.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-
-                    // 只更新特效位置
-                    const percentage = (x / rect.width * 100).toFixed(2);
-                    effect.style.setProperty('--per', `${percentage}%`);
-
-                    // 保持原有旋转逻辑
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((e.clientY - rect.top - centerY) / centerY * 10).toFixed(2);
-                    const rotateY = -((x - centerX) / centerX * 10).toFixed(2);
-                    container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-
-                const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
-                cardImage.addEventListener('mouseenter', () => {
-                    if (allowedRarities.includes(this.data.rarity)) {
-                        effect.style.display = 'block';
-                    }
-                });
-
-                cardImage.addEventListener('mouseleave', () => {
-                    container.style.transform = 'rotateX(0) rotateY(0)';
-                    effect.style.display = 'none';
-                });
-            }
-        }, 50);
+        this.initRarityEffect();
 
         document.addEventListener('click', (e) => {
             if (PopoverManager.isAnyPopoverOpen &&
@@ -650,6 +616,73 @@ export class Card extends HTMLElement {
             overlay.addEventListener('mouseover', handleMouseOver)
             overlay.addEventListener('mouseout', handleMouseOut)
         }
+    }
+    
+    initRarityEffect() {
+        const popoverId = `card-${this.data.id}`;
+        const overlay = document.querySelector(`#DCT-Overlays #${popoverId}`);
+        if (!overlay) return;
+
+        const cardImage = overlay.querySelector('.cardoverlay-image');
+        if (!cardImage) return;
+
+        // 清理旧的监听器（如果存在）
+        cardImage.removeEventListener('mousemove', this._rarityEffectMoveHandler);
+        cardImage.removeEventListener('mouseenter', this._rarityEffectEnterHandler);
+        cardImage.removeEventListener('mouseleave', this._rarityEffectLeaveHandler);
+
+        const container = cardImage.querySelector('.card-img-effect-container');
+        const effect = cardImage.querySelector('.card-img-effect');
+        const img = cardImage.querySelector('.card-img');
+
+        if (!container || !effect || !img) return;
+
+        // 绑定带持久化的处理器
+        this._rarityEffectMoveHandler = (e) => {
+            requestAnimationFrame(() => {
+                if (!container.isConnected) { // 检查元素是否仍在DOM中
+                    cardImage.removeEventListener('mousemove', this._rarityEffectMoveHandler);
+                    return;
+                }
+                const rect = img.getBoundingClientRect();
+                container.style.transform = `rotateX(${((e.clientY - rect.top - rect.height / 2) / (rect.height / 2) * 10).toFixed(2)}deg) 
+                               rotateY(${-((e.clientX - rect.left - rect.width / 2) / (rect.width / 2) * 10).toFixed(2)}deg)`;
+
+                // 仅稀有度符合时才更新光效位置
+                const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
+                if (allowedRarities.includes(this.data.rarity)) {
+                    effect.style.setProperty('--per', `${((e.clientX - rect.left) / rect.width * 100).toFixed(2)}%`);
+                }
+            });
+        };
+
+        this._rarityEffectEnterHandler = () => {
+            // 稀有度检测仅影响光效显示
+            const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
+            if (allowedRarities.includes(this.data.rarity)) {
+                effect.style.display = 'block';
+                setTimeout(() => effect.style.opacity = '1', 10); // 小延迟触发CSS过渡
+            }
+        };
+
+        this._rarityEffectLeaveHandler = () => {
+            effect.style.opacity = '0';
+            setTimeout(() => {
+                if (effect.style.opacity === '0') { // 确保过渡完成
+                    effect.style.display = 'none';
+                    container.style.transform = 'rotateX(0) rotateY(0)';
+                }
+            }, 300);
+        };
+
+        // 添加新监听器
+        cardImage.addEventListener('mousemove', this._rarityEffectMoveHandler);
+        cardImage.addEventListener('mouseenter', this._rarityEffectEnterHandler);
+        cardImage.addEventListener('mouseleave', this._rarityEffectLeaveHandler);
+
+        // 初始化状态
+        effect.style.opacity = '0';
+        effect.style.display = 'none';
     }
 }
 

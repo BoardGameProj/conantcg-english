@@ -567,8 +567,9 @@ dct-card img {
 .card-img-effect-container {
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.1s;
+    transition: transform 0.15s linear;
     display: inline-block;
+
 }
 
 .card-img-effect {
@@ -590,6 +591,8 @@ dct-card img {
     height: 100%;
     overflow: hidden;
     opacity: 1.0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, background-position;
 }
 
 .card-img {
