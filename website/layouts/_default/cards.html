@@ -533,27 +533,34 @@
     const cardsContainer = document.getElementById('added-cards');
 
     // 添加全局开关按钮的事件处理程序
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
         const toggleButton = document.getElementById('toggle-owned-cards');
         if (toggleButton) {
-            // 初始化按钮状态
+            // 动态导入Card.js模块
             try {
-                const settings = localStorage.getItem('cardSettings');
-                if (settings) {
-                    const parsedSettings = JSON.parse(settings);
-                    if (parsedSettings.showOwnedCards === true) {
-                        toggleButton.textContent = '隐藏拥有';
+                const { Card } = await import('/js/core/Card.js');
+                
+                // 初始化按钮状态
+                try {
+                    const settings = localStorage.getItem('cardSettings');
+                    if (settings) {
+                        const parsedSettings = JSON.parse(settings);
+                        if (parsedSettings.showOwnedCards === true) {
+                            toggleButton.textContent = '隐藏拥有';
+                        }
                     }
+                } catch (e) {
+                    console.error('Error reading card settings from localStorage:', e);
                 }
+                
+                // 添加点击事件
+                toggleButton.addEventListener('click', function () {
+                    const result = Card.toggleShowOwnedCards();
+                    this.textContent = result ? '隐藏拥有' : '显示拥有';
+                });
             } catch (e) {
-                console.error('Error reading card settings from localStorage:', e);
+                console.error('Error importing Card module:', e);
             }
-
-            // 添加点击事件
-            toggleButton.addEventListener('click', function () {
-                const result = Card.toggleShowOwnedCards();
-                this.textContent = result ? '隐藏拥有' : '显示拥有';
-            });
         }
     });
 </script>
