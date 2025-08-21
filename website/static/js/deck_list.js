@@ -829,9 +829,10 @@ function createCardImageHtml(card) {
 
     // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
     const shouldMark = currentIndex >= ownedCount;
+    // const insufficientTag = shouldMark ?
+    //     '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
     const insufficientTag = shouldMark ?
-        '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
-
+        '<div class="absolute border top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-tr px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
     return `
     <div class="group relative">
         ${insufficientTag}

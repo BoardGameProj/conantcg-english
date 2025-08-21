@@ -155,142 +155,118 @@ export class Card extends HTMLElement {
     }
 
     render() {
-        //const shadow = this.attachShadow({mode: "open"});
-        const img = document.createElement('img')
-        const popoverId = `card-${this.data.id}`
-        img.src = this.data.image
-        img.setAttribute('loading', 'lazy')
-        img.classList.add('cursor-pointer', 'border', 'border-black', 'dark:border-white', 'rounded-lg', 'select-none', 'group-hover:scale-105')
-        img.width = 160
-        img.height = 222
-        img.alt = `${this.data.title} (${this.data.cardNum})`
+        // 1. 构建卡片的主要 HTML 结构
+        const popoverId = `card-${this.data.id}`;
+        const cardHtml = `
+            <div class="card-container group relative">
+                <!-- 卡片图片 -->
+                <img 
+                    src="${this.data.image}" 
+                    loading="lazy" 
+                    class="cursor-pointer border border-black dark:border-white rounded-lg select-none group-hover:scale-105" 
+                    width="160" 
+                    height="222" 
+                    alt="${this.data.title} (${this.data.cardNum})"
+                    data-popover-id="${popoverId}"
+                >
+                
+                <!-- 拥有的卡牌计数器（默认隐藏） -->
+                <div class="absolute top-1 right-1 bg-black bg-opacity-90 text-white rounded-lg w-9 h-9 flex items-center justify-center text-sm font-bold z-8 border" 
+                    style="display: none">
+                    0
+                </div>
+                
+                <!-- 增加/减少按钮（默认隐藏） -->
+                <button type="button" 
+                        class="absolute border top-1/2 opacity-70 right-5 w-9 h-9 bg-green-500 text-white rounded-lg flex items-center justify-center select-none z-8" 
+                        style="display: none"
+                        data-action="add">
+                    +
+                </button>
+                
+                <button type="button" 
+                        class="absolute border opacity-70 top-1/2 left-5 w-9 h-9 bg-red-500 text-white rounded-lg flex items-center justify-center select-none z-8" 
+                        style="display: none"
+                        data-action="remove">
+                    -
+                </button>
+                
+                <!-- 卡组管理按钮组（默认隐藏） -->
+                <div class="flex items-center justify-between w-full mt-2 hidden add-to-deck-btn">
+                    <button type="button" class="w-10 h-6 bg-gray-500 text-white rounded-lg hover:bg-red-600 text-sm flex items-center justify-center select-none" data-action="deck-remove">
+                        -
+                    </button>
+                    <span class="text-sm text-black dark:text-white font-medium select-none">0</span>
+                    <button type="button" class="w-10 h-6 bg-gray-500 text-white rounded-lg hover:bg-blue-600 text-sm flex items-center justify-center select-none" data-action="deck-add">
+                        +
+                    </button>
+                </div>
+            </div>
+        `;
 
-        // 创建卡片容器
-        const cardContainer = document.createElement('div')
-        cardContainer.classList.add('card-container', 'group', 'relative') // 添加relative类以支持绝对定位
+        // 2. 插入到 DOM
+        this.insertAdjacentHTML('beforeend', cardHtml);
 
-        // 创建拥有的卡牌数量显示元素
-        const ownCountDisplay = document.createElement('div');
-        ownCountDisplay.classList.add('absolute', 'top-1', 'right-1', 'bg-black', 'bg-opacity-70', 'text-white', 'rounded-lg', 'w-9', 'h-9', 'flex', 'items-center', 'justify-center', 'text-sm', 'font-bold', 'z-8', 'border');
-        ownCountDisplay.textContent = '0';
-        ownCountDisplay.style.display = 'none'; // 默认隐藏
+        // 3. 绑定事件和引用元素
+        const container = this.querySelector('.card-container');
+        const img = this.querySelector('img');
 
-        // 创建增加拥有的卡牌数量按钮
-        const addOwnButton = document.createElement('button');
-        addOwnButton.type = 'button';
-        addOwnButton.classList.add('absolute', 'bottom-6', 'right-5', 'w-9', 'h-6', 'bg-green-500', 'text-white', 'rounded-lg', 'flex', 'items-center', 'justify-center', 'select-none', 'z-8');
-        addOwnButton.textContent = '+';
-        addOwnButton.style.display = 'none'; // 默认隐藏
-        addOwnButton.addEventListener('click', (e) => {
+        // 保存引用
+        this.ownCountDisplay = this.querySelector('[class*="bg-opacity-90"]');
+        this.addOwnButton = this.querySelector('[data-action="add"]');
+        this.removeOwnButton = this.querySelector('[data-action="remove"]');
+        this.buttonGroup = this.querySelector('.add-to-deck-btn');
+        this.countDisplay = this.querySelector('.add-to-deck-btn span');
+
+        // 4. 绑定事件
+        this.addOwnButton.addEventListener('click', (e) => {
             e.stopPropagation();
             this.updateOwnedCardCount(1);
         });
 
-        // 创建减少拥有的卡牌数量按钮
-        const removeOwnButton = document.createElement('button');
-        removeOwnButton.type = 'button';
-        removeOwnButton.classList.add('absolute', 'bottom-6', 'left-5', 'w-9', 'h-6', 'bg-red-500', 'text-white', 'rounded-lg', 'flex', 'items-center', 'justify-center', 'select-none', 'z-8');
-        removeOwnButton.textContent = '-';
-        removeOwnButton.style.display = 'none'; // 默认隐藏
-        removeOwnButton.addEventListener('click', (e) => {
+        this.removeOwnButton.addEventListener('click', (e) => {
             e.stopPropagation();
             this.updateOwnedCardCount(-1);
         });
 
-        // 添加图片到容器
-        cardContainer.appendChild(img)
-
-        // 将拥有的卡牌数量显示和按钮添加到卡片容器中
-        cardContainer.appendChild(ownCountDisplay);
-        cardContainer.appendChild(addOwnButton);
-        cardContainer.appendChild(removeOwnButton);
-
-        // 创建"- 0 +"按钮组
-        const buttonGroup = document.createElement('div');
-        buttonGroup.classList.add('flex', 'items-center', 'justify-between', 'w-full', 'mt-2', 'hidden');
-        buttonGroup.classList.add('add-to-deck-btn'); // 保留原有类名以便显示/隐藏控制
-
-        // 减少按钮
-        const minusButton = document.createElement('button');
-        minusButton.type = 'button';
-        minusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-red-600', 'text-sm', 'flex', 'items-center', 'justify-center', 'select-none');
-        minusButton.textContent = '-';
-        minusButton.addEventListener('click', (e) => {
+        // 按钮组事件
+        this.querySelector('[data-action="deck-remove"]').addEventListener('click', (e) => {
             e.stopPropagation();
-            if (window.deckBuilder) {
-                window.deckBuilder.removeCardFromCurrentDeck(this.data.cardNum);
-            }
+            window.deckBuilder?.removeCardFromCurrentDeck(this.data.cardNum);
         });
 
-        // 数量显示
-        const countDisplay = document.createElement('span');
-        countDisplay.classList.add('text-sm', 'text-black', 'dark:text-white', 'font-medium', 'select-none');
-        countDisplay.textContent = '0';
-
-        // 增加按钮
-        const plusButton = document.createElement('button');
-        plusButton.type = 'button';
-        plusButton.classList.add('w-10', 'h-6', 'bg-gray-500', 'text-white', 'rounded-lg', 'hover:bg-blue-600', 'text-sm', 'flex', 'items-center', 'justify-center', 'select-none');
-        plusButton.textContent = '+';
-        plusButton.addEventListener('click', (e) => {
+        this.querySelector('[data-action="deck-add"]').addEventListener('click', (e) => {
             e.stopPropagation();
             window.deckBuilder?.addCardToDeck(this.data.cardNum);
         });
 
-        // 组装按钮组
-        buttonGroup.appendChild(minusButton);
-        buttonGroup.appendChild(countDisplay);
-        buttonGroup.appendChild(plusButton);
-
-        // 添加按钮组到容器
-        cardContainer.appendChild(buttonGroup);
-
-        // 保存按钮组和数量显示的引用，以便后续更新
-        this.buttonGroup = buttonGroup;
-        this.countDisplay = countDisplay;
-        // 保存拥有的卡牌数量显示和按钮的引用
-        this.ownCountDisplay = ownCountDisplay;
-        this.addOwnButton = addOwnButton;
-        this.removeOwnButton = removeOwnButton;
-        
-        // 初始化拥有的卡牌数量显示
-        this.initOwnedCardCount();
-
-        // 将容器添加到组件
-        this.appendChild(cardContainer)
-        //shadow.appendChild(wrapper)
-
-        // 添加悬停事件来显示/隐藏按钮
-        cardContainer.addEventListener('mouseenter', () => {
+        // 5. 悬停事件（保持原有逻辑）
+        container.addEventListener('mouseenter', () => {
             const showOwnedCards = this.shouldShowOwnedCards();
+            this.addOwnButton.style.display = showOwnedCards ? 'flex' : 'none';
             if (showOwnedCards) {
-                addOwnButton.style.display = 'flex';
-                // 只有当数量大于0时才显示减少按钮
-                const ownedCards = this.getOwnedCardsFromStorage();
-                const count = ownedCards[this.data.cardNum] || 0;
-                if (count > 0) {
-                    removeOwnButton.style.display = 'flex';
-                }
+                const count = this.getOwnedCardsFromStorage()[this.data.cardNum] || 0;
+                this.removeOwnButton.style.display = count > 0 ? 'flex' : 'none';
             }
         });
 
-        cardContainer.addEventListener('mouseleave', () => {
-            addOwnButton.style.display = 'none';
-            removeOwnButton.style.display = 'none';
+        container.addEventListener('mouseleave', () => {
+            this.addOwnButton.style.display = 'none';
+            this.removeOwnButton.style.display = 'none';
         });
 
-        const overlaySelector = '#DCT-Overlays #' + popoverId
-        // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
+        // 6. 图片点击/悬停事件（保持原有逻辑）
         img.addEventListener('click', (e) => {
             e.stopPropagation();
             this.handleClick(img, popoverId);
         });
+
         img.addEventListener('mouseenter', () => {
             if (window.innerWidth < 1026 || !PopoverManager.shouldAllowHover()) return;
 
             this.hoverTimeout = setTimeout(() => {
                 if (!PopoverManager.isAnyPopoverOpen) {
-                this.handleHover(img, popoverId);
+                    this.handleHover(img, popoverId);
                 }
             }, 50);
         });
@@ -306,6 +282,7 @@ export class Card extends HTMLElement {
             }
         });
     }
+
     handleClick(img, popoverId) {
         // 如果已经有弹窗打开，先关闭它
         if (PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover !== this.popover) {
@@ -593,29 +570,29 @@ export class Card extends HTMLElement {
         // 检查是否启用显示拥有的卡牌数量
         const showOwnedCards = this.shouldShowOwnedCards();
         if (!showOwnedCards) return;
-        
+
         // 从localStorage获取当前拥有的卡牌数量
         let ownedCards = this.getOwnedCardsFromStorage();
-        
+
         // 获取当前卡牌的数量
         let currentCount = ownedCards[this.data.cardNum] || 0;
-        
+
         // 更新数量
         let newCount = currentCount + change;
-        
+
         // 确保数量不为负数
         if (newCount < 0) newCount = 0;
-        
+
         // 更新localStorage
         ownedCards[this.data.cardNum] = newCount;
         this.saveOwnedCardsToStorage(ownedCards);
-        
+
         // 更新显示
         if (this.ownCountDisplay) {
             this.ownCountDisplay.textContent = newCount.toString();
             this.ownCountDisplay.style.display = newCount > 0 ? 'flex' : 'none';
         }
-        
+
         // 更新减号按钮的显示状态
         if (this.removeOwnButton) {
             // 当数量大于0时显示减号按钮
@@ -665,10 +642,10 @@ export class Card extends HTMLElement {
         if (this.ownCountDisplay) {
             this.ownCountDisplay.style.display = 'none';
         }
-        
+
         const ownedCards = this.getOwnedCardsFromStorage();
         const count = ownedCards[this.data.cardNum] || 0;
-        
+
         if (this.ownCountDisplay && showOwnedCards) {
             this.ownCountDisplay.textContent = count.toString();
             this.ownCountDisplay.style.display = count > 0 ? 'flex' : 'none';
@@ -790,7 +767,7 @@ export class Card extends HTMLElement {
         const applyTransform = (clientX, clientY) => {
             requestAnimationFrame(() => {
                 if (!container.isConnected) return;
-                
+
                 const multiple = 15;
                 const box = img.getBoundingClientRect();
                 // container.style.transform = `rotateX(${((clientY - box.top - box.height / 2) / (box.height / 2) * 10).toFixed(2)}deg) 
@@ -871,7 +848,7 @@ export class Card extends HTMLElement {
 }
 
 // 全局方法：切换显示拥有的卡牌数量
-Card.toggleShowOwnedCards = function() {
+Card.toggleShowOwnedCards = function () {
     try {
         // 获取当前设置
         const settings = localStorage.getItem('cardSettings');
@@ -879,13 +856,13 @@ Card.toggleShowOwnedCards = function() {
         if (settings) {
             parsedSettings = JSON.parse(settings);
         }
-        
+
         // 切换设置
         parsedSettings.showOwnedCards = !parsedSettings.showOwnedCards;
-        
+
         // 保存设置
         localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
-        
+
         // 更新所有卡牌的显示
         const cards = document.querySelectorAll('dct-card');
         cards.forEach(card => {
@@ -893,7 +870,7 @@ Card.toggleShowOwnedCards = function() {
                 card.initOwnedCardCount();
             }
         });
-        
+
         return parsedSettings.showOwnedCards;
     } catch (e) {
         console.error('Error toggling show owned cards setting:', e);
