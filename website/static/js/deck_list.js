@@ -356,6 +356,10 @@ function showDeckDetail(deckId) {
             otherCards.push(cardData);
         }
     })
+    
+    partnerCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
+    caseCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
+    otherCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
 
     let roleCount = 0;      // 角色
     let eventCount = 0;     // 事件
