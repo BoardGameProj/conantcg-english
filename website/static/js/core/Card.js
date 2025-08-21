@@ -448,7 +448,7 @@ export class Card extends HTMLElement {
             <div class="flex items-start">
                 <div class="cardoverlay-image self-stretch">
                     <div class="card-img-effect-container rounded-xl" style="width: fit-content;">
-                        <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})" 
+                        <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})"
                             class="card-img rounded-xl" style="max-width: 300px;" loading="lazy" />
                         <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
                     </div>
@@ -461,11 +461,9 @@ export class Card extends HTMLElement {
                     <div class="px-2 py-2 text-lg lg:text-base">
                         ${content}
                     </div>
-                    </div>
                 </div>
             </div>
-            <div data-popper-arrow>
-            </div>
+            <div data-popper-arrow></div>
         </div>`;
 
         this.popover = new Popover(
