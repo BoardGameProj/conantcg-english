@@ -323,6 +323,12 @@ function showDeckDetail(deckId) {
     const deck = decks.find(d => d.deckid === deckId);
     if (!deck) return;
 
+    // 重置卡牌索引跟踪器
+    window.cardIndexTracker = {};
+    
+    // 设置当前显示的卡组信息，供createCardImageHtml函数使用
+    window.currentDeckForDisplay = deck;
+
     // 分类卡片
     const partnerCards = [];
     const caseCards = [];
@@ -803,11 +809,35 @@ function createCardImageHtml(card) {
         ? `https://img.915159.xyz/DCCG/${card.card_num}.png`
         : `https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg`;
 
+    // 初始化该卡牌的索引计数器
+    if (!window.cardIndexTracker[card.card_num]) {
+        window.cardIndexTracker[card.card_num] = 0;
+    }
+    
+    // 获取当前卡牌的索引
+    const currentIndex = window.cardIndexTracker[card.card_num];
+    window.cardIndexTracker[card.card_num]++;
+
+    // 获取拥有的卡牌数量
+    let ownedCount = 0;
+    try {
+        const ownedCards = JSON.parse(localStorage.getItem('ownedCards') || '{}');
+        ownedCount = ownedCards[card.card_num] || 0;
+    } catch (e) {
+        console.error('Error reading owned cards from localStorage:', e);
+    }
+
+    // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
+    const shouldMark = currentIndex >= ownedCount;
+    const insufficientTag = shouldMark ?
+        '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
+
     return `
-    <div class="group">
+    <div class="group relative">
+        ${insufficientTag}
         <div class="relative rounded-lg border border-gray-900 dark:border-gray-400 group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
             <div class="relative w-full">
-                <img src="${imageUrl}" 
+                <img src="${imageUrl}"
                      alt="${cardName}"
                      class="w-full h-auto rounded-lg select-none"
                      onerror="this.src='https://img.915159.xyz/DCCG/ja/${card.card_num}.ja.jpg'">
