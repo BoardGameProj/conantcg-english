@@ -160,7 +160,7 @@ export class Card extends HTMLElement {
         const popoverId = `card-${this.data.id}`
         img.src = this.data.image
         img.setAttribute('loading', 'lazy')
-        img.classList.add('cursor-pointer', 'border', 'rounded-lg', 'select-none', 'group-hover:scale-105')
+        img.classList.add('cursor-pointer', 'border', 'border-black', 'dark:border-white', 'rounded-lg', 'select-none', 'group-hover:scale-105')
         img.width = 160
         img.height = 222
         img.alt = `${this.data.title} (${this.data.cardNum})`
