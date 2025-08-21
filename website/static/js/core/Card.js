@@ -775,8 +775,8 @@ export class Card extends HTMLElement {
                 const box = img.getBoundingClientRect();
                 // container.style.transform = `rotateX(${((clientY - box.top - box.height / 2) / (box.height / 2) * 10).toFixed(2)}deg) 
                 //            rotateY(${-((clientX - box.left - box.width / 2) / (box.width / 2) * 10).toFixed(2)}deg)`;
-                const calcX = -(clientY - box.y - box.height / 2) / multiple;
-                const calcY = (clientX - box.x - box.width / 2) / multiple;
+                const calcX = box && !isNaN(clientY) ? -(clientY - box.y - box.height / 2) / multiple : 0;
+                const calcY = box && !isNaN(clientX) ? (clientX - box.x - box.width / 2) / multiple : 0;
 
                 container.style.transform = "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
 
