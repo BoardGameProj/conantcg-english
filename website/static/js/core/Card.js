@@ -262,9 +262,19 @@ export class Card extends HTMLElement {
         });
 
         img.addEventListener('mouseenter', () => {
+            // 如果已经有固定弹窗打开，不触发悬停
+            if (PopoverManager.isAnyPopoverOpen) return;
+            
             if (window.innerWidth < 1026 || !PopoverManager.shouldAllowHover()) return;
 
+            // 清除之前的定时器，防止累积
+            if (this.hoverTimeout) {
+                clearTimeout(this.hoverTimeout);
+                this.hoverTimeout = null;
+            }
+
             this.hoverTimeout = setTimeout(() => {
+                // 再次检查是否已经有弹窗打开
                 if (!PopoverManager.isAnyPopoverOpen) {
                     this.handleHover(img, popoverId);
                 }
@@ -297,23 +307,46 @@ export class Card extends HTMLElement {
         this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
         this.popover._initialized = false;
         this.popover.init();
-        this.popover.show();
-
-        PopoverManager.setPopoverOpen(this.popover);
+        
+        // 使用 requestAnimationFrame 确保在下一帧显示 popover，以确保位置计算正确
+        requestAnimationFrame(() => {
+            // 再次检查是否已经有弹窗打开，确保只显示一个
+            if (PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover !== this.popover) {
+                PopoverManager.openPopover.hide();
+            }
+            this.popover.show();
+            PopoverManager.setPopoverOpen(this.popover);
+        });
     }
 
     handleHover(img, popoverId) {
+        // 如果已经有固定弹窗打开，不显示悬停弹窗
+        if (PopoverManager.isAnyPopoverOpen) {
+            return;
+        }
+        
         this.prepareOverlays(img);
         window.dispatchEvent(new Event('resize'));
         this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
         this.popover._initialized = false;
         this.popover.init();
-        this.popover.show();
+        
+        // 使用 requestAnimationFrame 确保在下一帧显示 popover，以确保位置计算正确
+        requestAnimationFrame(() => {
+            // 再次检查是否已经有弹窗打开
+            if (PopoverManager.isAnyPopoverOpen) {
+                return;
+            }
+            this.popover.show();
+        });
     }
     prepareOverlays(img) {
+        // 如果已经有弹窗实例，直接返回
         if (this.popover) {
             return
         }
+        
+        // 确保 DCT-Overlays 容器存在
         if (!document.getElementById('DCT-Overlays')) {
             const container = document.createElement('div')
             container.id = 'DCT-Overlays'
@@ -484,6 +517,12 @@ export class Card extends HTMLElement {
                         existingTooltip.remove();
                     }
                     PopoverManager.setPopoverClosed();
+                    
+                    // 清除可能存在的悬停定时器
+                    if (this.hoverTimeout) {
+                        clearTimeout(this.hoverTimeout);
+                        this.hoverTimeout = null;
+                    }
                 }
             }
         );
@@ -492,10 +531,16 @@ export class Card extends HTMLElement {
         this.initRarityEffect();
 
         document.addEventListener('click', (e) => {
+            // 确保只在点击非 popover 区域时关闭 popover
             if (PopoverManager.isAnyPopoverOpen &&
                 !e.target.closest('[data-popover]') &&
                 !e.target.closest('.dct-card-shown')) {
                 PopoverManager.openPopover.hide();
+            }
+            
+            // 额外的安全检查：确保 PopoverManager 状态正确
+            if (!PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover) {
+                PopoverManager.setPopoverClosed();
             }
         });
     }
