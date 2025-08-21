@@ -836,7 +836,7 @@ export class DeckBuilder {
 
             // 移除交互元素
             const interactiveElements = clone.querySelectorAll(
-                'button, input, textarea, select, .interactive, [onclick], [onhover], .card-identify'
+                'button, input, textarea, select, .interactive, [onclick], [onhover], .card-identify, .shadow-lg'
             );
             interactiveElements.forEach(el => el.remove());
 

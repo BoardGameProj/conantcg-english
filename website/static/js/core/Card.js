@@ -281,6 +281,9 @@ export class Card extends HTMLElement {
                 this.popover.hide();
             }
         });
+
+        // 初始化拥有的卡牌数量显示
+        this.initOwnedCardCount();
     }
 
     handleClick(img, popoverId) {
