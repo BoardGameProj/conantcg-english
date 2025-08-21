@@ -167,10 +167,43 @@ export class Card extends HTMLElement {
 
         // 创建卡片容器
         const cardContainer = document.createElement('div')
-        cardContainer.classList.add('card-container', 'group')
+        cardContainer.classList.add('card-container', 'group', 'relative') // 添加relative类以支持绝对定位
+
+        // 创建拥有的卡牌数量显示元素
+        const ownCountDisplay = document.createElement('div');
+        ownCountDisplay.classList.add('absolute', 'top-1', 'right-1', 'bg-black', 'bg-opacity-70', 'text-white', 'rounded-lg', 'w-9', 'h-9', 'flex', 'items-center', 'justify-center', 'text-sm', 'font-bold', 'z-8', 'border');
+        ownCountDisplay.textContent = '0';
+        ownCountDisplay.style.display = 'none'; // 默认隐藏
+
+        // 创建增加拥有的卡牌数量按钮
+        const addOwnButton = document.createElement('button');
+        addOwnButton.type = 'button';
+        addOwnButton.classList.add('absolute', 'bottom-6', 'right-5', 'w-9', 'h-6', 'bg-green-500', 'text-white', 'rounded-lg', 'flex', 'items-center', 'justify-center', 'select-none', 'z-8');
+        addOwnButton.textContent = '+';
+        addOwnButton.style.display = 'none'; // 默认隐藏
+        addOwnButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.updateOwnedCardCount(1);
+        });
+
+        // 创建减少拥有的卡牌数量按钮
+        const removeOwnButton = document.createElement('button');
+        removeOwnButton.type = 'button';
+        removeOwnButton.classList.add('absolute', 'bottom-6', 'left-5', 'w-9', 'h-6', 'bg-red-500', 'text-white', 'rounded-lg', 'flex', 'items-center', 'justify-center', 'select-none', 'z-8');
+        removeOwnButton.textContent = '-';
+        removeOwnButton.style.display = 'none'; // 默认隐藏
+        removeOwnButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.updateOwnedCardCount(-1);
+        });
 
         // 添加图片到容器
         cardContainer.appendChild(img)
+
+        // 将拥有的卡牌数量显示和按钮添加到卡片容器中
+        cardContainer.appendChild(ownCountDisplay);
+        cardContainer.appendChild(addOwnButton);
+        cardContainer.appendChild(removeOwnButton);
 
         // 创建"- 0 +"按钮组
         const buttonGroup = document.createElement('div');
@@ -215,10 +248,36 @@ export class Card extends HTMLElement {
         // 保存按钮组和数量显示的引用，以便后续更新
         this.buttonGroup = buttonGroup;
         this.countDisplay = countDisplay;
+        // 保存拥有的卡牌数量显示和按钮的引用
+        this.ownCountDisplay = ownCountDisplay;
+        this.addOwnButton = addOwnButton;
+        this.removeOwnButton = removeOwnButton;
+        
+        // 初始化拥有的卡牌数量显示
+        this.initOwnedCardCount();
 
         // 将容器添加到组件
         this.appendChild(cardContainer)
         //shadow.appendChild(wrapper)
+
+        // 添加悬停事件来显示/隐藏按钮
+        cardContainer.addEventListener('mouseenter', () => {
+            const showOwnedCards = this.shouldShowOwnedCards();
+            if (showOwnedCards) {
+                addOwnButton.style.display = 'flex';
+                // 只有当数量大于0时才显示减少按钮
+                const ownedCards = this.getOwnedCardsFromStorage();
+                const count = ownedCards[this.data.cardNum] || 0;
+                if (count > 0) {
+                    removeOwnButton.style.display = 'flex';
+                }
+            }
+        });
+
+        cardContainer.addEventListener('mouseleave', () => {
+            addOwnButton.style.display = 'none';
+            removeOwnButton.style.display = 'none';
+        });
 
         const overlaySelector = '#DCT-Overlays #' + popoverId
         // bind click ourselves so we can close it with a button. otherwise _hideHandler messes up
@@ -231,7 +290,7 @@ export class Card extends HTMLElement {
 
             this.hoverTimeout = setTimeout(() => {
                 if (!PopoverManager.isAnyPopoverOpen) {
-                    this.handleHover(img, popoverId);
+                this.handleHover(img, popoverId);
                 }
             }, 50);
         });
@@ -529,6 +588,93 @@ export class Card extends HTMLElement {
         }
     }
 
+    // 更新拥有的卡牌数量
+    updateOwnedCardCount(change) {
+        // 检查是否启用显示拥有的卡牌数量
+        const showOwnedCards = this.shouldShowOwnedCards();
+        if (!showOwnedCards) return;
+        
+        // 从localStorage获取当前拥有的卡牌数量
+        let ownedCards = this.getOwnedCardsFromStorage();
+        
+        // 获取当前卡牌的数量
+        let currentCount = ownedCards[this.data.cardNum] || 0;
+        
+        // 更新数量
+        let newCount = currentCount + change;
+        
+        // 确保数量不为负数
+        if (newCount < 0) newCount = 0;
+        
+        // 更新localStorage
+        ownedCards[this.data.cardNum] = newCount;
+        this.saveOwnedCardsToStorage(ownedCards);
+        
+        // 更新显示
+        if (this.ownCountDisplay) {
+            this.ownCountDisplay.textContent = newCount.toString();
+            this.ownCountDisplay.style.display = newCount > 0 ? 'flex' : 'none';
+        }
+        
+        // 更新减号按钮的显示状态
+        if (this.removeOwnButton) {
+            // 当数量大于0时显示减号按钮
+            this.removeOwnButton.style.display = newCount > 0 ? 'flex' : 'none';
+        }
+    }
+
+    // 从localStorage获取拥有的卡牌数据
+    getOwnedCardsFromStorage() {
+        try {
+            const stored = localStorage.getItem('ownedCards');
+            return stored ? JSON.parse(stored) : {};
+        } catch (e) {
+            console.error('Error reading owned cards from localStorage:', e);
+            return {};
+        }
+    }
+
+    // 将拥有的卡牌数据保存到localStorage
+    saveOwnedCardsToStorage(ownedCards) {
+        try {
+            localStorage.setItem('ownedCards', JSON.stringify(ownedCards));
+        } catch (e) {
+            console.error('Error saving owned cards to localStorage:', e);
+        }
+    }
+
+    // 检查是否应该显示拥有的卡牌数量
+    shouldShowOwnedCards() {
+        // 从localStorage获取设置
+        try {
+            const settings = localStorage.getItem('cardSettings');
+            if (settings) {
+                const parsedSettings = JSON.parse(settings);
+                return parsedSettings.showOwnedCards !== false; // 默认为true
+            }
+        } catch (e) {
+            console.error('Error reading card settings from localStorage:', e);
+        }
+        return true; // 默认显示
+    }
+
+    // 初始化拥有的卡牌数量显示
+    initOwnedCardCount() {
+        // 检查是否启用显示拥有的卡牌数量
+        const showOwnedCards = this.shouldShowOwnedCards();
+        if (this.ownCountDisplay) {
+            this.ownCountDisplay.style.display = 'none';
+        }
+        
+        const ownedCards = this.getOwnedCardsFromStorage();
+        const count = ownedCards[this.data.cardNum] || 0;
+        
+        if (this.ownCountDisplay && showOwnedCards) {
+            this.ownCountDisplay.textContent = count.toString();
+            this.ownCountDisplay.style.display = count > 0 ? 'flex' : 'none';
+        }
+    }
+
     initVersionHover() {
         const popoverId = `card-${this.data.id}`
         const overlay = document.querySelector(`#DCT-Overlays #${popoverId}`)
@@ -723,6 +869,37 @@ export class Card extends HTMLElement {
         effect.style.display = 'none';
     }
 }
+
+// 全局方法：切换显示拥有的卡牌数量
+Card.toggleShowOwnedCards = function() {
+    try {
+        // 获取当前设置
+        const settings = localStorage.getItem('cardSettings');
+        let parsedSettings = {};
+        if (settings) {
+            parsedSettings = JSON.parse(settings);
+        }
+        
+        // 切换设置
+        parsedSettings.showOwnedCards = !parsedSettings.showOwnedCards;
+        
+        // 保存设置
+        localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
+        
+        // 更新所有卡牌的显示
+        const cards = document.querySelectorAll('dct-card');
+        cards.forEach(card => {
+            if (card.initOwnedCardCount) {
+                card.initOwnedCardCount();
+            }
+        });
+        
+        return parsedSettings.showOwnedCards;
+    } catch (e) {
+        console.error('Error toggling show owned cards setting:', e);
+        return false;
+    }
+};
 
 // 全局注册
 customElements.define('dct-card', Card);
