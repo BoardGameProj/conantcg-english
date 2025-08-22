@@ -160,36 +160,38 @@ export class Card extends HTMLElement {
         const cardHtml = `
             <div class="card-container group relative">
                 <!-- 卡片图片 -->
-                <img 
-                    src="${this.data.image}" 
-                    loading="lazy" 
-                    class="cursor-pointer border border-black dark:border-white rounded-lg select-none group-hover:scale-105" 
-                    width="160" 
-                    height="222" 
-                    alt="${this.data.title} (${this.data.cardNum})"
-                    data-popover-id="${popoverId}"
-                >
-                
-                <!-- 拥有的卡牌计数器（默认隐藏） -->
-                <div class="absolute top-1 right-1 bg-black bg-opacity-90 text-white rounded-lg w-9 h-9 flex items-center justify-center text-sm font-bold z-8 border" 
-                    style="display: none">
-                    0
+                <div class="flex relative">
+                    <img 
+                        src="${this.data.image}" 
+                        loading="lazy" 
+                        class="cursor-pointer border border-black dark:border-white rounded-lg select-none group-hover:scale-105" 
+                        width="160" 
+                        height="222" 
+                        alt="${this.data.title} (${this.data.cardNum})"
+                        data-popover-id="${popoverId}"
+                    >
+                    <!-- 拥有的卡牌计数器（默认隐藏） -->
+                    <div class="absolute top-1 right-1 bg-black bg-opacity-90 text-white rounded-lg w-9 h-9 flex items-center justify-center text-sm font-bold z-8 border" 
+                        style="display: none">
+                        0
+                    </div>
+                    
+                    <!-- 独立定位的减号按钮（默认隐藏）-->
+                    <button type="button" 
+                            class="absolute bottom-1 left-1 border opacity-70 w-9 h-9 bg-red-500 text-white rounded-lg flex items-center justify-center select-none hover:opacity-100" 
+                            style="display: none"
+                            data-action="remove">
+                        -
+                    </button>
+                    
+                    <!-- 独立定位的加号按钮（默认隐藏）-->
+                    <button type="button" 
+                            class="absolute bottom-1 right-1 border opacity-70 w-9 h-9 bg-green-500 text-white rounded-lg flex items-center justify-center select-none hover:opacity-100" 
+                            style="display: none"
+                            data-action="add">
+                        +
+                    </button>
                 </div>
-                
-                <!-- 增加/减少按钮（默认隐藏） -->
-                <button type="button" 
-                        class="absolute border top-1/2 opacity-70 right-5 w-9 h-9 bg-green-500 text-white rounded-lg flex items-center justify-center select-none z-8" 
-                        style="display: none"
-                        data-action="add">
-                    +
-                </button>
-                
-                <button type="button" 
-                        class="absolute border opacity-70 top-1/2 left-5 w-9 h-9 bg-red-500 text-white rounded-lg flex items-center justify-center select-none z-8" 
-                        style="display: none"
-                        data-action="remove">
-                    -
-                </button>
                 
                 <!-- 卡组管理按钮组（默认隐藏） -->
                 <div class="flex items-center justify-between w-full mt-2 hidden add-to-deck-btn">
