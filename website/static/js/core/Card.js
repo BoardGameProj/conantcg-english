@@ -264,7 +264,7 @@ export class Card extends HTMLElement {
         img.addEventListener('mouseenter', () => {
             // 如果已经有固定弹窗打开，不触发悬停
             if (PopoverManager.isAnyPopoverOpen) return;
-            
+
             if (window.innerWidth < 1026 || !PopoverManager.shouldAllowHover()) return;
 
             // 清除之前的定时器，防止累积
@@ -282,6 +282,11 @@ export class Card extends HTMLElement {
         });
 
         img.addEventListener('mouseleave', () => {
+            if (this._pendingAnimationFrame) {
+                cancelAnimationFrame(this._pendingAnimationFrame);
+                this._pendingAnimationFrame = null;
+            }
+
             if (this.hoverTimeout) {
                 clearTimeout(this.hoverTimeout);
                 this.hoverTimeout = null;
@@ -307,10 +312,8 @@ export class Card extends HTMLElement {
         this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
         this.popover._initialized = false;
         this.popover.init();
-        
-        // 使用 requestAnimationFrame 确保在下一帧显示 popover，以确保位置计算正确
+
         requestAnimationFrame(() => {
-            // 再次检查是否已经有弹窗打开，确保只显示一个
             if (PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover !== this.popover) {
                 PopoverManager.openPopover.hide();
             }
@@ -320,33 +323,33 @@ export class Card extends HTMLElement {
     }
 
     handleHover(img, popoverId) {
-        // 如果已经有固定弹窗打开，不显示悬停弹窗
         if (PopoverManager.isAnyPopoverOpen) {
             return;
         }
-        
+
+        cancelAnimationFrame(this._pendingAnimationFrame);
+
         this.prepareOverlays(img);
         window.dispatchEvent(new Event('resize'));
         this.popover._targetEl = document.querySelector('#DCT-Overlays #' + popoverId);
         this.popover._initialized = false;
         this.popover.init();
-        
-        // 使用 requestAnimationFrame 确保在下一帧显示 popover，以确保位置计算正确
-        requestAnimationFrame(() => {
-            // 再次检查是否已经有弹窗打开
+
+        this._pendingAnimationFrame = requestAnimationFrame(() => {
             if (PopoverManager.isAnyPopoverOpen) {
                 return;
             }
-            this.popover.show();
+            if (img.matches(':hover')) {
+                this.popover.show();
+            }
         });
     }
+
     prepareOverlays(img) {
-        // 如果已经有弹窗实例，直接返回
         if (this.popover) {
             return
         }
-        
-        // 确保 DCT-Overlays 容器存在
+
         if (!document.getElementById('DCT-Overlays')) {
             const container = document.createElement('div')
             container.id = 'DCT-Overlays'
@@ -410,7 +413,6 @@ export class Card extends HTMLElement {
         for (const key of fields) {
             let value = this.data[key]
             if (Array.isArray(value)) {
-                // Array values: keep words on one line, and join with comma
                 value = value.map(v => v.replaceAll(' ', '&nbsp;')).join(', ')
             }
             if (key === 'cardText') {
@@ -462,7 +464,6 @@ export class Card extends HTMLElement {
                         </span>`;
                 }).join('');
 
-                // 其余部分保持不变
                 content += `<div class="flex justify-between lg:py-0">
                 <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
@@ -517,8 +518,7 @@ export class Card extends HTMLElement {
                         existingTooltip.remove();
                     }
                     PopoverManager.setPopoverClosed();
-                    
-                    // 清除可能存在的悬停定时器
+
                     if (this.hoverTimeout) {
                         clearTimeout(this.hoverTimeout);
                         this.hoverTimeout = null;
@@ -531,51 +531,42 @@ export class Card extends HTMLElement {
         this.initRarityEffect();
 
         document.addEventListener('click', (e) => {
-            // 确保只在点击非 popover 区域时关闭 popover
             if (PopoverManager.isAnyPopoverOpen &&
                 !e.target.closest('[data-popover]') &&
                 !e.target.closest('.dct-card-shown')) {
                 PopoverManager.openPopover.hide();
             }
-            
-            // 额外的安全检查：确保 PopoverManager 状态正确
+
             if (!PopoverManager.isAnyPopoverOpen && PopoverManager.openPopover) {
                 PopoverManager.setPopoverClosed();
             }
         });
     }
 
-    // 更新卡组中的卡牌数量显示
     updateDeckCount() {
         if (!this.buttonGroup || !this.countDisplay) return;
 
-        // 默认数量为 0
         let count = 0;
         let sameCardIdCount = 0;
         let hasPartnerOrCase = false;
 
         if (window.deckBuilder?.addedCards) {
-            // 统计所有 cardNum 匹配的卡牌总数
             count = window.deckBuilder.addedCards
                 .filter(card => card.cardNum === this.data.cardNum)
-                .reduce((sum, card) => sum + (card.count || 1), 0); // 如果 card.count 不存在，默认按 1 计算
+                .reduce((sum, card) => sum + (card.count || 1), 0);
 
-            // 统计相同 card-id 的卡牌数量
             sameCardIdCount = window.deckBuilder.addedCards
                 .filter(card => card.id === this.data.cardId)
                 .reduce((sum, card) => sum + (card.count || 1), 0);
 
-            // 检查是否已有搭档或案件卡牌
             hasPartnerOrCase = window.deckBuilder.addedCards.some(card =>
                 (card.cardType === "搭档" && this.data.type === "搭档") ||
                 (card.cardType === "案件" && this.data.type === "案件")
             );
         }
 
-        // 更新数量显示
         this.countDisplay.textContent = count.toString();
 
-        // 获取按钮组中的加减按钮
         const minusButton = this.buttonGroup.children[0];
         const countBUtton = this.buttonGroup.children[1];
         const plusButton = this.buttonGroup.children[2];
@@ -613,35 +604,22 @@ export class Card extends HTMLElement {
 
     // 更新拥有的卡牌数量
     updateOwnedCardCount(change) {
-        // 检查是否启用显示拥有的卡牌数量
         const showOwnedCards = this.shouldShowOwnedCards();
         if (!showOwnedCards) return;
 
-        // 从localStorage获取当前拥有的卡牌数量
         let ownedCards = this.getOwnedCardsFromStorage();
-
-        // 获取当前卡牌的数量
         let currentCount = ownedCards[this.data.cardNum] || 0;
-
-        // 更新数量
         let newCount = currentCount + change;
-
-        // 确保数量不为负数
         if (newCount < 0) newCount = 0;
-
         // 更新localStorage
         ownedCards[this.data.cardNum] = newCount;
         this.saveOwnedCardsToStorage(ownedCards);
-
         // 更新显示
         if (this.ownCountDisplay) {
             this.ownCountDisplay.textContent = newCount.toString();
             this.ownCountDisplay.style.display = newCount > 0 ? 'flex' : 'none';
         }
-
-        // 更新减号按钮的显示状态
         if (this.removeOwnButton) {
-            // 当数量大于0时显示减号按钮
             this.removeOwnButton.style.display = newCount > 0 ? 'flex' : 'none';
         }
     }
@@ -898,17 +876,13 @@ export class Card extends HTMLElement {
 // 全局方法：切换显示拥有的卡牌数量
 Card.toggleShowOwnedCards = function () {
     try {
-        // 获取当前设置
         const settings = localStorage.getItem('cardSettings');
         let parsedSettings = {};
         if (settings) {
             parsedSettings = JSON.parse(settings);
         }
 
-        // 切换设置
         parsedSettings.showOwnedCards = !parsedSettings.showOwnedCards;
-
-        // 保存设置
         localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
 
         // 更新所有卡牌的显示
