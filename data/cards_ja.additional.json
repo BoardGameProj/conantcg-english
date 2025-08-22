@@ -16,30 +16,6 @@
             "緑"
         ]
     },
-    "PR153": {
-        "id": 9000,
-        "card_id": "0227",
-        "title": "羽田秀𠮷",
-        "card_num": "PR153",
-        "package": "PRカード",
-        "color": [
-            "赤"
-        ],
-        "type": "キャラ",
-        "rarity": "PR",
-        "cost": "2",
-        "ap": "1000",
-        "lp": "1",
-        "illustrator": "ZUKU",
-        "copyright": "©青山剛昌／小学館  ©TOMY",
-        "cut_in": "【カットイン】AP＋2000（コンタクト中に手札からリムーブして使う）",
-        "rcp_showhide": 1,
-        "rcp_limit": 3,
-        "categories": [
-            "棋士",
-            "赤井家"
-        ]
-    },
     "PR176": {
         "id": 9001,
         "card_id": "0204",
