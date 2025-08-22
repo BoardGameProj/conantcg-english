@@ -432,7 +432,7 @@ export class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap" >${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
+                        <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
                         <button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">🔍</button>
                     </div>
                 </div>`;
@@ -441,7 +441,7 @@ export class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this, event)">${value}</span>
+                        <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
                         <button class="search-form-btn" data-target-key="card-num" data-value="${value}">🔍</button>
                     </div>
                 </div>`;
@@ -491,13 +491,13 @@ export class Card extends HTMLElement {
                 <div class="cardoverlay-image self-stretch">
                     <div class="card-img-effect-container rounded-xl" style="width: fit-content; transform: rotateX(0) rotateY(0) !important;">
                         <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})"
-                            class="card-img rounded-xl" style="max-width: 300px;" loading="lazy" />
+                            class="card-img rounded-xl select-none" style="max-width: 300px;" loading="lazy" />
                         <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
                     </div>
                 </div>
                 <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
                     <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                        <h3 class="font-semibold text-gray-900 dark:text-white">${this.data.title}<small class="dark:text-gray-300 card_font">&nbsp;${this.data.originalTitle}</small></h3>
+                        <h3 class="font-semibold text-gray-900 dark:text-white"><span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.title}</span>&nbsp;<small class="copyable dark:text-gray-300 card_font" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.originalTitle}</small></h3>
                         <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
                     </div>
                     <div class="px-2 py-2 text-lg lg:text-base">

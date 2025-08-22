@@ -201,6 +201,7 @@
 
 .card_details--cardText {
     text-align: left;
+    font-size: small;
     line-height: 2;
 }
 
@@ -429,9 +430,6 @@ dct-card img {
     /* 不可见但占空间 */
 }
 
-.select-none {
-    user-select: none;
-}
 
 .border-r {
     border-right-width: 1px;
@@ -602,5 +600,5 @@ dct-card img {
 }
 
 .pointer-events-none {
-  pointer-events: none !important;
+    pointer-events: none !important;
 }

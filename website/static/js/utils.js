@@ -35,7 +35,7 @@ export function copyToClipboard(element, event) {
 
     // 更新UI反馈
     element.textContent = '已复制!';
-    element.className = originalClasses + ' text-green-500'; // 添加成功样式
+    element.className = originalClasses + ' text-green-500 dark:text-green-500 select-none'; // 添加成功样式
 
     // 使用Clipboard API
     navigator.clipboard.writeText(textToCopy)
@@ -195,11 +195,11 @@ export function showConfirm(message, {
         const overlay = document.createElement('div');
         overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
         overlay.style.backdropFilter = 'blur(2px)';
-        
+
         // 创建对话框容器
         const dialog = document.createElement('div');
         dialog.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full transform transition-all duration-300 opacity-0 translate-y-4';
-        
+
         // 图标配置
         const icons = {
             info: `<svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
@@ -207,9 +207,9 @@ export function showConfirm(message, {
             warning: `<svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`,
             error: `<svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`
         };
-        
+
         const dialogIcon = icon || icons[type];
-        
+
         // 对话框内容
         dialog.innerHTML = `
             <div class="p-6">
@@ -236,41 +236,41 @@ export function showConfirm(message, {
                 </div>
             </div>
         `;
-        
+
         overlay.appendChild(dialog);
         document.body.appendChild(overlay);
         document.body.style.overflow = 'hidden'; // 禁止背景滚动
-        
+
         // 添加动画
         setTimeout(() => {
             dialog.style.opacity = '1';
             dialog.style.transform = 'translateY(0)';
         }, 10);
-        
+
         // 确认按钮事件
         const confirmBtn = dialog.querySelector('.confirm-btn');
         confirmBtn.addEventListener('click', () => {
             closeDialog(true);
         });
-        
+
         // 取消按钮事件
         const cancelBtn = dialog.querySelector('.cancel-btn');
         cancelBtn.addEventListener('click', () => {
             closeDialog(false);
         });
-        
+
         // 点击遮罩层关闭（可选项）
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 closeDialog(false);
             }
         });
-        
+
         // 关闭对话框函数
         function closeDialog(result) {
             dialog.style.opacity = '0';
             dialog.style.transform = 'translateY(4px)';
-            
+
             setTimeout(() => {
                 document.body.removeChild(overlay);
                 document.body.style.overflow = '';
