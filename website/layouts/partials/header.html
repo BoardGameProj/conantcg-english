@@ -85,7 +85,10 @@
     <nav class="flex items-center justify-between flex-wrap p-4">
         <div class="flex items-center flex-shrink-0 text-2xl mx-6-md">
           {{ if .Site.Params.logo }}
-            <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logo }}" class="w-24 h-auto" /></a>
+            <a href="{{ .Site.BaseURL }}">
+              <img src="{{ .Site.Params.logo }}" class="w-44 h-auto dark:hidden" />
+              <img src="{{ .Site.Params.dark_logo }}" class="hidden w-44 h-auto dark:block" />
+            </a>
           {{ else }}
             <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
           {{ end }}

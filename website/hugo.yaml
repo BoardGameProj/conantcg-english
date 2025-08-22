@@ -20,7 +20,8 @@ hasCJKLanguage: true
 #   logo = ""
 
 params:
-  logo: "img/cmn_logo_sp@2x.png"
+  logo: "img/cmn_logo@2x.png"
+  dark_logo: "img/cmn_logo_sp_white@2x.png"
   paginator_pages: 7
   homepage_meta_tags:
     meta_description: "Unofficial English website for the Conan TCG"
