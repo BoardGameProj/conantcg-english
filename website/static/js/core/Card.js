@@ -486,6 +486,7 @@ export class Card extends HTMLElement {
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
                     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white">
+            <div data-popper-arrow></div>
             <div class="flex items-start">
                 <div class="cardoverlay-image self-stretch">
                     <div class="card-img-effect-container rounded-xl" style="width: fit-content; transform: rotateX(0) rotateY(0) !important;">
@@ -504,7 +505,6 @@ export class Card extends HTMLElement {
                     </div>
                 </div>
             </div>
-            <div data-popper-arrow></div>
         </div>`;
 
         this.popover = new Popover(
