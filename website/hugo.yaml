@@ -1,5 +1,5 @@
 baseURL: "https://conan-tcg.915159.xyz"
-title: "名侦探柯南集换式卡牌"
+title: "DCCG"
 author: "saitho"
 languageCode: "en"
 DefaultContentLanguage: "en"
@@ -8,7 +8,7 @@ theme: "vnovel"
 enableRobotsTXT: true
 
 # Please enable this feature if the site is available in Japanese, Chinese or Korean.
-#hasCJKLanguage = true
+hasCJKLanguage: true
 
 # If you're using Google Analytics, you can enable this feature.
 #googleAnalytics = "G-1234567890"
@@ -17,10 +17,11 @@ enableRobotsTXT: true
 #disqusShortname = ""
 
 # Site logo.
-  #logo = ""
+#   logo = ""
 
 params:
-  paginator_pages: 6
+  logo: "img/cmn_logo_sp@2x.png"
+  paginator_pages: 7
   homepage_meta_tags:
     meta_description: "Unofficial English website for the Conan TCG"
     meta_og_title: "Conan-TCG"
