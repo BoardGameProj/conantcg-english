@@ -358,6 +358,11 @@ export class Card extends HTMLElement {
         const container = document.getElementById('DCT-Overlays')
         const popoverId = `card-${this.data.id}`
 
+        const existingOverlay = document.querySelector(`#DCT-Overlays #card-${this.data.id}`);
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+
         const labels = {
             cardId: 'ID',
             cardNum: '编号',
@@ -481,7 +486,7 @@ export class Card extends HTMLElement {
                     class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white">
             <div class="flex items-start">
                 <div class="cardoverlay-image self-stretch">
-                    <div class="card-img-effect-container rounded-xl" style="width: fit-content;">
+                    <div class="card-img-effect-container rounded-xl" style="width: fit-content; transform: rotateX(0) rotateY(0) !important;">
                         <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})"
                             class="card-img rounded-xl" style="max-width: 300px;" loading="lazy" />
                         <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
@@ -796,10 +801,8 @@ export class Card extends HTMLElement {
                 const box = img.getBoundingClientRect();
                 // container.style.transform = `rotateX(${((clientY - box.top - box.height / 2) / (box.height / 2) * 10).toFixed(2)}deg) 
                 //            rotateY(${-((clientX - box.left - box.width / 2) / (box.width / 2) * 10).toFixed(2)}deg)`;
-                let calcX = 0;
-                let calcY = 0;
-                calcX = box && !isNaN(clientY) ? -(clientY - box.y - box.height / 2) / multiple : 0;
-                calcY = box && !isNaN(clientX) ? (clientX - box.x - box.width / 2) / multiple : 0;
+                const calcX = box && !isNaN(clientY) ? -(clientY - box.y - box.height / 2) / multiple : 0;
+                const calcY = box && !isNaN(clientX) ? (clientX - box.x - box.width / 2) / multiple : 0;
 
                 container.style.transform = "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
 
@@ -868,6 +871,7 @@ export class Card extends HTMLElement {
         }
 
         // 初始化状态
+        container.style.transform = 'rotateX(0) rotateY(0)';
         effect.style.opacity = '0';
         effect.style.display = 'none';
     }
