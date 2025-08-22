@@ -22,7 +22,7 @@ export class DeckBuilder {
             }
         });
     }
-    
+
     initRouterChangeListener() {
         // 监听Vue router变化
         if (window.vueRouter) {
@@ -36,7 +36,7 @@ export class DeckBuilder {
                 next();
             });
         }
-        
+
         // 监听history API变化
         window.addEventListener('popstate', () => {
             if (this.editing && this.addedCards.length > 0) {
@@ -467,7 +467,7 @@ export class DeckBuilder {
             }
             const cardIndex = cardIndexCounter[partnerCard.cardNum];
             cardIndexCounter[partnerCard.cardNum]++;
-            partnerCard = {...partnerCard, index: cardIndex};
+            partnerCard = { ...partnerCard, index: cardIndex };
         }
 
         if (caseCard) {
@@ -477,7 +477,7 @@ export class DeckBuilder {
             }
             const cardIndex = cardIndexCounter[caseCard.cardNum];
             cardIndexCounter[caseCard.cardNum]++;
-            caseCard = {...caseCard, index: cardIndex};
+            caseCard = { ...caseCard, index: cardIndex };
         }
 
         // 渲染搭档卡牌（最多1张）
@@ -513,9 +513,9 @@ export class DeckBuilder {
             }
             const cardIndex = cardIndexCounter[card.cardNum];
             cardIndexCounter[card.cardNum]++;
-            
+
             // 传递索引信息给renderCardItem
-            cardsHtml += this.renderCardItem({...card, index: cardIndex});
+            cardsHtml += this.renderCardItem({ ...card, index: cardIndex });
         }
 
         // 添加空位填满40个格子
@@ -541,9 +541,9 @@ export class DeckBuilder {
                 }
                 const cardIndex = cardIndexCounter[card.cardNum];
                 cardIndexCounter[card.cardNum]++;
-                
+
                 // 传递索引信息给renderCardItem
-                cardsHtml += this.renderCardItem({...card, index: cardIndex}, true); // 传递true表示超出限制
+                cardsHtml += this.renderCardItem({ ...card, index: cardIndex }, true); // 传递true表示超出限制
             }
 
             cardsHtml += `</div></div>`;
@@ -600,74 +600,74 @@ export class DeckBuilder {
     }
 
     renderCardItem(card, overLimit = false) {
-       const borderColor = overLimit
-           ? 'border-red-600 dark:border-red-600'
-           : 'border-gray-900 dark:border-gray-400';
+        const borderColor = overLimit
+            ? 'border-red-600 dark:border-red-600'
+            : 'border-gray-900 dark:border-gray-400';
 
-       // 检查是否应该显示添加按钮
-       let shouldShowAddButton = true;
+        // 检查是否应该显示添加按钮
+        let shouldShowAddButton = true;
 
-       if (this.addedCards) {
-           // 统计相同card-id的卡牌数量
-           const sameCardIdCount = this.addedCards
-               .filter(c => c.id === card.id)
-               .reduce((sum, c) => sum + c.count, 0);
+        if (this.addedCards) {
+            // 统计相同card-id的卡牌数量
+            const sameCardIdCount = this.addedCards
+                .filter(c => c.id === card.id)
+                .reduce((sum, c) => sum + c.count, 0);
 
-           // 如果同ID卡牌数量>=3，不显示添加按钮
-           if (card.id!== '0627' && sameCardIdCount >= 3) {
-               shouldShowAddButton = false;
-           }
+            // 如果同ID卡牌数量>=3，不显示添加按钮
+            if (card.id !== '0627' && sameCardIdCount >= 3) {
+                shouldShowAddButton = false;
+            }
 
-           // 如果是搭档/案件卡且已有一张，不显示添加按钮
-           if ((card.cardType === "搭档" || card.cardType === "案件") &&
-               this.addedCards.some(c => c.cardType === card.cardType)) {
-               shouldShowAddButton = false;
-           }
-       }
+            // 如果是搭档/案件卡且已有一张，不显示添加按钮
+            if ((card.cardType === "搭档" || card.cardType === "案件") &&
+                this.addedCards.some(c => c.cardType === card.cardType)) {
+                shouldShowAddButton = false;
+            }
+        }
 
-       // 获取拥有的卡牌数量
-       let ownedCount = 0;
-       try {
-           const ownedCards = this.getOwnedCardsFromStorage();
-           ownedCount = ownedCards[card.cardNum] || 0;
-       } catch (e) {
-           console.error('Error reading owned cards from localStorage:', e);
-       }
+        // 获取拥有的卡牌数量
+        let ownedCount = 0;
+        try {
+            const ownedCards = this.getOwnedCardsFromStorage();
+            ownedCount = ownedCards[card.cardNum] || 0;
+        } catch (e) {
+            console.error('Error reading owned cards from localStorage:', e);
+        }
 
-       // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
-       const shouldMark = card.index >= ownedCount;
-       const insufficientTag = shouldMark ?
-           '<div class="absolute border bottom-1 right-1 bg-red-600 text-white text-xs font-bold rounded-br px-1 py-0.5 z-10 shadow-lg opacity-100">!</div>' : '';
+        // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
+        const shouldMark = card.index >= ownedCount;
+        const insufficientTag = shouldMark ?
+            '<div class="absolute border-t border-l bottom-1 right-1 bg-red-600 text-white text-xs font-bold rounded-br rounded-tl px-1 py-0.5 z-10 shadow-lg opacity-100">!</div>' : '';
 
-       return `
-       <div class="group relative">
-           ${insufficientTag}
-           <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group-hover:scale-105">
-               <div class="relative w-full">
-                   <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
-                   <div class="card-identify absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
-                       <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
-                       <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
-                   </div>
-               </div>
-               <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
-                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
-                   </svg>
-               </button>
-               ${shouldShowAddButton ? `
-               <button type="button" class="add-card absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
-                   <div class="bg-white/80 dark:bg-gray-700/80 rounded-full p-1 shadow-sm border border-gray-300 dark:border-gray-500">
-                       <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                       </svg>
-                   </div>
-               </button>
-               ` : ''}
-           </div>
-       </div>
-       `;
-   }
+        return `
+        <div class="group relative">
+            <div class="border border-dashed ${borderColor} rounded-lg p-0.5 flex flex-col items-center relative group-hover:scale-105">
+                ${insufficientTag}
+                <div class="relative w-full">
+                    <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
+                    <div class="card-identify absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
+                        <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
+                    </div>
+                </div>
+                <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                ${shouldShowAddButton ? `
+                <button type="button" class="add-card absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
+                    <div class="bg-white/80 dark:bg-gray-700/80 rounded-full p-1 shadow-sm border border-gray-300 dark:border-gray-500">
+                        <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                    </div>
+                </button>
+                ` : ''}
+            </div>
+        </div>
+        `;
+    }
 
     updateAllCardCounts() {
         // 获取所有卡片元素

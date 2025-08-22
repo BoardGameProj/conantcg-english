@@ -836,11 +836,11 @@ function createCardImageHtml(card) {
     // const insufficientTag = shouldMark ?
     //     '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
     const insufficientTag = shouldMark ?
-        '<div class="absolute border top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-tr px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
+        '<div class="absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100">!</div>' : '';
     return `
     <div class="group relative">
-        ${insufficientTag}
         <div class="relative rounded-lg border border-gray-900 dark:border-gray-400 group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
+            ${insufficientTag}
             <div class="relative w-full">
                 <img src="${imageUrl}"
                      alt="${cardName}"
