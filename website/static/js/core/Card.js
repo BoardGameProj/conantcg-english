@@ -1,4 +1,5 @@
 import { PopoverManager } from './PopoverManager.js';
+import { DeckBuilder } from './DeckBuilder.js';
 import { kebabize, copyToClipboard, registeredForRendering } from '../utils.js';
 
 export class Card extends HTMLElement {
@@ -172,7 +173,8 @@ export class Card extends HTMLElement {
                     >
                     <!-- 拥有的卡牌计数器（默认隐藏） -->
                     <div class="absolute top-1 right-1 bg-black bg-opacity-90 text-white rounded-lg w-9 h-9 flex items-center justify-center text-sm font-bold z-8 border" 
-                        style="display: none">
+                        style="display: none"
+                        data-action="showcount">
                         0
                     </div>
                     
@@ -214,7 +216,7 @@ export class Card extends HTMLElement {
         const img = this.querySelector('img');
 
         // 保存引用
-        this.ownCountDisplay = this.querySelector('[class*="bg-opacity-90"]');
+        this.ownCountDisplay = this.querySelector('[data-action="showcount"]');
         this.addOwnButton = this.querySelector('[data-action="add"]');
         this.removeOwnButton = this.querySelector('[data-action="remove"]');
         this.buttonGroup = this.querySelector('.add-to-deck-btn');
@@ -245,8 +247,9 @@ export class Card extends HTMLElement {
         // 5. 悬停事件（保持原有逻辑）
         container.addEventListener('mouseenter', () => {
             const showOwnedCards = this.shouldShowOwnedCards();
-            this.addOwnButton.style.display = showOwnedCards ? 'flex' : 'none';
-            if (showOwnedCards) {
+            const showEditOwnedCards = this.shouldShowEditOwnedCards();
+            this.addOwnButton.style.display = (showOwnedCards && showEditOwnedCards) ? 'flex' : 'none';
+            if (showOwnedCards && showEditOwnedCards) {
                 const count = this.getOwnedCardsFromStorage()[this.data.cardNum] || 0;
                 this.removeOwnButton.style.display = count > 0 ? 'flex' : 'none';
             }
@@ -612,6 +615,7 @@ export class Card extends HTMLElement {
     // 更新拥有的卡牌数量
     updateOwnedCardCount(change) {
         const showOwnedCards = this.shouldShowOwnedCards();
+        const shouldShowEditOwnedCards = this.shouldShowEditOwnedCards();
         if (!showOwnedCards) return;
 
         let ownedCards = this.getOwnedCardsFromStorage();
@@ -628,6 +632,11 @@ export class Card extends HTMLElement {
         }
         if (this.removeOwnButton) {
             this.removeOwnButton.style.display = newCount > 0 ? 'flex' : 'none';
+        }
+        const panel = document.getElementById('deck-builder-panel');
+        // 检查是否在卡组构建器中
+        if (window.deckBuilder && typeof window.deckBuilder.renderAddedCards === 'function') {
+            window.deckBuilder.renderAddedCards();
         }
     }
 
@@ -666,10 +675,26 @@ export class Card extends HTMLElement {
         return true; // 默认显示
     }
 
+    shouldShowEditOwnedCards() {
+        try {
+            const settings = localStorage.getItem('cardSettings');
+            if (settings) {
+                const parsedSettings = JSON.parse(settings);
+                // 只有当显式设置为true时才返回true
+                return parsedSettings.showEditOwnedCards === true;
+            }
+        } catch (e) {
+            console.error('Error reading card settings from localStorage:', e);
+        }
+        // 默认情况（包括出错、无设置等情况）
+        return false;
+    }
+
     // 初始化拥有的卡牌数量显示
     initOwnedCardCount() {
         // 检查是否启用显示拥有的卡牌数量
         const showOwnedCards = this.shouldShowOwnedCards();
+        const showOwnedEditCards = this.shouldShowEditOwnedCards();
         if (this.ownCountDisplay) {
             this.ownCountDisplay.style.display = 'none';
         }
@@ -906,5 +931,30 @@ Card.toggleShowOwnedCards = function () {
     }
 };
 
+Card.toggleShowEditOwnedCards = function () {
+    try {
+        const settings = localStorage.getItem('cardSettings');
+        let parsedSettings = {};
+        if (settings) {
+            parsedSettings = JSON.parse(settings);
+        }
+
+        parsedSettings.showEditOwnedCards = !parsedSettings.showEditOwnedCards;
+        localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
+
+        // 更新所有卡牌的显示
+        const cards = document.querySelectorAll('dct-card');
+        cards.forEach(card => {
+            if (card.initOwnedCardCount) {
+                card.initOwnedCardCount();
+            }
+        });
+
+        return parsedSettings.showEditOwnedCards;
+    } catch (e) {
+        console.error('Error toggling show owned cards setting:', e);
+        return false;
+    }
+};
 // 全局注册
 customElements.define('dct-card', Card);
