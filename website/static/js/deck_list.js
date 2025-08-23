@@ -325,9 +325,14 @@ function showDeckDetail(deckId) {
 
     // 重置卡牌索引跟踪器
     window.cardIndexTracker = {};
+    window.cardTotalCount = {}; // 新增：跟踪每种卡牌在卡组中的总数量
 
     // 设置当前显示的卡组信息，供createCardImageHtml函数使用
     window.currentDeckForDisplay = deck;
+
+    deck.cards?.forEach(cardNum => {
+        window.cardTotalCount[cardNum] = (window.cardTotalCount[cardNum] || 0) + 1;
+    });
 
     // 分类卡片
     const partnerCards = [];
@@ -829,31 +834,26 @@ function createCardImageHtml(card) {
         window.cardIndexTracker[card.card_num] = 0;
     }
 
-    // 获取当前卡牌的索引
-    const currentIndex = window.cardIndexTracker[card.card_num];
-    window.cardIndexTracker[card.card_num]++;
-
+    // 获取当前卡牌的索引并递增
+    const currentIndex = window.cardIndexTracker[card.card_num]++;
+    
     // 获取拥有的卡牌数量
-    let ownedCount = 0;
-    try {
-        const ownedCards = JSON.parse(localStorage.getItem('ownedCards') || '{}');
-        ownedCount = ownedCards[card.card_num] || 0;
-    } catch (e) {
-        console.error('Error reading owned cards from localStorage:', e);
-    }
-
-    // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
+    const ownedCount = getOwnedCardCount(card.card_num);
+    const totalInDeck = window.cardTotalCount[card.card_num] || 1;
+    
+    // 检查是否需要添加标记
     const settings = localStorage.getItem('cardSettings');
     const parsedSettings = JSON.parse(settings);
     const showMissCards = parsedSettings.showMissCards || false;
-
-    const shouldMark = currentIndex >= ownedCount;
-    // const insufficientTag = shouldMark ?
-    //     '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
+    
+    // 计算是否缺少此卡牌（当前组中是否超过拥有的数量）
+    const shouldMark = (currentIndex >= ownedCount) && (ownedCount < totalInDeck);
+    
     const insufficientTag = (shouldMark && showMissCards) ?
-        '<div class="absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100">!</div>' : '';
+        '<div class="missing-indicator absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100">!</div>' : '';
+
     return `
-    <div class="group relative">
+    <div class="group relative card-container" data-card-num="${card.card_num}">
         <div class="relative rounded-lg border border-gray-900 dark:border-gray-400 group-hover:scale-105 transition-transform duration-300 overflow-hidden w-full">
             ${insufficientTag}
             <div class="relative w-full">
@@ -873,6 +873,15 @@ function createCardImageHtml(card) {
     `;
 }
 
+function getOwnedCardCount(cardNum) {
+    try {
+        const ownedCards = JSON.parse(localStorage.getItem('ownedCards') || '{}');
+        return ownedCards[cardNum] || 0;
+    } catch (e) {
+        console.error('Error reading owned cards:', e);
+        return 0;
+    }
+}
 // function createCardImageHtml(card) {
 //     const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 //     return `
@@ -1285,11 +1294,18 @@ function toggleMissCard(deckId) {
         const settings = localStorage.getItem('cardSettings');
         let parsedSettings = settings ? JSON.parse(settings) : {};
 
+        // 切换设置状态
         parsedSettings.showMissCards = !getCurrentMissCardSetting();
         localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
 
-        // 重新加载详情视图
-        showDeckDetail(deckId);
+        // 更新按钮文本
+        const toggleBtn = document.getElementById('toggle-miss-card');
+        if (toggleBtn) {
+            toggleBtn.textContent = parsedSettings.showMissCards ? '隐藏缺少' : '显示缺少';
+        }
+
+        // 只更新卡片上的缺失标记，不刷新整个模态框
+        updateMissingCardIndicators(parsedSettings.showMissCards);
     } catch (e) {
         console.error('Error toggling show owned cards setting:', e);
     }
@@ -1306,4 +1322,45 @@ function getCurrentMissCardSetting() {
         console.error('Error reading settings:', e);
         return false;
     }
+}
+
+function updateMissingCardIndicators(shouldShow) {
+    // 获取所有卡片容器
+    const cards = document.querySelectorAll('.card-container');
+    
+    // 重置卡牌索引跟踪器用于重新计算
+    window.cardIndexTracker = {};
+    
+    cards.forEach(card => {
+        const cardNum = card.dataset.cardNum;
+        if (!cardNum) return;
+
+        // 获取拥有的卡牌数量和卡组中的总数量
+        const ownedCount = getOwnedCardCount(cardNum);
+        const totalInDeck = window.cardTotalCount[cardNum] || 1;
+        
+        // 初始化或获取当前卡牌的索引
+        if (!window.cardIndexTracker[cardNum]) {
+            window.cardIndexTracker[cardNum] = 0;
+        }
+        const currentIndex = window.cardIndexTracker[cardNum]++;
+        
+        // 检查是否需要显示标记
+        const shouldMark = (currentIndex >= ownedCount) && (ownedCount < totalInDeck);
+        
+        // 查找或创建标记元素
+        let indicator = card.querySelector('.missing-indicator');
+        
+        if (shouldMark && shouldShow) {
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.className = 'missing-indicator absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100';
+                indicator.innerHTML = '!';
+                card.querySelector('.relative.rounded-lg').appendChild(indicator);
+            }
+            indicator.style.display = 'block';
+        } else if (indicator) {
+            indicator.style.display = 'none';
+        }
+    });
 }
