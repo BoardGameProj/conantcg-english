@@ -848,9 +848,9 @@ function createCardImageHtml(card) {
     const ownedCount = getOwnedCardCount(card.card_num);
     const totalInDeck = window.cardTotalCount[card.card_num] || 1;
     
-    // 检查是否需要添加标记
+    // 检查是否需要添加标记 - 添加默认值处理
     const settings = localStorage.getItem('cardSettings');
-    const parsedSettings = JSON.parse(settings);
+    const parsedSettings = settings ? JSON.parse(settings) : { showMissCards: false };
     const showMissCards = parsedSettings.showMissCards || false;
     
     // 计算是否缺少此卡牌（当前组中是否超过拥有的数量）
