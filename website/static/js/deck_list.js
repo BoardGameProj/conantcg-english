@@ -325,7 +325,7 @@ function showDeckDetail(deckId) {
 
     // 重置卡牌索引跟踪器
     window.cardIndexTracker = {};
-    
+
     // 设置当前显示的卡组信息，供createCardImageHtml函数使用
     window.currentDeckForDisplay = deck;
 
@@ -356,7 +356,7 @@ function showDeckDetail(deckId) {
             otherCards.push(cardData);
         }
     })
-    
+
     partnerCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
     caseCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
     otherCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
@@ -496,6 +496,10 @@ function showDeckDetail(deckId) {
             </svg>
         </button>
     `;
+
+    const showMissCards = getCurrentMissCardSetting();
+    const toggleButtonText = showMissCards ? '隐藏缺少' : '显示缺少';
+
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-7xl max-h-[77vh] flex flex-col" style="max-height: 77vh">
@@ -540,19 +544,26 @@ function showDeckDetail(deckId) {
                 </div>
                 
                 <!-- 底部按钮 -->
-                <div class="flex justify-end gap-3 p-4 border-t dark:border-gray-700">
-                    <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors select-none">
-                        编辑卡组
-                    </button>
-                    <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors select-none">
-                        导出卡组
-                    </button>
-                    <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors select-none">
-                        复制卡组
-                    </button>
-                    <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors select-none">
-                        删除卡组
-                    </button>
+                <div class="flex justify-between border-t dark:border-gray-700">
+                    <div class="flex justify-start gap-3 p-4">
+                        <button id="toggle-miss-card" onclick="toggleMissCard('${deckId}')" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors select-none">
+                            ${toggleButtonText}
+                        </button>
+                    </div>
+                    <div class="flex justify-end gap-3 p-4">
+                        <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors select-none">
+                            编辑卡组
+                        </button>
+                        <button onclick="exportDeck('${deckId}', 'copy')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors select-none">
+                            导出卡组
+                        </button>
+                        <button onclick="cloneDeck('${deckId}')" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors select-none">
+                            复制卡组
+                        </button>
+                        <button onclick="confirmDeleteDeck('${deckId}')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors select-none">
+                            删除卡组
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -817,7 +828,7 @@ function createCardImageHtml(card) {
     if (!window.cardIndexTracker[card.card_num]) {
         window.cardIndexTracker[card.card_num] = 0;
     }
-    
+
     // 获取当前卡牌的索引
     const currentIndex = window.cardIndexTracker[card.card_num];
     window.cardIndexTracker[card.card_num]++;
@@ -832,10 +843,14 @@ function createCardImageHtml(card) {
     }
 
     // 检查是否需要添加标记（只有当当前索引大于等于拥有的数量时才标记）
+    const settings = localStorage.getItem('cardSettings');
+    const parsedSettings = JSON.parse(settings);
+    const showMissCards = parsedSettings.showMissCards || false;
+
     const shouldMark = currentIndex >= ownedCount;
     // const insufficientTag = shouldMark ?
     //     '<div class="absolute border top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white text-xs font-bold rounded px-1 py-0.5 z-10 shadow-lg select-none opacity-100">!</div>' : '';
-    const insufficientTag = shouldMark ?
+    const insufficientTag = (shouldMark && showMissCards) ?
         '<div class="absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100">!</div>' : '';
     return `
     <div class="group relative">
@@ -1263,4 +1278,32 @@ function deleteDeck(deckId) {
             loadDecks();
         }
     }, 100); // 使用更短的延迟（100ms而非300ms）
+}
+
+function toggleMissCard(deckId) {
+    try {
+        const settings = localStorage.getItem('cardSettings');
+        let parsedSettings = settings ? JSON.parse(settings) : {};
+
+        parsedSettings.showMissCards = !getCurrentMissCardSetting();
+        localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
+
+        // 重新加载详情视图
+        showDeckDetail(deckId);
+    } catch (e) {
+        console.error('Error toggling show owned cards setting:', e);
+    }
+}
+
+function getCurrentMissCardSetting() {
+    try {
+        const settings = localStorage.getItem('cardSettings');
+        if (settings) {
+            return JSON.parse(settings).showMissCards || false;
+        }
+        return false;
+    } catch (e) {
+        console.error('Error reading settings:', e);
+        return false;
+    }
 }
