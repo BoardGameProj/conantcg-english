@@ -602,3 +602,23 @@ dct-card img {
 .pointer-events-none {
     pointer-events: none !important;
 }
+
+.overflow-scroll {
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.overflow-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+    display: none;
+}
