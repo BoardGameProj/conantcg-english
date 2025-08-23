@@ -503,7 +503,15 @@ function showDeckDetail(deckId) {
     `;
 
     const showMissCards = getCurrentMissCardSetting();
-    const toggleButtonText = showMissCards ? '隐藏缺少' : '显示缺少';
+    const toggleButtonHtml = `
+        <div class="flex items-center">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" ${showMissCards ? 'checked' : ''} onclick="toggleMissCard('${deckId}')">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            </label>
+            <!-- <span class="mx-2 text-sm font-medium dark:text-gray-300">缺少卡牌</span> -->
+        </div>
+    `;
 
     const modalHtml = `
         <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
@@ -551,9 +559,7 @@ function showDeckDetail(deckId) {
                 <!-- 底部按钮 -->
                 <div class="flex justify-between border-t dark:border-gray-700">
                     <div class="flex justify-start gap-3 p-4">
-                        <button id="toggle-miss-card" onclick="toggleMissCard('${deckId}')" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors select-none">
-                            ${toggleButtonText}
-                        </button>
+                        ${toggleButtonHtml}
                     </div>
                     <div class="flex justify-end gap-3 p-4">
                         <button onclick="editDeck('${deckId}')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors select-none">
@@ -1298,16 +1304,21 @@ function toggleMissCard(deckId) {
         parsedSettings.showMissCards = !getCurrentMissCardSetting();
         localStorage.setItem('cardSettings', JSON.stringify(parsedSettings));
 
-        // 更新按钮文本
-        const toggleBtn = document.getElementById('toggle-miss-card');
-        if (toggleBtn) {
-            toggleBtn.textContent = parsedSettings.showMissCards ? '隐藏缺少' : '显示缺少';
+        // 获取开关元素并更新其状态
+        const toggleSwitch = document.querySelector(`input[type="checkbox"][onclick="toggleMissCard('${deckId}')"]`);
+        if (toggleSwitch) {
+            toggleSwitch.checked = parsedSettings.showMissCards;
         }
 
-        // 只更新卡片上的缺失标记，不刷新整个模态框
+        // 更新卡片上的缺失标记
         updateMissingCardIndicators(parsedSettings.showMissCards);
+
+        // 显示状态变更提示
+        const statusMessage = parsedSettings.showMissCards ? '已显示缺少卡牌' : '已隐藏缺少卡牌';
+        showToast(statusMessage, { isSuccess: true });
     } catch (e) {
         console.error('Error toggling show owned cards setting:', e);
+        showToast('切换设置失败', { isSuccess: false });
     }
 }
 
