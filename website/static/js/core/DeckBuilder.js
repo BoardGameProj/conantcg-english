@@ -646,8 +646,8 @@ export class DeckBuilder {
                 <div class="relative w-full">
                     <img src=${card.imgsrc} class="w-full h-full content-center object-cover select-none rounded-lg">
                     <div class="card-identify absolute bottom-0 left-0 right-0 to-transparent rounded-b-lg">
-                        <p class="text-2xs text-white text-center bg-black/70 truncate">${card.cardName}</p>
-                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);">${card.id}/${card.cardNum}</p>
+                        <p class="text-2xs text-white text-center bg-black/70 truncate"><button class="search-form-btn" data-target-key="title" data-value="${card.cardName}">${card.cardName}</button></p>
+                        <p class="text-2xs text-white text-center bg-black/70 max-w-full rounded-b-lg" style="font-size: min(0.5rem, 2vw);"><button class="search-form-btn" data-target-key="card-id-num" data-value="${card.id}">${card.id}/${card.cardNum}</button></p>
                     </div>
                 </div>
                 <button type="button" class="remove-card absolute top-0 right-0 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 opacity-0 group-hover:opacity-100" data-card-num="${card.cardNum}">
