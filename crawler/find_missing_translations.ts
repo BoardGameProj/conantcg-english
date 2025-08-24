@@ -1,4 +1,4 @@
-import {findMissingFiles} from "./src/find_missing_texts";
+import { findMissingFiles } from "./src/find_missing_texts";
 
 const missingFiles = findMissingFiles()
 for (const missingFile of missingFiles) {
