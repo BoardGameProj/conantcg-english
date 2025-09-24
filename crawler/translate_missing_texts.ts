@@ -9,7 +9,7 @@ const deeplClient = new deepl.DeepLClient(process.env.DEEPL_API_KEY);
     for (const file of missingFiles) {
         const missingTranslations = file.missingTranslations.filter((s) => s.key)
         if (!missingTranslations.length) {
-            return
+            continue
         }
 
         const translationData = JSON.parse(fs.readFileSync(file.sourceFile).toString())
