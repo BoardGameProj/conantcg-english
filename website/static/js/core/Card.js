@@ -92,17 +92,19 @@ export class Card extends HTMLElement {
             if (!product) return false;
             const productCode = product.trim().substring(0, 6);
             const validProducts = [
-                "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06", // 新手卡组
-                "CT-P01", "CT-P02",                                         // 补充包
+                "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05", "CT-D06", "CT-D07", // 新手卡组
+                "CT-P01", "CT-P02", "CT-P03", "CT-P04",                               // 补充包
             ];
 
             return validProducts.includes(productCode); // 直接检查是否在合法列表
         };
         const chinesePRCards = new Set([
-            "PR002", "PR004", "PR005", "PR006", "PR007",
-            "PR008", "PR009", "PR010", "PR011", "PR017",
-            "PR018", "PR019", "PR020", "PR021", "PR022",
-            "PR023", "PR034", "PR035", "PR038", "PR052"
+            "PR001", "PR002", "PR003", "PR004", "PR005",
+            "PR006", "PR007", "PR008", "PR009", "PR010",
+            "PR011", "PR017", "PR018", "PR019", "PR020",
+            "PR021", "PR022", "PR023", "PR034", "PR035",
+            "PR038", "PR051", "PR052", "PR055", "PR080",
+            "PR094", "PR096"               
         ]);
         const isChinese = isChineseByProduct(this.data.product) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
         this.data.custom = `${this.data.custom},${isChinese}`;
