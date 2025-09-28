@@ -17,11 +17,11 @@ function processKeywords(text) {
     // "square bracket" keywords, e.g. [On Play]
     const keywords = {
         '结案': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
-        '证据毁灭': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
+        '销毁证据': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
         '协助': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg'},
         '解决篇': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方案件为解决篇时使用'},
         '案件篇': {class: 'bg-black text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方案件为案件篇时使用'},
-        '宣言': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: ''},
+        '宣言': {class: 'bg-blue-500 text-white text-sm px-1 me-1 rounded-lg whitespace-nowrap', tooltip: ''},
         '蓝': {class: 'card-color--Blue card-color card-color-radius', tooltip: ''},
         '白': {class: 'bg-white card-color--White card-color card-color-radius', tooltip: ''},
         '黑': {class: 'bg-black text-white card-color card-color-radius card-color--Black', tooltip: ''},
@@ -30,7 +30,7 @@ function processKeywords(text) {
         '绿': {class: 'card-color--Green card-color card-color-radius', tooltip: ''},
         '(搭档: )([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '搭档 <span class="card-color card-color--$3 card-color-radius bg-white">$3</span>', tooltip: '此能力只能在我方搭档颜色是$3色时使用'},
         '(案件: )([一-龥a-zA-Z0-9_]+)&([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '案件<span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '此能力只能在我方案件的颜色拥有$3色和$4色时使用'},
-        '(案件: )([一-龥a-zA-Z0-9_]+) 或 ([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '案件<span class="card-color card-color--$3 card-color-radius">$3</span>或<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '此能力只能在我方案件的颜色拥有$3色或$4色时使用'},
+        '(案件: )([一-龥a-zA-Z0-9_]+) or ([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '案件<span class="card-color card-color--$3 card-color-radius">$3</span> or <span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '此能力只能在我方案件的颜色拥有$3色或$4色时使用'},
         '(案件: )([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', label: '案件<span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '此能力只能在我方案件的颜色拥有$3色时使用'},
         '绊: (.*?)': {class: 'text-sm px-1 me-1 rounded-lg', label: '<span class="bg-black text-white px-1 rounded-l-lg" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r-lg">$2</b>', tooltip: '此能力只能在我方现场存在卡名为“$2”的角色时使用'},
         '档案: (\\d+)': {class: 'bg-red-700 text-sm px-1 me-1 rounded-lg text-white', label: '档案<span class="card-color card-color-radius bg-white" style="color: #c81e1e; box-shadow: 0 0 0 1px #c81e1e;">$2</span>', tooltip: '此能力只能在我方档案区至少有$2张牌时使用'},
@@ -41,8 +41,8 @@ function processKeywords(text) {
         '我方回合中': {class: 'bg-red-700 text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在我方回合时使用'},
         '对手回合中': {class: 'bg-yellow-500 text-white text-sm px-1 me-1 rounded-lg', tooltip: '此能力只能在对手回合时使用'},
         '休眠': {class: 'bg-purple-400 text-white text-sm px-0\.5 me-1 rounded-lg', label: '$1<img src="img/sleep.svg" class="inline-icon" style="height:1rem; vertical-align: sub;">', tooltip: '使用此能力需要将此牌休眠'},
-        '介入': {class: 'text-blue-500', label: '<img src="img/cut_in.svg" class="inline-icon">$1', tooltip: '接触时从手牌移除以使用'},
-        '变装': {class: 'text-white text-sm', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
+        '介入': {class: 'text-blue-500 text-sm', label: '<img src="img/cut_in.svg" class="inline-icon"><b>$1</b>', tooltip: '接触时从手牌移除以使用'},
+        '变装': {class: 'dark:text-white text-sm', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
         '灵光一闪': {class: 'text-white text-sm', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
         '变装时': {class: 'bg-fuchsia-400 text-white text-sm px-1 me-1 rounded-lg', tooltip: '当此牌通过变装效果被打出时，激活此效果'}
     }
@@ -78,6 +78,10 @@ function processKeywords(text) {
     // "curly cracket" keywords, e.g.  {迅速}
     const highlightKeywords = {
         '{误导 (\\d+)}': {tag: 'b', tooltip: "将此角色休眠，对手进行推理时LP-$2"},
+        '{搜查 1}': {tag: 'b', tooltip: "对手展示卡组顶1张牌，然后以任意顺序移入卡组底"},
+        '{搜查 2}': {tag: 'b', tooltip: "对手展示卡组顶2张牌，然后以任意顺序移入卡组底"},
+        '{搜查 3}': {tag: 'b', tooltip: "对手展示卡组顶3张牌，然后以任意顺序移入卡组底"},
+        '{搜查 4}': {tag: 'b', tooltip: "对手展示卡组顶4张牌，然后以任意顺序移入卡组底"},
         '{搜查 (X|\\d+)}': {tag: 'b', tooltip: "对手展示卡组顶$2张牌，然后以任意顺序移入卡组底"},
         '{迅速}(\\[.*\\])?': {tag: 'b', tooltip: '登场回合可以立刻进行推理或行动'},
         '{突击}\\[案件\\]': {tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动'},
