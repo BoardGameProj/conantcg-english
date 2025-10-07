@@ -2464,7 +2464,9 @@
     "card_id": "0183",
     "other_versions": [
       "B02011P",
-      "PR097"
+      "PR097",
+      "PR182",
+      "PR188"
     ]
   },
   "B02011P": {
@@ -2472,7 +2474,9 @@
     "card_id": "0183",
     "other_versions": [
       "B02011",
-      "PR097"
+      "PR097",
+      "PR182",
+      "PR188"
     ]
   },
   "PR097": {
@@ -2480,7 +2484,29 @@
     "card_id": "0183",
     "other_versions": [
       "B02011",
-      "B02011P"
+      "B02011P",
+      "PR182",
+      "PR188"
+    ]
+  },
+  "PR182": {
+    "is_primary": false,
+    "card_id": "0183",
+    "other_versions": [
+      "B02011",
+      "B02011P",
+      "PR097",
+      "PR188"
+    ]
+  },
+  "PR188": {
+    "is_primary": false,
+    "card_id": "0183",
+    "other_versions": [
+      "B02011",
+      "B02011P",
+      "PR097",
+      "PR182"
     ]
   },
   "B02012": {
@@ -3476,7 +3502,16 @@
   "B03005": {
     "is_primary": true,
     "card_id": "0263",
-    "other_versions": []
+    "other_versions": [
+      "PR175"
+    ]
+  },
+  "PR175": {
+    "is_primary": false,
+    "card_id": "0263",
+    "other_versions": [
+      "B03005"
+    ]
   },
   "B03006": {
     "is_primary": true,
@@ -6394,14 +6429,24 @@
     "is_primary": true,
     "card_id": "P054",
     "other_versions": [
-      "B05044P"
+      "B05044P",
+      "B07028Sec1"
     ]
   },
   "B05044P": {
     "is_primary": false,
     "card_id": "P054",
     "other_versions": [
-      "B05044"
+      "B05044",
+      "B07028Sec1"
+    ]
+  },
+  "B07028Sec1": {
+    "is_primary": false,
+    "card_id": "P054",
+    "other_versions": [
+      "B05044",
+      "B05044P"
     ]
   },
   "B05045": {
@@ -8496,9 +8541,29 @@
     "card_id": "0747",
     "other_versions": []
   },
+  "B07027Sec1": {
+    "is_primary": true,
+    "card_id": "P067",
+    "other_versions": []
+  },
   "B07030": {
     "is_primary": true,
     "card_id": "0759",
+    "other_versions": []
+  },
+  "B07031": {
+    "is_primary": true,
+    "card_id": "0760",
+    "other_versions": []
+  },
+  "B07032": {
+    "is_primary": true,
+    "card_id": "0761",
+    "other_versions": []
+  },
+  "B07054": {
+    "is_primary": true,
+    "card_id": "0783",
     "other_versions": []
   },
   "B07057": {
@@ -8516,14 +8581,29 @@
     "card_id": "0794",
     "other_versions": []
   },
+  "B07066": {
+    "is_primary": true,
+    "card_id": "0795",
+    "other_versions": []
+  },
   "B07079": {
     "is_primary": true,
     "card_id": "0807",
     "other_versions": []
   },
+  "B07080": {
+    "is_primary": true,
+    "card_id": "0808",
+    "other_versions": []
+  },
   "B07093": {
     "is_primary": true,
     "card_id": "0820",
+    "other_versions": []
+  },
+  "B07095": {
+    "is_primary": true,
+    "card_id": "0822",
     "other_versions": []
   },
   "D01002": {
@@ -8572,7 +8652,16 @@
   "D01005": {
     "is_primary": true,
     "card_id": "0094",
-    "other_versions": []
+    "other_versions": [
+      "PR171"
+    ]
+  },
+  "PR171": {
+    "is_primary": false,
+    "card_id": "0094",
+    "other_versions": [
+      "D01005"
+    ]
   },
   "D01006": {
     "is_primary": true,
@@ -9639,7 +9728,9 @@
     "card_id": "0507",
     "other_versions": [
       "D09019",
-      "PR116"
+      "PR116",
+      "PR183",
+      "PR189"
     ]
   },
   "D09019": {
@@ -9647,7 +9738,9 @@
     "card_id": "0507",
     "other_versions": [
       "D09018",
-      "PR116"
+      "PR116",
+      "PR183",
+      "PR189"
     ]
   },
   "PR116": {
@@ -9655,7 +9748,29 @@
     "card_id": "0507",
     "other_versions": [
       "D09018",
-      "D09019"
+      "D09019",
+      "PR183",
+      "PR189"
+    ]
+  },
+  "PR183": {
+    "is_primary": false,
+    "card_id": "0507",
+    "other_versions": [
+      "D09018",
+      "D09019",
+      "PR116",
+      "PR189"
+    ]
+  },
+  "PR189": {
+    "is_primary": false,
+    "card_id": "0507",
+    "other_versions": [
+      "D09018",
+      "D09019",
+      "PR116",
+      "PR183"
     ]
   },
   "D09022": {
@@ -9763,7 +9878,8 @@
     "card_id": "0402",
     "other_versions": [
       "PR048",
-      "PR114"
+      "PR114",
+      "PR172"
     ]
   },
   "PR048": {
@@ -9771,7 +9887,8 @@
     "card_id": "0402",
     "other_versions": [
       "PR044",
-      "PR114"
+      "PR114",
+      "PR172"
     ]
   },
   "PR114": {
@@ -9779,7 +9896,17 @@
     "card_id": "0402",
     "other_versions": [
       "PR044",
-      "PR048"
+      "PR048",
+      "PR172"
+    ]
+  },
+  "PR172": {
+    "is_primary": false,
+    "card_id": "0402",
+    "other_versions": [
+      "PR044",
+      "PR048",
+      "PR114"
     ]
   },
   "PR054": {
@@ -10148,5 +10275,61 @@
     "is_primary": true,
     "card_id": "0727",
     "other_versions": []
+  },
+  "PR178": {
+    "is_primary": true,
+    "card_id": "0729",
+    "other_versions": [
+      "PR184"
+    ]
+  },
+  "PR184": {
+    "is_primary": false,
+    "card_id": "0729",
+    "other_versions": [
+      "PR178"
+    ]
+  },
+  "PR179": {
+    "is_primary": true,
+    "card_id": "0730",
+    "other_versions": [
+      "PR185"
+    ]
+  },
+  "PR185": {
+    "is_primary": false,
+    "card_id": "0730",
+    "other_versions": [
+      "PR179"
+    ]
+  },
+  "PR180": {
+    "is_primary": true,
+    "card_id": "0731",
+    "other_versions": [
+      "PR186"
+    ]
+  },
+  "PR186": {
+    "is_primary": false,
+    "card_id": "0731",
+    "other_versions": [
+      "PR180"
+    ]
+  },
+  "PR181": {
+    "is_primary": true,
+    "card_id": "0732",
+    "other_versions": [
+      "PR187"
+    ]
+  },
+  "PR187": {
+    "is_primary": false,
+    "card_id": "0732",
+    "other_versions": [
+      "PR181"
+    ]
   }
 }

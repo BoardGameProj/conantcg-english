@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 35,
+        "cardNum": 37,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -152,6 +152,16 @@
                 "card_num": "B06044Sec2",
                 "title": "鉄刃",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07027Sec1",
+                "title": "小泉紅子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07028Sec1",
+                "title": "中森青子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
                 "card_num": "D01001",
@@ -615,7 +625,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 31,
+        "cardNum": 32,
         "cards": [
             {
                 "card_num": "B01035",
@@ -746,6 +756,11 @@
                 "card_num": "B06099P",
                 "title": "ラム",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07066",
+                "title": "赤井秀一",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
                 "card_num": "D02003",
@@ -1758,7 +1773,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 33,
+        "cardNum": 34,
         "cards": [
             {
                 "card_num": "B03012",
@@ -1923,6 +1938,11 @@
             {
                 "card_num": "PR152",
                 "title": "ジン",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR172",
+                "title": "諸伏高明",
                 "package": "PRカード"
             }
         ]
@@ -2473,7 +2493,7 @@
     },
     {
         "name": "犬",
-        "cardNum": 7,
+        "cardNum": 8,
         "cards": [
             {
                 "card_num": "B04089",
@@ -2509,6 +2529,11 @@
                 "card_num": "B06077",
                 "title": "ジョディ・スターリング",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07080",
+                "title": "風見裕也",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -2567,7 +2592,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 11,
+        "cardNum": 12,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2623,6 +2648,11 @@
                 "card_num": "PR153",
                 "title": "羽田秀𠮷",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "PR171",
+                "title": "毛利小五郎",
+                "package": "PRカード"
             }
         ]
     },
@@ -2650,7 +2680,7 @@
     },
     {
         "name": "海老丸ベベ",
-        "cardNum": 7,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B05087",
@@ -2684,6 +2714,16 @@
             },
             {
                 "card_num": "PR116",
+                "title": "上原由衣",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR183",
+                "title": "上原由衣",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR189",
                 "title": "上原由衣",
                 "package": "PRカード"
             }
@@ -2793,7 +2833,7 @@
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 3,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B06075",
@@ -2809,6 +2849,16 @@
                 "card_num": "B06098",
                 "title": "ベルモット＆シェリー",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07031",
+                "title": "小泉紅子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07095",
+                "title": "ベルモット",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -2820,6 +2870,17 @@
                 "card_num": "B06077P",
                 "title": "ジョディ・スターリング",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            }
+        ]
+    },
+    {
+        "name": "mayth",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B07032",
+                "title": "白馬探",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -2903,10 +2964,20 @@
     },
     {
         "name": "029",
-        "cardNum": 1,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "PR097",
+                "title": "灰原哀",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR182",
+                "title": "灰原哀",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR188",
                 "title": "灰原哀",
                 "package": "PRカード"
             }
