@@ -8,9 +8,6 @@
     "B03126": {
         "lp": "0"
     },
-    "B06016": {
-        "type": "キャラ"
-    },
     "PR098": {
         "color": [
             "緑"
@@ -42,25 +39,6 @@
             "赤",
             "黄"
         ]
-    },
-    "PR176": {
-        "id": 9001,
-        "card_id": "0204",
-        "title": "浪花の連続殺人事件",
-        "card_num": "PR176",
-        "package": "PRカード",
-        "color": [
-            "緑"
-        ],
-        "type": "事件",
-        "rarity": "PR",
-        "difficulty_first": "7",
-        "difficulty_second": "6",
-        "copyright": "©青山剛昌／小学館  ©TOMY",
-        "rcp_showhide": 1,
-        "rcp_limit": 3,
-        "release_date": "2024-07-27 00:00:00",
-        "categories": []
     },
     "D01001": {
         "rarity": "R"
