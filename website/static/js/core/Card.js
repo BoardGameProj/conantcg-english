@@ -391,7 +391,7 @@ export class Card extends HTMLElement {
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText', 'rarity']
-        if ((this.data.type === '角色' || this.data.type === '事件') && !(this.data.categories.length === 1 && this.data.categories[0] === '')) {
+        if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
             console.log('this.data.categories: ', this.data.categories)
             fields.push('categories')
         }
