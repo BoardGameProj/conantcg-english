@@ -6602,6 +6602,7 @@
     "card_id": "P054",
     "other_versions": [
       "B05044P",
+      "B07028",
       "B07028Sec1"
     ]
   },
@@ -6610,6 +6611,16 @@
     "card_id": "P054",
     "other_versions": [
       "B05044",
+      "B07028",
+      "B07028Sec1"
+    ]
+  },
+  "B07028": {
+    "is_primary": false,
+    "card_id": "P054",
+    "other_versions": [
+      "B05044",
+      "B05044P",
       "B07028Sec1"
     ]
   },
@@ -6618,7 +6629,8 @@
     "card_id": "P054",
     "other_versions": [
       "B05044",
-      "B05044P"
+      "B05044P",
+      "B07028"
     ]
   },
   "B05045": {
@@ -8708,15 +8720,139 @@
     "card_id": "0734",
     "other_versions": []
   },
+  "B07003": {
+    "is_primary": true,
+    "card_id": "735",
+    "other_versions": []
+  },
+  "B07004": {
+    "is_primary": true,
+    "card_id": "736",
+    "other_versions": []
+  },
+  "B07005": {
+    "is_primary": true,
+    "card_id": "737",
+    "other_versions": []
+  },
+  "B07006": {
+    "is_primary": true,
+    "card_id": "738",
+    "other_versions": []
+  },
+  "B07007": {
+    "is_primary": true,
+    "card_id": "739",
+    "other_versions": []
+  },
+  "B07008": {
+    "is_primary": true,
+    "card_id": "740",
+    "other_versions": []
+  },
+  "B07009": {
+    "is_primary": true,
+    "card_id": "741",
+    "other_versions": []
+  },
+  "B07010": {
+    "is_primary": true,
+    "card_id": "742",
+    "other_versions": []
+  },
+  "B07011": {
+    "is_primary": true,
+    "card_id": "743",
+    "other_versions": []
+  },
+  "B07012": {
+    "is_primary": true,
+    "card_id": "744",
+    "other_versions": []
+  },
+  "B07013": {
+    "is_primary": true,
+    "card_id": "745",
+    "other_versions": []
+  },
+  "B07014": {
+    "is_primary": true,
+    "card_id": "746",
+    "other_versions": []
+  },
   "B07015": {
     "is_primary": true,
     "card_id": "0747",
     "other_versions": []
   },
-  "B07027Sec1": {
+  "B07016": {
+    "is_primary": true,
+    "card_id": "748",
+    "other_versions": []
+  },
+  "B07017": {
+    "is_primary": true,
+    "card_id": "749",
+    "other_versions": []
+  },
+  "B07018": {
+    "is_primary": true,
+    "card_id": "750",
+    "other_versions": []
+  },
+  "B07019": {
+    "is_primary": true,
+    "card_id": "751",
+    "other_versions": []
+  },
+  "B07020": {
+    "is_primary": true,
+    "card_id": "752",
+    "other_versions": []
+  },
+  "B07021": {
+    "is_primary": true,
+    "card_id": "753",
+    "other_versions": []
+  },
+  "B07022": {
+    "is_primary": true,
+    "card_id": "754",
+    "other_versions": []
+  },
+  "B07023": {
+    "is_primary": true,
+    "card_id": "755",
+    "other_versions": []
+  },
+  "B07024": {
+    "is_primary": true,
+    "card_id": "756",
+    "other_versions": []
+  },
+  "B07025": {
+    "is_primary": true,
+    "card_id": "757",
+    "other_versions": []
+  },
+  "B07026": {
+    "is_primary": true,
+    "card_id": "758",
+    "other_versions": []
+  },
+  "B07027": {
     "is_primary": true,
     "card_id": "P067",
     "other_versions": [
+      "B07027Sec1",
+      "PR191"
+    ]
+  },
+  "B07027Sec1": {
+    "is_primary": false,
+    "card_id": "P067",
+    "other_versions": [
+      "B07027",
       "PR191"
     ]
   },
@@ -8724,6 +8860,7 @@
     "is_primary": false,
     "card_id": "P067",
     "other_versions": [
+      "B07027",
       "B07027Sec1"
     ]
   },
@@ -8742,9 +8879,124 @@
     "card_id": "0761",
     "other_versions": []
   },
+  "B07033": {
+    "is_primary": true,
+    "card_id": "762",
+    "other_versions": []
+  },
+  "B07034": {
+    "is_primary": true,
+    "card_id": "763",
+    "other_versions": []
+  },
+  "B07035": {
+    "is_primary": true,
+    "card_id": "764",
+    "other_versions": []
+  },
+  "B07036": {
+    "is_primary": true,
+    "card_id": "765",
+    "other_versions": []
+  },
+  "B07037": {
+    "is_primary": true,
+    "card_id": "766",
+    "other_versions": []
+  },
+  "B07038": {
+    "is_primary": true,
+    "card_id": "767",
+    "other_versions": []
+  },
+  "B07039": {
+    "is_primary": true,
+    "card_id": "768",
+    "other_versions": []
+  },
+  "B07040": {
+    "is_primary": true,
+    "card_id": "769",
+    "other_versions": []
+  },
+  "B07041": {
+    "is_primary": true,
+    "card_id": "770",
+    "other_versions": []
+  },
+  "B07042": {
+    "is_primary": true,
+    "card_id": "771",
+    "other_versions": []
+  },
+  "B07043": {
+    "is_primary": true,
+    "card_id": "772",
+    "other_versions": []
+  },
+  "B07044": {
+    "is_primary": true,
+    "card_id": "773",
+    "other_versions": []
+  },
+  "B07045": {
+    "is_primary": true,
+    "card_id": "774",
+    "other_versions": []
+  },
+  "B07046": {
+    "is_primary": true,
+    "card_id": "775",
+    "other_versions": []
+  },
+  "B07047": {
+    "is_primary": true,
+    "card_id": "776",
+    "other_versions": []
+  },
+  "B07048": {
+    "is_primary": true,
+    "card_id": "777",
+    "other_versions": []
+  },
+  "B07049": {
+    "is_primary": true,
+    "card_id": "778",
+    "other_versions": []
+  },
+  "B07050": {
+    "is_primary": true,
+    "card_id": "779",
+    "other_versions": []
+  },
+  "B07051": {
+    "is_primary": true,
+    "card_id": "780",
+    "other_versions": []
+  },
+  "B07052": {
+    "is_primary": true,
+    "card_id": "781",
+    "other_versions": []
+  },
+  "B07053": {
+    "is_primary": true,
+    "card_id": "782",
+    "other_versions": []
+  },
   "B07054": {
     "is_primary": true,
     "card_id": "0783",
+    "other_versions": []
+  },
+  "B07055": {
+    "is_primary": true,
+    "card_id": "784",
+    "other_versions": []
+  },
+  "B07056": {
+    "is_primary": true,
+    "card_id": "785",
     "other_versions": []
   },
   "B07057": {
@@ -8752,9 +9004,39 @@
     "card_id": "0786",
     "other_versions": []
   },
+  "B07058": {
+    "is_primary": true,
+    "card_id": "787",
+    "other_versions": []
+  },
+  "B07059": {
+    "is_primary": true,
+    "card_id": "788",
+    "other_versions": []
+  },
   "B07060": {
     "is_primary": true,
     "card_id": "0789",
+    "other_versions": []
+  },
+  "B07061": {
+    "is_primary": true,
+    "card_id": "790",
+    "other_versions": []
+  },
+  "B07062": {
+    "is_primary": true,
+    "card_id": "791",
+    "other_versions": []
+  },
+  "B07063": {
+    "is_primary": true,
+    "card_id": "792",
+    "other_versions": []
+  },
+  "B07064": {
+    "is_primary": true,
+    "card_id": "793",
     "other_versions": []
   },
   "B07065": {
@@ -8767,6 +9049,66 @@
     "card_id": "0795",
     "other_versions": []
   },
+  "B07067": {
+    "is_primary": true,
+    "card_id": "796",
+    "other_versions": []
+  },
+  "B07068": {
+    "is_primary": true,
+    "card_id": "797",
+    "other_versions": []
+  },
+  "B07069": {
+    "is_primary": true,
+    "card_id": "798",
+    "other_versions": []
+  },
+  "B07070": {
+    "is_primary": true,
+    "card_id": "799",
+    "other_versions": []
+  },
+  "B07071": {
+    "is_primary": true,
+    "card_id": "800",
+    "other_versions": []
+  },
+  "B07072": {
+    "is_primary": true,
+    "card_id": "801",
+    "other_versions": []
+  },
+  "B07073": {
+    "is_primary": true,
+    "card_id": "802",
+    "other_versions": []
+  },
+  "B07074": {
+    "is_primary": true,
+    "card_id": "803",
+    "other_versions": []
+  },
+  "B07075": {
+    "is_primary": true,
+    "card_id": "804",
+    "other_versions": []
+  },
+  "B07076": {
+    "is_primary": true,
+    "card_id": "805",
+    "other_versions": []
+  },
+  "B07077": {
+    "is_primary": true,
+    "card_id": "806",
+    "other_versions": []
+  },
+  "B07078": {
+    "is_primary": true,
+    "card_id": "P068",
+    "other_versions": []
+  },
   "B07079": {
     "is_primary": true,
     "card_id": "0807",
@@ -8777,14 +9119,124 @@
     "card_id": "0808",
     "other_versions": []
   },
+  "B07081": {
+    "is_primary": true,
+    "card_id": "809",
+    "other_versions": []
+  },
+  "B07082": {
+    "is_primary": true,
+    "card_id": "810",
+    "other_versions": []
+  },
+  "B07083": {
+    "is_primary": true,
+    "card_id": "811",
+    "other_versions": []
+  },
+  "B07084": {
+    "is_primary": true,
+    "card_id": "812",
+    "other_versions": []
+  },
+  "B07085": {
+    "is_primary": true,
+    "card_id": "813",
+    "other_versions": []
+  },
+  "B07086": {
+    "is_primary": true,
+    "card_id": "814",
+    "other_versions": []
+  },
+  "B07087": {
+    "is_primary": true,
+    "card_id": "815",
+    "other_versions": []
+  },
+  "B07088": {
+    "is_primary": true,
+    "card_id": "816",
+    "other_versions": []
+  },
+  "B07089": {
+    "is_primary": true,
+    "card_id": "817",
+    "other_versions": []
+  },
+  "B07090": {
+    "is_primary": true,
+    "card_id": "818",
+    "other_versions": []
+  },
+  "B07091": {
+    "is_primary": true,
+    "card_id": "819",
+    "other_versions": []
+  },
+  "B07092": {
+    "is_primary": true,
+    "card_id": "P069",
+    "other_versions": []
+  },
   "B07093": {
     "is_primary": true,
     "card_id": "0820",
     "other_versions": []
   },
+  "B07094": {
+    "is_primary": true,
+    "card_id": "821",
+    "other_versions": []
+  },
   "B07095": {
     "is_primary": true,
     "card_id": "0822",
+    "other_versions": []
+  },
+  "B07096": {
+    "is_primary": true,
+    "card_id": "823",
+    "other_versions": []
+  },
+  "B07097": {
+    "is_primary": true,
+    "card_id": "824",
+    "other_versions": []
+  },
+  "B07098": {
+    "is_primary": true,
+    "card_id": "825",
+    "other_versions": []
+  },
+  "B07099": {
+    "is_primary": true,
+    "card_id": "826",
+    "other_versions": []
+  },
+  "B07100": {
+    "is_primary": true,
+    "card_id": "827",
+    "other_versions": []
+  },
+  "B07101": {
+    "is_primary": true,
+    "card_id": "828",
+    "other_versions": []
+  },
+  "B07102": {
+    "is_primary": true,
+    "card_id": "829",
+    "other_versions": []
+  },
+  "B07103": {
+    "is_primary": true,
+    "card_id": "830",
+    "other_versions": []
+  },
+  "B07104": {
+    "is_primary": true,
+    "card_id": "831",
     "other_versions": []
   },
   "D01002": {

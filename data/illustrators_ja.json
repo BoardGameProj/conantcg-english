@@ -625,7 +625,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 32,
+        "cardNum": 33,
         "cards": [
             {
                 "card_num": "B01035",
@@ -760,6 +760,11 @@
             {
                 "card_num": "B07066",
                 "title": "赤井秀一",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07094",
+                "title": "ジン",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
@@ -1594,7 +1599,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 24,
+        "cardNum": 25,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1682,6 +1687,11 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B07092",
+                "title": "ライ",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "D02002",
                 "title": "服部平次",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
@@ -1736,7 +1746,7 @@
     },
     {
         "name": "麻亜沙",
-        "cardNum": 3,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B02079",
@@ -1752,6 +1762,11 @@
                 "card_num": "B05093P",
                 "title": "榎本梓",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B07102",
+                "title": "犯人",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -2787,12 +2802,17 @@
     },
     {
         "name": "岸和田ロビン",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B05089P2",
                 "title": "上原由衣",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B07088",
+                "title": "山村ミサオ",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -2831,7 +2851,7 @@
     },
     {
         "name": "bomi",
-        "cardNum": 6,
+        "cardNum": 7,
         "cards": [
             {
                 "card_num": "B06004P",
@@ -2846,6 +2866,11 @@
             {
                 "card_num": "B07015",
                 "title": "遠山和葉＆大岡紅葉",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07016",
+                "title": "服部平次",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
@@ -2930,6 +2955,17 @@
             {
                 "card_num": "B07032",
                 "title": "白馬探",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            }
+        ]
+    },
+    {
+        "name": "虹鳩えむ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B07083",
+                "title": "三池苗子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
