@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 37,
+        "cardNum": 39,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -159,7 +159,17 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B07027Sec2",
+                "title": "小泉紅子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "B07028Sec1",
+                "title": "中森青子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07028Sec2",
                 "title": "中森青子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
@@ -461,7 +471,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 16,
+        "cardNum": 21,
         "cards": [
             {
                 "card_num": "B01014",
@@ -542,6 +552,31 @@
                 "card_num": "B06069P",
                 "title": "鈴木園子",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07001P",
+                "title": "毛利蘭＆灰原哀",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07002P",
+                "title": "江戸川コナン",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07004P",
+                "title": "吉田歩美",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07083P",
+                "title": "三池苗子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07084P",
+                "title": "千葉和伸",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -1041,7 +1076,7 @@
     },
     {
         "name": "ふうこのすけ",
-        "cardNum": 9,
+        "cardNum": 10,
         "cards": [
             {
                 "card_num": "B01056",
@@ -1087,6 +1122,11 @@
                 "card_num": "B04071P",
                 "title": "風見裕也",
                 "package": "CT-P04 Case-Booster 04 信義の絆（パートナー）"
+            },
+            {
+                "card_num": "B07016P",
+                "title": "服部平次",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
@@ -1599,7 +1639,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 25,
+        "cardNum": 28,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1682,12 +1722,27 @@
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
             },
             {
+                "card_num": "B07030P",
+                "title": "黒羽快斗＆中森青子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07032P",
+                "title": "白馬探",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "B07079",
                 "title": "佐藤美和子＆宮本由美",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
                 "card_num": "B07092",
+                "title": "ライ",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07092P",
                 "title": "ライ",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
@@ -1788,7 +1843,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 34,
+        "cardNum": 36,
         "cards": [
             {
                 "card_num": "B03012",
@@ -1891,6 +1946,11 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B07031P",
+                "title": "小泉紅子",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "D01002",
                 "title": "江戸川コナン",
                 "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
@@ -1958,6 +2018,11 @@
             {
                 "card_num": "PR172",
                 "title": "諸伏高明",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR197",
+                "title": "怪盗キッド",
                 "package": "PRカード"
             }
         ]
@@ -2051,7 +2116,7 @@
     },
     {
         "name": "ニジハヤシ",
-        "cardNum": 11,
+        "cardNum": 12,
         "cards": [
             {
                 "card_num": "B03036",
@@ -2091,6 +2156,11 @@
             {
                 "card_num": "B07002",
                 "title": "江戸川コナン",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07093P",
+                "title": "バーボン＆ライ",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
@@ -2358,7 +2428,7 @@
     },
     {
         "name": "海老丸べべ",
-        "cardNum": 16,
+        "cardNum": 17,
         "cards": [
             {
                 "card_num": "B03110",
@@ -2434,6 +2504,11 @@
                 "card_num": "B06102",
                 "title": "コルン",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07020P",
+                "title": "綾小路文麿",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
                 "card_num": "B07093",
@@ -2612,7 +2687,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 20,
+        "cardNum": 30,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2665,6 +2740,46 @@
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
+                "card_num": "B07012P",
+                "title": "本堂瑛祐",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07023P",
+                "title": "光本兵我",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07033P2",
+                "title": "怪盗キッド",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07066P",
+                "title": "赤井秀一",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07068P",
+                "title": "羽田秀𠮷",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07069P",
+                "title": "本堂瑛海",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07079P",
+                "title": "佐藤美和子＆宮本由美",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07094P",
+                "title": "ジン",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "D10003",
                 "title": "黒衣の騎士・スペイド（工藤新一）",
                 "package": "CT-D10 Case-ThemeDeck 05 シャッフルロマンス"
@@ -2712,6 +2827,16 @@
             {
                 "card_num": "PR171",
                 "title": "毛利小五郎",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR204",
+                "title": "羽田秀𠮷",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR210",
+                "title": "羽田秀𠮷",
                 "package": "PRカード"
             }
         ]
@@ -2802,12 +2927,22 @@
     },
     {
         "name": "岸和田ロビン",
-        "cardNum": 2,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B05089P2",
                 "title": "上原由衣",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B07041P",
+                "title": "黒羽盗一",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07080P",
+                "title": "風見裕也",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
                 "card_num": "B07088",
@@ -2892,18 +3027,23 @@
     },
     {
         "name": "谷川なか",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B06040P",
                 "title": "遠山和葉",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B07007P2",
+                "title": "沖野ヨーコ",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 6,
+        "cardNum": 10,
         "cards": [
             {
                 "card_num": "B06075",
@@ -2921,13 +3061,33 @@
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
             },
             {
+                "card_num": "B07015P",
+                "title": "遠山和葉＆大岡紅葉",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "B07031",
                 "title": "小泉紅子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B07065P",
+                "title": "世良真純＆メアリー",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
                 "card_num": "B07095",
                 "title": "ベルモット",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07095P",
+                "title": "ベルモット",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B07098P",
+                "title": "キャンティ",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
@@ -2949,12 +3109,45 @@
         ]
     },
     {
+        "name": "ぬい",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B07007P",
+                "title": "沖野ヨーコ",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            }
+        ]
+    },
+    {
+        "name": "リュダ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B07017P",
+                "title": "伊織無我",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            }
+        ]
+    },
+    {
         "name": "mayth",
         "cardNum": 1,
         "cards": [
             {
                 "card_num": "B07032",
                 "title": "白馬探",
+                "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            }
+        ]
+    },
+    {
+        "name": "п猫Ｒ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B07063P",
+                "title": "鈴木園子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             }
         ]
@@ -3065,6 +3258,22 @@
             {
                 "card_num": "PR188",
                 "title": "灰原哀",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "黒星紅白",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "PR203",
+                "title": "ベルモット",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR209",
+                "title": "ベルモット",
                 "package": "PRカード"
             }
         ]
