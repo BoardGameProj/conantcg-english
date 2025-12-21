@@ -44,7 +44,8 @@ function processKeywords(text) {
         '介入': {class: 'text-blue-500 text-sm', label: '<img src="img/cut_in.svg" class="inline-icon"><b>$1</b>', tooltip: '接触时从手牌移除以使用'},
         '变装': {class: 'dark:text-white text-sm', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
         '灵光一闪': {class: 'text-white text-sm', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
-        '变装时': {class: 'bg-fuchsia-400 text-white text-sm px-1 me-1 rounded-lg', tooltip: '当此牌通过变装效果被打出时，激活此效果'}
+        '变装时': {class: 'bg-fuchsia-400 text-white text-sm px-1 me-1 rounded-lg', tooltip: '当此牌通过变装效果被打出时，激活此效果'},
+        '案件浪漫洗牌': {class: 'bg-pink-600 text-white text-sm px-1 me-1 rounded-lg', tooltip: ''}
     }
     for (const keyword in keywords) {
         const config = keywords[keyword]
