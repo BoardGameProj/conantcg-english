@@ -24,6 +24,12 @@ const result = await fetchHtmlDom(url)
 const cards = {};
 for (const cardImage of result.querySelectorAll('#cardList img')) {
     const data = JSON.parse(cardImage.getAttribute('data') || '')
+
+    // 特殊处理：将 `B05005P` 改为 `B05005P1`
+    if (data.card_num === 'B05005P') {
+        data.card_num = 'B05005P1';
+    }
+
     cards[data.card_num] = data
 
     // Combine category fields...
@@ -37,6 +43,7 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
         }
         delete cards[data.card_num][key]
     }
+
     // Make color an array, as there are multi-color stages
     const colorList = []
     if (data.color) {
