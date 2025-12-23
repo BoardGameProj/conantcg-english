@@ -623,3 +623,8 @@ dct-card img {
 .overflow-y-auto::-webkit-scrollbar {
     display: none;
 }
+
+.dark b, strong {
+  font-weight: bold;
+  -webkit-text-stroke: 0.6px currentColor;
+}
