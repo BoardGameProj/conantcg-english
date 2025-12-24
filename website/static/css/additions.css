@@ -194,9 +194,11 @@
 }
 
 .tooltip .tooltiptext {
+    -webkit-text-stroke: 0;
     transform: translateX(-50%);
     min-width: 7rem;
     margin-left: 0;
+
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
