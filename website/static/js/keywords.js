@@ -43,7 +43,7 @@ function processKeywords(text) {
         '休眠': {class: 'bg-purple-400 text-white text-xs px-0\.5 me-1 rounded', label: '$1<img src="img/sleep.svg" class="inline-icon" style="height:1rem; vertical-align: sub;">', tooltip: '使用此能力需要将此牌休眠'},
         '介入': {class: 'text-blue-500 text-xs', label: '<img src="img/cut_in.svg" class="inline-icon"><b>$1</b>', tooltip: '接触时从手牌移除以使用'},
         '变装': {class: 'dark:text-white text-xs', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
-        '灵光一闪': {class: 'text-white text-xs', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
+        '灵光一闪': {class: 'dark:text-white text-xs', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: ''},
         '变装时': {class: 'bg-fuchsia-400 text-white text-xs px-1 me-1 rounded', tooltip: '当此牌通过变装效果被打出时，激活此效果'},
         '案件浪漫洗牌': {class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', tooltip: ''}
     }
