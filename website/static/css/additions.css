@@ -66,29 +66,34 @@
 }
 
 .card-color--Red {
+    box-shadow: 0 0 0 1px;
     background-color: red;
     color: #fff;
 }
 
 .card-color--Yellow {
     /* text-yellw-300 */
+    box-shadow: 0 0 0 1px;
     background-color: orange;
     color: #fff;
 }
 
 .card-color--Green {
     /* text-green-700 */
+    box-shadow: 0 0 0 1px;
     background-color: rgb(12, 131, 12);
     color: #fff;
 }
 
 .card-color--Blue {
     /* text-blue-800 */
+    box-shadow: 0 0 0 1px;
     background-color: #1E429F;
     color: #fff;
 }
 
 .card-color--White {
+    box-shadow: 0 0 0 1px;
     background-color: rgb(209, 208, 208);
     color: #000;
 }
@@ -142,8 +147,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.0rem;
+    height: 1.0rem;
     border-radius: 50%;
 }
 
