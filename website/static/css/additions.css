@@ -647,3 +647,15 @@ strong {
     font-weight: normal !important;
     -webkit-text-stroke: 0 !important;
 }
+
+.mr-line {
+    display: inline-block;
+    background-color: white;
+    width: auto;
+}
+
+.dark .mr-line {
+    display: inline-block;
+    background-color: rgb(74, 74, 74);
+    width: auto;
+}
