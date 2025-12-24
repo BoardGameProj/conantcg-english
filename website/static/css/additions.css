@@ -640,3 +640,8 @@ strong {
     font-weight: bold;
     -webkit-text-stroke: 0.6px currentColor;
 }
+
+.font-normal {
+    font-weight: normal !important;
+    -webkit-text-stroke: 0 !important;
+}
