@@ -6252,11 +6252,11 @@
     "is_primary": true,
     "card_id": "0511",
     "other_versions": [
-      "B05005P1",
+      "B05005P",
       "B05005P2"
     ]
   },
-  "B05005P1": {
+  "B05005P": {
     "is_primary": false,
     "card_id": "0511",
     "other_versions": [
@@ -6269,7 +6269,7 @@
     "card_id": "0511",
     "other_versions": [
       "B05005",
-      "B05005P1"
+      "B05005P"
     ]
   },
   "B05006": {
