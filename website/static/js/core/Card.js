@@ -101,7 +101,7 @@ export class Card extends HTMLElement {
             const productCode = product.trim().substring(0, 6);
             const validProducts = [
                 "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
-                "CT-D06", "CT-D07", "CT-D08", "CT-D09", //"CT-D10", // 新手卡组
+                "CT-D06", "CT-D07", "CT-D08", "CT-D09", //"CT-D10", // 主题卡组
                 "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05", // 补充包
             ];
 
