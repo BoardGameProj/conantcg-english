@@ -85,7 +85,7 @@ export class Card extends HTMLElement {
         this.data.cardText = [feature, henso, cutIn, hirameki].filter((s) => s !== '').join('\n');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
-        this.data.text = [feature, hiramekiShow, hensoShow, cutInShow].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]]+/g, '').replace(/:\s+/g, ':')
+        this.data.text = [feature, hiramekiShow, hensoShow, cutInShow].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]［］]+/g, '').replace(/:\s+/g, ':')
         this.data.text = placeTooltips(processKeywords(this.data.text)).replaceAll(/<span class="tooltiptext">.*?<\/span>/g, '')
         this.data.text = this.data.text.replaceAll(/<.*?>/g, '').trim()
 

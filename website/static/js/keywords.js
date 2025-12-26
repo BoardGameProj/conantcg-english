@@ -7,7 +7,7 @@ function createTooltip(text, tooltipText, tag = 'span') {
 function placeTooltips(text) {
     const matches = text.matchAll(/##TOOLTIP_(\d+)##/g)
     for (const match of matches) {
-        text = text.replaceAll(match[0], tooltips[match[1]-1])
+        text = text.replaceAll(match[0], tooltips[match[1] - 1])
     }
     return text
 }
@@ -16,38 +16,38 @@ function placeTooltips(text) {
 function processKeywords(text) {
     // "square bracket" keywords, e.g. [On Play]
     const keywords = {
-        '结案': {class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: ''},
-        '销毁证据': {class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: ''},
-        '协助': {class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded'},
-        '解决篇': {class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为解决篇时生效'},
-        '案件篇': {class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为案件篇时生效'},
-        '宣言': {class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '宣言使用能力，通过支付费用就能处理效果'},
-        '蓝': {class: 'text-xs card-color--Blue card-color card-color-radius', tooltip: ''},
-        '白': {class: 'text-xs bg-white card-color--White card-color card-color-radius', tooltip: ''},
-        '黑': {class: 'text-xs bg-black text-white card-color card-color-radius card-color--Black', tooltip: ''},
-        '黄': {class: 'text-xs card-color--Yellow card-color card-color-radius', tooltip: ''},
-        '红': {class: 'text-xs card-color--Red text-white card-color card-color-radius', tooltip: ''},
-        '绿': {class: 'text-xs card-color--Green card-color card-color-radius', tooltip: ''},
-        '(搭档: )([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '搭档 <span class="text-sm card-color card-color--$3 card-color-radius bg-white">$3</span>', tooltip: '我方搭档颜色为$3色时生效'},
-        '(案件: )([一-龥a-zA-Z0-9_]+)&([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色和$4色时生效'},
-        '(案件: )([一-龥a-zA-Z0-9_]+)or([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>or<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色或$4色时生效'},
-        '(案件: )([一-龥a-zA-Z0-9_]+)': {class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方案件颜色为$3色时生效'},
-        '绊: (.*?)': {class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '我方现场中存在卡名为[$2]的角色时生效'},
-        '档案: (\\d+)': {class: 'bg-red-700 text-xs pl-1 me-1 rounded-lg text-white', label: '档案<span class="text-xs card-color card-color-radius bg-white text-red-700 ring-1 ring-red-700">$2</span>', tooltip: '我方档案区中至少有$2张牌时生效'},
-        '回合1': {class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">1</span>', tooltip: '每回合只能发动1次'},
-        '回合2': {class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">2</span>', tooltip: '每回合最多发动2次'},
-        '从现场移除时': {class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '此角色从现场被移除时发动'},
-        '登场时': {class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '此角色于现场登场时发动'},
-        '我方回合中': {class: 'font-normal bg-red-700 text-white text-xs px-1 me-1 rounded', tooltip: '在我方回合中生效'},
-        '对手回合中': {class: 'font-normal bg-yellow-500 text-white text-xs px-1 me-1 rounded', tooltip: '在对手回合中生效'},
-        '休眠': {class: 'font-normal bg-purple-400 text-white text-xs px-0\.5 me-1 rounded', label: '$1<img src="img/sleep.svg" class="inline-icon" style="height:1rem; vertical-align: sub;">', tooltip: '此角色由激活状态转为休眠状态'},
-        '介入': {class: 'dark:text-white text-xs', label: '<img src="img/cut_in.svg" class="inline-icon"><b>$1</b>', tooltip: '接触时从手牌移除以使用'},
-        '变装': {class: 'dark:text-white text-xs', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底'},
-        '灵光一闪': {class: 'dark:text-white text-xs', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: '作为证据被移除时发动'},
-        '变装时': {class: 'bg-fuchsia-400 text-white text-xs px-1 me-1 rounded', tooltip: '此角色使用<span class="text-fuchsia-400 me-1"><img src="img/disguise.svg" class="inline-icon">变装</span>进入现场时发动'},
-        '案件浪漫洗牌': {class: 'font-normal bg-pink-600 text-white text-xs px-1 me-1 rounded', tooltip: '我方案件特征为[浪漫洗牌]时生效'},
-        '案件YAIBA': {class: 'font-normal bg-pink-600 text-white text-xs px-1 me-1 rounded', tooltip: '我方案件特征为[YAIBA]时生效'},
-        'MR能力.*': {class: 'my-4', label: '<b class="bg-black text-white px-2 pt-0.5 pb-2 ring-1 dark:ring-white ring-black rounded-t">MR能力</b>\n<span class="mr-line rounded-b-lg rounded-tr-lg ring-1 dark:ring-white ring-black mb-2"><b class="pl-2 text-xs">若在对手回合中离开现场，移入搭档区。</b>\n<b class="pl-2 text-xs">若在我方现场中登场MR，移除此卡牌。</b></b></span>', tooltip: ''},
+        '结案': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
+        '销毁证据': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
+        '协助': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded' },
+        '解决篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为解决篇时生效' },
+        '案件篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为案件篇时生效' },
+        '宣言': { class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '宣言使用能力，通过支付费用就能处理效果' },
+        '蓝': { class: 'text-xs card-color--Blue card-color card-color-radius', tooltip: '' },
+        '白': { class: 'text-xs bg-white card-color--White card-color card-color-radius', tooltip: '' },
+        '黑': { class: 'text-xs bg-black text-white card-color card-color-radius card-color--Black', tooltip: '' },
+        '黄': { class: 'text-xs card-color--Yellow card-color card-color-radius', tooltip: '' },
+        '红': { class: 'text-xs card-color--Red text-white card-color card-color-radius', tooltip: '' },
+        '绿': { class: 'text-xs card-color--Green card-color card-color-radius', tooltip: '' },
+        '(搭档: )([一-龥a-zA-Z0-9_]+)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '搭档 <span class="text-sm card-color card-color--$3 card-color-radius bg-white">$3</span>', tooltip: '我方搭档颜色为$3色时生效' },
+        '(案件: )([一-龥a-zA-Z0-9_]+)&([一-龥a-zA-Z0-9_]+)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色和$4色时生效' },
+        '(案件: )([一-龥a-zA-Z0-9_]+)or([一-龥a-zA-Z0-9_]+)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>or<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色或$4色时生效' },
+        '(案件: )([一-龥a-zA-Z0-9_]+)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方案件颜色为$3色时生效' },
+        '绊: (.*?)': { class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '我方现场中存在卡名为[$2]的角色时生效' },
+        '档案: (\\d+)': { class: 'bg-red-700 text-xs pl-1 me-1 rounded-lg text-white', label: '档案<span class="text-xs card-color card-color-radius bg-white text-red-700 ring-1 ring-red-700">$2</span>', tooltip: '我方档案区中至少有$2张牌时生效' },
+        '回合1': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">1</span>', tooltip: '每回合只能发动1次' },
+        '回合2': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">2</span>', tooltip: '每回合最多发动2次' },
+        '从现场移除时': { class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '此角色从现场被移除时发动' },
+        '登场时': { class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '此角色于现场登场时发动' },
+        '我方回合中': { class: 'font-normal bg-red-700 text-white text-xs px-1 me-1 rounded', tooltip: '在我方回合中生效' },
+        '对手回合中': { class: 'font-normal bg-yellow-500 text-white text-xs px-1 me-1 rounded', tooltip: '在对手回合中生效' },
+        '休眠': { class: 'font-normal bg-purple-400 text-white text-xs px-0\.5 me-1 rounded', label: '$1<img src="img/sleep.svg" class="inline-icon" style="height:1rem; vertical-align: sub;">', tooltip: '此角色由激活状态转为休眠状态' },
+        '介入': { class: 'dark:text-white text-xs', label: '<img src="img/cut_in.svg" class="inline-icon"><b>$1</b>', tooltip: '接触时从手牌移除以使用' },
+        '变装': { class: 'dark:text-white text-xs', label: '<img src="img/disguise.svg" class="inline-icon"><b>$1</b>', tooltip: '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底' },
+        '灵光一闪': { class: 'dark:text-white text-xs', label: '<img src="img/hirameki.svg" class="inline-icon"><b>$1</b>', tooltip: '作为证据被移除时发动' },
+        '变装时': { class: 'bg-fuchsia-400 text-white text-xs px-1 me-1 rounded', tooltip: '此角色使用<span class="text-fuchsia-400 me-1"><img src="img/disguise.svg" class="inline-icon">变装</span>进入现场时发动' },
+        '案件浪漫洗牌': { class: 'font-normal bg-pink-600 text-white text-xs px-1 me-1 rounded', tooltip: '我方案件特征为[浪漫洗牌]时生效' },
+        '案件YAIBA': { class: 'font-normal bg-pink-600 text-white text-xs px-1 me-1 rounded', tooltip: '我方案件特征为[YAIBA]时生效' },
+        'MR能力.*': { class: 'my-4', label: '<b class="bg-black text-white px-2 pt-0.5 pb-2 ring-1 dark:ring-white ring-black rounded-t">MR能力</b>\n<span class="mr-line rounded-b-lg rounded-tr-lg ring-1 dark:ring-white ring-black mb-2"><b class="pl-2 text-xs">若在对手回合中离开现场，移入搭档区。</b>\n<b class="pl-2 text-xs">若在我方现场中登场MR，移除此卡牌。</b></b></span>', tooltip: '' },
     }
     for (const keyword in keywords) {
         const config = keywords[keyword]
@@ -68,8 +68,8 @@ function processKeywords(text) {
                 let localLabel = label
                 let localTooltip = tooltip
                 for (let i = 0; i < localMatches.length; i++) {
-                    localLabel = localLabel.replaceAll('$' + Number(i+1), localMatches[(i+1)] || '')
-                    localTooltip = localTooltip.replaceAll('$' + Number(i+1), localMatches[(i+1)] || '')
+                    localLabel = localLabel.replaceAll('$' + Number(i + 1), localMatches[(i + 1)] || '')
+                    localTooltip = localTooltip.replaceAll('$' + Number(i + 1), localMatches[(i + 1)] || '')
                 }
                 text = text.replace(nonGlobalPattern, '<span class="' + config.class + '">' + createTooltip(localLabel, localTooltip) + '</span>')
             }
@@ -80,17 +80,22 @@ function processKeywords(text) {
 
     // "curly cracket" keywords, e.g.  {迅速}
     const highlightKeywords = {
-        '{误导(\\d+)}': {tag: 'b', tooltip: "将此角色休眠，对手进行推理时LP-$2"},
-        '{搜查1}': {tag: 'b', tooltip: "对手展示卡组顶1张牌，然后以任意顺序移入卡组底"},
-        '{搜查2}': {tag: 'b', tooltip: "对手展示卡组顶2张牌，然后以任意顺序移入卡组底"},
-        '{搜查3}': {tag: 'b', tooltip: "对手展示卡组顶3张牌，然后以任意顺序移入卡组底"},
-        '{搜查4}': {tag: 'b', tooltip: "对手展示卡组顶4张牌，然后以任意顺序移入卡组底"},
-        '{搜查(X|\\d+)}': {tag: 'b', tooltip: "对手展示卡组顶$2张牌，然后以任意顺序移入卡组底"},
-        '{迅速}(\\[.*\\])?': {tag: 'b', tooltip: '登场回合可以立刻进行推理或行动'},
-        '{突击}\\[案件\\]': {tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动'},
-        '{突击}\\[角色\\]': {tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动'},
-        '{突击}(\\[.*\\])?': {tag: 'b', tooltip: '登场回合可以立刻进行行动'},
-        '{弹丸}': {tag: 'b', tooltip: '此角色的行动不能被防卫'}
+        '{弹丸}': { tag: 'b', tooltip: '此角色的行动不能被防卫' },
+        '{误导(\\d+)}': { tag: 'b', tooltip: "将此角色休眠，对手进行推理时LP-$2" },
+        '{搜查1}': { tag: 'b', tooltip: "对手展示卡组顶1张牌，然后以任意顺序移入卡组底" },
+        '{搜查2}': { tag: 'b', tooltip: "对手展示卡组顶2张牌，然后以任意顺序移入卡组底" },
+        '{搜查3}': { tag: 'b', tooltip: "对手展示卡组顶3张牌，然后以任意顺序移入卡组底" },
+        '{搜查4}': { tag: 'b', tooltip: "对手展示卡组顶4张牌，然后以任意顺序移入卡组底" },
+        '{搜查(X|\\d+)}': { tag: 'b', tooltip: "对手展示卡组顶$2张牌，然后以任意顺序移入卡组底" },
+        '{迅速}(\\[.*\\])?': { tag: 'b', tooltip: '登场回合可以立刻进行推理或行动' },
+        '{突击}［案件］': { tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动' },
+        '{突击}［角色］': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
+        '{突击}\\[案件\\]': { tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动' },
+        '{突击}\\[角色\\]': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
+        '{突击}(\\[.*\\])?': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
+        '{特征不?为?［[^］]*?］}': { tag: 'b', tooltip: '' },
+        '{卡名不?为?［[^］]*?］}': { tag: 'b', tooltip: '' },
+        '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
     for (const keyword in highlightKeywords) {
         const config = highlightKeywords[keyword]
@@ -104,12 +109,21 @@ function processKeywords(text) {
                 continue
             }
             for (let i = 0; i < matches.length; i++) {
-                tooltip = tooltip.replaceAll('$' + Number(i+1), matches[(i+1)] || '')
-                label = label.replaceAll('$' + Number(i+1), matches[(i+1)] || '')
+                tooltip = tooltip.replaceAll('$' + Number(i + 1), matches[(i + 1)] || '')
+                label = label.replaceAll('$' + Number(i + 1), matches[(i + 1)] || '')
             }
             text = text.replaceAll(pattern, createTooltip(label.replace(/[{}]/g, ''), tooltip, tag))
         } else {
-            text = text.replaceAll(pattern, `<${tag}>${label.replace(/[{}]/g, '')}</${tag}>`)
+            // text = text.replaceAll(pattern, `<${tag}>${label.replace(/[{}]/g, '')}</${tag}>`)
+            if (config.label) {
+                text = text.replaceAll(pattern, config.label)
+            } else {
+                const matches = text.match(pattern);
+                if (matches) {
+                    const cleanContent = matches[0].replace(/[{}]/g, '');
+                    text = text.replaceAll(pattern, `<${tag}>${cleanContent}</${tag}>`);
+                }
+            }
         }
     }
     return text
@@ -118,18 +132,18 @@ function processKeywords(text) {
 function processMechanics(text) {
     // Game mechanics, explained on the first occurrence in the text
     const mechanics = {
-        '案件等级': {tooltip: '案件等级是指需要收集多少证据才能赢得游戏'},
-        '推理': {tooltip: '休眠该牌以获得基于该牌LP数量的证据'},
-        '能力': {tooltip: '“能力”是指在满足条件时可发动的角色效果'},
-        '效果': {tooltip: '“效果”是指事件牌发动'},
-        '接触': {tooltip: '当进行「行动」的角色和作为对象/进行「防卫」的角色之间发生接触'},
-        '行动': {tooltip: '「行动」对象可以是对手的案件或对手现场中处于休眠状态或眩晕状态的角色'},
-        '防卫': {tooltip: '处于激活状态的角色对「行动」进行「防卫」，将进行防卫的角色转为休眠状态'},
-        '休眠': {tooltip: '处于休眠状态的角色不能进行行动，可作为对象发生接触'},
-        '眩晕': {tooltip: '处于眩晕状态的角色激活时改为休眠'},
-        '刷新': {tooltip: '游戏中，当我方卡组没有卡牌时进行的处理。对手获得1个证据'},
-        '从手牌使用': {tooltip: '通过提示使用也是「从手牌使用」'},
-        '从手牌中使用': {tooltip: '通过提示使用也是「从手牌使用」'}
+        '案件等级': { tooltip: '案件等级是指需要收集多少证据才能赢得游戏' },
+        '推理': { tooltip: '休眠该牌以获得基于该牌LP数量的证据' },
+        '能力': { tooltip: '“能力”是指在满足条件时可发动的角色效果' },
+        '效果': { tooltip: '“效果”是指事件牌发动' },
+        '接触': { tooltip: '当进行「行动」的角色和作为对象/进行「防卫」的角色之间发生接触' },
+        '行动': { tooltip: '「行动」对象可以是对手的案件或对手现场中处于休眠状态或眩晕状态的角色' },
+        '防卫': { tooltip: '处于激活状态的角色对「行动」进行「防卫」，将进行防卫的角色转为休眠状态' },
+        '休眠': { tooltip: '处于休眠状态的角色不能进行行动，可作为对象发生接触' },
+        '眩晕': { tooltip: '处于眩晕状态的角色激活时改为休眠' },
+        '刷新': { tooltip: '游戏中，当我方卡组没有卡牌时进行的处理。对手获得1个证据' },
+        '从手牌使用': { tooltip: '通过提示使用也是「从手牌使用」' },
+        '从手牌中使用': { tooltip: '通过提示使用也是「从手牌使用」' }
         // 'Investigates?': {tooltip: '对手展示卡组顶指定数量的牌，然后以任意顺序移入卡组底'}
     }
     for (const mechanic in mechanics) {
