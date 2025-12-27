@@ -590,6 +590,7 @@
       "B01003P",
       "B03001",
       "B03001P",
+      "B08001Sec1",
       "PR123"
     ]
   },
@@ -600,6 +601,7 @@
       "B01003",
       "B03001",
       "B03001P",
+      "B08001Sec1",
       "PR123"
     ]
   },
@@ -610,6 +612,7 @@
       "B01003",
       "B01003P",
       "B03001P",
+      "B08001Sec1",
       "PR123"
     ]
   },
@@ -620,6 +623,18 @@
       "B01003",
       "B01003P",
       "B03001",
+      "B08001Sec1",
+      "PR123"
+    ]
+  },
+  "B08001Sec1": {
+    "is_primary": false,
+    "card_id": "P008",
+    "other_versions": [
+      "B01003",
+      "B01003P",
+      "B03001",
+      "B03001P",
       "PR123"
     ]
   },
@@ -630,7 +645,8 @@
       "B01003",
       "B01003P",
       "B03001",
-      "B03001P"
+      "B03001P",
+      "B08001Sec1"
     ]
   },
   "B01004": {
@@ -4646,6 +4662,7 @@
     "card_id": "P028",
     "other_versions": [
       "B03107P",
+      "B08077Sec1",
       "PR079"
     ]
   },
@@ -4654,6 +4671,16 @@
     "card_id": "P028",
     "other_versions": [
       "B03107",
+      "B08077Sec1",
+      "PR079"
+    ]
+  },
+  "B08077Sec1": {
+    "is_primary": false,
+    "card_id": "P028",
+    "other_versions": [
+      "B03107",
+      "B03107P",
       "PR079"
     ]
   },
@@ -4662,7 +4689,8 @@
     "card_id": "P028",
     "other_versions": [
       "B03107",
-      "B03107P"
+      "B03107P",
+      "B08077Sec1"
     ]
   },
   "B03108": {
@@ -9991,6 +10019,54 @@
     "other_versions": [
       "B07104"
     ]
+  },
+  "B08002": {
+    "is_primary": true,
+    "card_id": "0843",
+    "other_versions": []
+  },
+  "B08003": {
+    "is_primary": true,
+    "card_id": "0844",
+    "other_versions": [
+      "B08003P"
+    ]
+  },
+  "B08003P": {
+    "is_primary": false,
+    "card_id": "0844",
+    "other_versions": [
+      "B08003"
+    ]
+  },
+  "B08004": {
+    "is_primary": true,
+    "card_id": "0845",
+    "other_versions": []
+  },
+  "B08005": {
+    "is_primary": true,
+    "card_id": "0846",
+    "other_versions": []
+  },
+  "B08032": {
+    "is_primary": true,
+    "card_id": "0871",
+    "other_versions": [
+      "B08032P"
+    ]
+  },
+  "B08032P": {
+    "is_primary": false,
+    "card_id": "0871",
+    "other_versions": [
+      "B08032"
+    ]
+  },
+  "B08079": {
+    "is_primary": true,
+    "card_id": "0915",
+    "other_versions": []
   },
   "D01002": {
     "is_primary": true,
