@@ -130,8 +130,8 @@ function processMechanics(text) {
     const mechanics = {
         '案件等级': { tooltip: '案件等级是指需要收集多少证据才能赢得游戏' },
         '推理': { tooltip: '休眠该牌以获得基于该牌LP数量的证据' },
-        '能力': { tooltip: '“能力”是指在满足条件时可发动的角色效果' },
-        '效果': { tooltip: '“效果”是指事件牌发动' },
+        '能力': { tooltip: '"能力"是指在满足条件时可发动的角色效果' },
+        '效果': { tooltip: '"效果"是指事件牌发动' },
         '接触': { tooltip: '当进行「行动」的角色和作为对象/进行「防卫」的角色之间发生接触' },
         '行动': { tooltip: '「行动」对象可以是对手的案件或对手现场中处于休眠状态或眩晕状态的角色' },
         '防卫': { tooltip: '处于激活状态的角色对「行动」进行「防卫」，将进行防卫的角色转为休眠状态' },
@@ -140,8 +140,8 @@ function processMechanics(text) {
         '刷新': { tooltip: '游戏中，当我方卡组没有卡牌时进行的处理。对手获得1个证据' },
         '从手牌使用': { tooltip: '通过提示使用也是「从手牌使用」' },
         '从手牌中使用': { tooltip: '通过提示使用也是「从手牌使用」' }
-        // 'Investigates?': {tooltip: '对手展示卡组顶指定数量的牌，然后以任意顺序移入卡组底'}
     }
+
     for (const mechanic in mechanics) {
         const config = mechanics[mechanic]
         const tag = config.tag || 'span'
@@ -149,12 +149,26 @@ function processMechanics(text) {
         if (!tooltip) {
             continue
         }
-        const pattern = new RegExp(`([^\\[])(${mechanic})`)
+
+        // 修改这里：匹配关键词及其后的标点
+        const pattern = new RegExp(`([^\\[])(${mechanic})([，。！？：；.!?;:]?)`)
         const matches = pattern.exec(text)
         if (!matches) {
             continue
         }
-        text = text.replace(pattern, matches[1] + createTooltip((config.label || matches[2]), tooltip, tag))
+
+        // 修改这里：把标点也包进span里
+        const keyword = matches[2]
+        const punctuation = matches[3] || ''
+
+        // 创建带标点的tooltip，但只给关键词加下划线
+        text = text.replace(pattern,
+            matches[1] +
+            '<span class="tooltip-container">' +
+            createTooltip(keyword, tooltip, tag) +
+            punctuation +
+            '</span>'
+        )
     }
     return text
 }
