@@ -18,7 +18,7 @@ function processKeywords(text) {
     const keywords = {
         '结案': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
         '销毁证据': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
-        '协助': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: ''  },
+        '协助': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
         '解决篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为解决篇时生效' },
         '案件篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为案件篇时生效' },
         '宣言': { class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '宣言使用能力，通过支付费用就能处理效果' },
@@ -86,13 +86,11 @@ function processKeywords(text) {
         '{搜查3}': { tag: 'b', tooltip: "对手展示卡组顶3张牌，然后以任意顺序移入卡组底" },
         '{搜查4}': { tag: 'b', tooltip: "对手展示卡组顶4张牌，然后以任意顺序移入卡组底" },
         '{搜查(X|\\d+)}': { tag: 'b', tooltip: "对手展示卡组顶$2张牌，然后以任意顺序移入卡组底" },
-        '{迅速}(\\[.*\\])?': { tag: 'b', tooltip: '登场回合可以立刻进行推理或行动' },
+        '{迅速}': { tag: 'b', tooltip: '登场回合可以立刻进行推理或行动' },
         '{突击}［案件］': { tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动' },
         '{突击}［角色］': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
-        '{突击}\\[案件\\]': { tag: 'b', tooltip: '登场回合可以立刻以案件为对象进行行动' },
-        '{突击}\\[角色\\]': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
-        '{突击}(\\[.*\\])?': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
-        '{特征不?为?［[^］]*?］}': { tag: 'b', tooltip: '' },
+        '{突击}': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
+        '{特征不?为?［[^］}]*?］}': { tag: 'b', tooltip: '' },
         '{卡名不?为?［[^］]*?］}': { tag: 'b', tooltip: '' },
         '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
@@ -115,13 +113,12 @@ function processKeywords(text) {
         } else {
             // text = text.replaceAll(pattern, `<${tag}>${label.replace(/[{}]/g, '')}</${tag}>`)
             if (config.label) {
-                text = text.replaceAll(pattern, config.label)
+                text = text.replace(pattern, config.label)
             } else {
-                const matches = text.match(pattern);
-                if (matches) {
-                    const cleanContent = matches[0].replace(/[{}]/g, '');
-                    text = text.replaceAll(pattern, `<${tag}>${cleanContent}</${tag}>`);
-                }
+                text = text.replaceAll(pattern, (match) => {
+                    const cleanContent = match.replace(/[{}]/g, '');
+                    return `<${tag}>${cleanContent}</${tag}>`;
+                });
             }
         }
     }
