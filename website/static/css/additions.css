@@ -198,7 +198,8 @@
     transform: translateX(-50%);
     min-width: 7rem;
     margin-left: 0;
-
+    display: inline-block;
+    white-space: normal;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
