@@ -10306,12 +10306,30 @@
   "B08004": {
     "is_primary": true,
     "card_id": "0845",
-    "other_versions": []
+    "other_versions": [
+      "B08004P"
+    ]
+  },
+  "B08004P": {
+    "is_primary": false,
+    "card_id": "0845",
+    "other_versions": [
+      "B08004"
+    ]
   },
   "B08005": {
     "is_primary": true,
     "card_id": "0846",
-    "other_versions": []
+    "other_versions": [
+      "B08005P"
+    ]
+  },
+  "B08005P": {
+    "is_primary": false,
+    "card_id": "0846",
+    "other_versions": [
+      "B08005"
+    ]
   },
   "B08032": {
     "is_primary": true,
@@ -12248,6 +12266,16 @@
   "PR218": {
     "is_primary": true,
     "card_id": "0837",
+    "other_versions": []
+  },
+  "B08017": {
+    "is_primary": true,
+    "card_id": "0858",
+    "other_versions": []
+  },
+  "B08082": {
+    "is_primary": true,
+    "card_id": "0918",
     "other_versions": []
   }
 }

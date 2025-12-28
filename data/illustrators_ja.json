@@ -1868,7 +1868,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 38,
+        "cardNum": 39,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2059,6 +2059,11 @@
                 "card_num": "PR197",
                 "title": "怪盗キッド",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "B08082",
+                "title": "ピスコ",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
