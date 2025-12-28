@@ -512,7 +512,7 @@ export class Card extends HTMLElement {
                 </div>
                 <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
                     <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                        <h3 class="font-semibold text-gray-900 dark:text-white"><span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.title}</span>&nbsp;<small class="copyable dark:text-gray-300 card_font" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.originalTitle}</small></h3>
+                        <h3 class="font-semibold text-gray-900 dark:text-white"><span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.title}</span>&nbsp;<span class="copyable dark:text-gray-300 card_font" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.originalTitle}</span></h3>
                         <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
                     </div>
                     <div class="px-2 py-2 text-lg lg:text-base">

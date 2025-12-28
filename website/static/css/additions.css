@@ -234,6 +234,9 @@
 
 .card_font {
     font-family: 'QiushuiShotai';
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 70%;
 }
 
 .fa-solid {
