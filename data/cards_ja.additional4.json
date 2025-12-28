@@ -573,5 +573,42 @@
         "categories": [
             "黒ずくめの組織"
         ]
+    },
+    "B08047": {
+        "id": 8256,
+        "card_id": "0885",
+        "title": "沖矢昴",
+        "card_num": "B08047",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08047.jpg",
+        "sub_thumb": "sub_B08047.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "SR",
+        "cost": "7",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "自分のターン終了時、自分の手札が2枚になるまでカードを引く。\r\n【パートナー赤】【宣言】【スリープ】手札が2枚になるまで手札をリムーブする：キャラを1枚まで選び、リムーブする。",
+        "drawing": "描きおろし",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "大学院生"
+        ]
     }
 }
