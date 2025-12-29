@@ -52,35 +52,28 @@ function processKeywords(text) {
         const config = keywords[keyword]
         let tooltip = config.tooltip || ''
         let label = config.label || '$1'
-        const pattern = new RegExp(`\\[(${keyword})\\]([，。！？：；.!?;:「」]?)`, 'gi')
-        const nonGlobalPattern = new RegExp(`\\[(${keyword})\\]([，。！？：；.!?;:「」]?)`, 'i')
+        const pattern = new RegExp(`\\[(${keyword})\\]`, 'gi')
+        const nonGlobalPattern = new RegExp(`\\[(${keyword})\\]`, 'i')
         if (tooltip) {
             const matches = text.match(pattern)
-            if (!matches) continue
+            if (!matches) {
+                continue
+            }
             for (const matchingLine of matches) {
                 const localMatches = nonGlobalPattern.exec(matchingLine)
-                if (!localMatches) continue
+                if (!localMatches) {
+                    continue
+                }
                 let localLabel = label
                 let localTooltip = tooltip
-                const punctuation = localMatches[2] || ''
                 for (let i = 0; i < localMatches.length; i++) {
-                    localLabel = localLabel.replaceAll('$' + (i + 1), localMatches[i + 1] || '')
-                    localTooltip = localTooltip.replaceAll('$' + (i + 1), localMatches[i + 1] || '')
+                    localLabel = localLabel.replaceAll('$' + Number(i + 1), localMatches[(i + 1)] || '')
+                    localTooltip = localTooltip.replaceAll('$' + Number(i + 1), localMatches[(i + 1)] || '')
                 }
-                text = text.replace(
-                    nonGlobalPattern,
-                    '<span class="tooltip-container">' +
-                    '<span class="' + config.class + '">' + createTooltip(localLabel, localTooltip) + '</span>' +
-                    punctuation +
-                    '</span>'
-                )
+                text = text.replace(nonGlobalPattern, '<span class="' + config.class + '">' + createTooltip(localLabel, localTooltip) + '</span>')
             }
         } else {
-            // 无tooltip情况的处理
-            text = text.replaceAll(
-                pattern,
-                (match, p1, p2) => `<span class="${config.class}">${label.replace(/\$1/g, p1)}</span>${p2 || ''}`
-            )
+            text = text.replaceAll(pattern, '<span class="' + config.class + '">' + label + '</span>')
         }
     }
 

@@ -407,13 +407,14 @@ export class Card extends HTMLElement {
             price: '参考价'
         }
 
-        const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText']
+        const fields = ['cardId', 'cardNum', 'type', 'color']
+        if (this.data.type === '角色' || this.data.type === '事件') {
+            fields.push('cost')
+        }
+        fields.push('cardText')
         if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
             console.log('this.data.categories: ', this.data.categories)
             fields.push('categories')
-        }
-        if (this.data.type === '角色' || this.data.type === '事件') {
-            fields.push('cost')
         }
         if (this.data.type === '角色') {
             fields.push('ap')
@@ -421,12 +422,12 @@ export class Card extends HTMLElement {
         if (this.data.type === '角色' || this.data.type === '搭档') {
             fields.push('lp')
         }
-        if (this.data.rarity && this.data.rarity.length > 0) {
-            fields.push('rarity')
-        }
         if (this.data.type === '案件') {
             fields.push('caseDifficultyFirst')
             fields.push('caseDifficultySecond')
+        }
+        if (this.data.rarity && this.data.otherVersions.length > 0) {
+            fields.push('rarity')
         }
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
