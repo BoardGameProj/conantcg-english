@@ -64,25 +64,33 @@ export class Card extends HTMLElement {
 
         if (henso !== '') {
             hensoShow = '变装: ' + henso;
-            henso = '<span class="henso-line mb-1 mt-1 rounded-lg"><span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon"><b class="whitespace-nowrap">变装</b>', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span>' + processKeywords(henso) + '</span>'
+            // henso = '<span class="henso-line mb-1 mt-1 rounded-lg"><span class="text-fuchsia-400 me-1">' + createTooltip('<img src="img/disguise.svg" class="inline-icon"><b class="whitespace-nowrap">变装</b>', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底') + '</span>' + processKeywords(henso) + '</span>'
+            henso = `<div class="cut-in-container henso-line mb-1 mt-1 rounded-lg"><span class="cut-in-icon text-fuchsia-400">${createTooltip('<img src="img/disguise.svg" class="inline-icon"><b>变装</b>', '从手牌中打出替换接触中的角色。将被替换的角色移入卡组底')}</span><b class="cut-in-text">${processKeywords(henso)}</b></div>`;
             this.data.spkey.push('变装')
         }
         if (cutIn !== '') {
             // cutIn = '<span class="text-blue-500 cut-in-line mb-1 mt-1 rounded-lg"><b class="whitespace-nowrap px-1">[介入]</b> ' + cutIn + '</span>'
             cutInShow = '介入: ' + cutIn;
-            cutIn = '<span class="cut-in-line mb-1 mt-1 rounded-lg"><span class="text-blue-500 me-1">' + createTooltip('<img src="img/cut_in.svg" class="inline-icon"><b class="whitespace-nowrap">介入</b>', '接触时从手牌移除以使用') + '</span><b>' + processKeywords(cutIn) + '</b></span>'
+            if (this.data.cardId == '0671') {
+                let cutIn1 = '[我方回合中]AP+2000';
+                let cutIn2 = '[案件YAIBA]选最多1张我方移除区中{特征为［YAIBA］}的事件加入手牌。'
+                cutIn = `<div class="cut-in-container cut-in-line mb-1 mt-1 rounded-lg"><span class="cut-in-icon text-blue-500">${createTooltip('<img src="img/cut_in.svg" class="inline-icon"><b>介入</b>', '接触时从手牌移除以使用')}</span><b class="cut-in-text">${processKeywords(cutIn1)}</b></div><div class="cut-in-container cut-in-line mb-1 mt-1 rounded-lg"><span class="cut-in-icon text-blue-500">${createTooltip('<img src="img/cut_in.svg" class="inline-icon"><b>介入</b>', '接触时从手牌移除以使用')}</span><b class="cut-in-text">${processKeywords(cutIn2)}</b></div>`;
+            } else {
+                cutIn = `<div class="cut-in-container cut-in-line mb-1 mt-1 rounded-lg"><span class="cut-in-icon text-blue-500">${createTooltip('<img src="img/cut_in.svg" class="inline-icon"><b>介入</b>', '接触时从手牌移除以使用')}</span><b class="cut-in-text">${processKeywords(cutIn)}</b></div>`;
+            }
             this.data.spkey.push('介入')
         }
         if (hirameki !== '') {
             hiramekiShow = '灵光一闪: ' + hirameki;
-            hirameki = '<span class="hirameki-line mb-1 mt-1 rounded-lg"><span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon"><b class="whitespace-nowrap">灵光一闪</b>', '作为证据被移除时发动') + '</span><b>' + processKeywords(hirameki) + '</b></span>'
+            // hirameki = '<span class="hirameki-line mb-1 mt-1 rounded-lg"><span class="text-orange-500 me-1">' + createTooltip('<img src="img/hirameki.svg" class="inline-icon"><b class="whitespace-nowrap">灵光一闪</b>', '作为证据被移除时发动') + '</span><b>' + processKeywords(hirameki) + '</b></span>'
+            hirameki = `<div class="cut-in-container hirameki-line mb-1 mt-1 rounded-lg"><span class="cut-in-icon text-orange-500">${createTooltip('<img src="img/hirameki.svg" class="inline-icon"><b>灵光一闪</b>', '作为证据被移除时发动')}</span><b class="cut-in-text">${processKeywords(hirameki)}</b></div>`
             this.data.spkey.push('灵光一闪')
         }
 
         if (!this.data.spkey || this.data.spkey.length === 0) {
             this.data.spkey = ['无']
         }
-        this.data.cardText = [feature, henso, cutIn, hirameki].filter((s) => s !== '').join('\n');
+        this.data.cardText = [feature, henso, cutIn, hirameki].filter((s) => s !== '').join('');
         this.data.cardText = placeTooltips(processKeywords(this.data.cardText))
 
         this.data.text = [feature, hiramekiShow, hensoShow, cutInShow].filter((s) => s !== '').join('').replace(/[\r\n\t\[\]［］]+/g, '').replace(/:\s+/g, ':')
@@ -95,7 +103,7 @@ export class Card extends HTMLElement {
         if (this.data.rarity === 'D') {
             this.data.rarity = "C"
         }
-        this.data.custom = this.getAttribute('is-primary') === "true" ? "首次" : this.getAttribute('is-primary');
+        this.data.custom = this.getAttribute('is-primary') === "true" ? "初版" : this.getAttribute('is-primary');
         const isChineseByProduct = (product) => {
             if (!product) return false;
             const productCode = product.trim().substring(0, 6);
@@ -113,7 +121,7 @@ export class Card extends HTMLElement {
             "PR011", "PR017", "PR018", "PR019", "PR020",
             "PR021", "PR022", "PR023", "PR034", "PR035",
             "PR038", "PR051", "PR052", "PR055", "PR080",
-            "PR094", "PR096"               
+            "PR094", "PR096"
         ]);
         const isChinese = isChineseByProduct(this.data.product) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
         this.data.custom = `${this.data.custom},${isChinese}`;
@@ -399,7 +407,7 @@ export class Card extends HTMLElement {
             price: '参考价'
         }
 
-        const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText', 'rarity']
+        const fields = ['cardId', 'cardNum', 'type', 'color', 'cardText']
         if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
             console.log('this.data.categories: ', this.data.categories)
             fields.push('categories')
@@ -412,6 +420,9 @@ export class Card extends HTMLElement {
         }
         if (this.data.type === '角色' || this.data.type === '搭档') {
             fields.push('lp')
+        }
+        if (this.data.rarity && this.data.rarity.length > 0) {
+            fields.push('rarity')
         }
         if (this.data.type === '案件') {
             fields.push('caseDifficultyFirst')

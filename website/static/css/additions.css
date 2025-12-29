@@ -266,37 +266,37 @@
 }
 
 .cut-in-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #e7f5fe;
     width: -webkit-fill-available;
 }
 
 .dark .cut-in-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #1c64f269;
     width: -webkit-fill-available;
 }
 
 .hirameki-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #ffe6d6;
     width: -webkit-fill-available;
 }
 
 .dark .hirameki-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #fee8d85c;
     width: -webkit-fill-available;
 }
 
 .henso-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #ffeff7;
     width: -webkit-fill-available;
 }
 
 .dark .henso-line {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #ff96ca75;
     width: -webkit-fill-available;
 }
@@ -675,4 +675,21 @@ strong {
 .tooltip-container {
     display: inline-block;
     white-space: nowrap;
+}
+
+/* 核心布局：左侧固定 + 右侧自适应，垂直居中 */
+.cut-in-container {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.cut-in-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.cut-in-text {
+    flex-grow: 1;
+    word-break: break-word;
 }
