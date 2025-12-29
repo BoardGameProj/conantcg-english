@@ -610,5 +610,120 @@
         "categories": [
             "大学院生"
         ]
+    },
+    "B08047P": {
+        "id": 8257,
+        "card_id": "0885",
+        "title": "沖矢昴",
+        "card_num": "B08047P",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08047P.jpg",
+        "sub_thumb": "sub_B08047P.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "SRP",
+        "cost": "7",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "自分のターン終了時、自分の手札が2枚になるまでカードを引く。\r\n【パートナー赤】【宣言】【スリープ】手札が2枚になるまで手札をリムーブする：キャラを1枚まで選び、リムーブする。",
+        "drawing": "描きおろし",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "ZUKU",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "大学院生"
+        ]
+    },
+    "B08007": {
+        "id": 8258,
+        "card_id": "0848",
+        "title": "円谷光彦",
+        "card_num": "B08007",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08007.jpg",
+        "sub_thumb": "sub_B08007.jpg",
+        "color": [
+            "青"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "1",
+        "feature": "",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "少年探偵団"
+        ]
+    },
+    "B08008": {
+        "id": 8259,
+        "card_id": "0849",
+        "title": "吉田歩美",
+        "card_num": "B08008",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08008.jpg",
+        "sub_thumb": "sub_B08008.jpg",
+        "color": [
+            "青"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "【登場時】",
+        "drawing": "原作\n着彩",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": "【ヒラメキ】（証拠からリムーブされるときに発動する）カードを1枚引く。",
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "少年探偵団"
+        ]
     }
 }

@@ -12281,6 +12281,25 @@
   "B08047": {
     "is_primary": true,
     "card_id": "0885",
+    "other_versions": [
+      "B08047P"
+    ]
+  },
+  "B08047P": {
+    "is_primary": false,
+    "card_id": "0885",
+    "other_versions": [
+      "B08047"
+    ]
+  },
+  "B08007": {
+    "is_primary": true,
+    "card_id": "0848",
+    "other_versions": []
+  },
+  "B08008": {
+    "is_primary": true,
+    "card_id": "0849",
     "other_versions": []
   }
 }

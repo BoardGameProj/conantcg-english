@@ -675,7 +675,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 33,
+        "cardNum": 34,
         "cards": [
             {
                 "card_num": "B01035",
@@ -841,6 +841,11 @@
                 "card_num": "D09020",
                 "title": "黒田兵衛",
                 "package": "CT-D09 Case-ThemeDeck 04 死亡の館、赤い壁"
+            },
+            {
+                "card_num": "B08082",
+                "title": "ピスコ",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -1868,7 +1873,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 39,
+        "cardNum": 38,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2059,11 +2064,6 @@
                 "card_num": "PR197",
                 "title": "怪盗キッド",
                 "package": "PRカード"
-            },
-            {
-                "card_num": "B08082",
-                "title": "ピスコ",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -2727,7 +2727,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 31,
+        "cardNum": 32,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2883,6 +2883,11 @@
                 "card_num": "PR212",
                 "title": "工藤新一",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "B08047P",
+                "title": "沖矢昴",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
