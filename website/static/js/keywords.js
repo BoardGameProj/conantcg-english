@@ -29,7 +29,7 @@ function processKeywords(text) {
         '红': { class: 'text-xs card-color--Red text-white card-color card-color-radius', tooltip: '' },
         '绿': { class: 'text-xs card-color--Green card-color card-color-radius', tooltip: '' },
         '(搭档)(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '搭档 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方搭档颜色为$3色时生效' },
-        '(案件)(YAIBA|浪漫洗牌)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件$3', tooltip: '我方案件特征为[$3]时生效' },
+        '(案件)(YAIBA|浪漫洗牌|赤魔术)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件$3', tooltip: '我方案件特征为[$3]时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)&(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色和$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)or(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>or<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色或$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方案件颜色为$3色时生效' },
