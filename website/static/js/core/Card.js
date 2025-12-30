@@ -52,6 +52,7 @@ export class Card extends HTMLElement {
         this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
+        this.data.cardName= [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
         this.data.product = this.getAttribute('product').trim().substring(0, 6);
 
         // Combine feature, hirameki, cut in into card text
