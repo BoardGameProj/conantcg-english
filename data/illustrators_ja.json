@@ -2727,7 +2727,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 32,
+        "cardNum": 33,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2887,6 +2887,11 @@
             {
                 "card_num": "B08047P",
                 "title": "沖矢昴",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08046",
+                "title": "赤井秀一＆ジョディ・スターリング",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]

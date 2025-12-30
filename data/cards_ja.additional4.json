@@ -725,5 +725,45 @@
         "categories": [
             "少年探偵団"
         ]
+    },
+    "B08046": {
+        "id": 8260,
+        "card_id": "0884",
+        "title": "赤井秀一＆ジョディ・スターリング",
+        "card_num": "B08046",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08046.jpg",
+        "sub_thumb": "sub_B08046.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "MR",
+        "cost": "9",
+        "ap": "8000",
+        "lp": "2",
+        "feature": "【パートナー赤】【宣言】【ターン1】レベル9以下のキャラを1枚まで選び、レムープする。この能方は自分の現場に特徴[FBI]のキャラが2枚以上いる場合に宣言できる。 \r\n【宣言】【ターン1】手札から特徴 [FBI]のキャラを1枚リムープする:カードを1枚引く。この【宣言】能力のコストによってレベル8以上のキャラをリムープした場答、カードを1枚引く。この能力はパートナーエリアでも宣言できる。",
+        "drawing": "描き下ろし",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "ZUKU",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": "【カットイン】AP＋2000",
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "FBI",
+            "赤井家"
+        ]
     }
 }
