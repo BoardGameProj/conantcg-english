@@ -1,5 +1,6 @@
 <div class="flex flex-col">
-    <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
+    <div class="grid"
+        style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns-custom), minmax(0, 1fr));">
         <domfilters-option title="名称" key="title" fieldtype="text"></domfilters-option>
         <domfilters-option title="ID" key="card-id-num" fieldtype="text" class="whitespace-nowrap"></domfilters-option>
         <domfilters-option title="卡牌ID" key="card-id" fieldtype="text" class="hidden"></domfilters-option>
@@ -11,14 +12,22 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         <domfilters-option title="文本" key="text" fieldtype="text"></domfilters-option>
         {{ $prices := slice "无" "0~1" "1~10" "10~50" "50~100" "100+" }}
-        <domfilters-option title="参考价" key="price" fieldtype="checkbox" values="{{$prices| jsonify}}" class="whitespace-nowrap"></domfilters-option>
+        <domfilters-option title="参考价" key="price" fieldtype="checkbox" values="{{$prices| jsonify}}"
+            class="whitespace-nowrap"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $productList := slice }}
-        {{range .Site.Data.products_ja}}{{ $productList = $productList | append (or (T (printf "products.%s" . )) .)
-        }}{{end}}
-        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}"
-            noneValue="所有"></domfilters-option>
+        {{range .Site.Data.products_ja}}
+            {{/* 提取前6位加完整文本 "CT-D01|完整名称" */}}
+            {{ $shortCode := slicestr . 0 6 }}
+            {{ $displayName := or (T (printf "products.%s" .)) . }}
+            {{ $productList = $productList | append (printf "%s|%s" $shortCode $displayName) }}
+        {{end}}
+        {{ $productList = $productList | collections.Reverse }}
+        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
+        <!-- <domfilters-option title="系列" key="product" fieldtype="checkbox"
+            values='{"CT-D01": "CT-D01 新手卡组 01 江户川柯南", "CT-D02": "CT-D02 新手卡组 02 服部平次",  "CT-D03": "CT-D03 新手卡组 03 怪盗基德", "CT-D04": "CT-D04 新手卡组 04 赤井秀一", "CT-D05": "CT-D05 新手卡组 05 安室透", "CT-D06": "CT-D06 主题卡组 01 服部平次VS怪盗基德", "CT-D07": "CT-D07 主题卡组 02 黑衣组织", "CT-D08": "CT-D08 主题卡组 03 蓝色古堡探索事件", "CT-D09": "CT-D09 主题卡组 04 死亡之馆，赤壁", "CT-D10": "CT-D10 主题卡组 05 浪漫洗牌", "CT-P01": "CT-P01 补充包 01 侦探们的王牌", "CT-P02": "CT-P02 补充包 02 西与东的大决战", "CT-P03": "CT-P03 补充包 03 黑影来袭", "CT-P04": "CT-P04 补充包 04 信义的牵绊", "CT-P05": "CT-P05 补充包 05 新的谜团", "CT-P06": "CT-P06 补充包 06 交错之刃", "CT-P07": "CT-P07 补充包 07 魅惑的魔法", "CT-P08": "CT-P08 补充包 08 哀色的宿命", "PR": "PR卡牌"}'
+            noneValue="所有"></domfilters-option> -->
         {{ $traits := slice }}
         {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
         {{ $traits = sort $traits }}
@@ -38,7 +47,8 @@
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $colors := slice "蓝" "绿" "白" "红" "黄" "黑" "多" }}
-        <domfilters-option title="颜色" key="color" fieldtype="checkbox" values="{{$colors| jsonify}}"></domfilters-option>
+        <domfilters-option title="颜色" key="color" fieldtype="checkbox"
+            values="{{$colors| jsonify}}"></domfilters-option>
         {{ $costs := slice "1" "2" "3" "4" "5" "6" "7" "8" "9" }}
         <domfilters-option title="等级" key="cost" fieldtype="checkbox" values="{{$costs| jsonify}}"></domfilters-option>
     </div>
@@ -61,7 +71,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
-    
+
                 label,
                 label>span {
                     width: 100%;
@@ -71,43 +81,43 @@
                 }
             }
         }
-    
+
         domfilters-option[key="spkey"] label:nth-child(2) {
             & span::before {
                 content: "";
                 background-image: url('/img/hirameki.svg');
             }
-    
+
             & input:checked+span {
                 color: #ff5a1f;
                 font-weight: bold;
             }
         }
-    
+
         domfilters-option[key="spkey"] label:nth-child(3) {
             & span::before {
                 content: "";
                 background-image: url('/img/cut_in.svg');
             }
-    
+
             & input:checked+span {
                 color: #3f83f8;
                 font-weight: bold;
             }
         }
-    
+
         domfilters-option[key="spkey"] label:nth-child(4) {
             & span::before {
                 content: "";
                 background-image: url('/img/disguise.svg');
             }
-    
+
             & input:checked+span {
                 color: #e879f9;
                 font-weight: bold;
             }
         }
-    
+
         domfilters-option[key="spkey"] span::before {
             width: 1.5rem;
             height: 1.5rem;
@@ -116,18 +126,18 @@
             background-repeat: no-repeat;
             vertical-align: middle;
         }
-    
+
         domfilters-option[key="spkey"] label input:not(:checked)+span::before {
             filter: grayscale(100%) opacity(0.7);
         }
-    
+
         domfilters-option[key="spkey"] label input:checked+span::before {
             filter: none;
         }
-    
-    
+
+
         @media screen and (min-width: 1025px) {
-    
+
             domfilters-option[key="rarity"] .flex>legend,
             domfilters-option[key="ap"] .flex>legend {
                 white-space: nowrap;
@@ -135,14 +145,14 @@
                 height: calc(4rem + 2*0.5rem) !important;
             }
         }
-    
+
         /* 移动端样式 */
         @media screen and (max-width: 767.98px) and (min-width: 380px) {
             domfilters-option[key="rarity"] .flex>div>div {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 justify-items: center;
-    
+
                 label,
                 label>span {
                     width: 100%;
@@ -152,19 +162,19 @@
                 }
             }
         }
-    
+
         /* @media screen and (max-width: 380px) {
                 domfilters-option[key="rarity"] .flex>div>div {
                     grid-template-columns: 1fr 1fr;
                 }
             } */
-    
+
         @media screen and (min-width: 1025px) and (max-width: 1279.98px) {
             domfilters-option[key="cost"] .flex>div>div {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
-    
+
                 label,
                 label>span {
                     width: 100%;
@@ -174,13 +184,13 @@
                 }
             }
         }
-    
+
         @media screen and (min-width: 1025px) and (max-width: 1279.98px) {
             domfilters-option[key="price"] .flex>div>div {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
-    
+
                 label,
                 label>span {
                     width: 105%;

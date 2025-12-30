@@ -10,7 +10,7 @@ export class Card extends HTMLElement {
         cardNum: '',
         title: '',
         originalTitle: '',
-        product: '',
+        productName: '',
         color: '',
         rarity: '',
         promoDetails: '',
@@ -36,7 +36,7 @@ export class Card extends HTMLElement {
         this.data.cardNum = this.getAttribute('card-num')
         this.data.title = this.getAttribute('title')
         this.data.originalTitle = this.getAttribute('original-title')
-        this.data.product = this.getAttribute('product')
+        this.data.productName = this.getAttribute('product')
         this.data.color = this.getAttribute('color')
         this.data.rarity = this.getAttribute('rarity')
         this.data.categories = this.getAttribute('categories').split(',')
@@ -52,6 +52,7 @@ export class Card extends HTMLElement {
         this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
+        this.data.product = this.getAttribute('product').trim().substring(0, 6);
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
@@ -104,9 +105,9 @@ export class Card extends HTMLElement {
             this.data.rarity = "C"
         }
         this.data.custom = this.getAttribute('is-primary') === "true" ? "初版" : this.getAttribute('is-primary');
-        const isChineseByProduct = (product) => {
-            if (!product) return false;
-            const productCode = product.trim().substring(0, 6);
+        const isChineseByProduct = (productName) => {
+            if (!productName) return false;
+            const productCode = productName.trim().substring(0, 6);
             const validProducts = [
                 "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
                 "CT-D06", "CT-D07", "CT-D08", "CT-D09", //"CT-D10", // 主题卡组
@@ -123,7 +124,7 @@ export class Card extends HTMLElement {
             "PR038", "PR051", "PR052", "PR055", "PR080",
             "PR094", "PR096"
         ]);
-        const isChinese = isChineseByProduct(this.data.product) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
+        const isChinese = isChineseByProduct(this.data.productName) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
         this.data.custom = `${this.data.custom},${isChinese}`;
 
 
@@ -392,8 +393,8 @@ export class Card extends HTMLElement {
             cardNum: '编号',
             type: '类型',
             cardText: '效果',
-            product: '产品',
-            promoDetails: '分销',
+            productName: '产品',
+            promoDetails: '收录',
             color: '颜色',
             rarity: '稀有度',
             categories: '特征',
@@ -432,7 +433,7 @@ export class Card extends HTMLElement {
         if (this.data.rarity === 'PR') {
             fields.push('promoDetails')
         } else {
-            fields.push('product')
+            fields.push('productName')
         }
         if (this.data.otherVersions && this.data.otherVersions.length > 0) {
             fields.push('otherVersions')

@@ -625,4 +625,61 @@
         }
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const select = document.querySelector('domfilters-option[key="product"] select');
+        if (select) {
+            // 处理选项显示
+            Array.from(select.options).forEach(option => {
+                if (option.value.includes('|')) {
+                    const [shortCode, fullName] = option.value.split('|');
+                    option.value = shortCode;  // 只保留前6位
+                    option.textContent = fullName; // 显示完整名称
+                }
+                // 默认选中"所有"选项
+                if (option.value === '') {
+                    option.selected = true;
+                }
+            });
+
+            // 添加分隔线
+            const p01Index = Array.from(select.options).findIndex(opt => opt.value === 'CT-P01');
+            if (p01Index > -1) {
+                const separator = new Option('────────── 主题/新手卡组 ──────────', '', true, true);
+                separator.disabled = true;
+                separator.style.color = '#666';
+                separator.style.fontWeight = 'bold';
+                separator.style.textAlign = 'center';
+                select.insertBefore(separator, select.options[p01Index + 1] || null);
+            }
+
+            // 处理URL更新
+            select.addEventListener('change', function () {
+                const url = new URL(window.location.href);
+                if (this.value === '') {
+                    // 选择"所有"时移除product参数
+                    url.searchParams.delete('product');
+                } else {
+                    url.searchParams.set('product', this.value);
+                }
+                window.history.pushState({}, '', url);
+
+                // 强制重新选中"所有"选项（视觉上）
+                if (this.value === '') {
+                    this.selectedIndex = 0;
+                }
+            });
+
+            // 页面加载时处理URL参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const productParam = urlParams.get('product');
+            if (!productParam) {
+                // 没有product参数时确保选中"所有"
+                select.selectedIndex = 0;
+                urlParams.delete('product');
+                window.history.replaceState({}, '', window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : ''));
+            }
+        }
+    });
+</script>
 {{ end }}
