@@ -18,23 +18,18 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $productList := slice }}
         {{range .Site.Data.products_ja}}
-            {{/* 提取前6位加完整文本 "CT-D01|完整名称" */}}
             {{ $shortCode := slicestr . 0 6 }}
             {{ $displayName := or (T (printf "products.%s" .)) . }}
             {{ $productList = $productList | append (printf "%s|%s" $shortCode $displayName) }}
         {{end}}
         {{ $productList = $productList | collections.Reverse }}
         <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
-        <!-- <domfilters-option title="系列" key="product" fieldtype="checkbox"
-            values='{"CT-D01": "CT-D01 新手卡组 01 江户川柯南", "CT-D02": "CT-D02 新手卡组 02 服部平次",  "CT-D03": "CT-D03 新手卡组 03 怪盗基德", "CT-D04": "CT-D04 新手卡组 04 赤井秀一", "CT-D05": "CT-D05 新手卡组 05 安室透", "CT-D06": "CT-D06 主题卡组 01 服部平次VS怪盗基德", "CT-D07": "CT-D07 主题卡组 02 黑衣组织", "CT-D08": "CT-D08 主题卡组 03 蓝色古堡探索事件", "CT-D09": "CT-D09 主题卡组 04 死亡之馆，赤壁", "CT-D10": "CT-D10 主题卡组 05 浪漫洗牌", "CT-P01": "CT-P01 补充包 01 侦探们的王牌", "CT-P02": "CT-P02 补充包 02 西与东的大决战", "CT-P03": "CT-P03 补充包 03 黑影来袭", "CT-P04": "CT-P04 补充包 04 信义的牵绊", "CT-P05": "CT-P05 补充包 05 新的谜团", "CT-P06": "CT-P06 补充包 06 交错之刃", "CT-P07": "CT-P07 补充包 07 魅惑的魔法", "CT-P08": "CT-P08 补充包 08 哀色的宿命", "PR": "PR卡牌"}'
-            noneValue="所有"></domfilters-option> -->
         {{ $traits := slice }}
         {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
         {{ $traits = sort $traits }}
         {{ $traits = union (slice "无") $traits }}
         <domfilters-option title="特征" key="categories" fieldtype="select" noneValue="所有"
             values="{{$traits| jsonify}}"></domfilters-option>
-
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $types := slice "搭档" "角色" "事件" "案件" }}
