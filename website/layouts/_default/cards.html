@@ -323,45 +323,32 @@
         {{ $cut_in := or (T (printf "cards.%s.cut_in" .card_id )) $card.cut_in }}
 
         {{ $colors := slice }}
-        {{range .color}}{{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}{{end}}
+        {{ range .color }}
+        {{ $colors = $colors | append (or (T (printf "colors.%s" . )) .) }}
+        {{ end }}
 
         {{ $categories := slice }}
-        {{range .categories}}{{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}{{end}}
+        {{ range .categories }}
+        {{ $categories = $categories | append (or (T (printf "categories.%s" . )) .) }}
+        {{ end }}
 
         {{ $is_primary := default "false" $card.is_primary }}
         {{ $other_versions := delimit $card.other_versions "," }}
 
-        {{ with or (resources.Get (printf "translations/%s.png" $card.card_num)) (resources.Get (printf "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
-            {{ with .Resize "480x" }}
-                <dct-card
-                        id="{{ printf "%.0f" $card.id }}"
-                        image="{{ .RelPermalink }}"
-                        title="{{ $title }}"
-                        original-title="{{ $card.title }}"
-                        card-id="{{ $card.card_id }}"
-                        card-num="{{ $card.card_num }}"
-                        promo-details="{{ $contain }}"
-                        type="{{ $type }}"
-                        feature="{{ $feature }}"
-                        hirameki="{{ $hirameki }}"
-                        henso="{{ $henso }}"
-                        cut-in="{{ $cut_in }}"
-                        case-difficulty-first="{{ $card.difficulty_first }}"
-                        case-difficulty-second="{{ $card.difficulty_second }}"
-                        product="{{ $product }}"
-                        color="{{ delimit $colors "," }}"
-                        rarity="{{ $card.rarity }}"
-                        categories="{{ delimit $categories "," }}"
-                        is-primary="{{ $is_primary }}"
-                        other-versions="{{ $other_versions }}"
-                        cost="{{ $card.cost }}"
-                        ap="{{ $card.ap }}"
-                        lp="{{ $card.lp }}"
-                        illustrator="{{ default "N/A" $card.illustrator }}"
-                        price="{{ default "N/A" $card.price }}"
-                >
-                </dct-card>
-            {{ end }}
+        {{ with or (resources.Get (printf "translations/%s.png" $card.card_num)) (resources.Get (printf
+        "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
+        {{ with .Resize "480x" }}
+        <dct-card id='{{ printf "%.0f" $card.id }}' image='{{ .RelPermalink }}' title='{{ $title }}'
+            original-title='{{ $card.title }}' card-id='{{ $card.card_id }}' card-num='{{ $card.card_num }}'
+            promo-details='{{ $contain }}' type='{{ $type }}' feature='{{ $feature }}' hirameki='{{ $hirameki }}'
+            henso='{{ $henso }}' cut-in='{{ $cut_in }}' case-difficulty-first='{{ $card.difficulty_first }}'
+            case-difficulty-second='{{ $card.difficulty_second }}' product='{{ $product }}'
+            color='{{ delimit $colors "," }}' rarity='{{ $card.rarity }}' categories='{{ delimit $categories "," }}'
+            is-primary='{{ $is_primary }}' other-versions='{{ $other_versions }}' cost='{{ $card.cost }}'
+            ap='{{ $card.ap }}' lp='{{ $card.lp }}' illustrator='{{ default "N/A" $card.illustrator }}'
+            price='{{ default "N/A" $card.price }}'>
+        </dct-card>
+        {{ end }}
         {{ end }}
         {{ $counter = add $counter 1 }}
         {{ end }}
