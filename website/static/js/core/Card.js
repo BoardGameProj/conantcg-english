@@ -54,6 +54,7 @@ export class Card extends HTMLElement {
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
         this.data.cardName = [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
         this.data.product = this.getAttribute('product').trim().substring(0, 6);
+        this.data.sparkling = this.getAttribute('sparkling')
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
@@ -105,7 +106,7 @@ export class Card extends HTMLElement {
         if (this.data.rarity === 'D') {
             this.data.rarity = "C"
         }
-        this.data.custom = this.getAttribute('is-primary') === "true" ? "初版" : this.getAttribute('is-primary');
+        this.data.custom = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
         const isChineseByProduct = (productName) => {
             if (!productName) return false;
             const productCode = productName.trim().substring(0, 6);
@@ -876,12 +877,12 @@ export class Card extends HTMLElement {
 
                 container.style.transform = "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
 
-                // 仅稀有度符合时才更新光效位置
-                const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
-                if (allowedRarities.includes(this.data.rarity)) {
+                const shouldApplyEffect = () => {
+                    const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
+                    return allowedRarities.includes(this.data.rarity) || this.data.sparkling;
+                };
+                if (shouldApplyEffect()) {
                     effect.style.setProperty('--per', `${((clientX - box.left) / box.width * 100).toFixed(2)}%`);
-                    // const percentage = parseInt((clientX - box.x) / box.width * 1000) / 10;
-                    // effect.style.setProperty(`--per: ${percentage}%`);
                 }
             });
         };
@@ -892,8 +893,11 @@ export class Card extends HTMLElement {
         };
 
         this._rarityEffectEnterHandler = () => {
-            const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
-            if (allowedRarities.includes(this.data.rarity)) {
+            const shouldApplyEffect = () => {
+                const allowedRarities = ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'];
+                return allowedRarities.includes(this.data.rarity) || this.data.sparkling;
+            };
+            if (shouldApplyEffect()) {
                 effect.style.display = 'block';
                 setTimeout(() => effect.style.opacity = '1', 10);
             }

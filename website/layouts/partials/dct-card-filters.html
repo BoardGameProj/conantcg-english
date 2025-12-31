@@ -5,7 +5,7 @@
         <domfilters-option title="ID" key="card-id-num" fieldtype="text" class="whitespace-nowrap"></domfilters-option>
         <domfilters-option title="卡牌ID" key="card-id" fieldtype="text" class="hidden"></domfilters-option>
         <domfilters-option title="编号" key="card-num" fieldtype="text" class="nohidden"></domfilters-option>
-        {{ $primarys := slice "初版" "中文" }}
+        {{ $primarys := slice "原版" "中文" }}
         <domfilters-option title="定制" key="custom" fieldtype="checkbox" values="{{$primarys | jsonify}}"
             noneValue="所有"></domfilters-option>
     </div>
