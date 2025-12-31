@@ -461,8 +461,12 @@ export class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap" >${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
-                        <button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">🔍</button>
+                        <span class="tooltip-container">
+                            <span class="tooltip" style="text-decoration: none;">
+                                <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
+                                <span class="tooltiptext"><button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">ID：[${value}]🔍</button></span>
+                            </span>
+                        </span>
                     </div>
                 </div>`;
             } else if (key === 'cardNum') {
@@ -470,14 +474,27 @@ export class Card extends HTMLElement {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
-                        <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
-                        <button class="search-form-btn" data-target-key="card-num" data-value="${value}">🔍</button>
+                        <span class="tooltip-container">
+                            <span class="tooltip" style="text-decoration: none;">
+                                <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
+                                <span class="tooltiptext"><button class="search-form-btn" data-target-key="card-num" data-value="${value}">编号：[${value}]🔍</button></span>
+                            </span>
+                        </span>
                     </div>
                 </div>`;
             } else if (key === 'categories') {
                 const traits = value.split(',').map(v => v.trim()).filter(v => v);
                 const wrappedValues = traits.map(val => {
-                    return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm font-bold text-categories"><button class="search-form-btn" data-target-key="categories" data-value="${val}">${val}</button></span>`;
+                    return `<span class="mr-1 px-1 mt-1 rounded-lg text-sm font-bold text-categories">
+                                <span class="tooltip-container">
+                                    <span class="tooltip" style="text-decoration: none;">
+                                        <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${val}</span>
+                                        <span class="tooltiptext">
+                                            <button class="search-form-btn" data-target-key="categories" data-value="${val}">特征[${val}]🔍</button>
+                                        </span>
+                                    </span>
+                                </span>
+                            </span>`;
                 }).join('');
                 content += `<div class="flex justify-between lg:py-0">
                 <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
