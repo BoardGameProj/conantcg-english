@@ -1,6 +1,6 @@
 const tooltips = []
-function createTooltip(text, tooltipText, tag = 'span') {
-    const html = '<' + tag + ' class="tooltip">' + text + '<span class="tooltiptext">' + tooltipText + '</span></' + tag + '>';
+function createTooltip(text, tooltipText, tag = 'span', cclass = '') {
+    const html = '<' + tag + ' class="tooltip ' + cclass + '">' + text + '<span class="tooltiptext">' + tooltipText + '</span></' + tag + '>';
     tooltips.push(html)
     return '##TOOLTIP_' + tooltips.length + '##';
 }
@@ -91,8 +91,8 @@ function processKeywords(text) {
         '{突击}［角色］': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
         '{突击}［等级(\\d+)以(下|上)的角色］': { tag: 'b', tooltip: '登场回合可以立刻以等级$2以$3的角色为对象进行行动' },
         '{突击}': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
-        '{特征不?为?［([^］}]*?)］}': { tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="categories" data-value="$2">特征：[$2]🔍</button>' },
-        '{卡名不?为?［([^］]*?)］}': { tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">卡名：[$2]🔍</button>' },
+        '{特征不?为?［([^］}]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="categories" data-value="$2">特征：[$2]🔍</button>' },
+        '{卡名不?为?［([^］]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">卡名：[$2]🔍</button>' },
         '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
     for (const keyword in highlightKeywords) {
@@ -100,6 +100,7 @@ function processKeywords(text) {
         const tag = config.tag || 'span'
         let label = config.label || '$1'
         let tooltip = config.tooltip || ''
+        let cclass = config.class || ''
         const pattern = new RegExp(`(${keyword})([，。！？：；.!?;:「」]?)`, 'g')
         if (tooltip !== '') {
             const matches = pattern.exec(text)
@@ -112,7 +113,7 @@ function processKeywords(text) {
             }
             text = text.replaceAll(pattern,
                 '<span class="tooltip-container">' +
-                createTooltip(label.replace(/[{}]/g, ''), tooltip, tag) +
+                createTooltip(label.replace(/[{}]/g, ''), tooltip, tag, cclass) +
                 (matches[matches.length - 1] || '') +
                 '</span>'
             )
