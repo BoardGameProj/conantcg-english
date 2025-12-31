@@ -305,8 +305,8 @@
 
 domfilters-option[key="rarity"] label {
 
-    &:nth-child(5),
     &:nth-child(6),
+    &:nth-child(7),
     &:nth-child(9),
     &:nth-child(10),
     &:nth-child(11) {

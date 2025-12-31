@@ -18,12 +18,13 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $productList := slice }}
         {{range .Site.Data.products_ja}}
-            {{ $shortCode := slicestr . 0 6 }}
-            {{ $displayName := or (T (printf "products.%s" .)) . }}
-            {{ $productList = $productList | append (printf "%s|%s" $shortCode $displayName) }}
+        {{ $shortCode := slicestr . 0 6 }}
+        {{ $displayName := or (T (printf "products.%s" .)) . }}
+        {{ $productList = $productList | append (printf "%s|%s" $shortCode $displayName) }}
         {{end}}
         {{ $productList = $productList | collections.Reverse }}
-        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}" noneValue="所有"></domfilters-option>
+        <domfilters-option title="系列" key="product" fieldtype="select" values="{{$productList| jsonify}}"
+            noneValue="所有"></domfilters-option>
         {{ $traits := slice }}
         {{range .Site.Data.categories_ja}}{{ $traits = $traits | append (or (T (printf "categories.%s" . )) .) }}{{end}}
         {{ $traits = sort $traits }}
@@ -52,7 +53,7 @@
         <domfilters-option title="能力" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $lps := slice "0" "1" "2" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
-        {{ $rarities := slice "C" "R" "SR" "MR" "SRCP" "SEC" "CP" "RP" "SRP" "MRP" "MRCP" "PR" }}
+        {{ $rarities := slice "C" "CP" "R" "RP" "SR" "SRP" "SRCP" "MR" "MRP" "MRCP" "SEC" "D" "PR" }}
         <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox"
             values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $aps := slice "0" "1000" "2000" "3000" "4000" "5000" "6000" "7000" "8000" "9000" }}
@@ -64,7 +65,7 @@
         @media screen and (min-width: 768px) {
             domfilters-option[key="rarity"] .flex>div>div {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
 
                 label,

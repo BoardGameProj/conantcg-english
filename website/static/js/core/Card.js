@@ -103,16 +103,16 @@ export class Card extends HTMLElement {
         if (this.data.text === "") {
             this.data.text = "无"
         }
-        if (this.data.rarity === 'D') {
-            this.data.rarity = "C"
-        }
+        // if (this.data.rarity === 'D') {
+        //     this.data.rarity = "C(D)"
+        // }
         this.data.custom = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
         const isChineseByProduct = (productName) => {
             if (!productName) return false;
             const productCode = productName.trim().substring(0, 6);
             const validProducts = [
                 "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
-                "CT-D06", "CT-D07", "CT-D08", "CT-D09", //"CT-D10", // 主题卡组
+                "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10", // 主题卡组
                 "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05", // 补充包
             ];
 
@@ -457,6 +457,9 @@ export class Card extends HTMLElement {
                 if (value === '') {
                     value = '–'
                 }
+            }
+            if (key === 'rarity' && value.includes(',')) {
+                value = value.replace(/(.+),D$/, '$1(D)');
             }
             if (key === 'cardId') {
                 content += `<div class="flex justify-between lg:py-0">
