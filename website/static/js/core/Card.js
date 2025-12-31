@@ -428,7 +428,7 @@ export class Card extends HTMLElement {
             fields.push('caseDifficultyFirst')
             fields.push('caseDifficultySecond')
         }
-        if (this.data.rarity && this.data.otherVersions.length > 0) {
+        if (this.data.rarity && this.data.rarity.length > 0) {
             fields.push('rarity')
         }
         if (this.data.rarity === 'PR') {
