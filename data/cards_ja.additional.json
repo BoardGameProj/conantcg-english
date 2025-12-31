@@ -1,37 +1,4 @@
 {
-    "D10001": {
-        "sparkling": "sparkling"
-    },
-    "D10002": {
-        "sparkling": "sparkling"
-    },
-    "D10003": {
-        "sparkling": "sparkling"
-    },
-    "D10005": {
-        "sparkling": "sparkling"
-    },
-    "D10007": {
-        "sparkling": "sparkling"
-    },
-    "D10009": {
-        "sparkling": "sparkling"
-    },
-    "D10013": {
-        "sparkling": "sparkling"
-    },
-    "D10016": {
-        "sparkling": "sparkling"
-    },
-    "D10018": {
-        "sparkling": "sparkling"
-    },
-    "D10020": {
-        "sparkling": "sparkling"
-    },
-    "D10026": {
-        "sparkling": "sparkling"
-    },
     "PR191": {
         "cut_in": null
     },
@@ -83,132 +50,208 @@
         ]
     },
     "D01001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D02001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D03001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D04001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D05001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D06001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D06002": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D06003": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D06010": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D06023": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D06024": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D07002": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07004": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07006": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07008": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07010": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07012": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07014": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D07016": {
-        "rarity": "CP"
+        "rarity": "CP",
+        "sparkling": "sparkling"
     },
     "D08001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08002": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08003": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08005": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08007": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08009": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08011": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08013": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08015": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08017": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D08019": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09001": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09002": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09003": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09004": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09006": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09008": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09010": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09012": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09014": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09016": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09018": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
     },
     "D09022": {
-        "rarity": "R"
+        "rarity": "R",
+        "sparkling": "sparkling"
+    },
+    "D10001": {
+        "sparkling": "sparkling"
+    },
+    "D10002": {
+        "sparkling": "sparkling"
+    },
+    "D10003": {
+        "sparkling": "sparkling"
+    },
+    "D10005": {
+        "sparkling": "sparkling"
+    },
+    "D10007": {
+        "sparkling": "sparkling"
+    },
+    "D10009": {
+        "sparkling": "sparkling"
+    },
+    "D10013": {
+        "sparkling": "sparkling"
+    },
+    "D10016": {
+        "sparkling": "sparkling"
+    },
+    "D10018": {
+        "sparkling": "sparkling"
+    },
+    "D10020": {
+        "sparkling": "sparkling"
+    },
+    "D10026": {
+        "sparkling": "sparkling"
     }
 }
