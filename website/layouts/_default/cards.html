@@ -385,9 +385,9 @@
         });
     })
 
-    function setFormInputValue(key, value) {
+    function setFormInputValue(key, value, shouldClear = true) {
         const filterContainer = document.querySelector('filter-container');
-        if (!filterContainer) return;
+        if (!filterContainer) return false;
 
         const input = document.querySelector(`input[name="${key}"], [data-filter-key="${key}"]`);
         if (!input) {
@@ -395,36 +395,109 @@
             return false;
         }
 
+        // 只有当 shouldClear 为 true 时才清空表单
+        if (shouldClear) {
+            const inputs = Array.from(
+                filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
+            );
+
+            inputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    input.checked = false;
+                }
+                else if (input.type === 'text' || input.tagName === 'SELECT') {
+                    if (input.id !== 'deck-name' && input.id !== 'deck-description') {
+                        input.value = '';
+                    }
+                }
+                // 注意：这里移除了 dispatchEvent，改到后面统一触发
+            });
+        }
+
+        // 修复checkbox的问题：使用checked属性而不是value属性
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            const matchingInput = document.querySelector(`input[name="${key}"][value="${value}"], [data-filter-key="${key}"][value="${value}"]`);
+            const targetInput = matchingInput || input;
+            targetInput.checked = true;
+        } else {
+            // 对于其他输入类型，保持原来的逻辑
+            input.value = value;
+        }
+
+        return true;
+    }
+
+    // 触发所有表单输入事件的函数
+    function triggerFormInputEvents() {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        // 获取所有需要触发事件的表单元素
         const inputs = Array.from(
             filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
         );
 
-        inputs.forEach(input => {
-            if (input.type === 'checkbox' || input.type === 'radio') {
-                input.checked = false;
+        // 排除不需要触发的元素
+        const inputsToTrigger = inputs.filter(input => {
+            if (input.type === 'text' && (input.id === 'deck-name' || input.id === 'deck-description')) {
+                return false;
             }
-            else if (input.type === 'text' || input.tagName === 'SELECT') {
-                if (input.id !== 'deck-name' && input.id !== 'deck-description') {
-                    input.value = '';
-                }
-            }
+            return true;
+        });
+
+        // 统一触发所有输入事件
+        inputsToTrigger.forEach(input => {
             const event = new Event('input', { bubbles: true });
             input.dispatchEvent(event);
         });
-
-        input.value = value;
-        const event = new Event('input', { bubbles: true });
-        input.dispatchEvent(event);
-        return true;
     }
 
     document.addEventListener('click', (event) => {
         if (event.target.classList.contains('search-form-btn')) {
             const btn = event.target;
-            const { targetKey, value } = btn.dataset;  // 解构获取参数
-            setFormInputValue(targetKey, value);       // 调用核心函数
+            const dataset = btn.dataset;
+
+            // 收集所有需要处理的键值对
+            const settings = [];
+            for (let i = 0; i < 10; i++) {
+                const suffix = i === 0 ? '' : `-${i}`;
+                const targetKey = dataset[`targetKey${suffix}`] || dataset[`target-key${suffix}`];
+                const value = dataset[`value${suffix}`];
+
+                // 如果没有找到第一组，就退出循环
+                if (i === 0 && (!targetKey || value === undefined)) {
+                    break;
+                }
+
+                // 如果找到了键值对就添加到设置列表
+                if (targetKey && value !== undefined) {
+                    settings.push({
+                        key: targetKey,
+                        value: value,
+                        shouldClear: i === 0
+                    });
+                }
+            }
+
+            // 批量设置所有值（不触发事件）
+            settings.forEach(setting => {
+                setFormInputValue(setting.key, setting.value, setting.shouldClear);
+            });
+
+            // 所有值设置完成后，统一触发一次渲染
+            if (settings.length > 0) {
+                setTimeout(triggerFormInputEvents, 0);
+            }
+
+            // 如果没有任何设置，但点击了按钮，保持原有行为
+            if (settings.length === 0) {
+                // 这里保持按钮的默认行为或触发搜索
+                const clickEvent = new MouseEvent('click', { bubbles: true });
+                btn.dispatchEvent(clickEvent);
+            }
         }
     });
+
     const panel = document.getElementById('deck-builder-panel');
     const container = document.getElementById('deck-builder-container');
     const deckDescription = document.getElementById('deck-descibe');
