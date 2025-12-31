@@ -52,7 +52,7 @@ export class Card extends HTMLElement {
         this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
-        this.data.cardName= [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
+        this.data.cardName = [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
         this.data.product = this.getAttribute('product').trim().substring(0, 6);
 
         // Combine feature, hirameki, cut in into card text
@@ -410,14 +410,14 @@ export class Card extends HTMLElement {
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color']
+        if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
+            // console.log('this.data.categories: ', this.data.categories)
+            fields.push('categories')
+        }
         if (this.data.type === '角色' || this.data.type === '事件') {
             fields.push('cost')
         }
         fields.push('cardText')
-        if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
-            console.log('this.data.categories: ', this.data.categories)
-            fields.push('categories')
-        }
         if (this.data.type === '角色') {
             fields.push('ap')
         }
