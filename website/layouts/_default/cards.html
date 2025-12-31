@@ -192,9 +192,9 @@
 
 
 
-<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num="," filter-input-delimiter-card-name=","
-    filter-match-mode-card-name="contains" filter-match-mode-text="contains" filter-mode-spkey="all"
-    filter-mode-custom="all" filter-match-mode-card-num="contains">
+<filter-container oninit delimiter="," filter-mode="any" filter-input-delimiter-card-id-num=","
+    filter-input-delimiter-card-name="," filter-match-mode-card-name="contains" filter-match-mode-text="contains"
+    filter-mode-spkey="all" filter-mode-custom="all" filter-match-mode-card-num="contains">
     <form class="scrollable-form">
         {{ partial "dct-card-filters.html" (dict "Site" site) }}
     </form>

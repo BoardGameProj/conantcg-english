@@ -29,11 +29,11 @@ function processKeywords(text) {
         '红': { class: 'text-xs card-color--Red text-white card-color card-color-radius', tooltip: '' },
         '绿': { class: 'text-xs card-color--Green card-color card-color-radius', tooltip: '' },
         '(搭档)(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '搭档 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方搭档颜色为$3色时生效' },
-        '(案件)(YAIBA|浪漫洗牌|赤魔术)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件$3', tooltip: '我方案件特征为[$3]时生效' },
+        '(案件)(YAIBA|浪漫洗牌|赤魔术)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件$3', tooltip: '<button class="search-form-btn" data-target-key="categories" data-value="$3">我方案件特征为[$3]时生效</button>' },
         '(案件)(蓝|白|黑|黄|红|绿)&(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色和$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)or(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>or<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色或$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方案件颜色为$3色时生效' },
-        '绊(.*?)': { class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '我方现场中存在卡名为[$2]的角色时生效' },
+        '绊(.*?)': { class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">我方现场中存在卡名为[$2]的角色时生效</button>' },
         '档案(\\d)': { class: 'bg-red-700 text-xs pl-1 me-1 rounded-lg text-white', label: '档案<span class="text-xs card-color card-color-radius bg-white text-red-700 ring-1 ring-red-700">$2</span>', tooltip: '我方档案区中至少有$2张牌时生效' },
         '回合1': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">1</span>', tooltip: '每回合只能发动1次' },
         '回合2': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">2</span>', tooltip: '每回合最多发动2次' },
@@ -91,8 +91,8 @@ function processKeywords(text) {
         '{突击}［角色］': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
         '{突击}［等级(\\d+)以(下|上)的角色］': { tag: 'b', tooltip: '登场回合可以立刻以等级$2以$3的角色为对象进行行动' },
         '{突击}': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
-        '{特征不?为?［[^］}]*?］}': { tag: 'b', tooltip: '' },
-        '{卡名不?为?［[^］]*?］}': { tag: 'b', tooltip: '' },
+        '{特征不?为?［([^］}]*?)］}': { tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="categories" data-value="$2">特征：[$2]🔍</button>' },
+        '{卡名不?为?［([^］]*?)］}': { tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">卡名：[$2]🔍</button>' },
         '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
     for (const keyword in highlightKeywords) {
