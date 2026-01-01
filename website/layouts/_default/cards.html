@@ -306,7 +306,9 @@
         </div>
     </div>
 
-    <h2 class="text-2xl my-3 font-bold dark:text-white"><span data-filter-results="张卡牌/张卡牌" aria-live="polite"></span>
+    <h2 class="text-2xl my-3 font-bold dark:text-white flex items-center" style="min-height: 40px;">
+        <span data-filter-results="张/张" aria-live="polite" style="min-width: 100px;"></span>
+        <small id="active-filters-container" class="ml-1"></small>
     </h2>
 
     <div class="card-list flex flex-wrap justify-start mt-4">
@@ -357,6 +359,171 @@
 
 <script type="module" src="js/dom-filters/script.js"></script>
 <script type="module" src="js/filter-container/filter-container.js"></script>
+<script>
+    // 监听筛选器变化事件
+    document.addEventListener('filter-change', function(e) {
+        updateActiveFiltersDisplay();
+    });
+    
+    // 监听所有可能改变筛选器的输入事件
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+        
+        // 监听所有表单控件的输入事件
+        const inputs = Array.from(
+            filterContainer.querySelectorAll('input[type="checkbox"], input[type="radio"], input[type="text"], select')
+        );
+        
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                // 延迟一小段时间以确保DOM更新完成
+                setTimeout(updateActiveFiltersDisplay, 10);
+            });
+        });
+    });
+
+    // 更新活动筛选器显示
+    function updateActiveFiltersDisplay() {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+
+        const activeFiltersContainer = document.getElementById('active-filters-container');
+        if (!activeFiltersContainer) return;
+
+        // 获取所有活动的筛选器
+        const activeFilters = getActiveFilters();
+        
+        // 清空容器
+        activeFiltersContainer.innerHTML = '';
+        
+        // 如果没有活动筛选器，显示默认文本
+        if (activeFilters.length === 0) {
+            activeFiltersContainer.textContent = '';
+            return;
+        }
+        
+        // 为每个活动筛选器创建按钮
+        activeFilters.forEach(filter => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-blue-600 rounded-lg whitespace-nowrap hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700 mr-2 mb-2';
+            button.textContent = filter.value;  // 直接显示值，不包含类型前缀
+            button.dataset.filterKey = filter.key;
+            button.dataset.filterValue = filter.value;
+            button.dataset.filterType = filter.type;
+            
+            // 添加清除筛选器的点击事件
+            button.addEventListener('click', function() {
+                clearFilter(filter.key, filter.value, filter.type);
+            });
+            
+            activeFiltersContainer.appendChild(button);
+        });
+    }
+    
+    // 获取所有活动的筛选器
+    function getActiveFilters() {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return [];
+        
+        const activeFilters = [];
+        
+        // 获取所有表单控件
+        const inputs = Array.from(
+            filterContainer.querySelectorAll('input[type="checkbox"]:checked, input[type="radio"]:checked, input[type="text"]:not([value=""]), select:not([value=""])')
+        );
+        
+        // 处理每个活动的控件
+        inputs.forEach(input => {
+            // 跳过卡组构建器相关字段和空值字段
+            if (input.id === 'deck-name' || input.id === 'deck-description' ||
+                (input.type === 'text' && input.value === '') ||
+                (input.tagName === 'SELECT' && (input.value === '' || input.value === '所有'))) {
+                return;
+            }
+            
+            const filterKey = input.name || input.getAttribute('data-filter-key');
+            if (!filterKey) return;
+            
+            // 获取筛选器值
+            let filterValue = '';
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                // 对于复选框和单选框，尝试获取span中的文本作为显示值
+                const span = input.nextElementSibling;
+                if (span && span.tagName === 'SPAN') {
+                    filterValue = span.textContent.trim();
+                } else {
+                    filterValue = input.value;
+                }
+            } else {
+                filterValue = input.value;
+            }
+            
+            // 添加到活动筛选器列表
+            activeFilters.push({
+                key: filterKey,
+                value: filterValue,
+                type: input.type
+            });
+        });
+        
+        return activeFilters;
+    }
+    
+    // 清除指定筛选器
+    function clearFilter(key, value, type) {
+        const filterContainer = document.querySelector('filter-container');
+        if (!filterContainer) return;
+        
+        // 查找对应的输入元素
+        let input = null;
+        
+        // 对于复选框和单选框，需要根据显示文本来查找
+        if (type === 'checkbox' || type === 'radio') {
+            // 查找具有相同key和匹配显示文本的复选框
+            const checkboxes = filterContainer.querySelectorAll(`input[name="${key}"][type="${type}"]`);
+            for (let checkbox of checkboxes) {
+                const span = checkbox.nextElementSibling;
+                if (span && span.tagName === 'SPAN' && span.textContent.trim() === value) {
+                    input = checkbox;
+                    break;
+                }
+            }
+        } else {
+            // 对于其他类型的输入，直接按name和value查找
+            input = filterContainer.querySelector(`input[name="${key}"][value="${value}"], select[name="${key}"], input[name="${key}"]`);
+        }
+        
+        if (!input) return;
+        
+        // 重置输入元素
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+        
+        // 触发input事件以更新筛选结果
+        const event = new Event('input', { bubbles: true });
+        input.dispatchEvent(event);
+        
+        // 更新活动筛选器显示
+        updateActiveFiltersDisplay();
+    }
+    
+    // 页面加载完成后初始化活动筛选器显示
+    document.addEventListener('DOMContentLoaded', function() {
+        // 延迟一小段时间以确保筛选器已初始化
+        setTimeout(updateActiveFiltersDisplay, 100);
+        
+        // 监听custom-reset按钮的点击事件
+        document.getElementById('custom-reset').addEventListener('click', function() {
+            // 延迟一小段时间以确保筛选器已重置
+            setTimeout(updateActiveFiltersDisplay, 100);
+        });
+    });
+</script>
 <script>
     document.getElementById('custom-reset').addEventListener('click', () => {
         const filterContainer = document.querySelector('filter-container');
