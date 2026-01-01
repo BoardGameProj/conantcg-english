@@ -8,15 +8,18 @@
     {{ range site.Data.products_ja }}
     {{ $title := or (T (printf "products.%s" . )) . }}
     {{ $imageName := replaceRE "[\\s\"']" "" ($title|lower) }}
-    <a href="/cards/?product={{$title}}">
-    <article class="bg-white text-center flex flex-col items-center h-full" data-image="{{$imageName}}" style="max-width: 167px">
-        {{ with or (resources.Get (printf "products/%s.jpg" (index (split . " ") 0)|lower)) (resources.Get "img/fallback.jpg") }}
+    {{ $title6 := substr $title 0 6 }}
+    <a href="/cards/?product={{$title6}}">
+        <article class="bg-white text-center flex flex-col items-center h-full" data-image="{{$imageName}}"
+            style="max-width: 167px">
+            {{ with or (resources.Get (printf "products/%s.jpg" (index (split . " ") 0)|lower)) (resources.Get
+            "img/fallback.jpg") }}
             {{ with .Resize "180x" }}
-                <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="{{$title}}" class="p-4" />
+            <img src="{{.RelPermalink}}" width="{{.Width}}" height="{{.Height}}" alt="{{$title}}" class="p-4" />
             {{ end }}
-        {{ end }}
+            {{ end }}
             <h2 class="font-bold">{{$title}}</h2>
-    </article>
+        </article>
     </a>
     {{ end }}
 </div>
