@@ -844,5 +844,44 @@
             "高校生",
             "執事"
         ]
+    },
+    "B08068P": {
+        "id": 8263,
+        "card_id": "0905",
+        "title": "安室透",
+        "card_num": "B08068P",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08068P.jpg",
+        "sub_thumb": "sub_B08068P.jpg",
+        "color": [
+            "黄"
+        ],
+        "type": "キャラ",
+        "rarity": "CP",
+        "cost": "7",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "手札から特徴[喫茶ポアロ]のキャラを好きな枚数公開する:この宣言能力のコストによって公開した枚数と、自分の現場にいる特徴[喫茶ポアロ]のキャラの枚数の合計以下のレベルのキャラを1枚まで選び、リムーブする。",
+        "drawing": "描きおろし",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "ZUKU",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "探偵",
+            "喫茶ポアロ"
+        ]
     }
 }
