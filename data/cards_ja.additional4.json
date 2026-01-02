@@ -804,5 +804,45 @@
             "探偵",
             "喫茶ポアロ"
         ]
+    },
+    "B08019": {
+        "id": 8262,
+        "card_id": "0859",
+        "title": "大岡紅葉＆伊織無我",
+        "card_num": "B08019",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08019.jpg",
+        "sub_thumb": "sub_B08019.jpg",
+        "color": [
+            "緑"
+        ],
+        "type": "キャラ",
+        "rarity": "MR",
+        "cost": "9",
+        "ap": "8000",
+        "lp": "2",
+        "feature": "【パートナー綠】【自分ターン中】【ターン1】自分の現場にこのキャラ以外のカード【名岡紅葉】か【伊織無我】が登場したとき、AP8000以下のキャラを1枚まで選び、リムーブする。\r\n【宣言】【ターン1】自分か相手の現場にいるキャラに裏向きでセットされているカードを合わせて2枚リムーブしてもよい。（自分と相手で1枚ずつリムーブできる）そうした場合、カードを1枚引く。この能力は自分の現場にカード名【大岡紅葉】か【伊織無我】がいる場合に宣言できる。この能力はパートナーェリアでも宣言できる。",
+        "drawing": "イラスト",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "三日月なぎさ",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": "【カットイン】AP＋2000",
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "高校生",
+            "執事"
+        ]
     }
 }

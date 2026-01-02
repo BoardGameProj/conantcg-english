@@ -3098,7 +3098,7 @@
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 10,
+        "cardNum": 11,
         "cards": [
             {
                 "card_num": "B06075",
@@ -3149,6 +3149,11 @@
                 "card_num": "PR192",
                 "title": "キャンティ",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "B08019",
+                "title": "大岡紅葉＆伊織無我",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
