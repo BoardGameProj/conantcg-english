@@ -33,7 +33,7 @@ function processKeywords(text) {
         '(案件)(蓝|白|黑|黄|红|绿)&(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>&<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色和$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)or(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>or<span class="card-color card-color--$4 card-color-radius">$4</span>', tooltip: '我方案件颜色为$3色或$4色时生效' },
         '(案件)(蓝|白|黑|黄|红|绿)': { class: 'bg-pink-600 text-white text-xs px-1 me-1 rounded', label: '案件 <span class="card-color card-color--$3 card-color-radius">$3</span>', tooltip: '我方案件颜色为$3色时生效' },
-        '绊(.*?)': { class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">我方现场中存在卡名为[$2]的角色时生效</button>' },
+        '绊(.*?)': { class: 'text-xs px-1 me-1 rounded', label: '<span class="bg-black text-white px-1 rounded-l" style="box-shadow: 0 0 0 1px black;">绊</span><b class="bg-white font-bold text-black px-1 box-shadow-1 rounded-r">$2</b>', tooltip: '<button class="search-form-btn" data-target-key="type" data-value="角色" data-target-key-1="card-name" data-value-1="$2" >我方现场中存在卡名为[$2]的角色时生效</button>' },
         '档案(\\d)': { class: 'bg-red-700 text-xs pl-1 me-1 rounded-lg text-white', label: '档案<span class="text-xs card-color card-color-radius bg-white text-red-700 ring-1 ring-red-700">$2</span>', tooltip: '我方档案区中至少有$2张牌时生效' },
         '回合1': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">1</span>', tooltip: '每回合只能发动1次' },
         '回合2': { class: 'bg-cyan-400 text-white text-xs pl-1 me-1 rounded-lg', label: '回合<span class="text-xs card-color card-color-radius bg-white text-cyan-400 ring-1 ring-cyan-400">2</span>', tooltip: '每回合最多发动2次' },
@@ -101,29 +101,57 @@ function processKeywords(text) {
         let label = config.label || '$1'
         let tooltip = config.tooltip || ''
         let cclass = config.class || ''
-        const pattern = new RegExp(`(${keyword})([，。！？：；.!?;:「」]?)`, 'g')
+        const pattern = new RegExp(`(${keyword})([，。！？：；.!?;:「」]?)`, 'gi')
+
         if (tooltip !== '') {
-            const matches = pattern.exec(text)
-            if (!matches) {
+            // 获取所有匹配
+            const matches = Array.from(text.matchAll(pattern))
+
+            if (matches.length === 0) {
                 continue
             }
-            for (let i = 0; i < matches.length; i++) {
-                tooltip = tooltip.replaceAll('$' + Number(i + 1), matches[(i + 1)] || '')
-                label = label.replaceAll('$' + Number(i + 1), matches[(i + 1)] || '')
+
+            // 从后往前替换，避免位置偏移
+            for (let i = matches.length - 1; i >= 0; i--) {
+                const match = matches[i]
+                const fullMatch = match[0]
+                const keywordMatch = match[1]
+                const punctuation = match[match.length - 1] || ''
+
+                // 创建局部变量用于替换
+                let localTooltip = tooltip
+                let localLabel = label
+
+                // 替换 $1, $2, $3 等占位符
+                for (let j = 1; j < match.length; j++) {
+                    const placeholder = `$${j}`
+                    if (localTooltip.includes(placeholder)) {
+                        localTooltip = localTooltip.replaceAll(placeholder, match[j] || '')
+                    }
+                    if (localLabel.includes(placeholder)) {
+                        localLabel = localLabel.replaceAll(placeholder, match[j] || '')
+                    }
+                }
+
+                // 移除大括号
+                const cleanLabel = localLabel.replace(/[{}]/g, '')
+
+                // 构建替换内容
+                const replacement = '<span class="tooltip-container">' +
+                    createTooltip(cleanLabel, localTooltip, tag, cclass) +
+                    punctuation +
+                    '</span>'
+
+                // 替换文本中的匹配项
+                text = text.substring(0, match.index) + replacement + text.substring(match.index + fullMatch.length)
             }
-            text = text.replaceAll(pattern,
-                '<span class="tooltip-container">' +
-                createTooltip(label.replace(/[{}]/g, ''), tooltip, tag, cclass) +
-                (matches[matches.length - 1] || '') +
-                '</span>'
-            )
         } else {
             if (config.label) {
-                text = text.replace(pattern, config.label)
+                text = text.replace(new RegExp(keyword, 'gi'), config.label)
             } else {
-                text = text.replaceAll(pattern, (match, p1, p2) => {
-                    const cleanContent = p1.replace(/[{}]/g, '')
-                    return `<${tag}>${cleanContent}</${tag}>${p2 || ''}`
+                text = text.replaceAll(new RegExp(keyword, 'gi'), (match) => {
+                    const cleanContent = match.replace(/[{}]/g, '')
+                    return `<${tag}>${cleanContent}</${tag}>`
                 })
             }
         }
