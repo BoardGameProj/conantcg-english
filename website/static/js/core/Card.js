@@ -499,7 +499,7 @@ export class Card extends HTMLElement {
                                     </span>
                                 </span>
                             </span>`;
-                }).join('');
+                }).join('').replace(/>\s+</g, '><');
                 content += `<div class="flex justify-between lg:py-0">
                 <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
