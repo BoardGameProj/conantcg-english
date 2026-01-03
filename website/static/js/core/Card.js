@@ -411,12 +411,13 @@ export class Card extends HTMLElement {
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color']
+
+        if (this.data.type === '角色' || this.data.type === '事件') {
+            fields.push('cost')
+        }
         if (!(this.data.categories.length === 1 && this.data.categories[0] === '')) {
             // console.log('this.data.categories: ', this.data.categories)
             fields.push('categories')
-        }
-        if (this.data.type === '角色' || this.data.type === '事件') {
-            fields.push('cost')
         }
         fields.push('cardText')
         if (this.data.type === '角色') {
@@ -525,6 +526,13 @@ export class Card extends HTMLElement {
                 <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
             </div>`;
+            } else if (key === 'cardText') {
+                // this.data.type = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
+                let label = ['事件', '案件'].includes(this.data.type) ? labels[key]: "能力";
+                content += `<div class="flex justify-between lg:py-0">
+                    <div class="text-start font-bold whitespace-nowrap">${label}</div>
+                    <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
+                </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
