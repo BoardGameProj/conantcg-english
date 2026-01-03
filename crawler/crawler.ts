@@ -131,4 +131,4 @@ for (const card of Object.values(cards)) {
         qaFileContent[key] = card.q_a.trim()
     }
 }
-fs.writeFileSync(__dirname + '/../data/q_a.ja.json', JSON.stringify(qaFileContent, null, '    '))
+fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '))
