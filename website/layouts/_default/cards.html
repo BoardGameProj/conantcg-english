@@ -345,7 +345,8 @@
                 color='{{ delimit $colors "," }}' rarity='{{ $card.rarity }}' categories='{{ delimit $categories "," }}'
                 is-primary='{{ $is_primary }}' other-versions='{{ $other_versions }}' cost='{{ $card.cost }}'
                 ap='{{ $card.ap }}' lp='{{ $card.lp }}' illustrator='{{ default "N/A" $card.illustrator }}'
-                sparkling='{{ $card.sparkling }}' price='{{ default "N/A" $card.price }}'>
+                sparkling='{{ $card.sparkling }}' price='{{ default "N/A" $card.price }}'
+                q-a='{{ default "N/A" $card.q_a }}'>
             </dct-card>
             {{ end }}
             {{ end }}

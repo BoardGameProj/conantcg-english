@@ -641,7 +641,7 @@ dct-card img {
 
 .overflow-y-auto {
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: auto;
     -ms-overflow-style: none;
 }
 
@@ -696,4 +696,22 @@ strong {
 
 .decoration-none {
     text-decoration: none;
+}
+
+
+.card_details--qa {
+    font-family: 'QiushuiShotai';
+    text-align: left;
+    overflow: scroll;
+    scrollbar-width: thin;
+
+    /* font-size: small; */
+}
+
+.dark .card_details--qa {
+    font-family: 'QiushuiShotai';
+    text-align: left;
+    overflow: scroll;
+    scrollbar-width: thin;
+    /* font-size: small; */
 }

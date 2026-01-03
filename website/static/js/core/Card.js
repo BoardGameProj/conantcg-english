@@ -55,6 +55,7 @@ export class Card extends HTMLElement {
         this.data.cardName = [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
         this.data.product = this.getAttribute('product').trim().substring(0, 6);
         this.data.sparkling = this.getAttribute('sparkling')
+        this.data.qa = this.getAttribute('q-a')
 
         // Combine feature, hirameki, cut in into card text
         let feature = processMechanics(this.hasAttribute('feature') ? this.getAttribute('feature') : '')
@@ -407,7 +408,8 @@ export class Card extends HTMLElement {
             caseDifficultyFirst: '案件难度 (先手)',
             caseDifficultySecond: '案件难度 (后手)',
             otherVersions: '其他版本',
-            price: '参考价'
+            price: '参考价',
+            qa: 'Q&A'
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color']
@@ -446,6 +448,9 @@ export class Card extends HTMLElement {
         }
         if (this.data.price.length && this.data.price !== 'N/A') {
             fields.push('price')
+        }
+        if (this.data.qa.length && this.data.qa !== 'N/A') {
+            fields.push('qa')
         }
         let content = ''
         for (const key of fields) {
@@ -528,10 +533,20 @@ export class Card extends HTMLElement {
             </div>`;
             } else if (key === 'cardText') {
                 // this.data.type = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
-                let label = ['事件', '案件'].includes(this.data.type) ? labels[key]: "能力";
+                let label = ['事件', '案件'].includes(this.data.type) ? labels[key] : "能力";
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${label}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
+                </div>`;
+            } else if (key === 'qa') {
+                value = value.replaceAll('{"', 'Q：')
+                value = value.replaceAll('"}', '')
+                value = value.replaceAll('","', '<br><br>Q：')
+                value = value.replaceAll('":"', '<br>A：')
+                value = value.replaceAll('\n', '<br>')
+                content += `<div class="flex justify-between lg:py-0">
+                    <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
+                    <div class="text-end ms-4 card_details--${key} text-left text-xs max-h-16">${value}</div>
                 </div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
