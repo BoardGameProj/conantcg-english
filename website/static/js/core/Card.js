@@ -409,7 +409,7 @@ export class Card extends HTMLElement {
             caseDifficultySecond: '案件难度 (后手)',
             otherVersions: '其他版本',
             price: '参考价',
-            qa: 'Q&A'
+            qa: 'FAQ'
         }
 
         const fields = ['cardId', 'cardNum', 'type', 'color']
@@ -452,7 +452,9 @@ export class Card extends HTMLElement {
         if (this.data.qa.length && this.data.qa !== 'N/A') {
             fields.push('qa')
         }
+
         let content = ''
+        let qa_content = ''
         for (const key of fields) {
             let value = this.data[key]
             if (Array.isArray(value)) {
@@ -539,15 +541,23 @@ export class Card extends HTMLElement {
                     <div class="text-end ms-4 card_details--${key} text-right">${value}</div>
                 </div>`;
             } else if (key === 'qa') {
-                value = value.replaceAll('{"', 'Q：')
-                value = value.replaceAll('"}', '')
-                value = value.replaceAll('","', '<br><br>Q：')
-                value = value.replaceAll('":"', '<br>A：')
-                value = value.replaceAll('\n', '<br>')
-                content += `<div class="flex justify-between lg:py-0">
-                    <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} text-left text-xs max-h-16">${value}</div>
-                </div>`;
+                if (value === 'N/A') {
+                    value = ''
+                } else {
+                    value = value.replaceAll('{"', '<b>Q：</b>')
+                    value = value.replaceAll('"}', '')
+                    value = value.replaceAll('","', '<br><br><b>Q：</b>')
+                    value = value.replaceAll('":"', '<br><b>A：</b>')
+                    value = value.replaceAll('\n', '<br>')
+                }
+                qa_content += `<div class="px-2 py-2 text-lg lg:text-base border-t border-gray-200 dark:border-gray-600 mb-2">
+                    <div class="flex justify-between lg:py-0">
+                        <div class="text-start font-bold whitespace-nowrap text-gray-500">
+                            <a href="https://www.takaratomy.co.jp/products/conan-cardgame/cardlist/?freeword=${this.data.cardNum}" target="_blank" rel="noopener noreferrer">
+                            </a>
+                        </div>
+                        <div class="text-end ms-4 card_details--${key} text-right max-h-80 overflow-auto text-xs dark:text-gray-300 mb-2">${value}</div>
+                    </div></div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
@@ -558,27 +568,51 @@ export class Card extends HTMLElement {
 
 
         container.innerHTML += `<div data-popover id="card-${this.data.id}" role="tooltip"
-                    class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white">
+            class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 border border-gray-200 rounded-xl shadow-lg opacity-0 dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white">
             <div data-popper-arrow></div>
-            <div class="flex items-start">
-                <div class="cardoverlay-image self-stretch">
-                    <div class="card-img-effect-container rounded-xl" style="width: fit-content; transform: rotateX(0) rotateY(0) !important;">
-                        <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})"
-                            class="card-img rounded-xl select-none" style="max-width: 300px;" loading="lazy" />
-                        <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
+                <div class="flex items-start">
+                    <div class="cardoverlay-image self-stretch">
+                        <div class="card-img-effect-container rounded-xl"
+                            style="width: fit-content; transform: rotateX(0) rotateY(0) !important;">
+                            <img src="${this.data.image}" alt="${this.data.title} (${this.data.cardNum})"
+                                class="card-img rounded-xl select-none" style="max-width: 300px;" loading="lazy" />
+                            <div class="card-img-effect rounded-xl card-rarity-${this.data.rarity}"></div>
+                        </div>
+                    </div>
+                    <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white"
+                        style="min-width: 540px;max-width: 560px;">
+                        <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg"
+                            class="dct-title">
+                            <h3 class="font-semibold text-gray-900 dark:text-white"><span class="tooltip-container">
+                                    <span class="tooltip decoration-none">
+                                        <span class="copyable" onclick="copyToClipboard(this, event)"
+                                            style="cursor: copy;">${this.data.title}</span>
+                                        <span class="tooltiptext">
+                                            <button class="search-form-btn" data-target-key="card-name"
+                                                data-value="${this.data.title}">点击查找卡名🔍</button>
+                                        </span>
+                                    </span>
+                                </span>&nbsp;<span class="tooltip-container">
+                                    <span class="tooltip decoration-none">
+                                        <span class="copyable dark:text-gray-300 card_font"
+                                            onclick="copyToClipboard(this, event)"
+                                            style="cursor: copy;">${this.data.originalTitle}</span>
+                                        <span class="tooltiptext">
+                                            <button class="search-form-btn" data-target-key="card-name"
+                                                data-value="${this.data.originalTitle}">点击查找卡名🔍</button>
+                                        </span>
+                                    </span>
+                                </span></h3>
+                            <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()"
+                                class="font-bold text-red-700 text-2xl">❌</button>
+                        </div>
+                        <div class="px-2 py-2 text-lg lg:text-base">
+                            ${content}
+                        </div>
                     </div>
                 </div>
-                <div class="rounded-xl dark:border-gray-600 bg-white dark:bg-warmgray-800 dark:text-white" style="min-width: 540px;max-width: 560px;">
-                    <div class="px-2 py-2 border-b rounded-t-lg border-gray-600 bg-gray-ß00 flex justify-between text-2xl lg:text-lg" class="dct-title">
-                        <h3 class="font-semibold text-gray-900 dark:text-white"><span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.title}</span>&nbsp;<span class="copyable dark:text-gray-300 card_font" onclick="copyToClipboard(this, event)" style="cursor: copy;">${this.data.originalTitle}</span></h3>
-                        <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()" class="font-bold text-red-700 text-2xl">❌</button>
-                    </div>
-                    <div class="px-2 py-2 text-lg lg:text-base">
-                        ${content}
-                    </div>
-                </div>
-            </div>
-        </div>`;
+                ${qa_content}
+            </div>`;
 
         this.popover = new Popover(
             document.querySelector(`#DCT-Overlays #${popoverId}`),
