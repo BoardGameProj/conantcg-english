@@ -320,6 +320,7 @@
             {{ $hirameki := or (T (printf "cards.%s.hirameki" .card_id )) $card.hirameki }}
             {{ $henso := or (T (printf "cards.%s.henso" .card_id )) $card.henso }}
             {{ $cut_in := or (T (printf "cards.%s.cut_in" .card_id )) $card.cut_in }}
+            {{ $q_a := or (T (printf "q_a.%s" $card.card_num )) $card.q_a }}
 
             {{ $colors := slice }}
             {{ range .color }}
@@ -346,7 +347,7 @@
                 is-primary='{{ $is_primary }}' other-versions='{{ $other_versions }}' cost='{{ $card.cost }}'
                 ap='{{ $card.ap }}' lp='{{ $card.lp }}' illustrator='{{ default "N/A" $card.illustrator }}'
                 sparkling='{{ $card.sparkling }}' price='{{ default "N/A" $card.price }}'
-                q-a='{{ default "N/A" $card.q_a }}'>
+                q-a='{{ default "N/A" $q_a }}'>
             </dct-card>
             {{ end }}
             {{ end }}

@@ -8,7 +8,7 @@ const files = {
         originId: 'card_num',
         referenceLink: config.dataDir + '/images/cards/{entry.card_num}.ja.jpg',
         requireKeys: ['title'],
-        requireKeysIfNotEmpty: ['feature', 'hirameki', 'cut_in']
+        requireKeysIfNotEmpty: ['feature', 'hirameki', 'cut_in', 'henso']
     }
 }
 

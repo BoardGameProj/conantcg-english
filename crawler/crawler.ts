@@ -122,3 +122,13 @@ for (const c of Object.values(cards)) {
     }
 }
 fs.writeFileSync(__dirname + '/../data/colors_ja.json', JSON.stringify(colorsFileContent, null, '    '))
+
+const qaFileContent = {}
+for (const card of Object.values(cards)) {
+    // 检查是否存在 q_a 字段且有内容
+    if (card.q_a && card.q_a.trim() !== '') {
+        const key = `q_a.${card.card_num}`
+        qaFileContent[key] = card.q_a.trim()
+    }
+}
+fs.writeFileSync(__dirname + '/../data/q_a.ja.json', JSON.stringify(qaFileContent, null, '    '))
