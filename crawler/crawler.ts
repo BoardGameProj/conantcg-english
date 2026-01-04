@@ -123,12 +123,102 @@ for (const c of Object.values(cards)) {
 }
 fs.writeFileSync(__dirname + '/../data/colors_ja.json', JSON.stringify(colorsFileContent, null, '    '))
 
-const qaFileContent = {}
+// const qaFileContent = {}
+// for (const card of Object.values(cards)) {
+//     // 检查是否存在 q_a 字段且有内容
+//     if (card.q_a && card.q_a.trim() !== '') {
+//         const key = `q_a.${card.card_num}`
+//         qaFileContent[key] = card.q_a.trim()
+//     }
+// }
+// fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '))
+
+// const qaFileContent = {};
+// const cardIdToUniqQA = {};
+// for (const card of Object.values(cards)) {
+//     if (card.q_a && card.q_a.trim() !== '') {
+//         const trimmedQA = card.q_a.trim();
+//         if (!cardIdToUniqQA[card.card_id]) {
+//             cardIdToUniqQA[card.card_id] = new Set([trimmedQA]);
+//         } else {
+//             cardIdToUniqQA[card.card_id].add(trimmedQA);
+//         }
+//     }
+// }
+// for (const card of Object.values(cards)) {
+//     if (card.q_a && card.q_a.trim() !== '') {
+//         const trimmedQA = card.q_a.trim();
+//         // 如果当前 card_id 的所有 q_a 完全一样（去重后只有1条）
+//         if (cardIdToUniqQA[card.card_id].size === 1) {
+//             const key = `q_a.${card.card_id}`;
+//             // 只存储一次（避免重复）
+//             if (!qaFileContent[key]) {
+//                 qaFileContent[key] = trimmedQA;
+//             }
+//         }
+//         // 如果当前 card_id 的 q_a 有不同的值（去重后 >1 条）
+//         else {
+//             const key = `q_a.${card.card_id}.${card.card_num}`;
+//             qaFileContent[key] = trimmedQA;
+//         }
+//     }
+// }
+// fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '));
+
+const qaFileContent = {};
+const cardIdToUniqQA = {};
+
+// Helper function to normalize Q&A format
+function normalizeQA(qa) {
+    // Handle JSON-style Q&A format first
+    if (qa.startsWith('{\"') && qa.endsWith('\"}')) {
+        try {
+            const jsonQA = JSON.parse(qa);
+            const question = Object.keys(jsonQA)[0];
+            const answer = jsonQA[question];
+            qa = `Q：${question}\nA：${answer}`;
+        } catch (e) {
+            // If parsing fails, keep original
+        }
+    }
+
+    // Normalize line endings and spacing
+    return qa.replace(/\r\n/g, '\n')  // Convert Windows line endings
+        .replace(/\r/g, '\n')     // Convert old Mac line endings
+        .replace(/\n+/g, '\n')    // Collapse multiple newlines
+        .replace(/Q. /g, 'Q：')
+        .replace(/A. /g, 'Q：')
+        .replace(/？ /g, '？')
+        .replace(/。 【/g, '。【')
+        .replace(/か\nA/g, 'か？\nA')
+        .trim();
+}
+
 for (const card of Object.values(cards)) {
-    // 检查是否存在 q_a 字段且有内容
     if (card.q_a && card.q_a.trim() !== '') {
-        const key = `q_a.${card.card_num}`
-        qaFileContent[key] = card.q_a.trim()
+        const normalizedQA = normalizeQA(card.q_a);
+        if (!cardIdToUniqQA[card.card_id]) {
+            cardIdToUniqQA[card.card_id] = new Set([normalizedQA]);
+        } else {
+            cardIdToUniqQA[card.card_id].add(normalizedQA);
+        }
     }
 }
-fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '))
+
+for (const card of Object.values(cards)) {
+    if (card.q_a && card.q_a.trim() !== '') {
+        const normalizedQA = normalizeQA(card.q_a);
+
+        if (cardIdToUniqQA[card.card_id].size === 1) {
+            const key = `q_a.${card.card_id}`;
+            if (!qaFileContent[key]) {
+                qaFileContent[key] = normalizedQA;
+            }
+        } else {
+            const key = `q_a.${card.card_id}.${card.card_num}`;
+            qaFileContent[key] = normalizedQA;
+        }
+    }
+}
+
+fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '));

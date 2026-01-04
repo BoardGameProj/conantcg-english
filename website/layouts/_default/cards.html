@@ -322,7 +322,20 @@
             {{ $hirameki := or (T (printf "cards.%s.hirameki" .card_id )) $card.hirameki }}
             {{ $henso := or (T (printf "cards.%s.henso" .card_id )) $card.henso }}
             {{ $cut_in := or (T (printf "cards.%s.cut_in" .card_id )) $card.cut_in }}
-            {{ $q_a := or (T (printf "q_a.%s" $card.card_num )) $card.q_a }}
+
+            {{ $q_a := "" }}
+            {{ $key_with_num := printf "q_a.%s.%s" $card.card_id $card.card_num }}
+            {{ $key_without_num := printf "q_a.%s" $card.card_id }}
+            {{/* 检查带card_num的key是否存在 */}}
+            {{ if (T $key_with_num) }}
+            {{ $q_a = T $key_with_num }}
+            {{ else if (T $key_without_num) }}
+            {{/* 回退到不带card_num的key */}}
+            {{ $q_a = T $key_without_num }}
+            {{ else if $card.q_a }}
+            {{/* 最后使用card.q_a字段 */}}
+            {{ $q_a = $card.q_a }}
+            {{ end }}
 
             {{ $colors := slice }}
             {{ range .color }}
