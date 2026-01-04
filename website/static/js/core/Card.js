@@ -550,13 +550,10 @@ export class Card extends HTMLElement {
                     value = value.replaceAll('":"', '<br><b>A：</b>')
                     value = value.replaceAll('\n', '<br>')
                 }
-                qa_content += `<div class="px-2 py-2 text-lg lg:text-base border-t border-gray-200 dark:border-gray-600 mb-2">
+                qa_content += `<div class="mb-2 px-2 py-2 text-lg lg:text-base border-t border-gray-200 dark:border-gray-600">
                     <div class="flex justify-between lg:py-0">
-                        <div class="text-start font-bold whitespace-nowrap text-gray-500">
-                            <a href="https://www.takaratomy.co.jp/products/conan-cardgame/cardlist/?freeword=${this.data.cardNum}" target="_blank" rel="noopener noreferrer">
-                            </a>
-                        </div>
-                        <div class="text-end ms-4 card_details--${key} text-right max-h-80 overflow-auto text-xs dark:text-gray-300 mb-2">${value}</div>
+                        <div class="text-start font-bold whitespace-nowrap dark:text-gray-200">${labels[key]}</div>
+                        <div class="text-end px-2 ms-4 card_details--${key} text-right max-h-60 overflow-auto text-xs dark:text-gray-200">${value}</div>
                     </div></div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
@@ -602,6 +599,7 @@ export class Card extends HTMLElement {
                                                 data-value="${this.data.originalTitle}">点击查找卡名🔍</button>
                                         </span>
                                     </span>
+                                    <a href="https://www.takaratomy.co.jp/products/conan-cardgame/cardlist/?freeword=${this.data.cardNum}" target="_blank" rel="noopener noreferrer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1 mt-[-2px] inline-block h-3 w-3" data-icon="LinkExternal02" aria-hidden="true"><g id="link-external-02"><path id="Icon" d="M10.5 4.5L10.5 1.5M10.5 1.5H7.49999M10.5 1.5L6 6M5 1.5H3.9C3.05992 1.5 2.63988 1.5 2.31901 1.66349C2.03677 1.8073 1.8073 2.03677 1.66349 2.31901C1.5 2.63988 1.5 3.05992 1.5 3.9V8.1C1.5 8.94008 1.5 9.36012 1.66349 9.68099C1.8073 9.96323 2.03677 10.1927 2.31901 10.3365C2.63988 10.5 3.05992 10.5 3.9 10.5H8.1C8.94008 10.5 9.36012 10.5 9.68099 10.3365C9.96323 10.1927 10.1927 9.96323 10.3365 9.68099C10.5 9.36012 10.5 8.94008 10.5 8.1V7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></a>
                                 </span></h3>
                             <button onclick="FlowbiteInstances.getInstance('Popover', 'card-${this.data.id}').hide()"
                                 class="font-bold text-red-700 text-2xl">❌</button>

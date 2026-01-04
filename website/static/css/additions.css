@@ -702,7 +702,7 @@ strong {
 .card_details--qa {
     font-family: 'QiushuiShotai';
     text-align: left;
-    max-width: 820px;
+    max-width: 760px;
     /* overflow: scroll; */
     /* scrollbar-width: thin; */
     /* font-size: small; */
@@ -711,7 +711,7 @@ strong {
 .dark .card_details--qa {
     font-family: 'QiushuiShotai';
     text-align: left;
-    max-width: 820px;
+    max-width: 760px;
     /* overflow: scroll; */
     /* scrollbar-width: thin; */
     /* font-size: small; */
