@@ -544,11 +544,16 @@ export class Card extends HTMLElement {
                 if (value === 'N/A') {
                     value = ''
                 } else {
+                    value = value.replaceAll('Q：', '<b>Q：</b>')
+                    value = value.replaceAll('A：', '<b>A：</b>')
+                    value = value.replaceAll('Q. ', '<b>Q：</b>')
+                    value = value.replaceAll('A. ', '<b>A：</b>')
                     value = value.replaceAll('{"', '<b>Q：</b>')
                     value = value.replaceAll('"}', '')
                     value = value.replaceAll('","', '<br><br><b>Q：</b>')
                     value = value.replaceAll('":"', '<br><b>A：</b>')
                     value = value.replaceAll('\n', '<br>')
+                    value = value.replaceAll('<br><br>', '</span><span style="display:block; height:0.6rem;"></span><span>');
                 }
                 qa_content += `<div class="mb-2 px-2 py-2 text-lg lg:text-base border-t border-gray-200 dark:border-gray-600">
                     <div class="flex justify-between lg:py-0">
