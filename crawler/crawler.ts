@@ -174,9 +174,11 @@ function normalizeQA(qa) {
     if (qa.startsWith('{\"') && qa.endsWith('\"}')) {
         try {
             const jsonQA = JSON.parse(qa);
-            const question = Object.keys(jsonQA)[0];
-            const answer = jsonQA[question];
-            qa = `Q：${question}\nA：${answer}`;
+            let normalized = [];
+            for (const [question, answer] of Object.entries(jsonQA)) {
+                normalized.push(`Q：${question}\nA：${answer}`);
+            }
+            return normalized.join('\n\n');
         } catch (e) {
             // If parsing fails, keep original
         }
@@ -185,9 +187,9 @@ function normalizeQA(qa) {
     // Normalize line endings and spacing
     return qa.replace(/\r\n/g, '\n')  // Convert Windows line endings
         .replace(/\r/g, '\n')     // Convert old Mac line endings
-        .replace(/\n+/g, '\n')    // Collapse multiple newlines
+        .replace(/\n \n/g, '\n\n')
         .replace(/Q. /g, 'Q：')
-        .replace(/A. /g, 'Q：')
+        .replace(/A. /g, 'A：')
         .replace(/？ /g, '？')
         .replace(/。 【/g, '。【')
         .replace(/か\nA/g, 'か？\nA')
