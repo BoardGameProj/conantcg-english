@@ -107,7 +107,7 @@ export class Card extends HTMLElement {
         // if (this.data.rarity === 'D') {
         //     this.data.rarity = "C(D)"
         // }
-        this.data.custom = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
+        this.data.custom = this.getAttribute('is-primary') === "true" ? "首次出现" : this.getAttribute('is-primary');
         const isChineseByProduct = (productName) => {
             if (!productName) return false;
             const productCode = productName.trim().substring(0, 6);
@@ -534,7 +534,7 @@ export class Card extends HTMLElement {
                 <div class="text-end ms-4 card_details--${key} text-right">${wrappedValues}</div>
             </div>`;
             } else if (key === 'cardText') {
-                // this.data.type = this.getAttribute('is-primary') === "true" ? "原版" : this.getAttribute('is-primary');
+                // this.data.type = this.getAttribute('is-primary') === "true" ? "首次出现" : this.getAttribute('is-primary');
                 let label = ['事件', '案件'].includes(this.data.type) ? labels[key] : "能力";
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${label}</div>
