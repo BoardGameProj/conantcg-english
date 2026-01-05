@@ -1034,5 +1034,85 @@
         "categories": [
             "高校生"
         ]
+    },
+    "B08081": {
+        "id": 8268,
+        "card_id": "0917",
+        "title": "広田雅美",
+        "card_num": "B08081",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08081.jpg",
+        "sub_thumb": "sub_B08081.jpg",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "【解決編】【登場時】手札を1枚リムーブしてもよい。そうした場合、相手の現場にいるレベル8以下のキャラを1枚まで選び、手札に移す。\n【相手ターン中】【ターン1】自分の現場にいるこのキャラ以外のキャラが相手の能力や効果によって選ばれたとき、相手は手札を1枚リムーブしてもよい。そうしなかった場合、それを無効にする。この能力は自分の現場に【黒】以外の色を持つキャラがいる場合に発動する。",
+        "drawing": "イラスト",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "黒ずくめの組織"
+        ]
+    },
+    "B08081P": {
+        "id": 8269,
+        "card_id": "0917",
+        "title": "広田雅美",
+        "card_num": "B08081P",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08081P.jpg",
+        "sub_thumb": "sub_B08081P.jpg",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "RP",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "【解決編】【登場時】手札を1枚リムーブしてもよい。そうした場合、相手の現場にいるレベル8以下のキャラを1枚まで選び、手札に移す。\n【相手ターン中】【ターン1】自分の現場にいるこのキャラ以外のキャラが相手の能力や効果によって選ばれたとき、相手は手札を1枚リムーブしてもよい。そうしなかった場合、それを無効にする。この能力は自分の現場に【黒】以外の色を持つキャラがいる場合に発動する。",
+        "drawing": "イラスト",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "黒ずくめの組織"
+        ]
     }
 }
