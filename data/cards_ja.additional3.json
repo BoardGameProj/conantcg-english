@@ -1114,5 +1114,83 @@
         "categories": [
             "黒ずくめの組織"
         ]
+    },
+    "B08025": {
+        "id": 8270,
+        "card_id": "0865",
+        "title": "伊織無我",
+        "card_num": "B08025",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08025.jpg",
+        "sub_thumb": "sub_B08025.jpg",
+        "color": [
+            "緑"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "2",
+        "feature": "【パートナー緑】【宣言】【ターン1】〚デッキのカードを上から3枚リムーブする〛：この【宣言】能力のコストによってカード名[大岡紅葉]か[伊織無我]がリムーブされた場合、AP8000 以下のキャラを1枚まで選び、リムーブし、自分のデッキのカードを上から1枚裏向きでこのキャラにセットする。",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "執事"
+        ]
+    },
+    "B08025P": {
+        "id": 8271,
+        "card_id": "0865",
+        "title": "伊織無我",
+        "card_num": "B08025P",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08025P.jpg",
+        "sub_thumb": "sub_B08025P.jpg",
+        "color": [
+            "緑"
+        ],
+        "type": "キャラ",
+        "rarity": "CP",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "2",
+        "feature": "【パートナー緑】【宣言】【ターン1】〚デッキのカードを上から3枚リムーブする〛：この【宣言】能力のコストによってカード名[大岡紅葉]か[伊織無我]がリムーブされた場合、AP8000 以下のキャラを1枚まで選び、リムーブし、自分のデッキのカードを上から1枚裏向きでこのキャラにセットする。",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "執事"
+        ]
     }
 }
