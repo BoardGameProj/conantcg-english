@@ -1192,5 +1192,85 @@
         "categories": [
             "執事"
         ]
+    },
+    "B08037": {
+        "id": 8272,
+        "card_id": "0876",
+        "title": "鈴木園子",
+        "card_num": "B08037",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08037.jpg",
+        "sub_thumb": "sub_B08037.jpg",
+        "color": [
+            "白"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": "【解決編】【宣言】【スリープ】：自分の現場にいるカード名[京極真]を1枚まで選び、ターン終了時まで「このキャラは相手の現場にいるアクティブ状態のキャラを指定してアクションできる。」を与える。",
+        "drawing": "描きおろし",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "高校生",
+            "鈴木財閥"
+        ]
+    },
+    "B08038": {
+        "id": 8273,
+        "card_id": "0877",
+        "title": "京極真",
+        "card_num": "B08038",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08038.jpg",
+        "sub_thumb": "sub_B08038.jpg",
+        "color": [
+            "白"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "4",
+        "ap": "5000",
+        "lp": "0",
+        "feature": "【自分ターン中】このキャラがコンタクトしたとき、自分のデッキのカードを上から2枚リムーブしてもよい。この効果によって特徴[高校生]か[鈴木財閥]のキャラがリムーブされた場合、そのコンタクト中、このキャラをAP+1000する。",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "高校生",
+            "空手家"
+        ]
     }
 }
