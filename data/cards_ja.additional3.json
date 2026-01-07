@@ -1272,5 +1272,84 @@
             "高校生",
             "空手家"
         ]
+    },
+    "B08048": {
+        "id": 8274,
+        "card_id": "0886",
+        "title": "アンドレ・キャメル",
+        "card_num": "B08048",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08048.jpg",
+        "sub_thumb": "sub_B08048.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "0",
+        "feature": "",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "FBI"
+        ]
+    },
+    "B08049": {
+        "id": 8275,
+        "card_id": "0887",
+        "title": "ジョディ・スターリング",
+        "card_num": "B08049",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08049.jpg",
+        "sub_thumb": "sub_B08049.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "5",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "このキャラがアクション[キャラ]したとき、指定したキャラをターン終了時までレベルー1する。そのキャラがレベル6以下の場合、アクション終了時までこのキャラをAP+3000する。\n【登場時】自分の現場にこのキャラ以外の特徴[FBI]のキャラがいる場合、ターン終了時までこのキャラは突撃(登場したターンからすぐにアクションできる)を持つ。",
+        "drawing": "原作",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "FBI"
+        ]
     }
 }
