@@ -1351,5 +1351,43 @@
         "categories": [
             "FBI"
         ]
+    },
+    "B08053": {
+        "id": 8276,
+        "card_id": "0891",
+        "title": "ジェイムズ・ブラック",
+        "card_num": "B08053",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08053.jpg",
+        "sub_thumb": "sub_B08053.jpg",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": null,
+        "drawing": null,
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": "【カットイン】AP+2000(コンタクト中に手札からリムーブして後う)",
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "FBI"
+        ]
     }
 }
