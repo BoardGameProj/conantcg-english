@@ -1831,7 +1831,7 @@
     },
     {
         "name": "麻亜沙",
-        "cardNum": 4,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B02079",
@@ -1852,6 +1852,11 @@
                 "card_num": "B07102",
                 "title": "犯人",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08081P",
+                "title": "犯人",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
