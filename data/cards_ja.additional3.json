@@ -1389,5 +1389,84 @@
         "categories": [
             "FBI"
         ]
+    },
+    "B08065": {
+        "id": 8277,
+        "card_id": "0902",
+        "title": "大和敢助",
+        "card_num": "B08065",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08065.jpg",
+        "sub_thumb": "sub_B08065.jpg",
+        "color": [
+            "黄"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "4",
+        "ap": "3000",
+        "lp": "1",
+        "feature": "",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "警察",
+            "長野県警"
+        ]
+    },
+    "B08066": {
+        "id": 8278,
+        "card_id": "0903",
+        "title": "上原由衣",
+        "card_num": "B08066",
+        "show_hide": "表示",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "region": "日本",
+        "main_thumb": "B08066.jpg",
+        "sub_thumb": "sub_B08066.jpg",
+        "color": [
+            "黄"
+        ],
+        "type": "キャラ",
+        "rarity": "R",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
+        "feature": "",
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "q_a": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "警察",
+            "長野県警"
+        ]
     }
 }
