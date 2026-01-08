@@ -815,7 +815,7 @@ function isChineseByProduct(product) {
     const productCode = product.trim().substring(0, 6);
     const validProducts = [
         "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
-        "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10",  // 新手卡组
+        "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10", // 新手卡组
         "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05", // 补充包
     ];
     return validProducts.includes(productCode);
@@ -827,7 +827,7 @@ const chinesePRCards = new Set([
     "PR011", "PR017", "PR018", "PR019", "PR020",
     "PR021", "PR022", "PR023", "PR034", "PR035",
     "PR038", "PR051", "PR052", "PR055", "PR080",
-    "PR094", "PR096"  
+    "PR094", "PR096"
 ]);
 
 function createCardImageHtml(card) {
@@ -846,19 +846,19 @@ function createCardImageHtml(card) {
 
     // 获取当前卡牌的索引并递增
     const currentIndex = window.cardIndexTracker[card.card_num]++;
-    
+
     // 获取拥有的卡牌数量
     const ownedCount = getOwnedCardCount(card.card_num);
     const totalInDeck = window.cardTotalCount[card.card_num] || 1;
-    
+
     // 检查是否需要添加标记 - 添加默认值处理
     const settings = localStorage.getItem('cardSettings');
     const parsedSettings = settings ? JSON.parse(settings) : { showMissCards: false };
     const showMissCards = parsedSettings.showMissCards || false;
-    
+
     // 计算是否缺少此卡牌（当前组中是否超过拥有的数量）
     const shouldMark = (currentIndex >= ownedCount) && (ownedCount < totalInDeck);
-    
+
     const insufficientTag = (shouldMark && showMissCards) ?
         '<div class="missing-indicator absolute border-b border-l top-0 right-0 bg-red-600 text-white font-bold rounded-tr rounded-bl px-1.5 py-1 z-10 shadow-lg select-none opacity-100">!</div>' : '';
 
@@ -1342,10 +1342,10 @@ function getCurrentMissCardSetting() {
 function updateMissingCardIndicators(shouldShow) {
     // 获取所有卡片容器
     const cards = document.querySelectorAll('.card-container');
-    
+
     // 重置卡牌索引跟踪器用于重新计算
     window.cardIndexTracker = {};
-    
+
     cards.forEach(card => {
         const cardNum = card.dataset.cardNum;
         if (!cardNum) return;
@@ -1353,19 +1353,19 @@ function updateMissingCardIndicators(shouldShow) {
         // 获取拥有的卡牌数量和卡组中的总数量
         const ownedCount = getOwnedCardCount(cardNum);
         const totalInDeck = window.cardTotalCount[cardNum] || 1;
-        
+
         // 初始化或获取当前卡牌的索引
         if (!window.cardIndexTracker[cardNum]) {
             window.cardIndexTracker[cardNum] = 0;
         }
         const currentIndex = window.cardIndexTracker[cardNum]++;
-        
+
         // 检查是否需要显示标记
         const shouldMark = (currentIndex >= ownedCount) && (ownedCount < totalInDeck);
-        
+
         // 查找或创建标记元素
         let indicator = card.querySelector('.missing-indicator');
-        
+
         if (shouldMark && shouldShow) {
             if (!indicator) {
                 indicator = document.createElement('div');
