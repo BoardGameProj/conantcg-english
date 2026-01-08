@@ -1,13 +1,12 @@
 module.exports = {
   // 扫描所有可能使用Tailwind的文件
   content: [
-    "./**/*.html",
-    "./**/*.md",
-    "./config.toml",
-    "./node_modules/flowbite/**/*.js",
-    "./**/*.{html,js}",
+    "./themes/**/*.{html,js,ts,md}",
+    "./content/**/*.md",
+    "./layouts/**/*.html",
     "./static/js/**/*.js",
-    "./**/*.{js,ts,jsx,tsx}"
+    "./config.toml",
+    "./node_modules/flowbite/**/*.js"
   ],
 
   // 启用黑暗模式（class驱动）

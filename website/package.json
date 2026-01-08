@@ -13,7 +13,8 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@saithodev/dom-filters": "git+https://github.com/saitho/dom-filters",
     "@zachleat/filter-container": "git+https://github.com/saitho/filter-container",
-    "caniuse-lite": "^1.0.30001735",
+    "baseline-browser-mapping": "^2.9.12",
+    "caniuse-lite": "^1.0.30001763",
     "deepmerge": "^4.3.1",
     "flowbite": "^2.5.2",
     "modern-screenshot": "^4.6.5"
