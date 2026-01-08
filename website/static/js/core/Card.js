@@ -404,7 +404,7 @@ export class Card extends HTMLElement {
             cost: '等级',
             ap: 'AP',
             lp: 'LP',
-            illustrator: '画师',
+            illustrator: '插画师',
             caseDifficultyFirst: '案件难度 (先手)',
             caseDifficultySecond: '案件难度 (后手)',
             otherVersions: '其他版本',

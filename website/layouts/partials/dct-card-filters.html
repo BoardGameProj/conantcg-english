@@ -38,7 +38,7 @@
 
         {{ $illustratorNames := slice }}
         {{range .Site.Data.illustrators_ja}}{{ $illustratorNames = $illustratorNames | append (.name) }}{{end}}
-        <domfilters-option title="画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}"
+        <domfilters-option title="插画师" key="illustrator" fieldtype="select" values="{{$illustratorNames | jsonify}}"
             noneValue="所有"></domfilters-option>
     </div>
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
