@@ -1948,17 +1948,17 @@
     "B08063": {
         "id": 8304,
         "card_id": "0900",
-        "title": "",
+        "title": "黒田兵衛",
         "card_num": "B08063",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
             "黄"
         ],
         "type": "キャラ",
-        "rarity": "",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "rarity": "SR",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "2",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -1973,7 +1973,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "B08064": {
         "id": 8305,
