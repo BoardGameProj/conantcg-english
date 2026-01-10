@@ -91,8 +91,8 @@ function processKeywords(text) {
         '{突击}［角色］': { tag: 'b', tooltip: '登场回合可以立刻以角色为对象进行行动' },
         '{突击}［等级(\\d+)以(下|上)的角色］': { tag: 'b', tooltip: '登场回合可以立刻以等级$2以$3的角色为对象进行行动' },
         '{突击}': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
-        '{特征不?为?［([^］}]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="categories" data-value="$2">特征：[$2]🔍</button>' },
-        '{卡名不?为?［([^］]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '<button class="search-form-btn" data-target-key="card-name" data-value="$2">卡名：[$2]🔍</button>' },
+        '{特征不?为?［([^］}]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '特征：[$2]<button class="search-form-btn" data-target-key="categories" data-value="$2">🔍</button>' },
+        '{卡名不?为?［([^］]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '卡名：[$2]<button class="search-form-btn" data-target-key="card-name" data-value="$2">🔍</button>' },
         '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
     for (const keyword in highlightKeywords) {

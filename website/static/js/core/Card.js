@@ -476,7 +476,7 @@ export class Card extends HTMLElement {
                         <span class="tooltip-container">
                             <span class="tooltip decoration-none">
                                 <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
-                                <span class="tooltiptext"><button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">ID：${value}🔍</button></span>
+                                <span class="tooltiptext">ID：${value}<button class="search-form-btn" data-target-key="card-id-num" data-value="${value}">🔍</button></span>
                             </span>
                         </span>
                     </div>
@@ -489,7 +489,7 @@ export class Card extends HTMLElement {
                         <span class="tooltip-container">
                             <span class="tooltip decoration-none">
                                 <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
-                                <span class="tooltiptext"><button class="search-form-btn" data-target-key="card-num" data-value="${value}">编号：${value}🔍</button></span>
+                                <span class="tooltiptext">编号：${value}<button class="search-form-btn" data-target-key="card-num" data-value="${value}">🔍</button></span>
                             </span>
                         </span>
                     </div>
@@ -501,9 +501,7 @@ export class Card extends HTMLElement {
                                 <span class="tooltip-container">
                                     <span class="tooltip decoration-none">
                                         <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${val}</span>
-                                        <span class="tooltiptext">
-                                            <button class="search-form-btn" data-target-key="categories" data-value="${val}">特征：${val}🔍</button>
-                                        </span>
+                                        <span class="tooltiptext">特征：${val}<button class="search-form-btn" data-target-key="categories" data-value="${val}">🔍</button></span>
                                     </span>
                                 </span>
                             </span>`;
