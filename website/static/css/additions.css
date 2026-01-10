@@ -232,6 +232,20 @@
     font-size: small;
 }
 
+.card_details--rarity {
+    box-shadow: 0 0 0 1px;
+    /* padding-left: 0.1rem;
+    padding-right: 0.1rem; */
+    border-radius: .25rem;
+    font-weight: bold;
+    min-width: 3rem;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-top: .25rem;
+}
+
+
 .card_font {
     font-family: 'QiushuiShotai';
     display: inline-block;

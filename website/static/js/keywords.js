@@ -16,11 +16,11 @@ function placeTooltips(text) {
 function processKeywords(text) {
     // "square bracket" keywords, e.g. [On Play]
     const keywords = {
-        '结案': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
-        '销毁证据': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
-        '协助': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '' },
-        '解决篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为解决篇时，可使用此效果或能力' },
-        '案件篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded', tooltip: '我方案件为案件篇时，可使用此效果或能力' },
+        '结案': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded dark:border', tooltip: '' },
+        '销毁证据': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded dark:border', tooltip: '' },
+        '协助': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded dark:border', tooltip: '' },
+        '解决篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded dark:border', tooltip: '我方案件为解决篇时，可使用此效果或能力' },
+        '案件篇': { class: 'font-normal bg-black text-white text-xs px-1 me-1 rounded dark:border', tooltip: '我方案件为案件篇时，可使用此效果或能力' },
         '宣言': { class: 'font-normal bg-blue-500 text-white text-xs px-1 me-1 rounded', tooltip: '宣言使用能力，通过支付费用就能处理效果' },
         '蓝': { class: 'text-xs card-color--Blue card-color card-color-radius', tooltip: '' },
         '白': { class: 'text-xs bg-white card-color--White card-color card-color-radius', tooltip: '' },

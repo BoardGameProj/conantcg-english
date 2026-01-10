@@ -515,7 +515,7 @@ export class Card extends HTMLElement {
             } else if (key === 'rarity' && ['SRP', 'MRP', 'MRCP', 'SRCP', 'SEC'].includes(value)) {
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
-                    <div class="text-end ms-4 card_details--${key} card-rarity--yellow text-right">${value}</div>
+                    <div class="card_details--${key} card-rarity--yellow">${value}</div>
                 </div>`;
             } else if (key === 'otherVersions') {
                 const versions = value.split(',').map(v => v.trim()).filter(v => v);
