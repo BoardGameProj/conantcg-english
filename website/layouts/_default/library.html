@@ -11,7 +11,7 @@
     {{ $title6 := substr $title 0 6 }}
     <a href="/cards/?product={{$title6}}">
         <article class="bg-white text-center flex flex-col items-center h-full" data-image="{{$imageName}}"
-            style="max-width: 167px">
+            style="max-width: 174px">
             {{ with or (resources.Get (printf "products/%s.jpg" (index (split . " ") 0)|lower)) (resources.Get
             "img/fallback.jpg") }}
             {{ with .Resize "180x" }}
