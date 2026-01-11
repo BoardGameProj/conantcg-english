@@ -47,6 +47,7 @@ export class Card extends HTMLElement {
         this.data.promoDetails = this.getAttribute('promo-details')
         this.data.caseDifficultyFirst = this.getAttribute('case-difficulty-first')
         this.data.caseDifficultySecond = this.getAttribute('case-difficulty-second')
+        this.data.caseDifficulty = `先手${this.data.caseDifficultyFirst}　后手${this.data.caseDifficultySecond}`;
         this.data.illustrator = this.getAttribute('illustrator') || ''
         this.data.otherVersions = (this.getAttribute('other-versions') || '').split(',').filter(Boolean);
         this.data.price = this.getAttribute('price') || ''
@@ -405,8 +406,9 @@ export class Card extends HTMLElement {
             ap: 'AP',
             lp: 'LP',
             illustrator: '插画师',
-            caseDifficultyFirst: '案件难度 (先手)',
-            caseDifficultySecond: '案件难度 (后手)',
+            caseDifficultyFirst: '案件等级 (先手)',
+            caseDifficultySecond: '案件等级 (后手)',
+            caseDifficulty: '案件等级',
             otherVersions: '其他版本',
             price: '参考价',
             qa: 'FAQ'
@@ -429,8 +431,9 @@ export class Card extends HTMLElement {
             fields.push('lp')
         }
         if (this.data.type === '案件') {
-            fields.push('caseDifficultyFirst')
-            fields.push('caseDifficultySecond')
+            // fields.push('caseDifficultyFirst')
+            // fields.push('caseDifficultySecond')
+            fields.push('caseDifficulty')
         }
         if (this.data.rarity && this.data.rarity.length > 0) {
             fields.push('rarity')
