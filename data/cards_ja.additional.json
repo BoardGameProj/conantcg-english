@@ -52,6 +52,10 @@
             "黄"
         ]
     },
+    "PR211": {
+        "difficulty_first": "7",
+        "difficulty_second": "6"
+    },
     "D01001": {
         "rarity": "R,D",
         "sparkling": "sparkling"
