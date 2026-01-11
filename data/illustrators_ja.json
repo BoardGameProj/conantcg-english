@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 41,
+        "cardNum": 43,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -207,6 +207,16 @@
                 "card_num": "D05001",
                 "title": "安室透",
                 "package": "CT-D05 Case-StartDeck 05 安室透"
+            },
+            {
+                "card_num": "B08001Sec2",
+                "title": "灰原哀",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08077Sec2",
+                "title": "ジン",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -1855,7 +1865,7 @@
             },
             {
                 "card_num": "B08081P",
-                "title": "犯人",
+                "title": "広田雅美",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
