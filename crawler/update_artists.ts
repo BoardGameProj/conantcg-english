@@ -4,7 +4,7 @@ import config from "./config";
 const originData = JSON.parse(fs.readFileSync(config.dataDir + '/cards_ja.json').toString())
 const illustrators = new Map<string, any[]>()
 for (const entry of Object.values(originData)) {
-    if (entry.illustrator === null) {
+    if (!entry.illustrator || entry.illustrator === null) {
         continue
     }
     if (!illustrators.has(entry.illustrator)) {
