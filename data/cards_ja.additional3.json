@@ -1347,7 +1347,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "少年探偵団"
+        ]
     },
     "B08009": {
         "id": 8284,
