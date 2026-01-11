@@ -1354,7 +1354,7 @@
     "B08009": {
         "id": 8284,
         "card_id": "0850",
-        "title": "",
+        "title": "小林澄子",
         "card_num": "B08009",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1362,15 +1362,15 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
-        "hirameki": null,
+        "hirameki": "【ヒラメキ】（証拠からリムーブされるときに発動する）自分のリムーブエリアにある〚特徴［少年探偵団］〛のキャラを1枚まで選び、手札に加える。",
         "cut_in": null,
         "linkto": null,
         "contain": null,
@@ -1379,7 +1379,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "教師"
+        ]
     },
     "B08011": {
         "id": 8285,
