@@ -9,7 +9,7 @@
     {{ $title := or (T (printf "products.%s" . )) . }}
     {{ $imageName := replaceRE "[\\s\"']" "" ($title|lower) }}
     {{ $title6 := substr $title 0 6 }}
-    <a href="/cards/?product={{$title6}}">
+    <a href="{{ ref $ "cards.md" }}?{{ (querify "product" $title6) | safeURL }}">
         <article class="bg-white text-center flex flex-col items-center h-full" data-image="{{$imageName}}"
             style="max-width: 174px">
             {{ with or (resources.Get (printf "products/%s.jpg" (index (split . " ") 0)|lower)) (resources.Get
