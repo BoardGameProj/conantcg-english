@@ -2,13 +2,17 @@
     "DOC": {
         "更新时间": "2025-04-07",
         "文档说明": "STATIC: 静态元素字典, INPUT: 输入框字典, DYNAMIC: 动态元素字典",
-        "STATIC说明": "key为CSS选择器,value为翻译字典. 只匹配被选择的元素中的textNode元素",
-        "INPUT说明": "key为placeholder内容,value为翻译文本",
+        "STATIC说明": "key为CSS选择器, value为翻译字典.只匹配被选择的元素中的textNode元素",
+        "INPUT说明": "key为placeholder内容, value为翻译文本",
         "DYNAMIC说明": "暂未实装",
         "贡献名单": []
     },
     "STATIC": {
-        "#globalNavi>li>a": {
+        "body > h1": {
+            "名探偵コナントレーディングカードゲーム公式サイト": "名侦探柯南集换式卡牌游戏官方网站",
+            "真実へ先にたどり着け": "　抢先探明真相"
+        },
+        "#globalNavi>li>a, #conan>main>h2>b": {
             "初めての方へ": "初学者指南",
             "ルール": "规则",
             "Q&Aコミュニティ": "Q&A社区",
@@ -17,9 +21,65 @@
             "カード検索": "搜索卡牌",
             "デッキ作成": "创建卡组",
             "NEWS": "新闻"
+        },
+        "#hamburger>div>ul>li>a>span>span, body>header>div>div>div>ul>li>button>span": {
+            "トップ": "首页",
+            "商品情報": "商品信息",
+            "イベント・キャンペーン": "活动・促销",
+            "会社情報": "公司信息",
+            "採用情報": "采用信息",
+            "投資家情報": "投资者信息",
+            "サステナビリティ": "可持续性",
+            "お客様相談室": "客户咨询室"
+        },
+        "div.flex2.name > div.parts > div > select > option": {
+            "収録先を選択": "选择收录来源",
+            "ALL": "所有",
+            "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）": "CT-P01 Case-Booster 01 侦探们的王牌",
+            "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）": "CT-P02 Case-Booster 02 西与东的大决战",
+            "CT-P03 Case-Booster 03 黒影の襲来（カットイン）": "CT-P03 Case-Booster 03 黑影来袭",
+            "CT-P04 Case-Booster 04 信義の絆（パートナー）": "CT-P04 Case-Booster 04 信义的牵绊",
+            "CT-P05 Case-Booster 05 新たなる謎": "CT-P05 Case-Booster 05 新的谜团",
+            "CT-P06 Case-Booster 06 交錯する刃": "CT-P06 Case-Booster 06 交错之刃",
+            "CT-P07 Case-Booster 07 魅惑のマジック": "CT-P07 Case-Booster 07 魅惑的魔法",
+            "CT-P08 Case-Booster 08 哀色の宿命": "CT-P08 Case-Booster 08 哀色的宿命",
+            "CT-D01 Case-StartDeck 01 江戸川コナン": "CT-D01 案件起始卡组 01 江户川柯南",
+            "CT-D02 Case-StartDeck 02 服部平次": "CT-D02 案件起始卡组 02 服部平次",
+            "CT-D03 Case-StartDeck 03 怪盗キッド": "CT-D03 案件起始卡组 03 怪盗基德",
+            "CT-D04 Case-StartDeck 04 赤井秀一": "CT-D04 案件起始卡组 04 赤井秀一",
+            "CT-D05 Case-StartDeck 05 安室透": "CT-D05 案件起始卡组 05 安室透",
+            "CT-D06 Case-ThemeDeck 01 服部平次VS怪盗キッド": "CT-D06 案件主题卡组 01 服部平次VS怪盗基德",
+            "CT-D07 Case-ThemeDeck 02 黒ずくめの組織": "CT-D07 案件主题卡组 02 黑衣组织",
+            "CT-D08 Case-ThemeDeck 03 青の古城探索事件": "CT-D08 案件主题卡组 03 蓝色古堡探索事件",
+            "CT-D09 Case-ThemeDeck 04 死亡の館、赤い壁": "CT-D09 案件主题卡组 04 死亡之馆，赤壁",
+            "CT-D10 Case-ThemeDeck 05 シャッフルロマンス": "CT-D10 案件主题卡组 05 浪漫洗牌",
+            "PRカード": "PR卡牌"
+        },
+        "#color > li, #type > li": {
+            "パートナー": "搭档",
+            "キャラ": "角色",
+            "イベント": "事件",
+            "事件": "案件"
+        },
+        ".cardListNav>.list>strong, #searchBox>form>div>div": {
+            "フリーワード": "关键词",
+            "色": "颜色",
+            "種類": "类别",
+            "レアリティ": "稀有度",
+            "レベル": "等级",
+            "収録先": "收录来源"
+        },
+        ".searchBtn": {
+            "条件を追加＋": "添加条件＋",
+            "この条件で検索する": "按此条件搜索"
         }
     },
-    "INPUT": {},
-    "LABEL": {},
+    "INPUT": {
+        "フリーワード": "关键词"
+    },
+    "LABEL": {
+        "Previous": "上一页",
+        "Next": "下一页"
+    },
     "DYNAMIC": {}
 }
