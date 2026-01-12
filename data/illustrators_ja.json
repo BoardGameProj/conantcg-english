@@ -3102,7 +3102,7 @@
     },
     {
         "name": "谷川なか",
-        "cardNum": 2,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B06040P",
@@ -3113,6 +3113,11 @@
                 "card_num": "B07007P2",
                 "title": "沖野ヨーコ",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08020",
+                "title": "遠山和葉",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },

@@ -1628,7 +1628,7 @@
     "B08020": {
         "id": 8293,
         "card_id": "0860",
-        "title": "",
+        "title": "遠山和葉",
         "card_num": "B08020",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1636,12 +1636,13 @@
         ],
         "type": "キャラ",
         "rarity": "SR",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "2",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
+        "illustrator": "谷川なか",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
         "cut_in": null,
@@ -1652,7 +1653,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "高校生"
+        ]
     },
     "B08021": {
         "id": 8294,
