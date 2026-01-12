@@ -3239,12 +3239,17 @@
     },
     {
         "name": "虹鳩えむ",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B07083",
                 "title": "三池苗子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08021",
+                "title": "服部平次",
+                "package": "CCT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
