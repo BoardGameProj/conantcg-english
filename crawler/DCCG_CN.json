@@ -59,7 +59,7 @@
             "デッキ作成": "创建卡组",
             "NEWS": "新闻"
         },
-        "div.flex2.name>div.parts>div>select>option,#cardInfo>li>span.package": {
+        "div.flex2.name>div.parts>div>select>option,#cardInfo>li>span.package,dd.package>select>option": {
             "収録先を選択": "选择收录来源",
             "ALL": "所有",
             "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）": "CT-P01 Case-Booster 01 侦探们的王牌",
@@ -82,7 +82,7 @@
             "CT-D10 Case-ThemeDeck 05 シャッフルロマンス": "CT-D10 案件主题卡组 05 浪漫洗牌",
             "PRカード": "PR卡牌"
         },
-        "#color>li, #type>li, span.type": {
+        "#color>li, #type>li, span.type,div.wrap_more.open>dl>dd>label": {
             "パートナー": "搭档",
             "キャラ": "角色",
             "イベント": "事件",
@@ -94,7 +94,7 @@
             "黄": "黄色",
             "黒": "黑色"
         },
-        ".cardListNav>.list>strong, #searchBox>form>div>div,#searchText>span,span.label": {
+        ".cardListNav>.list>strong, #searchBox>form>div>div,#searchText>span,span.label,.search>div>dl>dt,.freeword>a": {
             "フリーワード": "关键词",
             "色": "颜色",
             "種類": "类别",
@@ -113,8 +113,10 @@
             "変装": "变装",
             "カットイン": "介入",
             "ヒラメキ": "灵光一闪",
+            "さらに絞り込み": "进一步筛选",
             "FAQ": "FAQ"
         },
+        "label>input": {},
         ".searchBtn, #searchText>span>a,.btn_link>a,.btn_to_qa>a": {
             "条件を追加＋": "添加条件＋",
             "×検索条件を解除": "×解除搜索条件",
