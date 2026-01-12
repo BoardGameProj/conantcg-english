@@ -352,7 +352,7 @@
 
             {{ with or (resources.Get (printf "translations/%s.png" $card.card_num)) (resources.Get (printf
             "cards/%s.ja.jpg" $card.card_num)) (resources.Get "img/fallback.jpg") }}
-            {{ with .Resize "480x" }}
+            {{ with .Resize "482x" }}
             <dct-card id='{{ printf "%.0f" $card.id }}' image='{{ .RelPermalink }}' title='{{ $title }}'
                 original-title='{{ $card.title }}' card-id='{{ $card.card_id }}' card-num='{{ $card.card_num }}'
                 promo-details='{{ $contain }}' type='{{ $type }}' feature='{{ $feature }}' hirameki='{{ $hirameki }}'

@@ -1,0 +1,14 @@
+{
+    "DOC": {
+        "更新时间": "2025-04-07",
+        "文档说明": "STATIC: 静态元素字典, INPUT: 输入框字典, DYNAMIC: 动态元素字典",
+        "STATIC说明": "key为CSS选择器,value为翻译字典. 只匹配被选择的元素中的textNode元素",
+        "INPUT说明": "key为placeholder内容,value为翻译文本",
+        "DYNAMIC说明": "暂未实装",
+        "贡献名单": []
+    },
+    "STATIC": {},
+    "INPUT": {},
+    "LABEL": {},
+    "DYNAMIC": {}
+}
