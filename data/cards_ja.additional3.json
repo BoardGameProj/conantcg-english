@@ -1597,7 +1597,7 @@
     "B08062": {
         "id": 8292,
         "card_id": "0899",
-        "title": "",
+        "title": "佐藤美和子＆高木渉",
         "card_num": "B08062",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1612,7 +1612,7 @@
         "flavor_txt": null,
         "difficulty_first": null,
         "difficulty_second": null,
-        "illustrator": null,
+        "illustrator": "三日月なぎさ",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
         "cut_in": "【カットイン】AP＋2000",
@@ -1623,7 +1623,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "B08020": {
         "id": 8293,
