@@ -8,24 +8,52 @@
         "贡献名单": []
     },
     "STATIC": {
-        "body>h1,#hamburger>div>ul>li>a>span>span, body>header>div>div>div>ul>li>button>span,body>header>div>div.l-header__utility-nav>div>ul>li>a>span.l-utility-nav__title": {
-            "名探偵コナントレーディングカードゲーム公式サイト": "名侦探柯南集换式卡牌游戏官方网站",
-            "真実へ先にたどり着け": "　抢先探明真相",
-            "トップ": "首页",
-            "商品情報": "商品信息",
-            "イベント・キャンペーン": "活动・促销",
-            "会社情報": "公司信息",
+        "body>h1, #hamburger>div>ul>li>a>span>span, body>header>div>div>div>ul>li>button>span, body>header>div>div.l-header__utility-nav>div>ul>li>a>span.l-utility-nav__title, .footer_annotation, div>ul>li>a, div>ul>li>button": {
+            "「好き」をさがす": "寻找「喜欢」",
+            "※本サイトに掲載されている、全ての画像及びテキストなどデータの無断転載はお断りします。掲載の画像は全て開発中のものです。実際の商品とは異なる場合がございます。": "※本网站发布的所有图片、文字及其他数据，未经许可不得转载。所展示图片均为开发中作品，可能与实际商品存在差异。",
+            "50音順からさがす": "按五十音顺序查找",
             "採用情報": "采用信息",
-            "投資家情報": "投资者信息",
-            "サステナビリティ": "可持续性",
+            "初めての方へ": "致初次使用者",
+            "対象年齢からさがす": "按适用年龄查找",
+            "個人情報保護方針": "个人信息保护方针",
+            "公式ショッピング": "官方购物",
+            "会社概要": "公司简介",
+            "会社情報": "公司信息",
             "検索": "搜索",
-            "お客様相談室": "客户咨询室",
+            "名探偵コナントレーディングカードゲーム公式サイト": "名侦探柯南集换式卡牌游戏官方网站",
+            "取扱説明書": "使用说明书",
+            "商品情報": "商品信息",
+            "商品リリース": "商品发布",
+            "投資家情報": "投资者信息",
+            "真実へ先にたどり着け": "　抢先探明真相",
             "English": "中文",
             "Japanese": "中文",
-            "公式ショッピング": "官方购物",
-            "サイト": "网站"
+            "NEWS": "最新消息",
+            "Q&Aコミュニティ": "问答社区",
+            "イベント・キャンペーン": "活动・促销",
+            "イベント": "活动",
+            "お客様相談室": "客户咨询室",
+            "お客様アンケート": "客户问卷调查",
+            "お客様へのお知らせ": "致客户通知",
+            "お問い合わせ": "咨询联系",
+            "カード検索": "卡牌搜索",
+            "このサイトについて": "关于本网站",
+            "サイト": "网站",
+            "サイトマップ": "网站地图",
+            "サステナビリティ": "可持续性",
+            "シーズンサイト": "季节网站",
+            "ジャンルからさがす": "按类别查找",
+            "ソーシャルメディアポリシー": "社交媒体政策",
+            "デッキ作成": "卡组构建",
+            "トップ": "首页",
+            "トップページ": "首页",
+            "トップメッセージ": "首页寄语",
+            "ブラウザ・OSの推奨環境": "浏览器・OS推荐环境",
+            "ブランドからさがす": "按品牌查找",
+            "よくあるご質問 / お問い合わせ": "常见问题 / 咨询",
+            "ルール": "规则"
         },
-        "#beginner>div,#beginner>div>div>i": {
+        "#beginner>div, #beginner>div>div>i": {
             "初めての方は①～④から見よう": "初学者从①～④开始观看",
             "ゲームの始め方": "如何开始游戏",
             "カードの種類": "卡牌类型",
@@ -37,7 +65,7 @@
             "ルールマニュアル＆QA": "规则手册&问答",
             "用語を覚えよう！": "学习术语！"
         },
-        "#subBanners>ul>li>div>a>div,#all,#products,#events,#campaign,#other,#news>div.panel-area>div>div>ul>li>div.text>span,#products>div>ul>li>a,#products>div.panel-area>div>div>ul>li>div.text>span,#event>h4,#news_list>ul>li>a,.text>span": {
+        "#subBanners>ul>li>div>a>div, #all, #products, #events, #campaign, #other, #news>div.panel-area>div>div>ul>li>div.text>span, #products>div>ul>li>a, #products>div.panel-area>div>div>ul>li>div.text>span, #event>h4, #news_list>ul>li>a, .text>span": {
             "商品情報はこちら": "商品信息点击此处",
             "初めての方はこちら": "首次游玩点击此处",
             "すべて": "全部",
@@ -61,17 +89,17 @@
             "デッキ作成": "创建卡组",
             "NEWS": "新闻"
         },
-        "div.flex2.name>div.parts>div>select>option,#cardInfo>li>span.package,dd.package>select>option": {
+        "div.flex2.name>div.parts>div>select>option, #cardInfo>li>span.package, dd.package>select>option": {
             "収録先を選択": "选择收录来源",
             "ALL": "所有",
-            "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）": "CT-P01 Case-Booster 01 侦探们的王牌",
-            "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）": "CT-P02 Case-Booster 02 西与东的大决战",
-            "CT-P03 Case-Booster 03 黒影の襲来（カットイン）": "CT-P03 Case-Booster 03 黑影袭来",
-            "CT-P04 Case-Booster 04 信義の絆（パートナー）": "CT-P04 Case-Booster 04 信义之绊",
-            "CT-P05 Case-Booster 05 新たなる謎": "CT-P05 Case-Booster 05 崭新谜题",
-            "CT-P06 Case-Booster 06 交錯する刃": "CT-P06 Case-Booster 06 交错之刃",
-            "CT-P07 Case-Booster 07 魅惑のマジック": "CT-P07 Case-Booster 07 魅惑的魔术",
-            "CT-P08 Case-Booster 08 哀色の宿命": "CT-P08 Case-Booster 08 哀色的宿命",
+            "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）": "CT-P01 案件扩展 01 侦探们的王牌",
+            "CT-P02 Case-Booster 02 西と東の大決戦（コンタクト）": "CT-P02 案件扩展 02 西与东的大决战",
+            "CT-P03 Case-Booster 03 黒影の襲来（カットイン）": "CT-P03 案件扩展 03 黑影袭来",
+            "CT-P04 Case-Booster 04 信義の絆（パートナー）": "CT-P04 案件扩展 04 信义之绊",
+            "CT-P05 Case-Booster 05 新たなる謎": "CT-P05 案件扩展 05 崭新谜题",
+            "CT-P06 Case-Booster 06 交錯する刃": "CT-P06 案件扩展 06 交错之刃",
+            "CT-P07 Case-Booster 07 魅惑のマジック": "CT-P07 案件扩展 07 魅惑的魔术",
+            "CT-P08 Case-Booster 08 哀色の宿命": "CT-P08 案件扩展 08 哀色的宿命",
             "CT-D01 Case-StartDeck 01 江戸川コナン": "CT-D01 案件起始卡组 01 江户川柯南",
             "CT-D02 Case-StartDeck 02 服部平次": "CT-D02 案件起始卡组 02 服部平次",
             "CT-D03 Case-StartDeck 03 怪盗キッド": "CT-D03 案件起始卡组 03 怪盗基德",
@@ -84,19 +112,19 @@
             "CT-D10 Case-ThemeDeck 05 シャッフルロマンス": "CT-D10 案件主题卡组 05 浪漫洗牌",
             "PRカード": "PR卡牌"
         },
-        "#color>li, #type>li, span.type,div.wrap_more.open>dl>dd>label": {
+        "#color>li, #type>li, span.type, div.wrap_more.open>dl>dd>label": {
             "パートナー": "搭档",
             "キャラ": "角色",
             "イベント": "事件",
             "事件": "案件",
-            "青": "蓝色",
-            "緑": "绿色",
-            "白": "白色",
-            "赤": "红色",
-            "黄": "黄色",
-            "黒": "黑色"
+            "青": "蓝",
+            "緑": "绿",
+            "白": "白",
+            "赤": "红",
+            "黄": "黄",
+            "黒": "黑"
         },
-        ".cardListNav>.list>strong, #searchBox>form>div>div,#searchText>span,span.label,.search>div>dl>dt,.freeword>a": {
+        ".cardListNav>.list>strong, #searchBox>form>div>div, #searchText>span, span.label, .search>div>dl>dt, .freeword>a": {
             "フリーワード": "关键词",
             "色": "颜色",
             "種類": "类别",
@@ -119,7 +147,7 @@
             "FAQ": "FAQ"
         },
         "label>input": {},
-        ".searchBtn, #searchText>span>a,.btn_link>a,.btn_to_qa>a,.box_btn>a,.box_btn>a>b,.btnRound>b": {
+        ".searchBtn, #searchText>span>a, .btn_link>a, .btn_to_qa>a, .box_btn>a, .box_btn>a>b, .btnRound>b": {
             "×検索条件を解除": "×解除搜索条件",
             "条件を追加＋": "添加条件＋",
             "Q&Aコミュニティで個別質問": "在Q&A社区中提出个人问题",
@@ -130,7 +158,7 @@
             "NEWS一覧": "新闻一览",
             "この条件で検索する": "按此条件搜索"
         },
-        ".contents>h2,.deck_new>h3,.deck_code>h3,.deck_new>a,.deck_code>a,.area_btn>a,.rcp_notation>p,thead>tr>th,.type>tbody>tr>td,.wrap_btn>button": {
+        ".contents>h2, .deck_new>h3, .deck_code>h3, .deck_new>a, .deck_code>a, .area_btn>a, .rcp_notation>p, thead>tr>th, .type>tbody>tr>td, .wrap_btn>button": {
             "デッキレシピ作成": "创建卡组",
             "デッキを新しく作る": "创建一个新卡组",
             "新規作成": "创建新卡组",
@@ -157,7 +185,7 @@
             "※カード画像の表示（読み込み）に時間がかかる場合がございます。": "※卡片图像的显示（读取）可能需要时间。",
             "※環境や時間帯によって、アクセスしづらい状況になることがございます。その場合は時間をおいて再度アクセスいただくようお願いいたします。": "※根据环境和时间段的不同，可能会出现难以访问的状况。这种情况下，请您隔一段时间再访问。"
         },
-        "p.title,p.day,p.price,#event>div.infoTxt,#event>div.infoTxt>b,#event>div.infoTxt>em": {
+        "p.title, p.day, p.price, #event>div.infoTxt, #event>div.infoTxt>b, #event>div.infoTxt>em": {
             "「#コナンカード交錯する刃」ハッシュタグキャンペーン！": "#名侦探柯南卡牌 交错之刃 主题标签活动！",
             "「#コナンカードに名エピソードのデッキ登場」ハッシュタグキャンペーン！": "#名侦探柯南卡牌 经典剧集卡组登场 主题标签活动！",
             "「1周年！探偵交流フェス」5.24東京・6.7大阪 イベントレポート": "1周年！侦探交流祭 5.24东京・6.7大阪 活动回顾",
@@ -287,12 +315,12 @@
             "誰よりも早くゲームを遊ぶチャンス！ 先行體驗會 3月～開催決定！": "比任何人都早体验游戏的机会！先行体验会3月起举办！",
             "物販、展示、対戦が楽しめるPOPUP SHOPが期間限定で開催！": "限定期间快闪店开业！周边贩售/卡牌展示/对战体验一应俱全",
             "希望小売価格：308円(税込)": "建议零售价：308日元（含税）",
-            "希望小売価格｜1,320円（税込）※各種共通": "建议零售价｜1,320日元（含税）※各种共通",
-            "希望小売価格｜1,650円(税込)": "建议零售价｜1,650日元（含税）",
-            "希望小売価格｜1,650円（税込）": "建议零售价｜1,650日元（含税）",
-            "希望小売価格｜2,420円(税込)": "建议零售价｜2,420日元（含税）",
-            "希望小売価格｜3,960円(税込)": "建议零售价｜3,960日元（含税）",
-            "希望小売価格｜3,960円（税込）": "建议零售价｜3,960日元（含税）",
+            "希望小売価格｜1, 320円（税込）※各種共通": "建议零售价｜1, 320日元（含税）※各种共通",
+            "希望小売価格｜1, 650円(税込)": "建议零售价｜1, 650日元（含税）",
+            "希望小売価格｜1, 650円（税込）": "建议零售价｜1, 650日元（含税）",
+            "希望小売価格｜2, 420円(税込)": "建议零售价｜2, 420日元（含税）",
+            "希望小売価格｜3, 960円(税込)": "建议零售价｜3, 960日元（含税）",
+            "希望小売価格｜3, 960円（税込）": "建议零售价｜3, 960日元（含税）",
             "希望小売価格｜308円(税込)": "建议零售价｜308日元（含税）",
             "希望小売価格｜308円（税込）": "建议零售价｜308日元（含税）",
             "希望小売価格｜660円(税込)": "建议零售价｜660日元（含税）",
