@@ -129,6 +129,7 @@ export class DeckBuilder {
                 id: cardElement.getAttribute('card-id'),
                 cardName: cardElement.getAttribute('data-filter-title'),
                 cardType: cardElement.getAttribute('data-filter-type'),
+                cardCost: cardElement.getAttribute('data-filter-cost'),
                 cardNum: cardNum,
                 imgsrc: cardElement.getAttribute('image'),
                 count: 1
@@ -440,6 +441,19 @@ export class DeckBuilder {
 
         // 按 cardNum 升序排列（只对普通卡牌排序）
         const sortedCards = [...this.addedCards].sort((a, b) => {
+            // 1. 首先按cardType排序（"角色" > "事件"）
+            const typeOrder = { '角色': 1, '事件': 2 };
+            const aType = typeOrder[a.cardType] || 3;
+            const bType = typeOrder[b.cardType] || 3;
+            if (aType !== bType) return aType - bType;
+
+            // 2. 然后按cardCost降序排列（大的在前）
+            if (a.cardCost !== b.cardCost) return b.cardCost - a.cardCost;
+
+            // 3. 接着按id升序排列
+            if (a.id !== b.id) return a.id - b.id;
+
+            // 4. 最后按cardNum升序排列
             // 如果 cardNum 为空，则排在最后
             if (!a.cardNum) return 1;
             if (!b.cardNum) return -1;

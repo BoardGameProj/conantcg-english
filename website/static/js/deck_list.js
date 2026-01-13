@@ -364,7 +364,28 @@ function showDeckDetail(deckId) {
 
     partnerCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
     caseCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
-    otherCards.sort((a, b) => a.card_num.localeCompare(b.card_num));
+    otherCards.sort((a, b) => {
+        const typeOrder = { '角色': 1, '事件': 2 };
+        const aType = typeOrder[cardsDataCN[`types.${a.type}`]] || 3;
+        const bType = typeOrder[cardsDataCN[`types.${b.type}`]] || 3;
+
+        // 1. 按cardType排序
+        if (aType !== bType) return aType - bType;
+
+        // 2. 按cost降序排列
+        const aCost = parseInt(a.cost) || 0;
+        const bCost = parseInt(b.cost) || 0;
+        if (aCost !== bCost) return bCost - aCost;
+
+        // 3. 按card_id升序排列
+        if (a.card_id && b.card_id && a.card_id !== b.card_id) return a.card_id - b.card_id;
+
+        // 4. 最后按card_num升序排列
+        return a.card_num.localeCompare(b.card_num, undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+    });
 
     let roleCount = 0;      // 角色
     let eventCount = 0;     // 事件
