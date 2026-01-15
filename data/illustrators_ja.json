@@ -491,7 +491,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 22,
+        "cardNum": 23,
         "cards": [
             {
                 "card_num": "B01014",
@@ -601,6 +601,11 @@
             {
                 "card_num": "B08003P",
                 "title": "阿笠博士",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08033",
+                "title": "工藤有希子",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
@@ -953,7 +958,7 @@
     },
     {
         "name": "春木",
-        "cardNum": 16,
+        "cardNum": 17,
         "cards": [
             {
                 "card_num": "B01047",
@@ -1034,6 +1039,11 @@
                 "card_num": "D07021",
                 "title": "コルン",
                 "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "B08034",
+                "title": "工藤優作",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
