@@ -1851,7 +1851,7 @@
     "B08036": {
         "id": 8300,
         "card_id": "0875",
-        "title": "",
+        "title": "シャロン・ヴィンヤード",
         "card_num": "B08036",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1859,15 +1859,15 @@
         ],
         "type": "キャラ",
         "rarity": "R",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "7",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
-        "hirameki": null,
+        "hirameki": "",
         "cut_in": null,
         "linkto": null,
         "contain": null,
@@ -1876,7 +1876,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "女優"
+        ]
     },
     "B08050": {
         "id": 8301,
