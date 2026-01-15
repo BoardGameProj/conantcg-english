@@ -1416,6 +1416,7 @@
     "B08018": {
         "id": 8286,
         "card_id": "P072",
+        "title": "",
         "card_num": "B08018",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1445,6 +1446,7 @@
     "B08031": {
         "id": 8287,
         "card_id": "P073",
+        "title": "工藤有希子",
         "card_num": "B08031",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1474,6 +1476,7 @@
     "B08045": {
         "id": 8288,
         "card_id": "P074",
+        "title": "",
         "card_num": "B08045",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2915,6 +2918,36 @@
         "feature": "",
         "difficulty_first": "7",
         "difficulty_second": "6",
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": []
+    },
+    "B08031P": {
+        "id": 8336,
+        "card_id": "P073",
+        "title": "工藤有希子",
+        "card_num": "B08031P",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "白"
+        ],
+        "type": "パートナー",
+        "rarity": "CP",
+        "cost": null,
+        "ap": null,
+        "lp": "1",
+        "feature": "【解決編】【事件解決】【スリープ】：自分の証拠が事件レベルの数以上ある場合、ゲームに勝利する。\n【アシスト】【スリープ】：FILEエリアに移動する。自分のFILEエリアにカードが7枚以上ある場合、事件を解決編にする。",
+        "difficulty_first": null,
+        "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
