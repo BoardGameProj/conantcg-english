@@ -1883,7 +1883,7 @@
     "B08050": {
         "id": 8301,
         "card_id": "0888",
-        "title": "",
+        "title": "宮野明美",
         "card_num": "B08050",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1891,9 +1891,9 @@
         ],
         "type": "キャラ",
         "rarity": "R",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "4",
+        "ap": "3000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2790,7 +2790,7 @@
     "B08059": {
         "id": 8331,
         "card_id": "0897",
-        "title": "",
+        "title": "諸星大",
         "card_num": "B08059",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2798,9 +2798,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
