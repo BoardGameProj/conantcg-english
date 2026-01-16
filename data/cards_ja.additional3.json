@@ -1913,17 +1913,17 @@
     "B08051": {
         "id": 8302,
         "card_id": "0889",
-        "title": "",
+        "title": "赤井秀一",
         "card_num": "B08051",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
             "赤"
         ],
         "type": "キャラ",
-        "rarity": "R",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "rarity": "C",
+        "cost": "6",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -1938,7 +1938,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "FBI",
+            "赤井家"
+        ]
     },
     "B08052": {
         "id": 8303,
