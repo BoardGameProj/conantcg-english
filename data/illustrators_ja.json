@@ -1898,7 +1898,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 38,
+        "cardNum": 40,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2089,6 +2089,16 @@
                 "card_num": "PR197",
                 "title": "怪盗キッド",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "B08065P",
+                "title": "大和敢助",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08066P",
+                "title": "上原由衣",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -3264,7 +3274,7 @@
             {
                 "card_num": "B08021",
                 "title": "服部平次",
-                "package": "CCT-P08 Case-Booster 08 哀色の宿命"
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
