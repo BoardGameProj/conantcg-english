@@ -1476,7 +1476,7 @@
     "B08045": {
         "id": 8288,
         "card_id": "P074",
-        "title": "",
+        "title": "宮野厚司",
         "card_num": "B08045",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1506,7 +1506,7 @@
     "B08069": {
         "id": 8289,
         "card_id": "0906",
-        "title": "",
+        "title": "宮野厚司",
         "card_num": "B08069",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2703,7 +2703,7 @@
     "B08056": {
         "id": 8328,
         "card_id": "0894",
-        "title": "",
+        "title": "宮野厚司",
         "card_num": "B08056",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2711,9 +2711,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "7",
+        "ap": "6000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2728,12 +2728,15 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "科学者",
+            "医師"
+        ]
     },
     "B08057": {
         "id": 8329,
         "card_id": "0895",
-        "title": "",
+        "title": "宮野エレーナ",
         "card_num": "B08057",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2741,9 +2744,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2758,7 +2761,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "科学者",
+            "医師"
+        ]
     },
     "B08058": {
         "id": 8330,
