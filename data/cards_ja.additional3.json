@@ -1386,7 +1386,7 @@
     "B08011": {
         "id": 8285,
         "card_id": "0852",
-        "title": "",
+        "title": "東尾マリア",
         "card_num": "B08011",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1394,13 +1394,13 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "3",
+        "ap": "2000",
+        "lp": "0",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
-        "illustrator": null,
+        "illustrator": "п猫R",
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
         "cut_in": null,
@@ -1416,7 +1416,7 @@
     "B08018": {
         "id": 8286,
         "card_id": "P072",
-        "title": "",
+        "title": "服部静華",
         "card_num": "B08018",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2979,7 +2979,7 @@
     "B08018P": {
         "id": 8337,
         "card_id": "P072",
-        "title": "",
+        "title": "服部静華",
         "card_num": "B08018P",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [

@@ -3403,5 +3403,16 @@
                 "package": "PRカード"
             }
         ]
+    },
+    {
+        "name": "п猫R",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B08011",
+                "title": "東尾マリア",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            }
+        ]
     }
 ]
