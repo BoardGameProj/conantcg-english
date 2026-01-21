@@ -2198,7 +2198,7 @@
     "B08013": {
         "id": 8311,
         "card_id": "0854",
-        "title": "",
+        "title": "毛利小五郎",
         "card_num": "B08013",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2206,16 +2206,16 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
-        "feature": "",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": null,
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
-        "cut_in": null,
+        "cut_in": "【カットイン】AP+2000(コンタクト中に手札からリムーブして後う)",
         "linkto": null,
         "contain": null,
         "henso": null,
@@ -2223,7 +2223,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "探偵",
+            "毛利探偵事務所"
+        ]
     },
     "B08014": {
         "id": 8312,
@@ -3100,6 +3103,38 @@
         "categories": [
             "警察",
             "長野県警"
+        ]
+    },
+    "B08012P": {
+        "id": 8265,
+        "card_id": "0853",
+        "title": "比護隆佑",
+        "card_num": "B08012P",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "青"
+        ],
+        "type": "キャラ",
+        "rarity": "CP",
+        "cost": "5",
+        "ap": "5000",
+        "lp": "0",
+        "feature": "【絆 真田貴大】突撃［事件］（登場したターンからすぐにキャラを指定してアクションできる）\r\nこのキャラのアクション［事件］によって証拠を得たとき、カードを1枚引く。",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "三日月なぎさ",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "サッカー選手"
         ]
     }
 }

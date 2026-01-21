@@ -3143,7 +3143,7 @@
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 12,
+        "cardNum": 13,
         "cards": [
             {
                 "card_num": "B06075",
@@ -3203,6 +3203,11 @@
             {
                 "card_num": "B08062",
                 "title": "佐藤美和子＆高木渉",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08012P",
+                "title": "比護隆佑",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
