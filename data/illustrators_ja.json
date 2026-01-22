@@ -1679,7 +1679,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 30,
+        "cardNum": 31,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1829,6 +1829,11 @@
             {
                 "card_num": "PR166",
                 "title": "鈴木園子",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR233",
+                "title": "赤井秀一",
                 "package": "PRカード"
             }
         ]
