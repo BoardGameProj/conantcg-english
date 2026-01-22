@@ -2779,7 +2779,7 @@
     "B08058": {
         "id": 8330,
         "card_id": "0896",
-        "title": "",
+        "title": "宮野志保",
         "card_num": "B08058",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2787,9 +2787,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "7",
+        "ap": "6000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2804,7 +2804,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "科学者"
+        ]
     },
     "B08059": {
         "id": 8331,
@@ -2839,23 +2841,23 @@
     "B08060": {
         "id": 8332,
         "card_id": "0898",
-        "title": "",
+        "title": "託されたガゼッドテープ",
         "card_num": "B08060",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
             "赤"
         ],
-        "type": "キャラ",
+        "type": "イベント",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "1",
+        "ap": null,
+        "lp": null,
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
-        "hirameki": null,
+        "hirameki": "【ヒラメキ】（証拠からリムーブされるときに発動する）カードを1枚引く。",
         "cut_in": null,
         "linkto": null,
         "contain": null,
@@ -3142,6 +3144,38 @@
         "rcp_sameid_limit": 3,
         "categories": [
             "サッカー選手"
+        ]
+    },
+    "B08058P": {
+        "id": 8342,
+        "card_id": "0896",
+        "title": "宮野志保",
+        "card_num": "B08058P",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "赤"
+        ],
+        "type": "キャラ",
+        "rarity": "CP",
+        "cost": "7",
+        "ap": "6000",
+        "lp": "1",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "科学者"
         ]
     }
 }
