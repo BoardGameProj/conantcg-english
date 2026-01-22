@@ -1506,7 +1506,7 @@
     "B08069": {
         "id": 8289,
         "card_id": "0906",
-        "title": "宮野厚司",
+        "title": "風見裕也",
         "card_num": "B08069",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1514,9 +1514,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -1531,7 +1531,11 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁",
+            "公安"
+        ]
     },
     "B08080": {
         "id": 8290,
@@ -2599,11 +2603,11 @@
         "color": [
             "白"
         ],
-        "type": "キャラ",
+        "type": "イベント",
         "rarity": "C",
         "cost": "",
-        "ap": "",
-        "lp": "",
+        "ap": null,
+        "lp": null,
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2871,7 +2875,7 @@
     "B08074": {
         "id": 8333,
         "card_id": "0911",
-        "title": "",
+        "title": "降谷零",
         "card_num": "B08074",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2879,9 +2883,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "6",
+        "ap": "6000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2896,7 +2900,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "公安"
+        ]
     },
     "B08075": {
         "id": 8334,
@@ -2907,11 +2914,11 @@
         "color": [
             "黄"
         ],
-        "type": "キャラ",
+        "type": "イベント",
         "rarity": "C",
         "cost": "",
-        "ap": "",
-        "lp": "",
+        "ap": null,
+        "lp": null,
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -3176,6 +3183,128 @@
         "rcp_sameid_limit": 3,
         "categories": [
             "科学者"
+        ]
+    },
+    "B08083": {
+        "id": 8343,
+        "card_id": "0919",
+        "title": "",
+        "card_num": "B08083",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "",
+        "ap": "",
+        "lp": "",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": []
+    },
+    "B08084": {
+        "id": 8344,
+        "card_id": "0920",
+        "title": "",
+        "card_num": "B08084",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "",
+        "ap": "",
+        "lp": "",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": []
+    },
+    "B08085": {
+        "id": 8345,
+        "card_id": "0921",
+        "title": "",
+        "card_num": "B08085",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "",
+        "ap": "",
+        "lp": "",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": []
+    },
+    "B08086": {
+        "id": 8346,
+        "card_id": "0922",
+        "title": "テキーラ",
+        "card_num": "B08086",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "黒"
+        ],
+        "type": "キャラ",
+        "rarity": "C",
+        "cost": "5",
+        "ap": "0",
+        "lp": "0",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": "",
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "黒ずくめの組織"
         ]
     }
 }
