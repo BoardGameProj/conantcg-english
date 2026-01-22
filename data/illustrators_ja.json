@@ -3075,12 +3075,17 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B06004",
                 "title": "工藤新一",
                 "package": "CT-P06 Case-Booster 06 交錯する刃"
+            },
+            {
+                "card_num": "B08067P",
+                "title": "諸伏高明",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
