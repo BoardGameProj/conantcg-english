@@ -3081,7 +3081,7 @@
     },
     {
         "name": "bomi",
-        "cardNum": 7,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B06004P",
@@ -3115,6 +3115,16 @@
             },
             {
                 "card_num": "PR169",
+                "title": "服部平次",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR238",
+                "title": "遠山和葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR239",
                 "title": "服部平次",
                 "package": "PRカード"
             }
