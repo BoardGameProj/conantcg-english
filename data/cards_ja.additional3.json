@@ -1728,7 +1728,7 @@
     "B08024": {
         "id": 8296,
         "card_id": "0864",
-        "title": "",
+        "title": "服部静華",
         "card_num": "B08024",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1736,9 +1736,9 @@
         ],
         "type": "キャラ",
         "rarity": "R",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
