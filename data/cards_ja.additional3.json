@@ -1952,7 +1952,7 @@
     "B08052": {
         "id": 8303,
         "card_id": "0890",
-        "title": "",
+        "title": "イーサン・本堂",
         "card_num": "B08052",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -1960,9 +1960,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -1977,7 +1977,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "CIA"
+        ]
     },
     "B08063": {
         "id": 8304,
@@ -2015,7 +2017,7 @@
     "B08064": {
         "id": 8305,
         "card_id": "0901",
-        "title": "",
+        "title": "白鳥任三郎",
         "card_num": "B08064",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2023,9 +2025,9 @@
         ],
         "type": "キャラ",
         "rarity": "R",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "7",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2040,7 +2042,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "B08001Sec2": {
         "id": 8306,
@@ -2111,7 +2116,7 @@
     "B08071": {
         "id": 8308,
         "card_id": "0908",
-        "title": "",
+        "title": "佐藤正義",
         "card_num": "B08071",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2119,16 +2124,16 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
-        "cut_in": null,
+        "cut_in": "",
         "linkto": null,
         "contain": null,
         "henso": null,
@@ -2136,12 +2141,15 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "B08072": {
         "id": 8309,
         "card_id": "0909",
-        "title": "",
+        "title": "佐藤美和子",
         "card_num": "B08072",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2149,15 +2157,15 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
-        "hirameki": null,
+        "hirameki": "",
         "cut_in": null,
         "linkto": null,
         "contain": null,
@@ -2166,7 +2174,10 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
     },
     "B08073": {
         "id": 8310,
@@ -2237,7 +2248,7 @@
     "B08014": {
         "id": 8312,
         "card_id": "0855",
-        "title": "",
+        "title": "毛利蘭",
         "card_num": "B08014",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2245,9 +2256,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "7",
+        "ap": "7000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2262,12 +2273,16 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "高校生",
+            "毛利探偵事務所",
+            "空手家"
+        ]
     },
     "B08015": {
         "id": 8313,
         "card_id": "0856",
-        "title": "",
+        "title": "若狭留美",
         "card_num": "B08015",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2275,9 +2290,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2292,7 +2307,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "教師"
+        ]
     },
     "B08016": {
         "id": 8314,
@@ -2657,7 +2674,7 @@
     "B08054": {
         "id": 8326,
         "card_id": "0892",
-        "title": "",
+        "title": "広田正巳",
         "card_num": "B08054",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2665,9 +2682,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "5000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2682,12 +2699,14 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "大学教授"
+        ]
     },
     "B08055": {
         "id": 8327,
         "card_id": "0893",
-        "title": "",
+        "title": "本堂瑛海",
         "card_num": "B08055",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2695,16 +2714,16 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
-        "feature": "",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
+        "feature": null,
         "difficulty_first": null,
         "difficulty_second": null,
         "illustrator": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
         "hirameki": null,
-        "cut_in": null,
+        "cut_in": "",
         "linkto": null,
         "contain": null,
         "henso": null,
@@ -2712,7 +2731,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "CIA"
+        ]
     },
     "B08056": {
         "id": 8328,
@@ -3594,6 +3615,73 @@
         "categories": [
             "警察",
             "長野県警"
+        ]
+    },
+    "B08063P": {
+        "id": 8355,
+        "card_id": "0900",
+        "title": "黒田兵衛",
+        "card_num": "B08063P",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "黄"
+        ],
+        "type": "キャラ",
+        "rarity": "SRP",
+        "cost": "8",
+        "ap": "7000",
+        "lp": "2",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": "五月とに",
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "警察",
+            "警視庁"
+        ]
+    },
+    "B08014P": {
+        "id": 8356,
+        "card_id": "0855",
+        "title": "毛利蘭",
+        "card_num": "B08014P",
+        "package": "CT-P08 Case-Booster 08 哀色の宿命",
+        "color": [
+            "青"
+        ],
+        "type": "キャラ",
+        "rarity": "CP",
+        "cost": "7",
+        "ap": "7000",
+        "lp": "1",
+        "feature": "",
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": "©青山剛昌／小学館  ©TOMY",
+        "hirameki": null,
+        "cut_in": null,
+        "linkto": null,
+        "contain": null,
+        "henso": null,
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "categories": [
+            "高校生",
+            "毛利探偵事務所",
+            "空手家"
         ]
     }
 }

@@ -690,7 +690,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 34,
+        "cardNum": 35,
         "cards": [
             {
                 "card_num": "B01035",
@@ -860,6 +860,11 @@
             {
                 "card_num": "B08082",
                 "title": "ピスコ",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08063P",
+                "title": "黒田兵衛",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
