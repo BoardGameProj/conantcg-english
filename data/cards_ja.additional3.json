@@ -2558,7 +2558,7 @@
     "B08041": {
         "id": 8322,
         "card_id": "0880",
-        "title": "",
+        "title": "高橋良一",
         "card_num": "B08041",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2566,9 +2566,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "5",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2583,7 +2583,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "食品会社社員"
+        ]
     },
     "B08042": {
         "id": 8323,
