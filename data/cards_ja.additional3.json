@@ -2373,7 +2373,7 @@
     "B08027": {
         "id": 8316,
         "card_id": "0867",
-        "title": "",
+        "title": "長門秀臣",
         "card_num": "B08027",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2381,9 +2381,9 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "3",
+        "ap": "3000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
@@ -2397,12 +2397,14 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "小説家"
+        ]
     },
     "B08028": {
         "id": 8317,
         "card_id": "0868",
-        "title": "",
+        "title": "日向幸",
         "card_num": "B08028",
         "package": "CT-P08 Case-Booster 08 哀色の宿命",
         "color": [
@@ -2410,14 +2412,14 @@
         ],
         "type": "キャラ",
         "rarity": "C",
-        "cost": "",
-        "ap": "",
-        "lp": "",
+        "cost": "4",
+        "ap": "4000",
+        "lp": "1",
         "feature": "",
         "difficulty_first": null,
         "difficulty_second": null,
         "copyright": "©青山剛昌／小学館  ©TOMY",
-        "hirameki": null,
+        "hirameki": "",
         "cut_in": null,
         "linkto": null,
         "contain": null,
@@ -2426,7 +2428,9 @@
         "rcp_limit": 3,
         "rcp_caution": null,
         "rcp_sameid_limit": 3,
-        "categories": []
+        "categories": [
+            "秘書"
+        ]
     },
     "B08029": {
         "id": 8318,
