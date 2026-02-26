@@ -179,7 +179,17 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B08001Sec2",
+                "title": "灰原哀",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
                 "card_num": "B08077Sec1",
+                "title": "ジン",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08077Sec2",
                 "title": "ジン",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
@@ -207,22 +217,12 @@
                 "card_num": "D05001",
                 "title": "安室透",
                 "package": "CT-D05 Case-StartDeck 05 安室透"
-            },
-            {
-                "card_num": "B08001Sec2",
-                "title": "灰原哀",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
-            },
-            {
-                "card_num": "B08077Sec2",
-                "title": "ジン",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
     {
         "name": "きゅーぶい",
-        "cardNum": 15,
+        "cardNum": 17,
         "cards": [
             {
                 "card_num": "B01005",
@@ -298,12 +298,22 @@
                 "card_num": "B05046P2",
                 "title": "鈴木園子",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B08093",
+                "title": "灰原哀＆シェリー",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08093P",
+                "title": "灰原哀＆シェリー",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
     {
         "name": "水季",
-        "cardNum": 11,
+        "cardNum": 12,
         "cards": [
             {
                 "card_num": "B01007",
@@ -359,6 +369,11 @@
                 "card_num": "B05027P",
                 "title": "服部平次＆遠山和葉",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B08050P",
+                "title": "宮野明美",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -491,7 +506,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 23,
+        "cardNum": 25,
         "cards": [
             {
                 "card_num": "B01014",
@@ -601,6 +616,16 @@
             {
                 "card_num": "B08003P",
                 "title": "阿笠博士",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08020P",
+                "title": "遠山和葉",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08021P",
+                "title": "服部平次",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
@@ -833,6 +858,16 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B08063P",
+                "title": "黒田兵衛",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08082",
+                "title": "ピスコ",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
                 "card_num": "D02003",
                 "title": "服部平次",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
@@ -856,16 +891,6 @@
                 "card_num": "D09020",
                 "title": "黒田兵衛",
                 "package": "CT-D09 Case-ThemeDeck 04 死亡の館、赤い壁"
-            },
-            {
-                "card_num": "B08082",
-                "title": "ピスコ",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
-            },
-            {
-                "card_num": "B08063P",
-                "title": "黒田兵衛",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -1036,6 +1061,11 @@
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
             },
             {
+                "card_num": "B08034",
+                "title": "工藤優作",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
                 "card_num": "D07020",
                 "title": "キャンティ",
                 "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
@@ -1044,11 +1074,6 @@
                 "card_num": "D07021",
                 "title": "コルン",
                 "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
-            },
-            {
-                "card_num": "B08034",
-                "title": "工藤優作",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -2021,6 +2046,16 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B08065P",
+                "title": "大和敢助",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08066P",
+                "title": "上原由衣",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
                 "card_num": "B08079",
                 "title": "ピンガ",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
@@ -2099,16 +2134,6 @@
                 "card_num": "PR197",
                 "title": "怪盗キッド",
                 "package": "PRカード"
-            },
-            {
-                "card_num": "B08065P",
-                "title": "大和敢助",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
-            },
-            {
-                "card_num": "B08066P",
-                "title": "上原由衣",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -2513,7 +2538,7 @@
     },
     {
         "name": "海老丸べべ",
-        "cardNum": 17,
+        "cardNum": 20,
         "cards": [
             {
                 "card_num": "B03110",
@@ -2599,6 +2624,21 @@
                 "card_num": "B07093",
                 "title": "バーボン＆ライ",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08079P",
+                "title": "ピンガ",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08089",
+                "title": "ヘルエンジェル",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08091",
+                "title": "マッドサイエンティスト",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -2673,7 +2713,7 @@
     },
     {
         "name": "犬",
-        "cardNum": 8,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B04089",
@@ -2714,6 +2754,11 @@
                 "card_num": "B07080",
                 "title": "風見裕也",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08059P",
+                "title": "諸星大",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -2772,7 +2817,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 34,
+        "cardNum": 35,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2865,6 +2910,26 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
+                "card_num": "B08046",
+                "title": "赤井秀一＆ジョディ・スターリング",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08046P",
+                "title": "赤井秀一＆ジョディ・スターリング",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08047P",
+                "title": "沖矢昴",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08068P",
+                "title": "安室透",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
                 "card_num": "D10003",
                 "title": "黒衣の騎士・スペイド（工藤新一）",
                 "package": "CT-D10 Case-ThemeDeck 05 シャッフルロマンス"
@@ -2928,21 +2993,6 @@
                 "card_num": "PR212",
                 "title": "工藤新一",
                 "package": "PRカード"
-            },
-            {
-                "card_num": "B08047P",
-                "title": "沖矢昴",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
-            },
-            {
-                "card_num": "B08046",
-                "title": "赤井秀一＆ジョディ・スターリング",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
-            },
-            {
-                "card_num": "B08068P",
-                "title": "安室透",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -3080,7 +3130,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 2,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3091,12 +3141,17 @@
                 "card_num": "B08067P",
                 "title": "諸伏高明",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08078",
+                "title": "ジン",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
     {
         "name": "bomi",
-        "cardNum": 9,
+        "cardNum": 11,
         "cards": [
             {
                 "card_num": "B06004P",
@@ -3142,6 +3197,16 @@
                 "card_num": "PR239",
                 "title": "服部平次",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "PR244",
+                "title": "遠山和葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR245",
+                "title": "服部平次",
+                "package": "PRカード"
             }
         ]
     },
@@ -3168,7 +3233,7 @@
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 13,
+        "cardNum": 15,
         "cards": [
             {
                 "card_num": "B06075",
@@ -3216,12 +3281,17 @@
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
             },
             {
-                "card_num": "PR192",
-                "title": "キャンティ",
-                "package": "PRカード"
+                "card_num": "B08012P",
+                "title": "比護隆佑",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
                 "card_num": "B08019",
+                "title": "大岡紅葉＆伊織無我",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08019P",
                 "title": "大岡紅葉＆伊織無我",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
@@ -3231,9 +3301,14 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
-                "card_num": "B08012P",
-                "title": "比護隆佑",
+                "card_num": "B08062P",
+                "title": "佐藤美和子＆高木渉",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "PR192",
+                "title": "キャンティ",
+                "package": "PRカード"
             }
         ]
     },
@@ -3272,23 +3347,33 @@
     },
     {
         "name": "mayth",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B07032",
                 "title": "白馬探",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08051P",
+                "title": "赤井秀一",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
     {
         "name": "п猫Ｒ",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B07063P",
                 "title": "鈴木園子",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B08011",
+                "title": "東尾マリア",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     },
@@ -3315,6 +3400,27 @@
             {
                 "card_num": "B08003",
                 "title": "阿笠博士",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            }
+        ]
+    },
+    {
+        "name": "黒城ろこ",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B08033P",
+                "title": "工藤有希子",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08034P",
+                "title": "工藤優作",
+                "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B08080P",
+                "title": "キール",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
@@ -3431,17 +3537,6 @@
                 "card_num": "PR209",
                 "title": "ベルモット",
                 "package": "PRカード"
-            }
-        ]
-    },
-    {
-        "name": "п猫R",
-        "cardNum": 1,
-        "cards": [
-            {
-                "card_num": "B08011",
-                "title": "東尾マリア",
-                "package": "CT-P08 Case-Booster 08 哀色の宿命"
             }
         ]
     }
