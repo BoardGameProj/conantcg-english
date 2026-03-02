@@ -115,7 +115,8 @@ export class Card extends HTMLElement {
             const validProducts = [
                 "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
                 "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10", // 案件主题卡组
-                "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05", // 补充包
+                "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05",
+                "CT-P06", "CT-P07" // 补充包
             ];
 
             return validProducts.includes(productCode); // 直接检查是否在合法列表
@@ -124,9 +125,10 @@ export class Card extends HTMLElement {
             "PR001", "PR002", "PR003", "PR004", "PR005",
             "PR006", "PR007", "PR008", "PR009", "PR010",
             "PR011", "PR017", "PR018", "PR019", "PR020",
-            "PR021", "PR022", "PR023", "PR034", "PR035",
-            "PR038", "PR051", "PR052", "PR055", "PR080",
-            "PR094", "PR096"
+            "PR021", "PR022", "PR023", "PR026", "PR027",
+            "PR028", "PR029", "PR034", "PR035", "PR038",
+            "PR041", "PR042", "PR043", "PR044", "PR051",
+            "PR052", "PR055", "PR080", "PR094", "PR096"
         ]);
         const isChinese = isChineseByProduct(this.data.productName) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
         this.data.custom = `${this.data.custom},${isChinese}`;
