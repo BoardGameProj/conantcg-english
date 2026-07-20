@@ -20,10 +20,66 @@ const responseToReadable = (response: Response) => {
     return rs;
 };
 
-const result = await fetchHtmlDom(url)
+// 从API获取所有卡片数据
+async function fetchAllCardsFromAPI() {
+    const allCardsData = [];
+    let page = 1;
+    let hasMore = true;
+    
+    while (hasMore) {
+        try {
+            const apiUrl = `https://www.takaratomy.co.jp/products/conan-cardgame/cardlist/cards?page=${page}`;
+            console.log(`Fetching page ${page}...`);
+            
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                console.error(`Failed to fetch page ${page}: ${response.status}`);
+                break;
+            }
+            
+            const result = await response.json();
+            
+            if (result.data && result.data.length > 0) {
+                allCardsData.push(...result.data);
+                
+                // Check if there are more pages
+                if (result.lastPage && page >= result.lastPage) {
+                    hasMore = false;
+                } else {
+                    page++;
+                }
+            } else {
+                hasMore = false;
+            }
+            
+            // Add a small delay to avoid hitting rate limits
+            await new Promise(resolve => setTimeout(resolve, 200));
+            
+        } catch (error) {
+            console.error(`Error fetching page ${page}:`, error);
+            break;
+        }
+    }
+    
+    console.log(`Total cards fetched from API: ${allCardsData.length}`);
+    return allCardsData;
+}
+
+// 将API数据转换为与原始HTML解析相同格式的数据
+function convertAPIDataToCardData(apiCard) {
+    // 创建一个与原来从HTML属性中解析的data对象格式完全相同的对象
+    const data = { ...apiCard };
+    
+    return data;
+}
+
+// 获取所有卡片数据
+const allAPICards = await fetchAllCardsFromAPI();
 const cards = {};
-for (const cardImage of result.querySelectorAll('#cardList img')) {
-    const data = JSON.parse(cardImage.getAttribute('data') || '')
+
+// 处理每个卡片的数据
+for (const apiCard of allAPICards) {
+    const data = convertAPIDataToCardData(apiCard);
 
     // 特殊处理：将 `B05005P` 改为 `B05005P1`
     // if (data.card_num === 'B05005P') {
@@ -55,10 +111,32 @@ for (const cardImage of result.querySelectorAll('#cardList img')) {
     }
     cards[data.card_num].color = colorList
 
+    // 下载图片
     const imagePath = config.dataDir + '/images/cards/' + data.card_num + '.ja.jpg'
     if (!fs.existsSync(imagePath)) {
-        const res = await fetch(cardImage.getAttribute('src'))
-        responseToReadable(res).pipe(fs.createWriteStream(imagePath))
+        // 使用API返回的图片路径
+        let imageUrl;
+        if (apiCard.main_path) {
+            // 如果有main_path，构建完整的图片URL
+            imageUrl = `https://www.takaratomy.co.jp/products/conan-cardgame/storage/card/${apiCard.main_path}`;
+        } else if (apiCard.main_thumb) {
+            // 如果有main_thumb，构建缩略图URL（可能需要调整）
+            imageUrl = `https://www.takaratomy.co.jp/products/conan-cardgame/storage/card/${apiCard.main_thumb}`;
+        }
+        
+        if (imageUrl) {
+            try {
+                const res = await fetch(imageUrl);
+                if (res.ok) {
+                    responseToReadable(res).pipe(fs.createWriteStream(imagePath));
+                    console.log(`Downloaded image: ${data.card_num}`);
+                } else {
+                    console.error(`Failed to download image for ${data.card_num}: ${res.status}`);
+                }
+            } catch (error) {
+                console.error(`Error downloading image for ${data.card_num}:`, error);
+            }
+        }
     }
 }
 
