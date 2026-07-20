@@ -51,9 +51,9 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $lps := slice "无" "灵光一闪" "介入" "变装" }}
         <domfilters-option title="能力" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
-        {{ $lps := slice "0" "1" "2" }}
+        {{ $lps := slice "0" "1" "2" "3" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
-        {{ $rarities := slice "C" "CP" "R" "RP" "SR" "SRP" "SRCP" "MR" "MRP" "MRCP" "SEC" "D" "PR" }}
+        {{ $rarities := slice "C" "CP" "CP2" "R" "RP" "SR" "SRP" "SRCP" "MR" "MRP" "MRCP" "SEC" "D" "PR" }}
         <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox"
             values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $aps := slice "0" "1000" "2000" "3000" "4000" "5000" "6000" "7000" "8000" "9000" }}

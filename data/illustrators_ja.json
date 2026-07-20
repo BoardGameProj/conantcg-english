@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 43,
+        "cardNum": 51,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -192,6 +192,46 @@
                 "card_num": "B08077Sec2",
                 "title": "ジン",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09068",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09068P",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09068Sec1",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09068Sec2",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09069",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09069P",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09069Sec1",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09069Sec2",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             },
             {
                 "card_num": "D01001",
@@ -506,7 +546,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 25,
+        "cardNum": 43,
         "cards": [
             {
                 "card_num": "B01014",
@@ -632,6 +672,96 @@
                 "card_num": "B08033",
                 "title": "工藤有希子",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09003",
+                "title": "江戸川コナン",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09003P",
+                "title": "江戸川コナン",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09010P",
+                "title": "阿笠博士",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09011P",
+                "title": "灰原哀",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09021P",
+                "title": "服部平次",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09022P",
+                "title": "遠山和葉",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09039",
+                "title": "中森青子",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09044P",
+                "title": "工藤有希子",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09045",
+                "title": "黒羽快斗",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09096P",
+                "title": "キャンティ",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09097P",
+                "title": "コルン",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10003",
+                "title": "工藤新一",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10004P",
+                "title": "江戸川コナン",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10036P",
+                "title": "鈴木園子",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10037P",
+                "title": "京極真",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10067P2",
+                "title": "降谷零",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10071P",
+                "title": "山村ミサオ",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10088",
+                "title": "バーボン",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
             }
         ]
     },
@@ -668,7 +798,7 @@
     },
     {
         "name": "陽葉ヨウ",
-        "cardNum": 3,
+        "cardNum": 6,
         "cards": [
             {
                 "card_num": "B01027",
@@ -684,6 +814,21 @@
                 "card_num": "B01028P",
                 "title": "服部平次",
                 "package": "CT-P01 Case-Booster 01 探偵たちの切札（ジョーカー）"
+            },
+            {
+                "card_num": "B09023P",
+                "title": "沖田総司",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09095P",
+                "title": "ベルモット",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09108P",
+                "title": "工藤新一&服部平次",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
@@ -715,7 +860,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 35,
+        "cardNum": 37,
         "cards": [
             {
                 "card_num": "B01035",
@@ -868,6 +1013,16 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B10007P",
+                "title": "赤木英雄",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10066",
+                "title": "伊達航",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
                 "card_num": "D02003",
                 "title": "服部平次",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
@@ -988,7 +1143,7 @@
     },
     {
         "name": "春木",
-        "cardNum": 17,
+        "cardNum": 19,
         "cards": [
             {
                 "card_num": "B01047",
@@ -1074,6 +1229,16 @@
                 "card_num": "D07021",
                 "title": "コルン",
                 "package": "CT-D07 Case-ThemeDeck 02 黒ずくめの組織"
+            },
+            {
+                "card_num": "D11011",
+                "title": "萩原千速",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11012",
+                "title": "横溝重悟",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
             }
         ]
     },
@@ -1146,7 +1311,7 @@
     },
     {
         "name": "ふうこのすけ",
-        "cardNum": 10,
+        "cardNum": 11,
         "cards": [
             {
                 "card_num": "B01056",
@@ -1197,6 +1362,11 @@
                 "card_num": "B07016P",
                 "title": "服部平次",
                 "package": "CT-P07 Case-Booster 07 魅惑のマジック"
+            },
+            {
+                "card_num": "B09058P",
+                "title": "羽田秀𠮷",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
@@ -1453,7 +1623,7 @@
     },
     {
         "name": "沖路",
-        "cardNum": 4,
+        "cardNum": 6,
         "cards": [
             {
                 "card_num": "B02006",
@@ -1474,6 +1644,16 @@
                 "card_num": "B05101",
                 "title": "毛利小五郎",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B10021P",
+                "title": "服部平蔵＆遠山銀司郎",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10094",
+                "title": "犯人",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
             }
         ]
     },
@@ -1709,7 +1889,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 31,
+        "cardNum": 46,
         "cards": [
             {
                 "card_num": "B02044",
@@ -1827,6 +2007,41 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B09004P",
+                "title": "毛利蘭",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09054P",
+                "title": "赤井秀一&世良真純",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09087",
+                "title": "諸伏景光",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09108",
+                "title": "工藤新一&服部平次",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10022",
+                "title": "遠山和葉",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10068",
+                "title": "諸伏景光",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10098",
+                "title": "服部平次＆怪盗キッド",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
                 "card_num": "D02002",
                 "title": "服部平次",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
@@ -1835,6 +2050,46 @@
                 "card_num": "D02005",
                 "title": "遠山和葉",
                 "package": "CT-D02 Case-StartDeck 02 服部平次"
+            },
+            {
+                "card_num": "D11003",
+                "title": "萩原千速",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11004",
+                "title": "萩原千速",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11005",
+                "title": "横溝重悟",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11006",
+                "title": "横溝重悟",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11007",
+                "title": "松田陣平",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11008",
+                "title": "松田陣平",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11009",
+                "title": "萩原研二",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
+            },
+            {
+                "card_num": "D11010",
+                "title": "萩原研二",
+                "package": "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー"
             },
             {
                 "card_num": "PR148",
@@ -1886,7 +2141,7 @@
     },
     {
         "name": "麻亜沙",
-        "cardNum": 5,
+        "cardNum": 7,
         "cards": [
             {
                 "card_num": "B02079",
@@ -1912,6 +2167,16 @@
                 "card_num": "B08081P",
                 "title": "広田雅美",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09100",
+                "title": "犯人",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09101",
+                "title": "犯人",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
@@ -1933,7 +2198,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 40,
+        "cardNum": 50,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2061,6 +2326,31 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B09002",
+                "title": "工藤新一&毛利蘭",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09070",
+                "title": "萩原千速&萩原研二",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09109P",
+                "title": "怪盗キッド&安室透",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10065P2",
+                "title": "松田陣平＆萩原研二",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10099P",
+                "title": "赤井秀一＆安室透",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
                 "card_num": "D01002",
                 "title": "江戸川コナン",
                 "package": "CT-D01 Case-StartDeck 01 江戸川コナン"
@@ -2132,6 +2422,31 @@
             },
             {
                 "card_num": "PR197",
+                "title": "怪盗キッド",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR246",
+                "title": "灰原哀",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR267",
+                "title": "諸伏高明",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR273",
+                "title": "諸伏高明",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR294",
+                "title": "怪盗キッド",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR300",
                 "title": "怪盗キッド",
                 "package": "PRカード"
             }
@@ -2538,7 +2853,7 @@
     },
     {
         "name": "海老丸べべ",
-        "cardNum": 20,
+        "cardNum": 26,
         "cards": [
             {
                 "card_num": "B03110",
@@ -2639,6 +2954,36 @@
                 "card_num": "B08091",
                 "title": "マッドサイエンティスト",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09072",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09110",
+                "title": "赤井秀一&ジン",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09110P",
+                "title": "赤井秀一&ジン",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10086P",
+                "title": "スコッチ",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10098P",
+                "title": "服部平次＆怪盗キッド",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10099",
+                "title": "赤井秀一＆安室透",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
             }
         ]
     },
@@ -2713,7 +3058,7 @@
     },
     {
         "name": "犬",
-        "cardNum": 9,
+        "cardNum": 11,
         "cards": [
             {
                 "card_num": "B04089",
@@ -2759,6 +3104,16 @@
                 "card_num": "B08059P",
                 "title": "諸星大",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09007P",
+                "title": "脇田兼則",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09093P",
+                "title": "ウォッカ",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
@@ -2817,7 +3172,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 35,
+        "cardNum": 54,
         "cards": [
             {
                 "card_num": "B05067",
@@ -2930,6 +3285,86 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B09002P",
+                "title": "工藤新一&毛利蘭",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09040P",
+                "title": "鈴木園子",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09041P",
+                "title": "京極真",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09070P",
+                "title": "萩原千速&萩原研二",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09071",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09072P",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09073P",
+                "title": "萩原研二",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09074P",
+                "title": "松田陣平",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09074P2",
+                "title": "松田陣平",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09109",
+                "title": "怪盗キッド&安室透",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10065",
+                "title": "松田陣平＆萩原研二",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10065P",
+                "title": "松田陣平＆萩原研二",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10066P",
+                "title": "伊達航",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10067",
+                "title": "降谷零",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10067P",
+                "title": "降谷零",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10068P",
+                "title": "諸伏景光",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
                 "card_num": "D10003",
                 "title": "黒衣の騎士・スペイド（工藤新一）",
                 "package": "CT-D10 Case-ThemeDeck 05 シャッフルロマンス"
@@ -2992,6 +3427,21 @@
             {
                 "card_num": "PR212",
                 "title": "工藤新一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR266",
+                "title": "毛利小五郎",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR272",
+                "title": "毛利小五郎",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR303",
+                "title": "黒羽快斗",
                 "package": "PRカード"
             }
         ]
@@ -3108,12 +3558,22 @@
     },
     {
         "name": "谷川ナカ",
-        "cardNum": 1,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B05109",
                 "title": "キール",
                 "package": "CT-P05 Case-Booster 05 新たなる謎"
+            },
+            {
+                "card_num": "B09005",
+                "title": "本堂瑛祐",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09064",
+                "title": "本堂瑛海",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
@@ -3130,7 +3590,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 3,
+        "cardNum": 20,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3146,6 +3606,91 @@
                 "card_num": "B08078",
                 "title": "ジン",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09025P",
+                "title": "綾小路文麿",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09036P",
+                "title": "怪盗キッド",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09037P",
+                "title": "工藤優作",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09038P",
+                "title": "黒羽盗一",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09071P",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09072P2",
+                "title": "横溝重悟",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09074",
+                "title": "松田陣平",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09086P",
+                "title": "諸伏高明",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09087P",
+                "title": "諸伏景光",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10003P",
+                "title": "工藤新一",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10038P",
+                "title": "黒羽快斗",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10039P",
+                "title": "白馬探",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10054P",
+                "title": "新出智明",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10066P2",
+                "title": "伊達航",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10085P",
+                "title": "キャンティ＆コルン",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "PR247",
+                "title": "伊織無我",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR287",
+                "title": "萩原千速",
+                "package": "PRカード"
             }
         ]
     },
@@ -3212,7 +3757,7 @@
     },
     {
         "name": "谷川なか",
-        "cardNum": 3,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B06040P",
@@ -3228,12 +3773,22 @@
                 "card_num": "B08020",
                 "title": "遠山和葉",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B10022P",
+                "title": "遠山和葉",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10023P",
+                "title": "服部平次",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
             }
         ]
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 15,
+        "cardNum": 30,
         "cards": [
             {
                 "card_num": "B06075",
@@ -3306,7 +3861,82 @@
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
             },
             {
+                "card_num": "B09036",
+                "title": "怪盗キッド",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09054",
+                "title": "赤井秀一&世良真純",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09055",
+                "title": "世良真純",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09055P",
+                "title": "世良真純",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09073",
+                "title": "萩原研二",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09075P",
+                "title": "宮本由美",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09076P",
+                "title": "三池苗子",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09092P",
+                "title": "キール",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10014P",
+                "title": "妃英理",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10050P",
+                "title": "ジョディ・スターリング",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10070P",
+                "title": "萩原千速",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10097",
+                "title": "毛利蘭＆ベルモット",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10097P",
+                "title": "毛利蘭＆ベルモット",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
                 "card_num": "PR192",
+                "title": "キャンティ",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR293",
+                "title": "キャンティ",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR299",
                 "title": "キャンティ",
                 "package": "PRカード"
             }
@@ -3347,7 +3977,7 @@
     },
     {
         "name": "mayth",
-        "cardNum": 2,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B07032",
@@ -3358,12 +3988,17 @@
                 "card_num": "B08051P",
                 "title": "赤井秀一",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09092",
+                "title": "キール",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
             }
         ]
     },
     {
         "name": "п猫Ｒ",
-        "cardNum": 2,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B07063P",
@@ -3374,12 +4009,22 @@
                 "card_num": "B08011",
                 "title": "東尾マリア",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B10053",
+                "title": "宮野エレーナ",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10070",
+                "title": "萩原千速",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
             }
         ]
     },
     {
         "name": "虹鳩えむ",
-        "cardNum": 2,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B07083",
@@ -3390,23 +4035,63 @@
                 "card_num": "B08021",
                 "title": "服部平次",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "PR252",
+                "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR256",
+                "title": "ジン",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR257",
+                "title": "ベルモット",
+                "package": "PRカード"
             }
         ]
     },
     {
         "name": "まのい",
-        "cardNum": 1,
+        "cardNum": 6,
         "cards": [
             {
                 "card_num": "B08003",
                 "title": "阿笠博士",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09006P",
+                "title": "毛利小五郎",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B10024P",
+                "title": "大滝悟郎",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "PR253",
+                "title": "横溝重悟",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR254",
+                "title": "松田陣平",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR255",
+                "title": "萩原研二",
+                "package": "PRカード"
             }
         ]
     },
     {
         "name": "黒城ろこ",
-        "cardNum": 3,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B08033P",
@@ -3422,6 +4107,220 @@
                 "card_num": "B08080P",
                 "title": "キール",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B09025",
+                "title": "綾小路文麿",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            }
+        ]
+    },
+    {
+        "name": "夏町",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B09004",
+                "title": "毛利蘭",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09027P",
+                "title": "大岡紅葉",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            }
+        ]
+    },
+    {
+        "name": "薫る石",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B09023",
+                "title": "沖田総司",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B09040",
+                "title": "鈴木園子",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            }
+        ]
+    },
+    {
+        "name": "虎杖鷲",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B09046P",
+                "title": "鈴木次郎吉",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            }
+        ]
+    },
+    {
+        "name": "世良真純",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B09055P2",
+                "title": "世良真純",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            }
+        ]
+    },
+    {
+        "name": "萩原千速",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B09071P2",
+                "title": "萩原千速",
+                "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "PR279",
+                "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR280",
+                "title": "萩原千速",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "岡田鮎美",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B10005P",
+                "title": "灰原哀",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10051",
+                "title": "沖矢昴",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "伊藤未生",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B10012P",
+                "title": "真田貴大",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10013P",
+                "title": "比護隆佑",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10054",
+                "title": "新出智明",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "三好載克",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B10021",
+                "title": "服部平蔵＆遠山銀司郎",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "虎杖 鷲",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B10024",
+                "title": "大滝悟郎",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "士基軽太",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B10026P",
+                "title": "稲尾一久",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10027P",
+                "title": "長島茂雄",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "榛実＋岡田鮎美",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B10036",
+                "title": "鈴木園子",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "影井由宇",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "B10038",
+                "title": "黒羽快斗",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10068P2",
+                "title": "諸伏景光",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B10088P",
+                "title": "バーボン",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "まっつん！",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B10052P",
+                "title": "羽田秀𠮷",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            }
+        ]
+    },
+    {
+        "name": "名央",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B10085",
+                "title": "キャンティ＆コルン",
+                "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "PR301",
+                "title": "ジン",
+                "package": "PRカード"
             }
         ]
     },
@@ -3536,6 +4435,52 @@
             {
                 "card_num": "PR209",
                 "title": "ベルモット",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "株式会社フーモア",
+        "cardNum": 8,
+        "cards": [
+            {
+                "card_num": "PR248",
+                "title": "江戸川コナン&毛利蘭",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR249",
+                "title": "遠山和葉",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR250",
+                "title": "鈴木園子",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR251",
+                "title": "世良真純",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR258",
+                "title": "江戸川コナン＆世良真純",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR259",
+                "title": "萩原千速＆横溝重悟＆萩原研二＆松田陣平",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR260",
+                "title": "江戸川コナン＆世良真純",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR261",
+                "title": "萩原千速＆横溝重悟＆萩原研二＆松田陣平",
                 "package": "PRカード"
             }
         ]
