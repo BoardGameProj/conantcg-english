@@ -146,7 +146,7 @@ export class DeckBuilder {
                 .filter(c => c.id === cardData.id)
                 .reduce((sum, c) => sum + c.count, 0);
 
-            if (cardData.id !== '0627' && sameIdCount >= 3) {
+            if (cardData.id !== '0627' && cardData.id !== '1039' &&sameIdCount >= 3) {
                 throw new Error(`同一ID【${cardData.id}】的数量不能超过3张`);
             }
 
@@ -628,7 +628,7 @@ export class DeckBuilder {
                 .reduce((sum, c) => sum + c.count, 0);
 
             // 如果同ID卡牌数量>=3，不显示添加按钮
-            if (card.id !== '0627' && sameCardIdCount >= 3) {
+            if (card.id !== '0627' && card.id !== '1039' && sameCardIdCount >= 3) {
                 shouldShowAddButton = false;
             }
 
