@@ -93,6 +93,8 @@ function processKeywords(text) {
         '{突击}': { tag: 'b', tooltip: '登场回合可以立刻进行行动' },
         '{特征不?为?［([^］}]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '特征：[$2]<button class="search-form-btn" data-target-key="categories" data-value="$2">🔍</button>' },
         '{卡名不?为?［([^］]*?)］}': { class: 'decoration-none', tag: 'b', tooltip: '卡名：[$2]<button class="search-form-btn" data-target-key="card-name" data-value="$2">🔍</button>' },
+        '{［［([^］]*?)］］}': { class: 'decoration-none', tag: 'b', label: '［$2］', tooltip: '卡名：[$2]<button class="search-form-btn" data-target-key="card-name" data-value="$2">🔍</button>' },
+        '{［［［([^］}]*?)］］］}': { class: 'decoration-none', tag: 'b', label: '［$2］', tooltip: '特征：[$2]<button class="search-form-btn" data-target-key="categories" data-value="$2">🔍</button>' },
         '{[^}]*?}': { tag: 'b', tooltip: '' }
     }
     for (const keyword in highlightKeywords) {
