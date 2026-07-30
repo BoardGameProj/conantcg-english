@@ -836,9 +836,9 @@ function isChineseByProduct(product) {
     const productCode = product.trim().substring(0, 6);
     const validProducts = [
         "CT-D01", "CT-D02", "CT-D03", "CT-D04", "CT-D05",
-        "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10", // 案件主题卡组
+        "CT-D06", "CT-D07", "CT-D08", "CT-D09", "CT-D10", "CT-D11",// 案件主题卡组
         "CT-P01", "CT-P02", "CT-P03", "CT-P04", "CT-P05",
-        "CT-P06", "CT-P07", "CT-P08", "CT-P09" // 补充包
+        "CT-P06", "CT-P07", "CT-P08", "CT-P09", "CT-P10" // 补充包
     ];
     return validProducts.includes(productCode);
 }
@@ -854,7 +854,9 @@ const chinesePRCards = new Set([
     "PR094", "PR096", "PR117", "PR118", "PR131",
     "PR133", "PR173", "PR174", "PR175", "PR248",
     "PR249", "PR250", "PR251", "PR252", "PR253",
-    "PR254", "PR255", "PR256", "PR257"  
+    "PR254", "PR255", "PR256", "PR257", "SP001",
+    "SP002", "SP003", "SP004", "SP005", "SP006",
+    "SP007", "SP008", "SP009"   
 ]);
 
 function createCardImageHtml(card) {
