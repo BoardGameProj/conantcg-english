@@ -1889,7 +1889,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 46,
+        "cardNum": 49,
         "cards": [
             {
                 "card_num": "B02044",
@@ -2119,6 +2119,21 @@
             {
                 "card_num": "PR233",
                 "title": "赤井秀一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR312",
+                "title": "赤井秀一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR318",
+                "title": "赤井秀一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR319",
+                "title": "世良真純",
                 "package": "PRカード"
             }
         ]
@@ -3172,7 +3187,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 54,
+        "cardNum": 56,
         "cards": [
             {
                 "card_num": "B05067",
@@ -3442,6 +3457,16 @@
             {
                 "card_num": "PR303",
                 "title": "黒羽快斗",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR311",
+                "title": "工藤新一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR317",
+                "title": "工藤新一",
                 "package": "PRカード"
             }
         ]
