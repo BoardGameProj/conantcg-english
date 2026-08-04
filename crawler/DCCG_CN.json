@@ -119,7 +119,7 @@
             "CT-D11 Case-ThemeDeck 06 千速と重悟の婚活パーティー": "CT-D11 案件主题卡组 06 千速与重悟的相亲大会",
             "PRカード": "PR卡牌"
         },
-        "#color>li, #type>li, span.type, div.wrap_more.open>dl>dd>label": {
+        "#color>li, #type>li, #rarity>li, #level>li, #ap>li, #lp>li, span.type, div.wrap_more.open>dl>dd>label": {
             "全選択": "全选",
             "パートナー": "搭档",
             "キャラ": "角色",
