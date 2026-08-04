@@ -120,11 +120,13 @@
             "PRカード": "PR卡牌"
         },
         "#cardInfo>li>span.difficulty_txt": {
+            "先攻": "先手",
+            "後攻": "后手",
             "先攻0　後攻0": "先手0　后手0",
             "先攻6　後攻5": "先手6　后手5",
             "先攻7　後攻6": "先手7　后手6"
         },
-        "#color>li, #type>li, #rarity>li, #level>li, #ap>li, #lp>li, span.type, div.wrap_more.open>dl>dd>label": {
+        "#color>li, #type>li, #rarity>li, #level>li, #ap>li, #lp>li, span.type, div.wrap_more.open>dl>dd>label, #cardInfo>li>span.color, #cardInfo>li>span.type": {
             "全選択": "全选",
             "パートナー": "搭档",
             "キャラ": "角色",
