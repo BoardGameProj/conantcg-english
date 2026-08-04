@@ -434,7 +434,6 @@
             "※お問い合わせの内容によっては、お時間をいただく場合や、ご回答できかねる場合がありますので、ご了承ください。": "※根据咨询内容的不同，可能需要较长时间回复或无法回答，敬请谅解",
             "ダウンロード": "下载"
         },
-        
         "dd.color>label, dd.type>label, dd.category>label, #src_category>li>div, #searchBox>form>nav>ul.cardListNav.wrap_category>li>ul>li>div": {
             "青": "蓝",
             "緑": "绿",
