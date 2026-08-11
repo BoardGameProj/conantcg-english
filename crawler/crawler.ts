@@ -301,4 +301,6 @@ for (const card of Object.values(cards)) {
     }
 }
 
-fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '));
+// fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(qaFileContent, null, '    '));
+const sortedQAFileContent = Object.fromEntries(Object.entries(qaFileContent).sort());
+fs.writeFileSync(__dirname + '/../data/qa_ja.json', JSON.stringify(sortedQAFileContent, null, '    '));
