@@ -101263,5 +101263,52 @@
         "rcp_sameid_limit": 3,
         "release_date": null,
         "categories": []
+    },
+    "PR322": {
+        "id": 2823,
+        "card_id": "0516",
+        "title": "江戸川コナン",
+        "card_num": "PR322",
+        "show_hide": "表示",
+        "date": "2026-08-21 14:30:00",
+        "package": "PRカード",
+        "region": "日本",
+        "main_thumb": "PR322.jpg",
+        "main_path": "1a02163090c5b.jpg",
+        "sub_thumb": "sub_PR322.jpg",
+        "sub_path": "1787266715813232.jpg",
+        "color": [
+            "青"
+        ],
+        "type": "キャラ",
+        "rarity": "PR",
+        "cost": "2",
+        "ap": "1000",
+        "lp": "1",
+        "feature": null,
+        "drawing": null,
+        "flavor_txt": null,
+        "difficulty_first": null,
+        "difficulty_second": null,
+        "illustrator": null,
+        "copyright": null,
+        "hirameki": null,
+        "cut_in": "【カットイン】【パートナー青】AP＋1000、自分の事件が【青】以外の色を持たない場合、カードを1枚引く。",
+        "q_a": null,
+        "linkto": "{\"こちらのカードは、IDの表記に誤りがございました。詳細な内容は『カードテキストの誤表記と訂正』をご覧ください。\":\"/products/conan-cardgame/errata\"}",
+        "contain": null,
+        "henso": null,
+        "created_at": "2026-08-20T22:57:47.000000Z",
+        "updated_at": "2026-08-21T00:21:40.000000Z",
+        "rcp_showhide": 1,
+        "rcp_limit": 3,
+        "rcp_caution": null,
+        "rcp_sameid_limit": 3,
+        "release_date": null,
+        "categories": [
+            "探偵",
+            "毛利探偵事務所",
+            "少年探偵団"
+        ]
     }
 }
