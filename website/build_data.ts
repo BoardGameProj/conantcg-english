@@ -120,7 +120,8 @@ for (const file of jsonSourceFiles) {
             fileContent = Object.fromEntries(
                 Object.entries(fileContent).sort(([k1], [k2]) => k1 < k2 ? -1 : 1),
             );
-            delete fileContent["products.PRカード"]
+            delete fileContent["products.PRカード"];
+            delete fileContent["products.SPカード"]
         } else if (file === 'types_ja') {
             delete fileContent['types.null']
         }

@@ -4196,7 +4196,7 @@
     },
     {
         "name": "萩原千速",
-        "cardNum": 3,
+        "cardNum": 4,
         "cards": [
             {
                 "card_num": "B09071P2",
@@ -4212,6 +4212,11 @@
                 "card_num": "PR280",
                 "title": "萩原千速",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "SP010",
+                "title": "萩原千速",
+                "package": "SPカード"
             }
         ]
     },

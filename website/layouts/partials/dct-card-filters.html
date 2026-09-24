@@ -18,7 +18,7 @@
     <div class="grid" style="grid-template-columns: repeat(var(--dct-card-filters-grid-columns), minmax(0, 1fr));">
         {{ $productList := slice }}
         {{range .Site.Data.products_ja}}
-        {{ $shortCode := slicestr . 0 6 }}
+        {{ $shortCode := substr . 0 6 }}
         {{ $displayName := or (T (printf "products.%s" .)) . }}
         {{ $productList = $productList | append (printf "%s|%s" $shortCode $displayName) }}
         {{end}}
@@ -53,7 +53,7 @@
         <domfilters-option title="能力" key="spkey" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
         {{ $lps := slice "0" "1" "2" "3" }}
         <domfilters-option title="LP" key="lp" fieldtype="checkbox" values="{{$lps| jsonify}}"></domfilters-option>
-        {{ $rarities := slice "C" "CP" "CP2" "R" "RP" "SR" "SRP" "SRCP" "MR" "MRP" "MRCP" "SEC" "D" "PR" }}
+        {{ $rarities := slice "C" "CP" "CP2" "R" "RP" "SR" "SRP" "SRCP" "MR" "MRP" "MRCP" "SEC" "D" "PR" "SP"}}
         <domfilters-option title="稀有度" key="rarity" fieldtype="checkbox"
             values="{{$rarities| jsonify}}"></domfilters-option>
         {{ $aps := slice "0" "1000" "2000" "3000" "4000" "5000" "6000" "7000" "8000" "9000" }}
@@ -62,10 +62,10 @@
 
 
     <style>
-        @media screen and (min-width: 768px) {
+        /* @media screen and (min-width: 768px) {
             domfilters-option[key="rarity"] .flex>div>div {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 justify-items: center;
 
                 label,
@@ -76,7 +76,7 @@
                     padding-right: 0%;
                 }
             }
-        }
+        } */
 
         domfilters-option[key="spkey"] label:nth-child(2) {
             & span::before {
