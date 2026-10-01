@@ -1889,7 +1889,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 49,
+        "cardNum": 50,
         "cards": [
             {
                 "card_num": "B02044",
@@ -2135,6 +2135,11 @@
                 "card_num": "PR319",
                 "title": "世良真純",
                 "package": "PRカード"
+            },
+            {
+                "card_num": "PR326",
+                "title": "服部平次",
+                "package": "PRカード"
             }
         ]
     },
@@ -2213,7 +2218,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 50,
+        "cardNum": 52,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2463,6 +2468,16 @@
             {
                 "card_num": "PR300",
                 "title": "怪盗キッド",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR331",
+                "title": "灰原哀",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR337",
+                "title": "灰原哀",
                 "package": "PRカード"
             }
         ]
@@ -3615,7 +3630,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 20,
+        "cardNum": 22,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3715,6 +3730,16 @@
             {
                 "card_num": "PR287",
                 "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR332",
+                "title": "伊織無我",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR338",
+                "title": "伊織無我",
                 "package": "PRカード"
             }
         ]
