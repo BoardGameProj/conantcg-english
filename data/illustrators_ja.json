@@ -1,7 +1,7 @@
 [
     {
         "name": "Line-drawing 青山剛昌",
-        "cardNum": 51,
+        "cardNum": 54,
         "cards": [
             {
                 "card_num": "B01001Sec1",
@@ -232,6 +232,21 @@
                 "card_num": "B09069Sec2",
                 "title": "横溝重悟",
                 "package": "CT-P09 Case-Booster 09 疾風の煌めき"
+            },
+            {
+                "card_num": "B11095Sec1",
+                "title": "江戸川コナン＆怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11095Sec2a",
+                "title": "江戸川コナン＆怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11095Sec2b",
+                "title": "江戸川コナン＆怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "D01001",
@@ -546,7 +561,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 43,
+        "cardNum": 50,
         "cards": [
             {
                 "card_num": "B01014",
@@ -762,6 +777,41 @@
                 "card_num": "B10088",
                 "title": "バーボン",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11002P",
+                "title": "江戸川コナン",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11003P",
+                "title": "灰原哀",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11006P",
+                "title": "阿笠博士",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11007P",
+                "title": "吉田歩美",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11008P",
+                "title": "小嶋元太",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11009P",
+                "title": "円谷光彦",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11052P",
+                "title": "宮野志保＆宮野明美",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
@@ -860,7 +910,7 @@
     },
     {
         "name": "五月とに",
-        "cardNum": 37,
+        "cardNum": 38,
         "cards": [
             {
                 "card_num": "B01035",
@@ -1021,6 +1071,11 @@
                 "card_num": "B10066",
                 "title": "伊達航",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11032",
+                "title": "中森銀三",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "D02003",
@@ -1889,7 +1944,7 @@
     },
     {
         "name": "いの",
-        "cardNum": 50,
+        "cardNum": 53,
         "cards": [
             {
                 "card_num": "B02044",
@@ -2040,6 +2095,21 @@
                 "card_num": "B10098",
                 "title": "服部平次＆怪盗キッド",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11052",
+                "title": "宮野志保＆宮野明美",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11067P",
+                "title": "高木渉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11068P",
+                "title": "佐藤美和子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "D02002",
@@ -2218,7 +2288,7 @@
     },
     {
         "name": "松田硯",
-        "cardNum": 52,
+        "cardNum": 56,
         "cards": [
             {
                 "card_num": "B03012",
@@ -2369,6 +2439,26 @@
                 "card_num": "B10099P",
                 "title": "赤井秀一＆安室透",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11056P",
+                "title": "羽田秀𠮷",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11069P",
+                "title": "宮本由美",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11097",
+                "title": "諸伏景光＆スコッチ",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11097P",
+                "title": "諸伏景光＆スコッチ",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "D01002",
@@ -2883,7 +2973,7 @@
     },
     {
         "name": "海老丸べべ",
-        "cardNum": 26,
+        "cardNum": 28,
         "cards": [
             {
                 "card_num": "B03110",
@@ -3014,6 +3104,16 @@
                 "card_num": "B10099",
                 "title": "赤井秀一＆安室透",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11067",
+                "title": "高木渉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11082P",
+                "title": "ジン＆ベルモット",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
@@ -3202,7 +3302,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 56,
+        "cardNum": 61,
         "cards": [
             {
                 "card_num": "B05067",
@@ -3393,6 +3493,31 @@
                 "card_num": "B10068P",
                 "title": "諸伏景光",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11033P",
+                "title": "黒羽快斗",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11034P",
+                "title": "中森青子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11035P",
+                "title": "白馬探",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11095",
+                "title": "江戸川コナン＆怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11095P",
+                "title": "江戸川コナン＆怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "D10003",
@@ -3630,7 +3755,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 22,
+        "cardNum": 29,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3721,6 +3846,41 @@
                 "card_num": "B10085P",
                 "title": "キャンティ＆コルン",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11030",
+                "title": "工藤優作＆黒羽盗一",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11030P",
+                "title": "工藤優作＆黒羽盗一",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11031P",
+                "title": "怪盗キッド",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11053P",
+                "title": "沖矢昴",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11072P",
+                "title": "安室透",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11073P",
+                "title": "榎本梓",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11096",
+                "title": "服部平次＆ジョディ・スターリング",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "PR247",
@@ -3838,7 +3998,7 @@
     },
     {
         "name": "三日月なぎさ",
-        "cardNum": 30,
+        "cardNum": 36,
         "cards": [
             {
                 "card_num": "B06075",
@@ -3976,6 +4136,36 @@
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
             },
             {
+                "card_num": "B11005P",
+                "title": "毛利蘭",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11019",
+                "title": "大岡紅葉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11020",
+                "title": "伊織無我",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11043P",
+                "title": "鈴木園子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11055P",
+                "title": "世良真純",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11096P",
+                "title": "服部平次＆ジョディ・スターリング",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
                 "card_num": "PR192",
                 "title": "キャンティ",
                 "package": "PRカード"
@@ -4074,7 +4264,7 @@
     },
     {
         "name": "虹鳩えむ",
-        "cardNum": 5,
+        "cardNum": 7,
         "cards": [
             {
                 "card_num": "B07083",
@@ -4085,6 +4275,16 @@
                 "card_num": "B08021",
                 "title": "服部平次",
                 "package": "CT-P08 Case-Booster 08 哀色の宿命"
+            },
+            {
+                "card_num": "B11033",
+                "title": "黒羽快斗",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11034",
+                "title": "中森青子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "PR252",
@@ -4105,7 +4305,7 @@
     },
     {
         "name": "まのい",
-        "cardNum": 6,
+        "cardNum": 9,
         "cards": [
             {
                 "card_num": "B08003",
@@ -4121,6 +4321,21 @@
                 "card_num": "B10024P",
                 "title": "大滝悟郎",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11032P",
+                "title": "中森銀三",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11070P",
+                "title": "三池苗子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11071P",
+                "title": "千葉和伸",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             },
             {
                 "card_num": "PR253",
@@ -4263,7 +4478,7 @@
     },
     {
         "name": "伊藤未生",
-        "cardNum": 3,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B10012P",
@@ -4279,6 +4494,16 @@
                 "card_num": "B10054",
                 "title": "新出智明",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11083",
+                "title": "バーボン",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11084",
+                "title": "スコッチ",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
@@ -4295,12 +4520,17 @@
     },
     {
         "name": "虎杖 鷲",
-        "cardNum": 1,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B10024",
                 "title": "大滝悟郎",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11042",
+                "title": "鈴木次郎吉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
@@ -4333,7 +4563,7 @@
     },
     {
         "name": "影井由宇",
-        "cardNum": 3,
+        "cardNum": 5,
         "cards": [
             {
                 "card_num": "B10038",
@@ -4349,6 +4579,16 @@
                 "card_num": "B10088P",
                 "title": "バーボン",
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
+            },
+            {
+                "card_num": "B11003",
+                "title": "灰原哀",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11005",
+                "title": "毛利蘭",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
@@ -4365,7 +4605,7 @@
     },
     {
         "name": "名央",
-        "cardNum": 2,
+        "cardNum": 3,
         "cards": [
             {
                 "card_num": "B10085",
@@ -4373,9 +4613,100 @@
                 "package": "CT-P10 Case-Booster 10 追憶の盟友"
             },
             {
+                "card_num": "B11082",
+                "title": "ジン＆ベルモット",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
                 "card_num": "PR301",
                 "title": "ジン",
                 "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "影由",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B11011P",
+                "title": "小林澄子",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11075P",
+                "title": "白鳥任三郎",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            }
+        ]
+    },
+    {
+        "name": "トミダトモミ",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B11019P",
+                "title": "大岡紅葉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11020P",
+                "title": "伊織無我",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            }
+        ]
+    },
+    {
+        "name": "榛実",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B11021P",
+                "title": "服部平次",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11022P",
+                "title": "遠山和葉",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            }
+        ]
+    },
+    {
+        "name": "てぉ",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B11053",
+                "title": "沖矢昴",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            }
+        ]
+    },
+    {
+        "name": "すみとと",
+        "cardNum": 2,
+        "cards": [
+            {
+                "card_num": "B11083P",
+                "title": "バーボン",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "B11086P",
+                "title": "ベルモット",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            }
+        ]
+    },
+    {
+        "name": "BISAI",
+        "cardNum": 1,
+        "cards": [
+            {
+                "card_num": "B11085P",
+                "title": "ウォッカ",
+                "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
             }
         ]
     },
