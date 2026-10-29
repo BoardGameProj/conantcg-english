@@ -567,7 +567,7 @@ export class Card extends HTMLElement {
                 qa_content += `<div class="mb-2 px-2 py-2 text-lg lg:text-base border-t border-gray-200 dark:border-gray-600">
                     <div class="flex justify-between lg:py-0">
                         <div class="text-start font-bold whitespace-nowrap dark:text-gray-200">${labels[key]}</div>
-                        <div class="text-end px-2 ms-4 card_details--${key} text-right max-h-60 overflow-auto text-xs dark:text-gray-200">${value}</div>
+                        <div class="text-end px-2 ms-4 card_details--${key} text-right max-h-60 overflow-scroll text-xs dark:text-gray-200">${value}</div>
                     </div></div>`;
             } else {
                 content += `<div class="flex justify-between lg:py-0">
