@@ -561,7 +561,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 50,
+        "cardNum": 53,
         "cards": [
             {
                 "card_num": "B01014",
@@ -812,6 +812,21 @@
                 "card_num": "B11052P",
                 "title": "宮野志保＆宮野明美",
                 "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
+            },
+            {
+                "card_num": "PR341_1",
+                "title": "工藤新一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR341_2",
+                "title": "灰原哀",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR341_3",
+                "title": "小さくなった新一",
+                "package": "PRカード"
             }
         ]
     },
@@ -3302,7 +3317,7 @@
     },
     {
         "name": "ZUKU",
-        "cardNum": 61,
+        "cardNum": 62,
         "cards": [
             {
                 "card_num": "B05067",
@@ -3607,6 +3622,11 @@
             {
                 "card_num": "PR317",
                 "title": "工藤新一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR343",
+                "title": "降谷零",
                 "package": "PRカード"
             }
         ]
@@ -4867,6 +4887,27 @@
             {
                 "card_num": "PR261",
                 "title": "萩原千速＆横溝重悟＆萩原研二＆松田陣平",
+                "package": "PRカード"
+            }
+        ]
+    },
+    {
+        "name": "岡田鮎美/Costume design sasami",
+        "cardNum": 3,
+        "cards": [
+            {
+                "card_num": "PR342_1",
+                "title": "白馬探",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR342_2",
+                "title": "中森青子",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR342_3",
+                "title": "怪盗キッド",
                 "package": "PRカード"
             }
         ]
