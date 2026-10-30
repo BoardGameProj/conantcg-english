@@ -126,7 +126,7 @@ function getColorName(color) {
 // 获取卡牌名称
 function getCardName(cardNum) {
     let card_id = cardsData[cardNum];
-    return cardsDataCN[`cards.${card_id}.title`];
+    return cardsDataCN[`cardsnum.${cardNum}.title`] || cardsDataCN[`cards.${card_id}.title`];
 }
 
 
@@ -849,18 +849,18 @@ const chinesePRCards = new Set([
     "PR011", "PR017", "PR018", "PR019", "PR020",
     "PR021", "PR022", "PR023", "PR026", "PR027",
     "PR028", "PR029", "PR034", "PR035", "PR038",
-    "PR040", "PR041", "PR042", "PR043", "PR044", 
+    "PR040", "PR041", "PR042", "PR043", "PR044",
     "PR050", "PR051", "PR052", "PR055", "PR080",
     "PR094", "PR096", "PR117", "PR118", "PR131",
     "PR133", "PR173", "PR174", "PR175", "PR248",
     "PR249", "PR250", "PR251", "PR252", "PR253",
     "PR254", "PR255", "PR256", "PR257", "SP001",
     "SP002", "SP003", "SP004", "SP005", "SP006",
-    "SP007", "SP008", "SP009"   
+    "SP007", "SP008", "SP009"
 ]);
 
 function createCardImageHtml(card) {
-    const cardName = cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
+    const cardName = cardsDataCN[`cardsnum.${card.card_num}.title`] || cardsDataCN[`cards.${card.card_id}.title`] || card.name || '未知卡牌';
 
     const isChinese = isChineseByProduct(card.package) || chinesePRCards.has(card.card_num);
 
@@ -903,7 +903,7 @@ function createCardImageHtml(card) {
                 <div class="absolute left-0 right-0 bottom-0 w-full bg-black/70 pb-1 rounded-b-lg">
                     <div class="text-center w-full">
                         <p class="text-2xs text-white truncate mx-1">${cardName}</p>
-                        <p class="text-2xs text-white" style="font-size: min(0.5rem, 2vw);">${card.card_id}/${card.card_num}</p>
+                        <p class="text-2xs text-white" style="font-size: min(0.5rem, 2vw);">${card.card_id}｜${(card.card_num || '').split('_')[0]}</p>
                     </div>
                 </div>
             </div>
