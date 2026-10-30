@@ -314,7 +314,7 @@
             {{ $counter := 0 }}
             {{ range site.Data.cards_ja }}
             {{ $card := . }}
-            {{ $title := or (T (printf "cards.%s.title" .card_id )) .title }}
+            {{ $title := or (T (printf "cardsnum.%s.title" .card_num)) (T (printf "cards.%s.title" .card_id )) .title }}
             {{ $type := or (T (printf "types.%s" .type )) .type }}
             {{ $product := or (T (printf "products.%s" .package )) .package }}
             {{ $contain := or (T (printf "contains.%s" $card.card_num )) $card.contain }}

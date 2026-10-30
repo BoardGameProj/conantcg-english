@@ -53,6 +53,10 @@ export class Card extends HTMLElement {
         this.data.price = this.getAttribute('price') || ''
         this.data.spkey = []
         this.data.cardIdNum = [this.getAttribute('card-id'), this.getAttribute('card-num')].join(',');
+        this.data.cardIdNum = [...new Set([
+            ...this.data.cardIdNum.split(','),
+            (this.getAttribute('card-num') || '').split('_')[0]
+        ])].join(',');
         this.data.cardName = [this.getAttribute('title'), this.getAttribute('original-title')].join(',');
         this.data.product = this.getAttribute('product').trim().substring(0, 6);
         this.data.sparkling = this.getAttribute('sparkling')
@@ -127,14 +131,14 @@ export class Card extends HTMLElement {
             "PR011", "PR017", "PR018", "PR019", "PR020",
             "PR021", "PR022", "PR023", "PR026", "PR027",
             "PR028", "PR029", "PR034", "PR035", "PR038",
-            "PR040", "PR041", "PR042", "PR043", "PR044", 
+            "PR040", "PR041", "PR042", "PR043", "PR044",
             "PR050", "PR051", "PR052", "PR055", "PR080",
             "PR094", "PR096", "PR117", "PR118", "PR131",
             "PR133", "PR173", "PR174", "PR175", "PR248",
             "PR249", "PR250", "PR251", "PR252", "PR253",
             "PR254", "PR255", "PR256", "PR257", "SP001",
             "SP002", "SP003", "SP004", "SP005", "SP006",
-            "SP007", "SP008", "SP009" 
+            "SP007", "SP008", "SP009"
         ]);
         const isChinese = isChineseByProduct(this.data.productName) || chinesePRCards.has(this.data.cardNum) ? "中文" : "no";
         this.data.custom = `${this.data.custom},${isChinese}`;
@@ -493,14 +497,15 @@ export class Card extends HTMLElement {
                     </div>
                 </div>`;
             } else if (key === 'cardNum') {
+                const displayNum = (value || '').split('_')[0];
                 let search = value.trim().substring(0, 6);
                 content += `<div class="flex justify-between lg:py-0">
                     <div class="text-start font-bold whitespace-nowrap">${labels[key]}</div>
                     <div class="text-end ms-4 card_details--${key} text-right">
                         <span class="tooltip-container">
                             <span class="tooltip decoration-none">
-                                <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${value}</span>
-                                <span class="tooltiptext">编号：${value}<button class="search-form-btn" data-target-key="card-num" data-value="${value}">🔍</button></span>
+                                <span class="copyable" onclick="copyToClipboard(this, event)" style="cursor: copy;">${displayNum}</span>
+                                <span class="tooltiptext">编号：${displayNum}<button class="search-form-btn" data-target-key="card-num" data-value="${displayNum}">🔍</button></span>
                             </span>
                         </span>
                     </div>
@@ -531,10 +536,11 @@ export class Card extends HTMLElement {
                 const wrappedValues = versions.map(val => {
                     const versionCard = document.querySelector(`dct-card[card-num="${val}"]`);
                     const versionImage = versionCard ? versionCard.getAttribute('image') : this.data.image;
+                    const displayVal = val.split('_')[0];
                     return `<span class="version-hover inline-block mr-1 tooltiptext px-1 mt-1 rounded-lg text-xs" 
                                 data-card-num="${val}" 
                                 data-image="${versionImage}">
-                            ${val}
+                            ${displayVal}
                         </span>`;
                 }).join('');
 
@@ -700,7 +706,7 @@ export class Card extends HTMLElement {
         // 隐藏/显示加号按钮
         if (plusButton) {
             // 同ID的卡牌数量达到3张时隐藏加号按钮
-            if (this.data.cardId != '0627' && this.data.cardId != '1039' &&sameCardIdCount >= 3) {
+            if (this.data.cardId != '0627' && this.data.cardId != '1039' && sameCardIdCount >= 3) {
                 plusButton.classList.add('invisible');
             }
             // 搭档或案件卡牌已有一张时隐藏加号按钮
