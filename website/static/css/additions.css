@@ -319,11 +319,13 @@
 
 domfilters-option[key="rarity"] label {
 
-    &:nth-child(6),
+    &:nth-child(3),
     &:nth-child(7),
-    &:nth-child(9),
+    &:nth-child(8),
     &:nth-child(10),
-    &:nth-child(11) {
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(15) {
         input:checked+span {
             color: orange;
             -webkit-text-stroke: 0.1px black;
