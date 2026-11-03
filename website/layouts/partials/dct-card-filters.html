@@ -134,11 +134,21 @@
 
         @media screen and (min-width: 1025px) {
 
+            domfilters-option[key="rarity"] .flex,
+            domfilters-option[key="ap"] .flex {
+                align-items: stretch;
+                /* 左右同高 */
+            }
+
             domfilters-option[key="rarity"] .flex>legend,
             domfilters-option[key="ap"] .flex>legend {
                 white-space: nowrap;
-                align-content: center;
-                height: calc(4rem + 2*0.5rem) !important;
+                height: auto !important;
+                /* 关键：去掉写死高度 */
+                display: flex;
+                align-items: center;
+                /* 文字垂直居中 */
+                /* 不要再设 height */
             }
         }
 
