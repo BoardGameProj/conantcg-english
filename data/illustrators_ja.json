@@ -3775,7 +3775,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 29,
+        "cardNum": 30,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3910,6 +3910,11 @@
             {
                 "card_num": "PR287",
                 "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR301",
+                "title": "ジン",
                 "package": "PRカード"
             },
             {
@@ -4625,7 +4630,7 @@
     },
     {
         "name": "名央",
-        "cardNum": 3,
+        "cardNum": 2,
         "cards": [
             {
                 "card_num": "B10085",
@@ -4636,11 +4641,6 @@
                 "card_num": "B11082",
                 "title": "ジン＆ベルモット",
                 "package": "CT-P11 Case-Booster 11 月下のSHOW TIME!"
-            },
-            {
-                "card_num": "PR301",
-                "title": "ジン",
-                "package": "PRカード"
             }
         ]
     },
