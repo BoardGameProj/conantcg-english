@@ -561,7 +561,7 @@
     },
     {
         "name": "あす",
-        "cardNum": 53,
+        "cardNum": 54,
         "cards": [
             {
                 "card_num": "B01014",
@@ -826,6 +826,11 @@
             {
                 "card_num": "PR341_3",
                 "title": "小さくなった新一",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR345",
+                "title": "工藤有希子",
                 "package": "PRカード"
             }
         ]
@@ -3775,7 +3780,7 @@
     },
     {
         "name": "マキムラシュンスケ",
-        "cardNum": 30,
+        "cardNum": 34,
         "cards": [
             {
                 "card_num": "B06004",
@@ -3925,6 +3930,26 @@
             {
                 "card_num": "PR338",
                 "title": "伊織無我",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR350",
+                "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR351",
+                "title": "ジン",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR356",
+                "title": "萩原千速",
+                "package": "PRカード"
+            },
+            {
+                "card_num": "PR357",
+                "title": "ジン",
                 "package": "PRカード"
             }
         ]
